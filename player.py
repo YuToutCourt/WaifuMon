@@ -5,7 +5,7 @@ class Player(pygame.sprite.Sprite):
         super().__init__()
         self.image = pygame.image.load("asset/Tileset/player.png")
         self.image = self.get_image(0, 0)
-        self.image.set_colorkey((0, 0, 0))
+        self.image.set_colorkey((34, 177, 76))
         self.rect = self.image.get_rect()
         self.position = (x, y)
         # Vitesse de déplacement du sprite
@@ -32,7 +32,7 @@ class Player(pygame.sprite.Sprite):
         self.rect.topleft = self.position
 
     def get_image(self, x, y):
-        image = pygame.Surface([32, 32])
-        image.blit(self.image, (0, 0), (x, y, 32, 32))
+        image = pygame.Surface([46, 54])
+        image.blit(self.image, (0, 0), (x, y, 46, 54))
 
         return image
