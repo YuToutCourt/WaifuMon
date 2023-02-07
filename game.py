@@ -19,7 +19,11 @@ class Game:
 
         pygame.display.set_caption("WaifuMon")
 
+<<<<<<< Updated upstream
         tmx_data = pytmx.util_pygame.load_pygame("asset/Map.tmx")
+=======
+        tmx_data = pytmx.util_pygame.load_pygame("asset/Desert.tmx")
+>>>>>>> Stashed changes
         map_data = pyscroll.data.TiledMapData(tmx_data)
         map_layer = pyscroll.orthographic.BufferedRenderer(map_data, self.screen.get_size())
 
