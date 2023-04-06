@@ -1,1 +1,3 @@
 pygame==2.1.2
+pytmx==3.31
+pyscroll==2.30
