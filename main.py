@@ -7,8 +7,3 @@ if __name__ == '__main__':
     # Initialisation de pygame
     pygame.init()
     game = Game().run()
-
-
-
-
-
