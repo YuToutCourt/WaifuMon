@@ -34,7 +34,7 @@ class Game:
 
 
     def handle_input(self):
-        pressed = pygame.key.get_pressed()
+        pressed = pygame.key.get_pressed()  
         # if the player press the shift key
         if pressed[pygame.K_LSHIFT] or pressed[pygame.K_RSHIFT]:
             # the player is running

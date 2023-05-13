@@ -9,15 +9,18 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.position = (x, y)
         # Vitesse de déplacement du sprite
-        self.speed = 0.2
-        self.speed_running = 0.4
+        self.speed = 0.4
+        self.speed_running = 0.6
         self.epquipe = []
 
-    def move(self, key_pressed, is_running):
+    def move(self, key_pressed, is_running: bool):
+        """
+        Déplace le joueur en fonction des touches pressées
+        :param key_pressed: touches pressées
+        :param is_running: si le joueur court ou non
+        """
         if is_running:
             self.speed = self.speed_running
-        else:
-            self.speed = 0.2
 
         if key_pressed[pygame.K_UP]:
             self.position = (self.position[0], self.position[1] - self.speed)
