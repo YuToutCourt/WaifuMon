@@ -1,13 +1,15 @@
 import pygame
 
+from utils.coordinates import Coordinates
+
 class Player(pygame.sprite.Sprite):
-    def __init__(self, x, y):
+    def __init__(self, coordinates:Coordinates):
         super().__init__()
-        self.image = pygame.image.load("asset/Tileset/player.png")
+        self.image = pygame.image.load("asset/Tileset/Characters/player.png")
         self.image = self.get_image(0, 0)
         self.image.set_colorkey((255, 0, 220))
         self.rect = self.image.get_rect()
-        self.position = (x, y)
+        self.position = (coordinates.x, coordinates.y)
         # Vitesse de déplacement du sprite
         self.speed = 0.4
         self.speed_running = 0.6
