@@ -35,7 +35,7 @@ class Player(pygame.sprite.Sprite):
     def update(self):
         self.rect.topleft = self.position
 
-    def get_image(self, x, y):
+    def get_image(self, x:int, y:int):
         image = pygame.Surface([38, 46])
         image.blit(self.image, (0, 0), (x, y, 38, 46))
 

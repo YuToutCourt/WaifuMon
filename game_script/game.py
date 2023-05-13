@@ -2,7 +2,7 @@ import pytmx
 import pygame
 import pyscroll
 
-from player import Player
+from player_script.player import Player
 
 class Game:
     def __init__(self):
