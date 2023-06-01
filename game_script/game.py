@@ -38,6 +38,10 @@ class Game:
 
 
     def load_npc(self, tmx_data):
+        """
+        Charge les NPC depuis le fichier tmx de la map
+        :param tmx_data: le fichier tmx de la map
+        """
         for layer in tmx_data.layers:
             for obj in layer:
                 if not isinstance(obj, pytmx.TiledObject): continue
@@ -48,6 +52,10 @@ class Game:
 
 
     def handle_input(self):
+        """
+        Gère les entrées clavier du joueur
+        :return: True si le joueur a appuyé sur la touche SHIFT, False sinon
+        """
         pressed = pygame.key.get_pressed()  
         # if the player press the shift key
         if pressed[pygame.K_LSHIFT] or pressed[pygame.K_RSHIFT]:
@@ -57,6 +65,9 @@ class Game:
         return self.player.move(pressed, False)
 
     def handle_collisions(self):
+        """
+        Gère les collisions entre le joueur et les autres sprites
+        """
         pressed = pygame.key.get_pressed()  
         for npc in self.group.sprites():
             if isinstance(npc, NPC):
@@ -65,7 +76,9 @@ class Game:
 
 
     def run(self):
-        # Boucle principale pour afficher la fenêtre
+        """
+        Boucle principale du jeu
+        """
         running = True
         while running:
             self.handle_input()
@@ -78,5 +91,4 @@ class Game:
                 if event.type == pygame.QUIT:
                     running = False
 
-        # Termination de pygame
         pygame.quit()
