@@ -2,7 +2,9 @@ import pytmx
 import pygame
 import pyscroll
 
-from player import Player
+from player_script.player import Player
+from utils.coordinates import Coordinates
+from game_script.npc import NPC
 
 class Game:
     def __init__(self):
@@ -26,35 +28,67 @@ class Game:
         map_layer.zoom = 2
 
         player_position = tmx_data.get_object_by_name("Player")
-        self.player = Player(player_position.x, player_position.y)
+        coordinates = Coordinates(player_position.x, player_position.y)
+        self.player = Player(coordinates)
 
         self.group = pyscroll.PyscrollGroup(map_layer=map_layer, default_layer=3)
         self.group.add(self.player)
 
+        self.load_npc(tmx_data)
+
+
+    def load_npc(self, tmx_data):
+        """
+        Charge les NPC depuis le fichier tmx de la map
+        :param tmx_data: le fichier tmx de la map
+        """
+        for layer in tmx_data.layers:
+            for obj in layer:
+                if not isinstance(obj, pytmx.TiledObject): continue
+                if obj.name == "Player": continue
+                coordinates = Coordinates(obj.x, obj.y)
+                npc = NPC(obj.name, coordinates, obj.properties["dialog"])
+                self.group.add(npc)
 
 
     def handle_input(self):
-        pressed = pygame.key.get_pressed()
+        """
+        Gère les entrées clavier du joueur
+        :return: True si le joueur a appuyé sur la touche SHIFT, False sinon
+        """
+        pressed = pygame.key.get_pressed()  
         # if the player press the shift key
         if pressed[pygame.K_LSHIFT] or pressed[pygame.K_RSHIFT]:
             # the player is running
             return self.player.move(pressed, True)
             
         return self.player.move(pressed, False)
-            
+
+    def handle_collisions(self):
+        """
+        Gère les collisions entre le joueur et les autres sprites
+        """
+        pressed = pygame.key.get_pressed()  
+        for npc in self.group.sprites():
+            if isinstance(npc, NPC):
+                if pygame.sprite.collide_rect(self.player, npc) and pressed[pygame.K_RETURN] :
+                    npc.handle_interaction()
+
 
     def run(self):
-        # Boucle principale pour afficher la fenêtre
+        """
+        Boucle principale du jeu
+        """
         running = True
         while running:
             self.handle_input()
             self.group.update()
             self.group.center(self.player.rect.center)
+            self.handle_collisions()
             self.group.draw(self.screen)
             pygame.display.flip()
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
 
-        # Termination de pygame
         pygame.quit()

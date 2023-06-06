@@ -354,5 +354,11 @@
   <object id="1" name="Player" x="480" y="318">
    <point/>
   </object>
+  <object id="2" name="npc1" type="collision" x="547" y="280">
+   <properties>
+    <property name="dialog" value="OwO je suis le dialogue"/>
+   </properties>
+   <point/>
+  </object>
  </objectgroup>
 </map>
