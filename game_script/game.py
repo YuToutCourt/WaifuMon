@@ -45,7 +45,7 @@ class Game:
         for layer in tmx_data.layers:
             for obj in layer:
                 if not isinstance(obj, pytmx.TiledObject): continue
-                if obj.name == "Player": continue
+                if obj.name == "Player" or obj.name is None: continue
                 coordinates = Coordinates(obj.x, obj.y)
                 npc = NPC(obj.name, coordinates, obj.properties["dialog"])
                 self.group.add(npc)
