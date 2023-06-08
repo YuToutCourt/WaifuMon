@@ -1,6 +1,7 @@
 import pygame
 
 from utils.coordinates import Coordinates
+from game_script.fight_screen import FightScreen
 
 class NPC(pygame.sprite.Sprite):
     def __init__(self, name, coordinates:Coordinates, dialog: str):
@@ -13,27 +14,15 @@ class NPC(pygame.sprite.Sprite):
         self.image.set_colorkey((255, 0, 220))
         self.rect = self.image.get_rect()
 
-    def handle_interaction(self):
-        print(self.dialog)
-        pygame.init()
-        combat_screen = pygame.display.set_mode((800, 600))
+    def handle_interaction(self, screen):
+        """
+        Open a fight screen. That will be closed when the fight ends.
+        """
+        # print(self.dialog)
 
-        combat_running = True
-        while combat_running:
-            # Gérez les entrées utilisateur et les événements de Pygame
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    # L'utilisateur a demandé à quitter la fenêtre de combat
-                    combat_running = False
-
-            # Dessinez les images de combat et mettez-les à jour sur l'écran
-            # combat_window.blit(background_image, (0, 0))
-            # Dessinez les sprites de combat, etc.
-
-            pygame.display.flip()
-
-        pygame.quit()
-
+        fight_screen = FightScreen(screen)
+        fight_screen.fill_screen()
+        fight_screen.load_background()
 
 
     def update(self):
