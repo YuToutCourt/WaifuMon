@@ -11,9 +11,9 @@ class Waifu(pygame.sprite.Sprite):
         self.vitesse = vitesse
         self.niveau = niveau
         self.list_attaque = []
-        self.front_image = pygame.image.load(f"asset/Tileset/waifu_sprite/{self.id}/{self.id}_front.png")
-        self.back_image = pygame.image.load(f"asset/Tileset/waifu_sprite/{self.id}/{self.id}_back.png")
-        self.inventory_image = pygame.image.load(f"asset/Tileset/waifu_sprite/{self.id}/{self.id}_inventory.png")
+        self.front_image = pygame.image.load(f"asset/waifu_sprite/{self.id}/{self.id}_front.png")
+        self.back_image = pygame.image.load(f"asset/waifu_sprite/{self.id}/{self.id}_back.png")
+        self.inventory_image = pygame.image.load(f"asset/waifu_sprite/{self.id}/{self.id}_inventory.png")
 
 
     def get_front_image(self):

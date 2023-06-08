@@ -5,7 +5,7 @@ from utils.coordinates import Coordinates
 class Player(pygame.sprite.Sprite):
     def __init__(self, coordinates:Coordinates):
         super().__init__()
-        self.image = pygame.image.load("asset/Tileset/Characters/player.png")
+        self.image = pygame.image.load("asset/Characters/player.png")
         self.image = self.get_image(0, 0)
         self.image.set_colorkey((255, 0, 220))
         self.rect = self.image.get_rect()
