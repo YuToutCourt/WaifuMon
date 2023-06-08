@@ -72,7 +72,7 @@ class Game:
         for npc in self.group.sprites():
             if isinstance(npc, NPC):
                 if pygame.sprite.collide_rect(self.player, npc) and pressed[pygame.K_RETURN] :
-                    npc.handle_interaction()
+                    npc.handle_interaction(self.screen)
 
 
     def run(self):
