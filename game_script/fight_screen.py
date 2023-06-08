@@ -29,7 +29,8 @@ class FightScreen:
 
         cubes = []
         cubes_size = min(width, height) // 10
-
+        
+        # On pourrait s'amuser à faire des animations différentes :D
         for x in range(0, self.screen.get_width(), cubes_size):
             for y in range(0, self.screen.get_height(), cubes_size):
                 cube = pygame.Rect(x, y, cubes_size, cubes_size)
@@ -46,7 +47,7 @@ class FightScreen:
         """
         Charge l'image de fond
         """
-        background = pygame.image.load("asset/battleground/battleground1.png")
+        background = pygame.image.load("asset/Battleground/battleground1.png")
         background_scaled = pygame.transform.scale(background, (self.screen.get_width(), self.screen.get_height()))
 
         while self.in_fight:
