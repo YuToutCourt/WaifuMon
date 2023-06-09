@@ -1,7 +1,6 @@
 import pygame
 
 from utils.coordinates import Coordinates
-from game_script.fight_screen import FightScreen
 
 class NPC(pygame.sprite.Sprite):
     def __init__(self, name, coordinates:Coordinates, dialog: str):
@@ -9,7 +8,7 @@ class NPC(pygame.sprite.Sprite):
         self.name = name
         self.position = (coordinates.x, coordinates.y)
         self.dialog = dialog
-        self.image = pygame.image.load("asset/Tileset/Characters/" + self.name + ".png")
+        self.image = pygame.image.load("asset/Characters/" + self.name + ".png")
         self.image = self.get_image(0, 0)
         self.image.set_colorkey((255, 0, 220))
         self.rect = self.image.get_rect()
@@ -18,6 +17,7 @@ class NPC(pygame.sprite.Sprite):
         """
         Open a fight screen. That will be closed when the fight ends.
         """
+        from game_script.fight_screen import FightScreen
         # print(self.dialog)
 
         fight_screen = FightScreen(screen)
