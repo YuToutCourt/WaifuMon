@@ -1,7 +1,6 @@
 import pygame
 
 from utils.coordinates import Coordinates
-from game_script.fight_screen import FightScreen
 
 class NPC(pygame.sprite.Sprite):
     def __init__(self, name, coordinates:Coordinates, dialog: str):
@@ -18,8 +17,9 @@ class NPC(pygame.sprite.Sprite):
         """
         Open a fight screen. That will be closed when the fight ends.
         """
+        from game_script.fight_screen import FightScreen
         # print(self.dialog)
-
+    
         fight_screen = FightScreen(screen)
         fight_screen.fill_screen()
         fight_screen.load_background()
