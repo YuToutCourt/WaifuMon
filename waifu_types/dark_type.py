@@ -5,8 +5,8 @@ from .enum_types import Types
 class Dark_Type(Type):
     def __init__(self):
         super().__init__(
-            Types.Dark,
-            [Types.Bug, Types.Fairy, Types.Fighting],
-            [Types.Dark, Types.Ghost],
-            [Types.Psychic],
+            Types.DARK,
+            [Types.BUG, Types.FAIRY, Types.FIGHTING],
+            [Types.DARK, Types.GHOST],
+            [Types.PSYCHIC],
         )

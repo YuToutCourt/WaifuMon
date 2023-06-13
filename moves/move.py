@@ -2,7 +2,8 @@ from abc import ABC, abstractmethod
 from waifu_types.type import Type
 
 class Move(ABC):
-    def __init__(self, type:Type, power:int, accuracy:int, pp:int, proba_effect=100):
+    def __init__(self, name:str, type:Type, power:int, accuracy:int, pp:int, proba_effect=100):
+        self.name = name
         self.type = type
         self.power = power
         self.accuracy = accuracy
