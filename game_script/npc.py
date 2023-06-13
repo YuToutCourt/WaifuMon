@@ -2,8 +2,9 @@ import pygame
 
 from utils.coordinates import Coordinates
 
+
 class NPC(pygame.sprite.Sprite):
-    def __init__(self, name, coordinates:Coordinates, dialog: str):
+    def __init__(self, name, coordinates: Coordinates, dialog: str):
         super().__init__()
         self.name = name
         self.position = (coordinates.x, coordinates.y)
@@ -18,20 +19,20 @@ class NPC(pygame.sprite.Sprite):
         Open a fight screen. That will be closed when the fight ends.
         """
         from game_script.fight_screen import FightScreen
+
         # print(self.dialog)
-    
+
         fight_screen = FightScreen(screen)
         fight_screen.fill_screen()
         fight_screen.load_background()
 
-
     def update(self):
         self.rect.topleft = self.position
 
-    def get_image(self, x:int, y:int):
+    def get_image(self, x: int, y: int):
         """
         Récupère une image dans le spritesheet
-        
+
         :param x: position x de l'image dans le spritesheet
         :param y: position y de l'image dans le spritesheet
 
