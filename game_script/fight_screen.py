@@ -3,6 +3,7 @@ import random
 
 from game_script.fight import Fight
 
+
 class FightScreen:
     def __init__(self, screen):
         pygame.init()
@@ -18,7 +19,7 @@ class FightScreen:
         fight.run()
 
         self.in_fight = False
-    
+
     def fill_screen(self):
         """
         Remplir l'écran avec une couleur
@@ -36,8 +37,9 @@ class FightScreen:
                 cube = pygame.Rect(x, y, cubes_size, cubes_size)
                 cubes.append(cube)
 
-        if random.randint(0, 1): cubes = cubes[::-1]
-        
+        if random.randint(0, 1):
+            cubes = cubes[::-1]
+
         for cube in cubes:
             pygame.draw.rect(self.screen, COLOR, cube)
             pygame.display.flip()
@@ -48,11 +50,13 @@ class FightScreen:
         Charge l'image de fond
         """
         background = pygame.image.load("asset/Battleground/battleground1.png")
-        background_scaled = pygame.transform.scale(background, (self.screen.get_width(), self.screen.get_height()))
+        background_scaled = pygame.transform.scale(
+            background, (self.screen.get_width(), self.screen.get_height())
+        )
 
         while self.in_fight:
             self.screen.blit(background_scaled, (0, 0))
             pygame.display.flip()
-        
+
         # Efface le background pour revenir à l'écran de jeu
         self.screen.fill((0, 0, 0))
