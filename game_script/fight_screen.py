@@ -29,7 +29,7 @@ class FightScreen:
 
         cubes = []
         cubes_size = min(width, height) // 10
-        
+
         # On pourrait s'amuser à faire des animations différentes :D
         for x in range(0, self.screen.get_width(), cubes_size):
             for y in range(0, self.screen.get_height(), cubes_size):
@@ -54,4 +54,5 @@ class FightScreen:
             self.screen.blit(background_scaled, (0, 0))
             pygame.display.flip()
         
+        # Efface le background pour revenir à l'écran de jeu
         self.screen.fill((0, 0, 0))
