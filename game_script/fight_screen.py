@@ -54,4 +54,5 @@ class FightScreen:
             self.screen.blit(background_scaled, (0, 0))
             pygame.display.flip()
         
+        # Efface le background pour revenir à l'écran de jeu
         self.screen.fill((0, 0, 0))
