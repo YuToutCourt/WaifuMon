@@ -19,7 +19,7 @@ class NPC(pygame.sprite.Sprite):
         """
         from game_script.fight_screen import FightScreen
         # print(self.dialog)
-
+    
         fight_screen = FightScreen(screen)
         fight_screen.fill_screen()
         fight_screen.load_background()
