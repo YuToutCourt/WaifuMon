@@ -3,8 +3,8 @@ from waifu_types.type import Type
 from typing import List
 
 class Waifu(pygame.sprite.Sprite):
-    super().__init__()
     def __init__(self, id:int, nom:str, pv:int, attaque:int, defense:int, vitesse:int, types:List[Type], niveau:int=1):
+        super().__init__()
         self.id = id
         self.nom = nom
         self.pv = pv
