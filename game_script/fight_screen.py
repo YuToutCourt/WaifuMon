@@ -53,7 +53,7 @@ class FightScreen:
 
         while self.in_fight:
             self.screen.blit(background_scaled, (0, 0))
-            self.load_waifu(1,9)
+            self.load_waifu(0,1)
             pygame.display.flip()
         
         self.screen.fill((0, 0, 0))
