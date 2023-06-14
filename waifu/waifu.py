@@ -19,6 +19,7 @@ class Waifu(pygame.sprite.Sprite):
         self.inventory_image = pygame.image.load(f"asset/waifu_sprite/{self.id}/{self.id}_inventory.png")
         self.in_fight = False
         self.KO = False
+        self.move_to_use = None
 
 
     def get_front_image(self):
@@ -35,5 +36,10 @@ class Waifu(pygame.sprite.Sprite):
         Display the moves of the waifu and let the player choose one
         return the move chosen
         """
-        pass
+        # Code à faire
+        for move in self.list_of_moves:
+            print(move.name)
+        self.move_to_use = self.list_of_moves[0]
+
+        return self.move_to_use
 

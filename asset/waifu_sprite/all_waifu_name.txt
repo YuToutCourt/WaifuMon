@@ -1,43 +1,43 @@
-Ai Hayasaka
-Akeno Himejima
-Kaguya Shinomiya
-Kanna Kamui
-Rias Gremory
-Mikasa Ackerman
-Aqua
-Miku Nakano
-Fubuki
-Momo Yaoyorozu
-Nami
-Nezuko Kamado
-Ochaco Uraraka
-Rebecca Lee
-Kurumi Tokisaki
-Ryūko Matoi
-Rin Tohsaka
-Shino Asada
-Shōko Nishimiya
-Taiga Aisaka
-Astolfo
-Asuka Langley Souryuu
-C.C.
-Zero Two
-Artoria Pendragon
-Erza Scarlet
-Makima
-Yor Forger  
-Power
-Mai Sakurajima
-Raphtalia
-Rem
-Asuna Yuuki
-Tohru
-Esdeath
-Tsuyu Asui
-Ram
-YoRHa No.2 Type B
-Megumin
-Chika Fujiwara
-Emilia
-Yoruichi Shinoin
-Hitagi Senjougahara
+Ai Hayasaka,NORMAL,0
+Akeno Himejima,PSY-DARK,1
+Kaguya Shinomiya,DARK,2
+Kanna Kamui,DRAGON,3
+Rias Gremory,PSY-FIRE,4
+Mikasa Ackerman,FIGHTING-DARK,5
+Aqua,WATER,6
+Miku Nakano,WATER,7
+Fubuki,PSY,8
+Momo Yaoyorozu,NORMAL,9
+Nami,WATER,10
+Nezuko Kamado,DRAGON,11
+Ochaco Uraraka,FLYING,12
+Rebecca Lee,FIGHTING,13
+Kurumi Tokisaki,DARK-PSY,14
+Ryūko Matoi,FIRE,15
+Rin Tohsaka,FAIRY,16
+Shino Asada,GRASS,17
+Shōko Nishimiya,WATER,18
+Taiga Aisaka,GROUND,19
+Astolfo,STEEL,20
+Asuka Langley Souryuu,FLYING,21
+C.C.,GRASS,22
+Zero Two,FAIRY-PSY,23
+Artoria Pendragon,FAIRY-FIGHTING,24
+Erza Scarlet,DRAGON,25
+Makima,DARK-PSY,26
+Yor Forger,DARK,27
+Power,DARK,28
+Mai Sakurajima,GHOST,29
+Raphtalia,FIGHTING,30
+Rem,FIGHTING,31
+Asuna Yuuki,FIGHTING,32
+Tohru,DRAGON,33
+Esdeath,WATER-STEEL,34
+Tsuyu Asui,WATER-GRASS,35
+Ram,PSY,36
+YoRHa No.2 Type B,STEEL,37
+Megumin,FIRE,38
+Chika Fujiwara,FAIRY,39
+Emilia,FAIRY-DARK,40
+Yoruichi Shinoin,FIGHTING,41
+Hitagi Senjougahara,GHOST,42

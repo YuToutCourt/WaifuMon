@@ -79,7 +79,7 @@ class Game:
                     pygame.sprite.collide_rect(self.player, npc)
                     and pressed[pygame.K_RETURN]
                 ):
-                    npc.handle_interaction(self.screen)
+                    npc.handle_interaction(self.screen, self.player)
 
     def run(self):
         """
