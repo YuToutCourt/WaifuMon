@@ -41,3 +41,15 @@ class Player(pygame.sprite.Sprite):
 
     def update(self):
         self.rect.topleft = self.position
+
+    def choice_next_waifu(self):
+        """
+        Change le waifu actif
+        """
+        for waifu in self.team:
+            if waifu.KO == True or waifu.in_fight == True: continue
+
+            print(waifu.nom)
+
+        # Code à faire pour faire le choix de la waifu
+        return self.team[0]
