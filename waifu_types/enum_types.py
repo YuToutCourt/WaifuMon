@@ -7,7 +7,7 @@ class Types(Enum):
     GRASS = 2
     ELECTRIC = 3
     NORMAL = 4
-    FIGHT = 5
+    FIGHTING = 5
     FLYING = 6
     POISON = 7
     GROUND = 8
