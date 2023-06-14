@@ -1,6 +1,9 @@
 import pygame
 
 from utils.coordinates import Coordinates
+from waifu.waifu import Waifu
+from typing import List
+from wtypes.type_factory import TypeFactory
 
 
 class NPC(pygame.sprite.Sprite):
@@ -14,6 +17,7 @@ class NPC(pygame.sprite.Sprite):
         self.image = self.get_image(0, 0)
         self.image.set_colorkey((255, 0, 220))
         self.rect = self.image.get_rect()
+        self.__create_random_team()
 
     def get_image(self, x: int, y: int):
         """
@@ -50,3 +54,30 @@ class NPC(pygame.sprite.Sprite):
         """
         Make all the choices during a fight
         """
+
+    def __create_random_team(self):
+        """
+        Crée une équipe de 6 waifu aléatoire
+        """
+        from random import shuffle, randint
+        with open("asset/waifu_sprite/all_waifu_name.txt", "r", encoding="utf-8") as file:
+            data = file.read().split("\n")
+            shuffle(data)
+            for w in data:
+                name, types, id = w.split(",")
+                types = types.split("-")
+                
+                for type in types:
+                    TypeFactory.create_type(type)
+
+                waifu = Waifu(
+                    id,
+                    name,
+                    randint(50, 200),
+                    randint(50, 200),
+                    randint(50, 200),
+                    randint(50, 100),
+                    types,
+                    randint(1, 100)
+                )
+                self.team.append(waifu)

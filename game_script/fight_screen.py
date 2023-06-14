@@ -4,8 +4,9 @@ import threading
 
 from game_script.fight import Fight
 from waifu.waifu import Waifu
-from waifu_types.type import Types
-
+from wtypes.type_factory import TypeFactory
+from wtypes.enum_types import Types
+from wtypes.type import Type
 
 class FightScreen:
     def __init__(self, screen):
@@ -20,7 +21,7 @@ class FightScreen:
         """
         fight = Fight(player, npc)
         self.__fill_screen()
-        background_thread = threading.Thread(target=self.__load_background)
+        background_thread = threading.Thread(target=self.__load_background, args=(player, npc))
         background_thread.start()
         fight.start()
 
@@ -51,7 +52,7 @@ class FightScreen:
             pygame.display.flip()
             pygame.time.wait(5)
 
-    def __load_background(self):
+    def __load_background(self, player, npc):
         """
         Charge l'image de fond
         """
@@ -62,19 +63,20 @@ class FightScreen:
 
         while self.in_fight:
             self.screen.blit(background_scaled, (0, 0))
-            self.load_waifu(0,1,Types.WATER)
+            self.__load_waifu(player, npc)
             pygame.display.flip()
 
         # Efface le background pour revenir à l'écran de jeu
         self.screen.fill((0, 0, 0))
 
-    def load_waifu(self, id_front:int, id_back:int, type:Types):
+    def __load_waifu(self, player, npc):
         """
         Charge l'image du waifu
         """
-        waifu_front = Waifu(id_front,"waifu",2,2,2,2,type).get_front_image()
+        waifu_front = player.team[0].get_front_image()
         waifu_front_scaled = pygame.transform.scale(waifu_front, (self.screen.get_width() // 5, self.screen.get_height() // 3))
-        waifu_back = Waifu(id_back,"waifu",2,2,2,2,type).get_back_image()
+
+        waifu_back = npc.team[0].get_back_image()
         waifu_back_scaled = pygame.transform.scale(waifu_back, (self.screen.get_width() // 3.75, self.screen.get_height() // 1.75))
         while self.in_fight:
             self.screen.blit(waifu_front_scaled, (self.screen.get_width() // 1.5, self.screen.get_height() // 2.95 ))

@@ -1,5 +1,5 @@
 import pygame
-from waifu_types.type import Type
+from wtypes.type import Type
 from typing import List
 
 class Waifu(pygame.sprite.Sprite):
@@ -16,7 +16,7 @@ class Waifu(pygame.sprite.Sprite):
         self.list_of_moves = []
         self.front_image = pygame.image.load(f"asset/waifu_sprite/{self.id}/{self.id}_front.png")
         self.back_image = pygame.image.load(f"asset/waifu_sprite/{self.id}/{self.id}_back.png")
-        self.inventory_image = pygame.image.load(f"asset/waifu_sprite/{self.id}/{self.id}_inventory.png")
+        # self.inventory_image = pygame.image.load(f"asset/waifu_sprite/{self.id}/{self.id}_inventory.png")
         self.in_fight = False
         self.KO = False
         self.move_to_use = None

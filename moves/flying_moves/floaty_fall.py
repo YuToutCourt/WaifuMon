@@ -1,9 +1,10 @@
 from ..move import Move
-from waifu_types.type import Type
+from wtypes.type_factory import TypeFactory
+from wtypes.enum_types import Types
 
 class FloatyFall(Move):
     def __init__(self):
-        super().__init__("Floaty Fall", type=Type.FLYING, power=90, accuracy=95, pp=15, priority=0, proba_effect=30)
+        super().__init__("Floaty Fall", type=TypeFactory.create_type(Types.FLYING), power=90, accuracy=95, pp=15, priority=0, proba_effect=30)
 
     def effect(self):
         """

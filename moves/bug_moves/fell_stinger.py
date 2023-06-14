@@ -1,9 +1,10 @@
 from ..move import Move
-from waifu_types.type import Type
+from wtypes.type_factory import TypeFactory
+from wtypes.enum_types import Types
 
 class FellStinger(Move):
     def __init__(self):
-        super().__init__("Fell Stinger", type=Type.BUG, power=50, accuracy=100, pp=25, priority=0, proba_effect=100)
+        super().__init__("Fell Stinger", type=TypeFactory.create_type(Types.BUG), power=50, accuracy=100, pp=25, priority=0, proba_effect=100)
 
     def effect(self):
         """

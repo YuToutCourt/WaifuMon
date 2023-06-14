@@ -13,7 +13,7 @@ tbody = soup.find("tbody")
 trs = tbody.find_all("tr")
 trs_list = list(trs)
 
-for tr in tqdm(trs_list[2:]):
+for tr in tqdm(trs_list[1:]):
     # find the a ent-name
     name = tr.find("a", class_="ent-name").text
 
@@ -36,6 +36,12 @@ for tr in tqdm(trs_list[2:]):
     priority = 0
     if "User attacks first." in effect:
         priority = 1
-    # create the file
+    # create the file if it doesn't exist
+    if not os.path.exists(f"./{type.lower()}_moves"):
+        os.mkdir(f"./{type.lower()}_moves")
+
     with open(os.path.join(f"./{type.lower()}_moves/{name.lower().replace(' ', '_')}.py"), "w") as f:
-        f.write(f"from ..move import Move\nfrom waifu_types.type import Type\n\nclass {name.replace(' ', '')}(Move):\n    def __init__(self):\n        super().__init__(\"{name}\", type=Type.{type}, power={power}, accuracy={accuracy}, pp={pp}, priority={priority}, proba_effect={proba_effect})\n\n    def effect(self):\n        \"\"\"\n        {effect}\n        \"\"\"\n        pass\n")
+        f.write(f"from ..move import Move\nfrom wtypes.type_factory import TypeFactory\nfrom wtypes.enum_types import Types\n\nclass {name.replace(' ', '')}(Move):\n    def __init__(self):\n        super().__init__(\"{name}\", type=TypeFactory.create_type(Types.{type}), power={power}, accuracy={accuracy}, pp={pp}, priority={priority}, proba_effect={proba_effect})\n\n    def effect(self):\n        \"\"\"\n        {effect}\n        \"\"\"\n        pass\n")
+
+
+        

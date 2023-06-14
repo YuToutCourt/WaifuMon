@@ -1,10 +1,14 @@
-from waifu_types.type import Type
-from waifu_types.enum_types import Types
+from wtypes.type import Type
+from wtypes.enum_types import Types
 
 
 class TypeFactory:
     @staticmethod
     def create_type(type_name: Types) -> Type:
+
+        if isinstance(type_name, str):
+            type_name = Types[type_name.upper()]
+
         if type_name == Types.BUG:
             return Type(
                 Types.BUG,

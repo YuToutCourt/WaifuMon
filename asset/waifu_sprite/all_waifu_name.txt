@@ -1,18 +1,18 @@
 Ai Hayasaka,NORMAL,0
-Akeno Himejima,PSY-DARK,1
+Akeno Himejima,PSYCHIC-DARK,1
 Kaguya Shinomiya,DARK,2
 Kanna Kamui,DRAGON,3
-Rias Gremory,PSY-FIRE,4
+Rias Gremory,PSYCHIC-FIRE,4
 Mikasa Ackerman,FIGHTING-DARK,5
 Aqua,WATER,6
 Miku Nakano,WATER,7
-Fubuki,PSY,8
+Fubuki,PSYCHIC,8
 Momo Yaoyorozu,NORMAL,9
 Nami,WATER,10
 Nezuko Kamado,DRAGON,11
 Ochaco Uraraka,FLYING,12
 Rebecca Lee,FIGHTING,13
-Kurumi Tokisaki,DARK-PSY,14
+Kurumi Tokisaki,DARK-PSYCHIC,14
 Ryūko Matoi,FIRE,15
 Rin Tohsaka,FAIRY,16
 Shino Asada,GRASS,17
@@ -21,10 +21,10 @@ Taiga Aisaka,GROUND,19
 Astolfo,STEEL,20
 Asuka Langley Souryuu,FLYING,21
 C.C.,GRASS,22
-Zero Two,FAIRY-PSY,23
+Zero Two,FAIRY-PSYCHIC,23
 Artoria Pendragon,FAIRY-FIGHTING,24
 Erza Scarlet,DRAGON,25
-Makima,DARK-PSY,26
+Makima,DARK-PSYCHIC,26
 Yor Forger,DARK,27
 Power,DARK,28
 Mai Sakurajima,GHOST,29
@@ -34,7 +34,7 @@ Asuna Yuuki,FIGHTING,32
 Tohru,DRAGON,33
 Esdeath,WATER-STEEL,34
 Tsuyu Asui,WATER-GRASS,35
-Ram,PSY,36
+Ram,PSYCHIC,36
 YoRHa No.2 Type B,STEEL,37
 Megumin,FIRE,38
 Chika Fujiwara,FAIRY,39

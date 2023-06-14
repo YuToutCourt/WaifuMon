@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from waifu_types.type import Type
+from wtypes.type import Type
 
 class Move(ABC):
     def __init__(self, name:str, type:Type, power:int, accuracy:int, pp:int, priority:int, proba_effect=100):

@@ -2,6 +2,7 @@ import pygame
 from waifu.waifu import Waifu
 from typing import List
 from utils.coordinates import Coordinates
+from wtypes.type_factory import TypeFactory
 
 class Player(pygame.sprite.Sprite):
     def __init__(self, coordinates:Coordinates):
@@ -56,36 +57,29 @@ class Player(pygame.sprite.Sprite):
         # Code à faire pour faire le choix de la waifu
         return self.team[0]
 
-    # def __create_random_team(self):
-    #     """
-    #     Crée une équipe de 6 waifu aléatoire
-    #     """
-    #     from random import shuffle, randint
-    #     from waifu_types.type import Types
-    #     with open("asset/waifu_sprite/all_waifu_name.txt", "r", encoding="utf-8") as file:
-    #         data = file.read().split("\n")
-    #         shuffle(data)
-    #         for w in data:
-    #             name, types, id = w.split(",")
-    #             types = types.split("-")
-    #             for t in types:
-    #                 t = t.strip()
-    #                 t = t.upper()
-    #                 print(t)
-    #                 # create a Types object
-    #                 types[types.index(t)] = 
+    def __create_random_team(self):
+        """
+        Crée une équipe de 6 waifu aléatoire
+        """
+        from random import shuffle, randint
+        with open("asset/waifu_sprite/all_waifu_name.txt", "r", encoding="utf-8") as file:
+            data = file.read().split("\n")
+            shuffle(data)
+            for w in data:
+                name, types, id = w.split(",")
+                types = types.split("-")
                 
-    #             print(types)
+                for type in types:
+                    TypeFactory.create_type(type)
 
-
-    #             waifu = Waifu(
-    #                 id,
-    #                 name,
-    #                 randint(50, 200),
-    #                 randint(50, 200),
-    #                 randint(50, 200),
-    #                 randint(50, 100),
-    #                 types,
-    #                 randint(1, 100)
-    #             )
-    #             self.team.append(waifu)
+                waifu = Waifu(
+                    id,
+                    name,
+                    randint(50, 200),
+                    randint(50, 200),
+                    randint(50, 200),
+                    randint(50, 100),
+                    types,
+                    randint(1, 100)
+                )
+                self.team.append(waifu)
