@@ -1,0 +1,12 @@
+from ..move import Move
+from waifu_types.type import Type
+
+class GigaImpact(Move):
+    def __init__(self):
+        super().__init__("Giga Impact", type=Type.NORMAL, power=150, accuracy=90, pp=5, priority=0, proba_effect=100)
+
+    def effect(self):
+        """
+        User must recharge next turn.
+        """
+        pass
