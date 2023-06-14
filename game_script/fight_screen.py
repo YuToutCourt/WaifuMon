@@ -1,5 +1,6 @@
 import pygame
 import random
+import threading
 
 from game_script.fight import Fight
 
@@ -11,16 +12,19 @@ class FightScreen:
         pygame.display.set_caption("fight")
         self.in_fight = True
 
-    def run_fight(self):
+    def run_fight(self, player, npc):
         """
         Lance un combat
         """
-        fight = Fight()
+        fight = Fight(player, npc)
+        self.__fill_screen()
+        background_thread = threading.Thread(target=self.__load_background)
+        background_thread.start()
         fight.start()
 
         self.in_fight = False
 
-    def fill_screen(self):
+    def __fill_screen(self):
         """
         Remplir l'écran avec une couleur
         """
@@ -45,7 +49,7 @@ class FightScreen:
             pygame.display.flip()
             pygame.time.wait(5)
 
-    def load_background(self):
+    def __load_background(self):
         """
         Charge l'image de fond
         """

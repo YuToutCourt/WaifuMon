@@ -29,7 +29,7 @@ class NPC(pygame.sprite.Sprite):
 
         return image
 
-    def handle_interaction(self, screen):
+    def handle_interaction(self, screen, player):
         """
         Open a fight screen. That will be closed when the fight ends.
         """
@@ -38,8 +38,9 @@ class NPC(pygame.sprite.Sprite):
         # print(self.dialog)
 
         fight_screen = FightScreen(screen)
-        fight_screen.fill_screen()
-        fight_screen.load_background()
+        fight_screen.run_fight(player, self)
+        
+
 
     def update(self):
         self.rect.topleft = self.position

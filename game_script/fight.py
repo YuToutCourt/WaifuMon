@@ -21,6 +21,7 @@ class Fight:
         self.play_round(waifu_player, waifu_enemy)
 
     def play_round(self, waifu_player: Waifu, waifu_enemy: Waifu):
+        print(f"Tour {self.tour}")
         self.tour += 1
 
         waifu_player.choice_move()
