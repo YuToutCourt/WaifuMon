@@ -13,7 +13,13 @@ class Player(pygame.sprite.Sprite):
         # Vitesse de déplacement du sprite
         self.speed = 0.4
         self.speed_running = 0.6
-        self.epquipe = []
+        self.team = []
+
+    def get_image(self, x:int, y:int):
+        image = pygame.Surface([38, 46])
+        image.blit(self.image, (0, 0), (x, y, 38, 46))
+
+        return image
 
     def move(self, key_pressed, is_running: bool):
         """
@@ -33,12 +39,5 @@ class Player(pygame.sprite.Sprite):
         if key_pressed[pygame.K_RIGHT]:
             self.position = (self.position[0] + self.speed, self.position[1])
 
-
     def update(self):
         self.rect.topleft = self.position
-
-    def get_image(self, x:int, y:int):
-        image = pygame.Surface([38, 46])
-        image.blit(self.image, (0, 0), (x, y, 38, 46))
-
-        return image
