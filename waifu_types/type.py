@@ -1,4 +1,5 @@
 from typing import List
+from .enum_types import Types
 
 from .bug_type import Bug_Type
 from .dark_type import Dark_Type
