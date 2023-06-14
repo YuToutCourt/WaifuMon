@@ -1,5 +1,5 @@
 from player_script.player import Player
-from game_script.npc import NPC
+from npc_script.npc import NPC
 from waifu.waifu import Waifu
 from moves.move import Move
 from random import uniform
@@ -11,17 +11,35 @@ class Fight:
         self.enemy = enemy
         self.tour = 0
 
-    def run(self):
-        pass
+    def start(self):
+        waifu_player = self.player.team[0]
+        waifu_enemy = self.enemy.team[0]
 
-    def player_turn(self):
-        pass
+        waifu_player.in_fight = True
+        waifu_enemy.in_fight = True
 
-    def enemy_turn(self):
-        pass
+        # Display the waifu to the screen
 
-    def end_fight(self):
-        pass
+        self.play_round(waifu_player, waifu_enemy)
+
+    def play_round(self, waifu_player: Waifu, waifu_enemy: Waifu):
+        self.tour += 1
+
+        move_player = self.player_choice(waifu_player)
+        move_enemy = self.enemy_choice(waifu_player, waifu_enemy)
+
+        # Check for priority moves
+        if move_player.priority > move_enemy.priority:
+            pass
+
+
+
+
+    def player_choice(self, waifu: Waifu):
+        return waifu.choice_move()
+
+    def enemy_choice(self, waifu_player: Waifu, waifu_npc: Waifu):
+        return self.npc.handle_choice_during_fight(waifu_player, waifu_npc)
 
     def __get_multiplier(self, attacker: Waifu, move_used: Move, opponant: Waifu):
         # Check if waifu is STAB

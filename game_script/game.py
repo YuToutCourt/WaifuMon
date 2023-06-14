@@ -4,7 +4,7 @@ import pyscroll
 
 from player_script.player import Player
 from utils.coordinates import Coordinates
-from game_script.npc import NPC
+from npc_script.npc import NPC
 
 
 class Game:

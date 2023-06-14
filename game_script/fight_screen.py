@@ -16,7 +16,7 @@ class FightScreen:
         Lance un combat
         """
         fight = Fight()
-        fight.run()
+        fight.start()
 
         self.in_fight = False
 
