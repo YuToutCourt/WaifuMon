@@ -33,36 +33,36 @@ class Type:
         self.resistances = resistances
         self.immunities = immunities
 
-    def get_type_by_name(self, type_name: str):
-        """
-        Return the type corresponding to the name
-        """
-        types_map = {
-            "NORMAL": Normal_Type(),
-            "FIGHTING": Fighting_Type(),
-            "FLYING": Flying_Type(),
-            "POISON": Poison_Type(),
-            "GROUND": Ground_Type(),
-            "ROCK": Rock_Type(),
-            "BUG": Bug_Type(),
-            "GHOST": Ghost_Type(),
-            "STEEL": Steel_Type(),
-            "FIRE": Fire_Type(),
-            "WATER": Water_Type(),
-            "GRASS": Grass_Type(),
-            "ELECTRIC": Electric_Type(),
-            "PSYCHIC": Psy_Type(),
-            "ICE": Ice_Type(),
-            "DRAGON": Dragon_Type(),
-            "DARK": Dark_Type(),
-            "FAIRY": Fairy_Type(),
-        }
+def get_type_by_name(type_name: str):
+    """
+    Return the type corresponding to the name
+    """
+    types_map = {
+        "NORMAL": Normal_Type(),
+        "FIGHTING": Fighting_Type(),
+        "FLYING": Flying_Type(),
+        "POISON": Poison_Type(),
+        "GROUND": Ground_Type(),
+        "ROCK": Rock_Type(),
+        "BUG": Bug_Type(),
+        "GHOST": Ghost_Type(),
+        "STEEL": Steel_Type(),
+        "FIRE": Fire_Type(),
+        "WATER": Water_Type(),
+        "GRASS": Grass_Type(),
+        "ELECTRIC": Electric_Type(),
+        "PSYCHIC": Psy_Type(),
+        "ICE": Ice_Type(),
+        "DRAGON": Dragon_Type(),
+        "DARK": Dark_Type(),
+        "FAIRY": Fairy_Type(),
+    }
 
-        type_name = type_name.upper()
+    type_name = type_name.upper()
 
-        type_to_return = types_map.get(type_name)
-        if type_to_return is None:
-            raise ValueError(f"Type {type_name} doesn't exist")
+    type_to_return = types_map.get(type_name)
+    if type_to_return is None:
+        raise ValueError(f"Type {type_name} doesn't exist")
+    
+    return type_to_return
         
-        return type_to_return
-            
