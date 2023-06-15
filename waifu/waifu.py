@@ -23,6 +23,8 @@ class Waifu(pygame.sprite.Sprite):
         self.KO = False
         self.move_to_use = None
 
+    def get_name(self):
+        return self.nom
 
     def get_front_image(self):
         return self.front_image

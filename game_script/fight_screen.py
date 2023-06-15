@@ -80,6 +80,7 @@ class FightScreen:
         """
         Charge l'image des waifu
         """
+        
         waifu_ = None
         waifu__ = None
 
@@ -105,3 +106,4 @@ class FightScreen:
         self.screen.blit(self.waifu_back, (self.screen.get_width() // 8, self.screen.get_height() // 2.2))
 
         pygame.display.flip()
+        
