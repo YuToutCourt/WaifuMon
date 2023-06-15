@@ -75,6 +75,9 @@ class FightScreen:
         """
         waifu_front = player.team[0].get_front_image()
         waifu_front_scaled = pygame.transform.scale(waifu_front, (self.screen.get_width() // 5, self.screen.get_height() // 3))
+        
+        # Print les noms des waifus pour pouvoir corriger leur taille / position
+        print(player.team[0].get_name(), npc.team[0].get_name())
 
         waifu_back = npc.team[0].get_back_image()
         waifu_back_scaled = pygame.transform.scale(waifu_back, (self.screen.get_width() // 3.75, self.screen.get_height() // 1.75))

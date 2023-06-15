@@ -14,13 +14,15 @@ class Waifu(pygame.sprite.Sprite):
         self.types = types
         self.niveau = niveau
         self.list_of_moves = []
-        self.front_image = pygame.image.load(f"asset/waifu_sprite/{self.id}/{self.id}_front.png")
-        self.back_image = pygame.image.load(f"asset/waifu_sprite/{self.id}/{self.id}_back.png")
+        self.front_image = pygame.image.load(f"asset/waifu_sprite/{self.id}/redimensionnees/{self.id}_front.png")
+        self.back_image = pygame.image.load(f"asset/waifu_sprite/{self.id}/redimensionnees/{self.id}_back.png")
         # self.inventory_image = pygame.image.load(f"asset/waifu_sprite/{self.id}/{self.id}_inventory.png")
         self.in_fight = False
         self.KO = False
         self.move_to_use = None
 
+    def get_name(self):
+        return self.nom
 
     def get_front_image(self):
         return self.front_image
