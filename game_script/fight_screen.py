@@ -7,13 +7,18 @@ from waifu.waifu import Waifu
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from wtypes.type import Type
+# from utils.my_thread import MyThread
+
+
 
 class FightScreen:
     def __init__(self, screen):
         pygame.init()
-        self.screen = screen
         pygame.display.set_caption("fight")
-        self.in_fight = True
+        self.screen = screen
+        self.background = None
+        self.waifu_front = None
+        self.waifu_back = None
 
     def run_fight(self, player, npc):
         """
@@ -21,11 +26,19 @@ class FightScreen:
         """
         fight = Fight(player, npc)
         self.__fill_screen()
-        background_thread = threading.Thread(target=self.__load_background, args=(player, npc))
-        background_thread.start()
-        fight.start()
+        self.__load_background()
+        
+        fight_thread = threading.Thread(target=fight.start)
+        fight_thread.start()
 
-        self.in_fight = False
+        # main_loop_t = threading.Thread(target=self.__main_loop, args=(player, npc, fight))
+        # main_loop_t.start()
+        
+        
+    # def __main_loop(self, player, npc, fight):
+        while fight.finished is False:
+            if self.__load_waifu(player, npc):
+                self.__update_display()
 
     def __fill_screen(self):
         """
@@ -52,33 +65,43 @@ class FightScreen:
             pygame.display.flip()
             pygame.time.wait(5)
 
-    def __load_background(self, player, npc):
+    def __load_background(self):
         """
         Charge l'image de fond
         """
         background = pygame.image.load("asset/Battleground/battleground1.png")
-        background_scaled = pygame.transform.scale(
+  
+
+        self.background = pygame.transform.scale(
             background, (self.screen.get_width(), self.screen.get_height())
         )
 
-        while self.in_fight:
-            self.screen.blit(background_scaled, (0, 0))
-            self.__load_waifu(player, npc)
-            pygame.display.flip()
-
-        # Efface le background pour revenir à l'écran de jeu
-        self.screen.fill((0, 0, 0))
-
     def __load_waifu(self, player, npc):
         """
-        Charge l'image du waifu
+        Charge l'image des waifu
         """
-        waifu_front = player.team[0].get_front_image()
-        waifu_front_scaled = pygame.transform.scale(waifu_front, (self.screen.get_width() // 5, self.screen.get_height() // 3))
+        waifu_ = None
+        waifu__ = None
 
-        waifu_back = npc.team[0].get_back_image()
-        waifu_back_scaled = pygame.transform.scale(waifu_back, (self.screen.get_width() // 3.75, self.screen.get_height() // 1.75))
-        while self.in_fight:
-            self.screen.blit(waifu_front_scaled, (self.screen.get_width() // 1.5, self.screen.get_height() // 2.95 ))
-            self.screen.blit(waifu_back_scaled, (self.screen.get_width() // 8, self.screen.get_height() // 2.2 ))
-            pygame.display.flip()
+        for waifu in npc.team:
+            if waifu.in_fight:
+                waifu_ = waifu
+
+        if waifu_ is not None:
+            self.waifu_front = pygame.transform.scale(waifu_.get_front_image(), (self.screen.get_width() // 5, self.screen.get_height() // 3))
+
+        for waifu in player.team:
+            if waifu.in_fight:
+                waifu__ = waifu
+
+        if waifu__ is not None:
+            self.waifu_back = pygame.transform.scale(waifu__.get_back_image(), (self.screen.get_width() // 3.75, self.screen.get_height() // 1.75))
+
+        return waifu_ is not None and waifu__ is not None
+
+    def __update_display(self):
+        self.screen.blit(self.background, (0, 0))
+        self.screen.blit(self.waifu_front, (self.screen.get_width() // 1.5, self.screen.get_height() // 2.95))
+        self.screen.blit(self.waifu_back, (self.screen.get_width() // 8, self.screen.get_height() // 2.2))
+
+        pygame.display.flip()
