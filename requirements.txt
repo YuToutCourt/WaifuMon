@@ -1,3 +1,4 @@
 pygame==2.4.0
 pytmx==3.31
 pyscroll==2.30
+colorama==0.4.6
