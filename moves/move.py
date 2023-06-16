@@ -1,9 +1,18 @@
 from abc import ABC, abstractmethod
 from wtypes.type import Type
 
+
 class Move(ABC):
-    def __init__(self, name:str, type:Type, power:int, accuracy:int, pp:int, priority:int, 
-                 proba_effect=100):
+    def __init__(
+        self,
+        name: str,
+        type: Type,
+        power: int,
+        accuracy: int,
+        pp: int,
+        priority: int,
+        proba_effect=100,
+    ):
         self.name = name
         self.type = type
         self.power = power
@@ -16,7 +25,7 @@ class Move(ABC):
 
     def set_waif_user(self, waif_user):
         self.waif_user = waif_user
-        
+
     def set_waifu_reciver(self, waifu_reciver):
         self.waifu_reciver = waifu_reciver
 

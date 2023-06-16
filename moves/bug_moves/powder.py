@@ -2,12 +2,21 @@ from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 
+
 class Powder(Move):
     def __init__(self):
-        super().__init__("Powder", type=TypeFactory.create_type(Types.BUG), power=0, accuracy=100, pp=20, priority=0, proba_effect=100)
+        super().__init__(
+            "Powder",
+            type=TypeFactory.create_type(Types.BUG),
+            power=0,
+            accuracy=100,
+            pp=20,
+            priority=0,
+            proba_effect=100,
+        )
 
     def effect(self):
         """
-        Damages Pokémon using Fire type moves.
+        Damages Pokemon using Fire type moves.
         """
         pass

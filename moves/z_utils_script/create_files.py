@@ -27,10 +27,13 @@ for tr in tqdm(trs_list[1:]):
     accuracy = tds[1].text
     pp = tds[2].text
     proba_effect = tds[4].text
-    
-    if power == "—": power = 0
-    if accuracy == "—" or accuracy == "∞": accuracy = 100
-    if proba_effect == "—": proba_effect = 100
+
+    if power == "—":
+        power = 0
+    if accuracy == "—" or accuracy == "∞":
+        accuracy = 100
+    if proba_effect == "—":
+        proba_effect = 100
 
     effect = tr.find("td", class_="cell-long-text").text
     priority = 0
@@ -40,8 +43,9 @@ for tr in tqdm(trs_list[1:]):
     if not os.path.exists(f"./{type.lower()}_moves"):
         os.mkdir(f"./{type.lower()}_moves")
 
-    with open(os.path.join(f"./{type.lower()}_moves/{name.lower().replace(' ', '_')}.py"), "w") as f:
-        f.write(f"from ..move import Move\nfrom wtypes.type_factory import TypeFactory\nfrom wtypes.enum_types import Types\n\nclass {name.replace(' ', '')}(Move):\n    def __init__(self):\n        super().__init__(\"{name}\", type=TypeFactory.create_type(Types.{type}), power={power}, accuracy={accuracy}, pp={pp}, priority={priority}, proba_effect={proba_effect})\n\n    def effect(self):\n        \"\"\"\n        {effect}\n        \"\"\"\n        pass\n")
-
-
-        
+    with open(
+        os.path.join(f"./{type.lower()}_moves/{name.lower().replace(' ', '_')}.py"), "w"
+    ) as f:
+        f.write(
+            f"from ..move import Move\nfrom wtypes.type_factory import TypeFactory\nfrom wtypes.enum_types import Types\n\nclass {name.replace(' ', '')}(Move):\n    def __init__(self):\n        super().__init__(\"{name}\", type=TypeFactory.create_type(Types.{type}), power={power}, accuracy={accuracy}, pp={pp}, priority={priority}, proba_effect={proba_effect})\n\n    def effect(self):\n        \"\"\"\n        {effect}\n        \"\"\"\n        pass\n"
+        )
