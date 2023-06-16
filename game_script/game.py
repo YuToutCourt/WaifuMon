@@ -34,7 +34,6 @@ class Game:
         player_position = tmx_data.get_object_by_name("Player")
         coordinates = Coordinates(player_position.x, player_position.y)
         self.player = Player(coordinates)
-        print(self.player.position)
 
         self.collisions = []
 
@@ -70,7 +69,6 @@ class Game:
                     continue
                 coordinates = Coordinates(obj.x, obj.y)
                 npc = NPC(obj.name, coordinates, obj.properties["dialog"])
-                print(npc.position)
                 self.group.add(npc)
 
     def handle_input(self):
@@ -112,6 +110,9 @@ class Game:
         running = True
         while running:
             self.handle_input()
+            for npc in self.group.sprites():
+                if isinstance(npc, NPC):
+                    npc.random_move()
             self.group.update()
             self.group.center(self.player.rect.center)
             self.handle_collisions()
