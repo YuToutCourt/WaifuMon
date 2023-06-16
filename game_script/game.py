@@ -35,9 +35,14 @@ class Game:
         coordinates = Coordinates(player_position.x, player_position.y)
         self.player = Player(coordinates)
 
+        self.collisions = []
+
+        for obj in tmx_data.objects:
+            if obj.type == "collision":
+                self.collisions.append(pygame.Rect(obj.x, obj.y, obj.width, obj.height))
+
         self.group = pyscroll.PyscrollGroup(map_layer=map_layer, default_layer=3)
         self.group.add(self.player)
-
         self.load_npc(tmx_data)
 
     def load_npc(self, tmx_data):
@@ -79,7 +84,19 @@ class Game:
                     pygame.sprite.collide_rect(self.player, npc)
                     and pressed[pygame.K_RETURN]
                 ):
+                    
                     npc.handle_interaction(self.screen, self.player)
+        
+        for collision in self.collisions:
+            if pygame.Rect.colliderect(self.player.rect, collision):
+                if pressed[pygame.K_UP]:
+                    return self.player.move_back("down")
+                elif pressed[pygame.K_DOWN]:
+                    return self.player.move_back("up")
+                elif pressed[pygame.K_LEFT]:
+                    return self.player.move_back("right")
+                elif pressed[pygame.K_RIGHT]:
+                    return self.player.move_back("left")
 
     def run(self):
         """
