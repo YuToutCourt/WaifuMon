@@ -35,9 +35,14 @@ class Game:
         coordinates = Coordinates(player_position.x, player_position.y)
         self.player = Player(coordinates)
 
+        self.collisions = []
+
+        for obj in tmx_data.objects:
+            if obj.type == "collision":
+                self.collisions.append(pygame.Rect(obj.x, obj.y, obj.width, obj.height))
+
         self.group = pyscroll.PyscrollGroup(map_layer=map_layer, default_layer=3)
         self.group.add(self.player)
-
         self.load_npc(tmx_data)
 
     def load_npc(self, tmx_data):
@@ -80,7 +85,11 @@ class Game:
                     and pressed[pygame.K_RETURN]
                 ):
                     npc.handle_interaction(self.screen, self.player)
-
+        for sprite in self.collisions:
+            if sprite == self.player:
+                continue
+            elif pygame.Rect.colliderect(self.player.rect, sprite):
+                self.player.move_back()
     def run(self):
         """
         Boucle principale du jeu
