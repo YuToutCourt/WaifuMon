@@ -42,6 +42,21 @@ class Player(pygame.sprite.Sprite):
         if key_pressed[pygame.K_RIGHT]:
             self.position = (self.position[0] + self.speed, self.position[1])
 
+    def move_back(self, direction: str):
+        """
+        Déplace le joueur en arrière en fonction de la direction
+        """
+        if direction == "down":
+            self.position = (self.position[0], self.position[1] + self.speed)
+        if direction == "up":
+            self.position = (self.position[0], self.position[1] - self.speed)
+        if direction == "right":
+            self.position = (self.position[0] + self.speed, self.position[1])
+        if direction == "left":
+            self.position = (self.position[0] - self.speed, self.position[1])
+        if direction == "surprise":
+            self.position = (self.position[0] - self.speed, self.position[1])
+
     def update(self):
         self.rect.topleft = self.position
 

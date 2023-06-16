@@ -84,12 +84,20 @@ class Game:
                     pygame.sprite.collide_rect(self.player, npc)
                     and pressed[pygame.K_RETURN]
                 ):
+                    
                     npc.handle_interaction(self.screen, self.player)
-        for sprite in self.collisions:
-            if sprite == self.player:
-                continue
-            elif pygame.Rect.colliderect(self.player.rect, sprite):
-                self.player.move_back()
+        
+        for collision in self.collisions:
+            if pygame.Rect.colliderect(self.player.rect, collision):
+                if pressed[pygame.K_UP]:
+                    return self.player.move_back("down")
+                elif pressed[pygame.K_DOWN]:
+                    return self.player.move_back("up")
+                elif pressed[pygame.K_LEFT]:
+                    return self.player.move_back("right")
+                elif pressed[pygame.K_RIGHT]:
+                    return self.player.move_back("left")
+
     def run(self):
         """
         Boucle principale du jeu
