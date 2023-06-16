@@ -366,7 +366,7 @@
   <object id="1" name="Player" x="480" y="318">
    <point/>
   </object>
-  <object id="2" name="npc1" type="collision" x="471.667" y="583.333">
+  <object id="2" name="npc1" type="collision" x="482.334" y="383.333">
    <properties>
     <property name="dialog" value="OwO je suis le dialogue"/>
    </properties>

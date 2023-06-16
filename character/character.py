@@ -21,6 +21,9 @@ class Character(pygame.sprite.Sprite, ABC):
         image = pygame.Surface([38, 46])
         image.blit(self.image, (0, 0), (x, y, 38, 46))
         return image
+    
+    def update(self):
+        self.rect.topleft = self.position
 
     def print_team(self):
         for waifu in self.team:
