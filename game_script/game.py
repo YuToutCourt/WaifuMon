@@ -40,6 +40,17 @@ class Game:
         for obj in tmx_data.objects:
             if obj.type == "collision":
                 self.collisions.append(pygame.Rect(obj.x, obj.y, obj.width, obj.height))
+        
+        self.direction_map = {
+            (pygame.K_UP, pygame.K_LEFT): "down_right",
+            (pygame.K_UP, pygame.K_RIGHT): "down_left",
+            (pygame.K_DOWN, pygame.K_LEFT): "up_right",
+            (pygame.K_DOWN, pygame.K_RIGHT): "up_left",
+            (pygame.K_UP,): "down",
+            (pygame.K_DOWN,): "up",
+            (pygame.K_LEFT,): "right",
+            (pygame.K_RIGHT,): "left",
+        }
 
         self.group = pyscroll.PyscrollGroup(map_layer=map_layer, default_layer=3)
         self.group.add(self.player)
@@ -86,17 +97,12 @@ class Game:
                 ):
                     
                     npc.handle_interaction(self.screen, self.player)
-        
+
         for collision in self.collisions:
             if pygame.Rect.colliderect(self.player.rect, collision):
-                if pressed[pygame.K_UP]:
-                    return self.player.move_back("down")
-                elif pressed[pygame.K_DOWN]:
-                    return self.player.move_back("up")
-                elif pressed[pygame.K_LEFT]:
-                    return self.player.move_back("right")
-                elif pressed[pygame.K_RIGHT]:
-                    return self.player.move_back("left")
+                for keys, direction in self.direction_map.items():
+                    if all(pressed[key] for key in keys):
+                        return self.player.move_back(direction)
 
     def run(self):
         """

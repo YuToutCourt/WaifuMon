@@ -47,16 +47,21 @@ class Player(pygame.sprite.Sprite):
         """
         Déplace le joueur en arrière en fonction de la direction
         """
-        if direction == "down":
-            self.position = (self.position[0], self.position[1] + self.speed)
-        if direction == "up":
-            self.position = (self.position[0], self.position[1] - self.speed)
-        if direction == "right":
-            self.position = (self.position[0] + self.speed, self.position[1])
-        if direction == "left":
-            self.position = (self.position[0] - self.speed, self.position[1])
-        if direction == "surprise":
-            self.position = (self.position[0] - self.speed, self.position[1])
+        direction_map = {
+            "down": (0, self.speed),
+            "up": (0, -self.speed),
+            "right": (self.speed, 0),
+            "left": (-self.speed, 0),
+            "down_right": (self.speed, self.speed),
+            "down_left": (-self.speed, self.speed),
+            "up_right": (self.speed, -self.speed),
+            "up_left": (-self.speed, -self.speed),
+            "surprise": (-self.speed, 0),
+        }
+
+        if direction in direction_map:
+            offset = direction_map[direction]
+            self.position = (self.position[0] + offset[0], self.position[1] + offset[1])
 
     def update(self):
         self.rect.topleft = self.position
