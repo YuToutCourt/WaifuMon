@@ -42,6 +42,10 @@ class Game:
                 self.collisions.append(pygame.Rect(obj.x, obj.y, obj.width, obj.height))
 
         self.direction_map = {
+            (pygame.K_UP, pygame.K_LEFT, pygame.K_RIGHT): "down",
+            (pygame.K_DOWN, pygame.K_LEFT, pygame.K_RIGHT): "up",
+            (pygame.K_LEFT, pygame.K_UP, pygame.K_DOWN): "right",
+            (pygame.K_RIGHT, pygame.K_UP, pygame.K_DOWN): "left",
             (pygame.K_UP, pygame.K_LEFT): "down_right",
             (pygame.K_UP, pygame.K_RIGHT): "down_left",
             (pygame.K_DOWN, pygame.K_LEFT): "up_right",
