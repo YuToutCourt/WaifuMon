@@ -45,7 +45,6 @@ class NPC(pygame.sprite.Sprite):
         fight_screen = FightScreen(screen)
         fight_screen.run_fight(player, self)
 
-        
     def update(self):
         self.rect.topleft = self.position
 
@@ -64,26 +63,24 @@ class NPC(pygame.sprite.Sprite):
             if waifu.in_fight:
                 return waifu
         return None
-    
+
     def get_alive_waifu(self):
         """
         Récupère les waifus en vie
         """
         return [waifu for waifu in self.team if waifu.KO == False]
 
-
     def choice_next_waifu(self):
         """
         Change le waifu actif
         """
         import random
-        
+
         waifu = random.choice(self.get_alive_waifu())
         waifu.in_fight = True
         return waifu
 
-
-    def handle_choice_during_fight(self, waifu_player:Waifu, waifu_npc:Waifu):
+    def handle_choice_during_fight(self, waifu_player: Waifu, waifu_npc: Waifu):
         """
         Make all the choices during a fight
         """
@@ -94,7 +91,10 @@ class NPC(pygame.sprite.Sprite):
         Crée une équipe de 6 waifu aléatoire
         """
         from random import shuffle, randint
-        with open("asset/waifu_sprite/all_waifu_name.txt", "r", encoding="utf-8") as file:
+
+        with open(
+            "asset/waifu_sprite/all_waifu_name.txt", "r", encoding="utf-8"
+        ) as file:
             data = file.read().split("\n")
             shuffle(data)
             for w in data[:6]:
@@ -102,7 +102,7 @@ class NPC(pygame.sprite.Sprite):
                 types = types.split("-")
                 types_ = []
                 for type in types:
-                   types_.append(TypeFactory.create_type(type))
+                    types_.append(TypeFactory.create_type(type))
 
                 waifu = Waifu(
                     id,
@@ -112,6 +112,6 @@ class NPC(pygame.sprite.Sprite):
                     randint(50, 200),
                     randint(50, 100),
                     types_,
-                    randint(1, 100)
+                    randint(1, 100),
                 )
                 self.team.append(waifu)

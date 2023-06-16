@@ -5,6 +5,7 @@ from moves.move import Move
 from random import uniform
 from utils.log import log
 
+
 class Fight:
     def __init__(self, player: Player, npc: NPC):
         self.player = player
@@ -29,9 +30,7 @@ class Fight:
         waifu1.choice_move()
         self.enemy_choice(waifu1, waifu2)
 
-        attacking_waifu, defending_waifu = self.determine_attack_order(
-            waifu1, waifu2
-        )
+        attacking_waifu, defending_waifu = self.determine_attack_order(waifu1, waifu2)
 
         self.attack(attacking_waifu, defending_waifu)
 
@@ -43,9 +42,7 @@ class Fight:
 
     def determine_attack_order(self, waifu1: Waifu, waifu2: Waifu):
         if waifu1.move_to_use.priority == waifu2.move_to_use.priority:
-            return sorted(
-                [waifu1, waifu2], key=lambda waifu: waifu.speed, reverse=True
-            )
+            return sorted([waifu1, waifu2], key=lambda waifu: waifu.speed, reverse=True)
 
         return sorted(
             [waifu1, waifu2], key=lambda waifu: waifu.move_to_use.priority, reverse=True
@@ -64,7 +61,8 @@ class Fight:
         else:
             print("Le coup n'a pas touché")
 
-        if stop: return
+        if stop:
+            return
         self.attack(defender, attacker, stop=True)
 
     def handle_knockout(self, waifu: Waifu):
@@ -77,19 +75,23 @@ class Fight:
             print("Player à perdu, le NPC a gagné")
             self.finished = True
             return
-        
-        elif self.player.get_waifu_in_fight() is None: 
+
+        elif self.player.get_waifu_in_fight() is None:
             self.player.choice_next_waifu()
-            return self.play_round(self.player.get_waifu_in_fight(), self.npc.get_waifu_in_fight())
-            
+            return self.play_round(
+                self.player.get_waifu_in_fight(), self.npc.get_waifu_in_fight()
+            )
+
         if len(self.npc.get_alive_waifu()) == 0:
             print("NPC à perdu, le Player a gagné")
             self.finished = True
             return
-        
-        elif self.npc.get_waifu_in_fight() is None :
+
+        elif self.npc.get_waifu_in_fight() is None:
             self.npc.choice_next_waifu()
-            return self.play_round(self.player.get_waifu_in_fight(), self.npc.get_waifu_in_fight())
+            return self.play_round(
+                self.player.get_waifu_in_fight(), self.npc.get_waifu_in_fight()
+            )
 
     def enemy_choice(self, waifu_player: Waifu, waifu_npc: Waifu):
         return self.npc.handle_choice_during_fight(waifu_player, waifu_npc)
@@ -104,9 +106,8 @@ class Fight:
             if move_used.type == type_.immunities:
                 print("C'est inefficace !")
                 return 0
-            
-        for op_type in opponent.types:
 
+        for op_type in opponent.types:
             if move_used.type in op_type.weaknesses:
                 print("C'est super efficace !")
                 multiplier *= 2

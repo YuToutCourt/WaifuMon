@@ -7,8 +7,8 @@ from waifu.waifu import Waifu
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from wtypes.type import Type
-# from utils.my_thread import MyThread
 
+# from utils.my_thread import MyThread
 
 
 class FightScreen:
@@ -27,15 +27,14 @@ class FightScreen:
         fight = Fight(player, npc)
         self.__fill_screen()
         self.__load_background()
-        
+
         fight_thread = threading.Thread(target=fight.start)
         fight_thread.start()
 
         # main_loop_t = threading.Thread(target=self.__main_loop, args=(player, npc, fight))
         # main_loop_t.start()
-        
-        
-    # def __main_loop(self, player, npc, fight):
+
+        # def __main_loop(self, player, npc, fight):
         while fight.finished is False:
             if self.__load_waifu(player, npc):
                 self.__update_display()
@@ -70,7 +69,6 @@ class FightScreen:
         Charge l'image de fond
         """
         background = pygame.image.load("asset/Battleground/battleground1.png")
-  
 
         self.background = pygame.transform.scale(
             background, (self.screen.get_width(), self.screen.get_height())
@@ -80,7 +78,7 @@ class FightScreen:
         """
         Charge l'image des waifu
         """
-        
+
         waifu_ = None
         waifu__ = None
 
@@ -89,21 +87,32 @@ class FightScreen:
                 waifu_ = waifu
 
         if waifu_ is not None:
-            self.waifu_front = pygame.transform.scale(waifu_.get_front_image(), (self.screen.get_width() // 5, self.screen.get_height() // 3))
+            self.waifu_front = pygame.transform.scale(
+                waifu_.get_front_image(),
+                (self.screen.get_width() // 5, self.screen.get_height() // 3),
+            )
 
         for waifu in player.team:
             if waifu.in_fight:
                 waifu__ = waifu
 
         if waifu__ is not None:
-            self.waifu_back = pygame.transform.scale(waifu__.get_back_image(), (self.screen.get_width() // 3.75, self.screen.get_height() // 1.75))
+            self.waifu_back = pygame.transform.scale(
+                waifu__.get_back_image(),
+                (self.screen.get_width() // 3.75, self.screen.get_height() // 1.75),
+            )
 
         return waifu_ is not None and waifu__ is not None
 
     def __update_display(self):
         self.screen.blit(self.background, (0, 0))
-        self.screen.blit(self.waifu_front, (self.screen.get_width() // 1.5, self.screen.get_height() // 2.95))
-        self.screen.blit(self.waifu_back, (self.screen.get_width() // 8, self.screen.get_height() // 2.2))
+        self.screen.blit(
+            self.waifu_front,
+            (self.screen.get_width() // 1.5, self.screen.get_height() // 2.95),
+        )
+        self.screen.blit(
+            self.waifu_back,
+            (self.screen.get_width() // 8, self.screen.get_height() // 2.2),
+        )
 
         pygame.display.flip()
-        

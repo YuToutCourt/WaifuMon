@@ -1,6 +1,7 @@
 from colorama import Fore, Style
 from random import choice
 
+
 def log(*args):
     """
     Affiche un message dans la console
@@ -16,5 +17,7 @@ def random_color():
     """
     Renvoie une couleur aléatoire != de la couleur blanche
     """
-    color = choice([Fore.RED, Fore.GREEN, Fore.YELLOW, Fore.BLUE, Fore.MAGENTA, Fore.CYAN])
+    color = choice(
+        [Fore.RED, Fore.GREEN, Fore.YELLOW, Fore.BLUE, Fore.MAGENTA, Fore.CYAN]
+    )
     return color

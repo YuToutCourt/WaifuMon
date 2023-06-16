@@ -40,7 +40,7 @@ class Game:
         for obj in tmx_data.objects:
             if obj.type == "collision":
                 self.collisions.append(pygame.Rect(obj.x, obj.y, obj.width, obj.height))
-        
+
         self.direction_map = {
             (pygame.K_UP, pygame.K_LEFT): "down_right",
             (pygame.K_UP, pygame.K_RIGHT): "down_left",
@@ -95,7 +95,6 @@ class Game:
                     pygame.sprite.collide_rect(self.player, npc)
                     and pressed[pygame.K_RETURN]
                 ):
-                    
                     npc.handle_interaction(self.screen, self.player)
 
         for collision in self.collisions:

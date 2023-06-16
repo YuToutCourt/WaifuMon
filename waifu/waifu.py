@@ -3,8 +3,19 @@ from wtypes.type import Type
 from typing import List
 from moves.normal_moves.body_slam import BodySlam
 
+
 class Waifu(pygame.sprite.Sprite):
-    def __init__(self, id:int, name:str, hp:int, attack:int, defense:int, speed:int, types:List[Type], level:int=1):
+    def __init__(
+        self,
+        id: int,
+        name: str,
+        hp: int,
+        attack: int,
+        defense: int,
+        speed: int,
+        types: List[Type],
+        level: int = 1,
+    ):
         super().__init__()
         self.id = id
         self.name = name
@@ -16,8 +27,12 @@ class Waifu(pygame.sprite.Sprite):
         self.types = types
         self.level = level
         self.list_of_moves = [BodySlam()]
-        self.front_image = pygame.image.load(f"asset/waifu_sprite/{self.id}/{self.id}_front.png")
-        self.back_image = pygame.image.load(f"asset/waifu_sprite/{self.id}/{self.id}_back.png")
+        self.front_image = pygame.image.load(
+            f"asset/waifu_sprite/{self.id}/{self.id}_front.png"
+        )
+        self.back_image = pygame.image.load(
+            f"asset/waifu_sprite/{self.id}/{self.id}_back.png"
+        )
         # self.inventory_image = pygame.image.load(f"asset/waifu_sprite/{self.id}/{self.id}_inventory.png")
         self.in_fight = False
         self.KO = False
@@ -41,11 +56,12 @@ class Waifu(pygame.sprite.Sprite):
         Fill the bar gradually with blocks
         Example: ■■■■■■□□□ as a percentage
         """
-        if self.hp <= 0: self.hp = 0
-        filled_bar = "■"*10  # Represent a full health bar
-        
+        if self.hp <= 0:
+            self.hp = 0
+        filled_bar = "■" * 10  # Represent a full health bar
+
         # Calculate the percentage of the bar based on the hp and hp_max
-        value = (self.hp * 100 / self.hp_max)
+        value = self.hp * 100 / self.hp_max
 
         num_filled_blocks = int(value / 10)
 
@@ -57,7 +73,6 @@ class Waifu(pygame.sprite.Sprite):
 
         print(f"{self.name} Lv.{self.level}")
         print(f"{bar} {round(self.hp, 2)} / {round(self.hp_max, 2)} ❤")
-      
 
     def choice_move(self):
         """
@@ -69,4 +84,3 @@ class Waifu(pygame.sprite.Sprite):
         self.move_to_use = self.list_of_moves[0]
 
         return self.move_to_use
-
