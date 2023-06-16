@@ -2,9 +2,9 @@ import pytmx
 import pygame
 import pyscroll
 
-from player_script.player import Player
+from character.player import Player
 from utils.coordinates import Coordinates
-from npc_script.npc import NPC
+from character.npc import NPC
 
 
 class Game:
@@ -34,6 +34,7 @@ class Game:
         player_position = tmx_data.get_object_by_name("Player")
         coordinates = Coordinates(player_position.x, player_position.y)
         self.player = Player(coordinates)
+        print(self.player.position)
 
         self.collisions = []
 
@@ -69,6 +70,7 @@ class Game:
                     continue
                 coordinates = Coordinates(obj.x, obj.y)
                 npc = NPC(obj.name, coordinates, obj.properties["dialog"])
+                print(npc.position)
                 self.group.add(npc)
 
     def handle_input(self):

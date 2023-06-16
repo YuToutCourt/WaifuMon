@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="60" height="300" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="68">
  <tileset firstgid="1" source="Tileset/desert_town_by_aveontrainer_ddncjjc.tsx"/>
- <tileset firstgid="2302" source="../../../../../../../Bureau/mishmash_of_tropical_tiles_by_princess_phoenix_dauv0fp.tsx"/>
  <layer id="1" name="Calque de Tuiles 1" width="60" height="300">
   <data encoding="csv">
 5906,5973,5973,5973,5973,5973,5973,5973,5973,5973,5973,5973,5973,5973,5973,5973,5973,5973,5973,5973,5973,5973,5973,5973,4423,4423,24,25,26,27,28,29,30,4423,4423,5973,5973,5973,5973,5973,5973,5973,5973,5973,5973,5973,5973,5973,5973,5973,5973,5973,5973,5973,5973,5973,5973,5973,5973,6355,

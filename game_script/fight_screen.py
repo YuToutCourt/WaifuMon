@@ -3,10 +3,6 @@ import random
 import threading
 
 from game_script.fight import Fight
-from waifu.waifu import Waifu
-from wtypes.type_factory import TypeFactory
-from wtypes.enum_types import Types
-from wtypes.type import Type
 
 # from utils.my_thread import MyThread
 

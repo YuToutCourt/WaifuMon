@@ -1,5 +1,5 @@
-from player_script.player import Player
-from npc_script.npc import NPC
+from character.npc import NPC
+from character.player import Player
 from waifu.waifu import Waifu
 from moves.move import Move
 from random import uniform

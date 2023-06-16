@@ -1,7 +1,7 @@
 import pygame
 from wtypes.type import Type
 from typing import List
-from moves.normal_moves.body_slam import BodySlam
+from moves.dragon_moves.dragon_claw import DragonClaw
 
 
 class Waifu(pygame.sprite.Sprite):
@@ -26,7 +26,7 @@ class Waifu(pygame.sprite.Sprite):
         self.speed = speed
         self.types = types
         self.level = level
-        self.list_of_moves = [BodySlam()]
+        self.list_of_moves = [DragonClaw()]
         self.front_image = pygame.image.load(
             f"asset/waifu_sprite/{self.id}/{self.id}_front.png"
         )
