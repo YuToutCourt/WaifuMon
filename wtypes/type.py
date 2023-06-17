@@ -14,3 +14,10 @@ class Type:
         self.weaknesses = weaknesses
         self.resistances = resistances
         self.immunities = immunities
+
+    def __eq__(self, other):
+        if isinstance(other, self.__class__):
+            return self.type_name.value == other.type_name.value
+    
+    def __hash__(self) -> int:
+        return hash(self.type_name)

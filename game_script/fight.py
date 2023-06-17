@@ -130,24 +130,30 @@ class Fight:
         else:
             multiplier = 1.5
 
+
         for type_ in opponent.types:
-            if move_used.type == type_.immunities:
-                print("C'est inefficace !")
+            if move_used.type.type_name in type_.immunities:
+                log("C'est inefficace !")
                 return 0
+            
 
         for op_type in opponent.types:
-            if move_used.type in op_type.weaknesses:
-                print("C'est super efficace !")
+            if move_used.type.type_name in op_type.weaknesses:
+                log("C'est super efficace !")
                 multiplier *= 2
 
+
         for op_type in opponent.types:
-            if move_used.type in op_type.resistances:
-                print("C'est pas très efficace...")
+            if move_used.type.type_name in op_type.resistances:
+                log("C'est pas très efficace...")
                 multiplier /= 2
 
+
         if uniform(0, 100) <= 5.17:
-            print("Coup critique !")
+            log("Coup critique !")
             multiplier *= 1.5
+
+        log("After critical", f"Multiplier is {multiplier}")
 
         return multiplier
 
@@ -157,7 +163,6 @@ class Fight:
             return 0
         
         multiplier = self.__get_multiplier(attacker, move_used, opponent)
-
         damage = (
             ((2 * attacker.level + 10) / 250)
             * (attacker.attack / opponent.defense)
