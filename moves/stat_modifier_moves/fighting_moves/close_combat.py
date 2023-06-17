@@ -1,7 +1,7 @@
 from moves.move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-
+from utils.log import log
 
 class CloseCombat(Move):
     def __init__(self):
@@ -15,8 +15,20 @@ class CloseCombat(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_reciver):
         """
-        Lowers user's Defense and Special Defense.
+        Lowers user's Defense.
         """
-        pass
+        
+
+        if waifu_user.stat_stage_def == -6:
+            log("TOO LOW", f"{waifu_reciver.name} Defense can't be lowered anymore !")
+
+        else:
+            waifu_user.stat_stage_def -= 1
+            multiplier = 2 / (2 + abs(waifu_user.stat_stage_def))
+            waifu_user.defense = waifu_user.defense * multiplier
+            log("! STAT CHANGE !", f"{waifu_reciver.name} Defense has been lowered !")
+            
+        waifu_user.hp -= 10
+        log("! HP CHANGE !", f"{waifu_reciver.name} has lost 10 HP !")

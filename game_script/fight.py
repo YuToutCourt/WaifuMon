@@ -49,12 +49,16 @@ class Fight:
 
         if isinstance(obj, Player):
             waifu1.display_pv()
+            waifu1.display_stats()
             waifu2.display_pv()
+            waifu2.display_stats()
             waifu1.choice_move()
             self.enemy_choice(waifu1, waifu2)
         else:
             waifu2.display_pv()
+            waifu2.display_stats()
             waifu1.display_pv()
+            waifu1.display_stats()
             waifu2.choice_move()
             self.enemy_choice(waifu2, waifu1)
 
@@ -82,10 +86,20 @@ class Fight:
         if uniform(0, 100) <= move_used.accuracy:
             damage = self.calculate_damage(attacker, defender)
             defender.hp -= damage
-
+            
             if defender.hp <= 0:
                 defender.display_pv()
                 return self.handle_knockout(defender)
+            
+            # The try/except is here to handle moves that don't have an effect 
+            # (because I don't wont to modify all the moves)
+
+            if uniform(0, 100) <= move_used.proba_effect:
+                try:
+                    attacker.move_to_use.effect(attacker, defender)
+                except TypeError:
+                    pass
+
         else:
             print("Le coup n'a pas touché")
 
@@ -125,35 +139,29 @@ class Fight:
         return self.npc.handle_choice_during_fight(waifu_player, waifu_npc)
 
     def __get_multiplier(self, attacker: Waifu, move_used: Move, opponent: Waifu):
-        if any(attacker_type in opponent.types for attacker_type in attacker.types):
-            multiplier = 1
-        else:
+        if any(move_used.type.type_name == type.type_name for type in attacker.types):
             multiplier = 1.5
-
+        else:
+            multiplier = 1
 
         for type_ in opponent.types:
             if move_used.type.type_name in type_.immunities:
                 log("C'est inefficace !")
                 return 0
             
-
         for op_type in opponent.types:
             if move_used.type.type_name in op_type.weaknesses:
                 log("C'est super efficace !")
                 multiplier *= 2
-
 
         for op_type in opponent.types:
             if move_used.type.type_name in op_type.resistances:
                 log("C'est pas très efficace...")
                 multiplier /= 2
 
-
         if uniform(0, 100) <= 5.17:
             log("Coup critique !")
             multiplier *= 1.5
-
-        log("After critical", f"Multiplier is {multiplier}")
 
         return multiplier
 
