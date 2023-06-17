@@ -1,4 +1,4 @@
-from ..move import Move
+from moves.move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 
