@@ -866,1710 +866,1710 @@ class MoveFactory:
         if move == Moves.ATTACK_ORDER:
             return AttackOrder()
         elif move == Moves.BUG_BITE:
-            return AttackOrder()
-        elif move == Moves.FIRST_IMPRESSION:
             return BugBite()
-        elif move == Moves.FURY_CUTTER:
+        elif move == Moves.FIRST_IMPRESSION:
             return FirstImpression()
-        elif move == Moves.HEAL_ORDER:
+        elif move == Moves.FURY_CUTTER:
             return FuryCutter()
-        elif move == Moves.INFESTATION:
+        elif move == Moves.HEAL_ORDER:
             return HealOrder()
-        elif move == Moves.LEECH_LIFE:
+        elif move == Moves.INFESTATION:
             return Infestation()
-        elif move == Moves.MEGAHORN:
+        elif move == Moves.LEECH_LIFE:
             return LeechLife()
-        elif move == Moves.PIN_MISSILE:
+        elif move == Moves.MEGAHORN:
             return Megahorn()
-        elif move == Moves.POLLEN_PUFF:
+        elif move == Moves.PIN_MISSILE:
             return PinMissile()
-        elif move == Moves.POWDER:
+        elif move == Moves.POLLEN_PUFF:
             return PollenPuff()
-        elif move == Moves.RAGE_POWDER:
+        elif move == Moves.POWDER:
             return Powder()
-        elif move == Moves.SAVAGE_SPIN_OUT:
+        elif move == Moves.RAGE_POWDER:
             return RagePowder()
-        elif move == Moves.SIGNAL_BEAM:
+        elif move == Moves.SAVAGE_SPIN_OUT:
             return SavageSpinOut()
-        elif move == Moves.SILVER_WIND:
+        elif move == Moves.SIGNAL_BEAM:
             return SignalBeam()
-        elif move == Moves.SPIDER_WEB:
+        elif move == Moves.SILVER_WIND:
             return SilverWind()
-        elif move == Moves.TAIL_GLOW:
+        elif move == Moves.SPIDER_WEB:
             return SpiderWeb()
-        elif move == Moves.U_TURN:
+        elif move == Moves.TAIL_GLOW:
             return TailGlow()
-        elif move == Moves.X_SCISSOR:
+        elif move == Moves.U_TURN:
             return Uturn()
-        elif move == Moves.ASSURANCE:
+        elif move == Moves.X_SCISSOR:
             return XScissor()
-        elif move == Moves.BADDY_BAD:
+        elif move == Moves.ASSURANCE:
             return Assurance()
-        elif move == Moves.BEAT_UP:
+        elif move == Moves.BADDY_BAD:
             return BaddyBad()
-        elif move == Moves.BLACK_HOLE_ECLIPSE:
+        elif move == Moves.BEAT_UP:
             return BeatUp()
-        elif move == Moves.BRUTAL_SWING:
+        elif move == Moves.BLACK_HOLE_ECLIPSE:
             return BlackHoleEclipse()
-        elif move == Moves.CEASELESS_EDGE:
+        elif move == Moves.BRUTAL_SWING:
             return BrutalSwing()
-        elif move == Moves.COMEUPPANCE:
+        elif move == Moves.CEASELESS_EDGE:
             return CeaselessEdge()
-        elif move == Moves.CRUNCH:
+        elif move == Moves.COMEUPPANCE:
             return Comeuppance()
-        elif move == Moves.DARKEST_LARIAT:
+        elif move == Moves.CRUNCH:
             return Crunch()
-        elif move == Moves.DARK_VOID:
+        elif move == Moves.DARKEST_LARIAT:
             return DarkestLariat()
-        elif move == Moves.EMBARGO:
+        elif move == Moves.DARK_VOID:
             return DarkVoid()
-        elif move == Moves.FALSE_SURRENDER:
+        elif move == Moves.EMBARGO:
             return Embargo()
-        elif move == Moves.FEINT_ATTACK:
+        elif move == Moves.FALSE_SURRENDER:
             return FalseSurrender()
-        elif move == Moves.FLING:
+        elif move == Moves.FEINT_ATTACK:
             return FeintAttack()
-        elif move == Moves.FOUL_PLAY:
+        elif move == Moves.FLING:
             return Fling()
-        elif move == Moves.JAW_LOCK:
+        elif move == Moves.FOUL_PLAY:
             return FoulPlay()
-        elif move == Moves.KNOCK_OFF:
+        elif move == Moves.JAW_LOCK:
             return JawLock()
-        elif move == Moves.KOWTOW_CLEAVE:
+        elif move == Moves.KNOCK_OFF:
             return KnockOff()
-        elif move == Moves.LASH_OUT:
+        elif move == Moves.KOWTOW_CLEAVE:
             return KowtowCleave()
-        elif move == Moves.MALICIOUS_MOONSAULT:
+        elif move == Moves.LASH_OUT:
             return LashOut()
-        elif move == Moves.NIGHT_DAZE:
+        elif move == Moves.MALICIOUS_MOONSAULT:
             return MaliciousMoonsault()
-        elif move == Moves.NIGHT_SLASH:
+        elif move == Moves.NIGHT_DAZE:
             return NightDaze()
-        elif move == Moves.PAYBACK:
+        elif move == Moves.NIGHT_SLASH:
             return NightSlash()
-        elif move == Moves.POWER_TRIP:
+        elif move == Moves.PAYBACK:
             return Payback()
-        elif move == Moves.PUNISHMENT:
+        elif move == Moves.POWER_TRIP:
             return PowerTrip()
-        elif move == Moves.PURSUIT:
+        elif move == Moves.PUNISHMENT:
             return Punishment()
-        elif move == Moves.QUASH:
+        elif move == Moves.PURSUIT:
             return Pursuit()
-        elif move == Moves.RUINATION:
+        elif move == Moves.QUASH:
             return Quash()
-        elif move == Moves.SNATCH:
+        elif move == Moves.RUINATION:
             return Ruination()
-        elif move == Moves.SUCKER_PUNCH:
+        elif move == Moves.SNATCH:
             return Snatch()
-        elif move == Moves.SWITCHEROO:
+        elif move == Moves.SUCKER_PUNCH:
             return SuckerPunch()
-        elif move == Moves.THIEF:
+        elif move == Moves.SWITCHEROO:
             return Switcheroo()
-        elif move == Moves.THROAT_CHOP:
+        elif move == Moves.THIEF:
             return Thief()
-        elif move == Moves.TORMENT:
+        elif move == Moves.THROAT_CHOP:
             return ThroatChop()
-        elif move == Moves.WICKED_BLOW:
+        elif move == Moves.TORMENT:
             return Torment()
-        elif move == Moves.WICKED_TORQUE:
+        elif move == Moves.WICKED_BLOW:
             return WickedBlow()
-        elif move == Moves.CLANGOROUS_SOULBLAZE:
+        elif move == Moves.WICKED_TORQUE:
             return WickedTorque()
-        elif move == Moves.CORE_ENFORCER:
+        elif move == Moves.CLANGOROUS_SOULBLAZE:
             return ClangorousSoulblaze()
-        elif move == Moves.DEVASTATING_DRAKE:
+        elif move == Moves.CORE_ENFORCER:
             return CoreEnforcer()
-        elif move == Moves.DRAGON_CLAW:
+        elif move == Moves.DEVASTATING_DRAKE:
             return DevastatingDrake()
-        elif move == Moves.DRAGON_DARTS:
+        elif move == Moves.DRAGON_CLAW:
             return DragonClaw()
-        elif move == Moves.DRAGON_ENERGY:
+        elif move == Moves.DRAGON_DARTS:
             return DragonDarts()
-        elif move == Moves.DRAGON_HAMMER:
+        elif move == Moves.DRAGON_ENERGY:
             return DragonEnergy()
-        elif move == Moves.DRAGON_PULSE:
+        elif move == Moves.DRAGON_HAMMER:
             return DragonHammer()
-        elif move == Moves.DRAGON_RAGE:
+        elif move == Moves.DRAGON_PULSE:
             return DragonPulse()
-        elif move == Moves.DRAGON_TAIL:
+        elif move == Moves.DRAGON_RAGE:
             return DragonRage()
-        elif move == Moves.DUAL_CHOP:
+        elif move == Moves.DRAGON_TAIL:
             return DragonTail()
-        elif move == Moves.DYNAMAX_CANNON:
+        elif move == Moves.DUAL_CHOP:
             return DualChop()
-        elif move == Moves.ETERNABEAM:
+        elif move == Moves.DYNAMAX_CANNON:
             return DynamaxCannon()
-        elif move == Moves.GLAIVE_RUSH:
+        elif move == Moves.ETERNABEAM:
             return Eternabeam()
-        elif move == Moves.ORDER_UP:
+        elif move == Moves.GLAIVE_RUSH:
             return GlaiveRush()
-        elif move == Moves.ROAR_OF_TIME:
+        elif move == Moves.ORDER_UP:
             return OrderUp()
-        elif move == Moves.SPACIAL_REND:
+        elif move == Moves.ROAR_OF_TIME:
             return RoarofTime()
-        elif move == Moves.AURA_WHEEL:
+        elif move == Moves.SPACIAL_REND:
             return SpacialRend()
-        elif move == Moves.BOLT_BEAK:
+        elif move == Moves.AURA_WHEEL:
             return AuraWheel()
-        elif move == Moves.BUZZY_BUZZ:
+        elif move == Moves.BOLT_BEAK:
             return BoltBeak()
-        elif move == Moves.CATASTROPIKA:
+        elif move == Moves.BUZZY_BUZZ:
             return BuzzyBuzz()
-        elif move == Moves.CHARGE_BEAM:
+        elif move == Moves.CATASTROPIKA:
             return Catastropika()
-        elif move == Moves.DOUBLE_SHOCK:
+        elif move == Moves.CHARGE_BEAM:
             return ChargeBeam()
-        elif move == Moves.ELECTRIFY:
+        elif move == Moves.DOUBLE_SHOCK:
             return DoubleShock()
-        elif move == Moves.ELECTRO_BALL:
+        elif move == Moves.ELECTRIFY:
             return Electrify()
-        elif move == Moves.ELECTRO_DRIFT:
+        elif move == Moves.ELECTRO_BALL:
             return ElectroBall()
-        elif move == Moves.FUSION_BOLT:
+        elif move == Moves.ELECTRO_DRIFT:
             return ElectroDrift()
-        elif move == Moves.GIGAVOLT_HAVOC:
+        elif move == Moves.FUSION_BOLT:
             return FusionBolt()
-        elif move == Moves.ION_DELUGE:
+        elif move == Moves.GIGAVOLT_HAVOC:
             return GigavoltHavoc()
-        elif move == Moves.MAGNET_RISE:
+        elif move == Moves.ION_DELUGE:
             return IonDeluge()
-        elif move == Moves.NUZZLE:
+        elif move == Moves.MAGNET_RISE:
             return MagnetRise()
-        elif move == Moves.OVERDRIVE:
+        elif move == Moves.NUZZLE:
             return Nuzzle()
-        elif move == Moves.PARABOLIC_CHARGE:
+        elif move == Moves.OVERDRIVE:
             return Overdrive()
-        elif move == Moves.PIKA_PAPOW:
+        elif move == Moves.PARABOLIC_CHARGE:
             return ParabolicCharge()
-        elif move == Moves.PLASMA_FISTS:
+        elif move == Moves.PIKA_PAPOW:
             return PikaPapow()
-        elif move == Moves.RISING_VOLTAGE:
+        elif move == Moves.PLASMA_FISTS:
             return PlasmaFists()
-        elif move == Moves.SHOCK_WAVE:
+        elif move == Moves.RISING_VOLTAGE:
             return RisingVoltage()
-        elif move == Moves.STOKED_SPARKSURFER:
+        elif move == Moves.SHOCK_WAVE:
             return ShockWave()
-        elif move == Moves.THUNDER_CAGE:
+        elif move == Moves.STOKED_SPARKSURFER:
             return StokedSparksurfer()
-        elif move == Moves.THUNDER_WAVE:
+        elif move == Moves.THUNDER_CAGE:
             return ThunderCage()
-        elif move == Moves.VOLT_SWITCH:
+        elif move == Moves.THUNDER_WAVE:
             return ThunderWave()
-        elif move == Moves.WILDBOLT_STORM:
+        elif move == Moves.VOLT_SWITCH:
             return VoltSwitch()
-        elif move == Moves.WILD_CHARGE:
+        elif move == Moves.WILDBOLT_STORM:
             return WildboltStorm()
-        elif move == Moves.ZAP_CANNON:
+        elif move == Moves.WILD_CHARGE:
             return WildCharge()
-        elif move == Moves.ZIPPY_ZAP:
+        elif move == Moves.ZAP_CANNON:
             return ZapCannon()
-        elif move == Moves.CRAFTY_SHIELD:
+        elif move == Moves.ZIPPY_ZAP:
             return ZippyZap()
-        elif move == Moves.DAZZLING_GLEAM:
+        elif move == Moves.CRAFTY_SHIELD:
             return CraftyShield()
-        elif move == Moves.DISARMING_VOICE:
+        elif move == Moves.DAZZLING_GLEAM:
             return DazzlingGleam()
-        elif move == Moves.DRAINING_KISS:
+        elif move == Moves.DISARMING_VOICE:
             return DisarmingVoice()
-        elif move == Moves.FAIRY_LOCK:
+        elif move == Moves.DRAINING_KISS:
             return DrainingKiss()
-        elif move == Moves.FAIRY_WIND:
+        elif move == Moves.FAIRY_LOCK:
             return FairyLock()
-        elif move == Moves.FLORAL_HEALING:
+        elif move == Moves.FAIRY_WIND:
             return FairyWind()
-        elif move == Moves.GUARDIAN_OF_ALOLA:
+        elif move == Moves.FLORAL_HEALING:
             return FloralHealing()
-        elif move == Moves.LIGHT_OF_RUIN:
+        elif move == Moves.GUARDIAN_OF_ALOLA:
             return GuardianofAlola()
-        elif move == Moves.MAGICAL_TORQUE:
+        elif move == Moves.LIGHT_OF_RUIN:
             return LightofRuin()
-        elif move == Moves.MISTY_EXPLOSION:
+        elif move == Moves.MAGICAL_TORQUE:
             return MagicalTorque()
-        elif move == Moves.MISTY_TERRAIN:
+        elif move == Moves.MISTY_EXPLOSION:
             return MistyExplosion()
-        elif move == Moves.MOONBLAST:
+        elif move == Moves.MISTY_TERRAIN:
             return MistyTerrain()
-        elif move == Moves.MOONLIGHT:
+        elif move == Moves.MOONBLAST:
             return Moonblast()
-        elif move == Moves.NATURE_MADNESS:
+        elif move == Moves.MOONLIGHT:
             return Moonlight()
-        elif move == Moves.PLAY_ROUGH:
+        elif move == Moves.NATURE_MADNESS:
             return NatureMadness()
-        elif move == Moves.SPARKLY_SWIRL:
+        elif move == Moves.PLAY_ROUGH:
             return PlayRough()
-        elif move == Moves.STRANGE_STEAM:
+        elif move == Moves.SPARKLY_SWIRL:
             return SparklySwirl()
-        elif move == Moves.SWEET_KISS:
+        elif move == Moves.STRANGE_STEAM:
             return StrangeSteam()
-        elif move == Moves.TWINKLE_TACKLE:
+        elif move == Moves.SWEET_KISS:
             return SweetKiss()
-        elif move == Moves.ARM_THRUST:
+        elif move == Moves.TWINKLE_TACKLE:
             return TwinkleTackle()
-        elif move == Moves.AURA_SPHERE:
+        elif move == Moves.ARM_THRUST:
             return ArmThrust()
-        elif move == Moves.AXE_KICK:
+        elif move == Moves.AURA_SPHERE:
             return AuraSphere()
-        elif move == Moves.BODY_PRESS:
+        elif move == Moves.AXE_KICK:
             return AxeKick()
-        elif move == Moves.BRICK_BREAK:
+        elif move == Moves.BODY_PRESS:
             return BodyPress()
-        elif move == Moves.CIRCLE_THROW:
+        elif move == Moves.BRICK_BREAK:
             return BrickBreak()
-        elif move == Moves.COACHING:
+        elif move == Moves.CIRCLE_THROW:
             return CircleThrow()
-        elif move == Moves.COLLISION_COURSE:
+        elif move == Moves.COACHING:
             return Coaching()
-        elif move == Moves.COMBAT_TORQUE:
+        elif move == Moves.COLLISION_COURSE:
             return CollisionCourse()
-        elif move == Moves.COUNTER:
+        elif move == Moves.COMBAT_TORQUE:
             return CombatTorque()
-        elif move == Moves.CROSS_CHOP:
+        elif move == Moves.COUNTER:
             return Counter()
-        elif move == Moves.DETECT:
+        elif move == Moves.CROSS_CHOP:
             return CrossChop()
-        elif move == Moves.DOUBLE_KICK:
+        elif move == Moves.DETECT:
             return Detect()
-        elif move == Moves.DRAIN_PUNCH:
+        elif move == Moves.DOUBLE_KICK:
             return DoubleKick()
-        elif move == Moves.DYNAMIC_PUNCH:
+        elif move == Moves.DRAIN_PUNCH:
             return DrainPunch()
-        elif move == Moves.FINAL_GAMBIT:
+        elif move == Moves.DYNAMIC_PUNCH:
             return DynamicPunch()
-        elif move == Moves.FLYING_PRESS:
+        elif move == Moves.FINAL_GAMBIT:
             return FinalGambit()
-        elif move == Moves.FOCUS_BLAST:
+        elif move == Moves.FLYING_PRESS:
             return FlyingPress()
-        elif move == Moves.FOCUS_PUNCH:
+        elif move == Moves.FOCUS_BLAST:
             return FocusBlast()
-        elif move == Moves.HIGH_JUMP_KICK:
+        elif move == Moves.FOCUS_PUNCH:
             return FocusPunch()
-        elif move == Moves.JUMP_KICK:
+        elif move == Moves.HIGH_JUMP_KICK:
             return HighJumpKick()
-        elif move == Moves.KARATE_CHOP:
+        elif move == Moves.JUMP_KICK:
             return JumpKick()
-        elif move == Moves.LOW_KICK:
+        elif move == Moves.KARATE_CHOP:
             return KarateChop()
-        elif move == Moves.MACH_PUNCH:
+        elif move == Moves.LOW_KICK:
             return LowKick()
-        elif move == Moves.MAT_BLOCK:
+        elif move == Moves.MACH_PUNCH:
             return MachPunch()
-        elif move == Moves.METEOR_ASSAULT:
+        elif move == Moves.MAT_BLOCK:
             return MatBlock()
-        elif move == Moves.QUICK_GUARD:
+        elif move == Moves.METEOR_ASSAULT:
             return MeteorAssault()
-        elif move == Moves.REVENGE:
+        elif move == Moves.QUICK_GUARD:
             return QuickGuard()
-        elif move == Moves.REVERSAL:
+        elif move == Moves.REVENGE:
             return Revenge()
-        elif move == Moves.ROCK_SMASH:
+        elif move == Moves.REVERSAL:
             return Reversal()
-        elif move == Moves.SACRED_SWORD:
+        elif move == Moves.ROCK_SMASH:
             return RockSmash()
-        elif move == Moves.SECRET_SWORD:
+        elif move == Moves.SACRED_SWORD:
             return SacredSword()
-        elif move == Moves.SEISMIC_TOSS:
+        elif move == Moves.SECRET_SWORD:
             return SecretSword()
-        elif move == Moves.SKY_UPPERCUT:
+        elif move == Moves.SEISMIC_TOSS:
             return SeismicToss()
-        elif move == Moves.STORM_THROW:
+        elif move == Moves.SKY_UPPERCUT:
             return SkyUppercut()
-        elif move == Moves.SUBMISSION:
+        elif move == Moves.STORM_THROW:
             return StormThrow()
-        elif move == Moves.THUNDEROUS_KICK:
+        elif move == Moves.SUBMISSION:
             return Submission()
-        elif move == Moves.TRIPLE_ARROWS:
+        elif move == Moves.THUNDEROUS_KICK:
             return ThunderousKick()
-        elif move == Moves.TRIPLE_KICK:
+        elif move == Moves.TRIPLE_ARROWS:
             return TripleArrows()
-        elif move == Moves.VACUUM_WAVE:
+        elif move == Moves.TRIPLE_KICK:
             return TripleKick()
-        elif move == Moves.VICTORY_DANCE:
+        elif move == Moves.VACUUM_WAVE:
             return VacuumWave()
-        elif move == Moves.VITAL_THROW:
+        elif move == Moves.VICTORY_DANCE:
             return VictoryDance()
-        elif move == Moves.WAKE_UP_SLAP:
+        elif move == Moves.VITAL_THROW:
             return VitalThrow()
-        elif move == Moves.BITTER_BLADE:
+        elif move == Moves.WAKE_UP_SLAP:
             return WakeUpSlap()
-        elif move == Moves.BLAST_BURN:
+        elif move == Moves.BITTER_BLADE:
             return BitterBlade()
-        elif move == Moves.BLAZING_TORQUE:
+        elif move == Moves.BLAST_BURN:
             return BlastBurn()
-        elif move == Moves.BURNING_JEALOUSY:
+        elif move == Moves.BLAZING_TORQUE:
             return BlazingTorque()
-        elif move == Moves.BURN_UP:
+        elif move == Moves.BURNING_JEALOUSY:
             return BurningJealousy()
-        elif move == Moves.ERUPTION:
+        elif move == Moves.BURN_UP:
             return BurnUp()
-        elif move == Moves.FIERY_DANCE:
+        elif move == Moves.ERUPTION:
             return Eruption()
-        elif move == Moves.FIRE_PLEDGE:
+        elif move == Moves.FIERY_DANCE:
             return FieryDance()
-        elif move == Moves.FIRE_SPIN:
+        elif move == Moves.FIRE_PLEDGE:
             return FirePledge()
-        elif move == Moves.FLAME_BURST:
+        elif move == Moves.FIRE_SPIN:
             return FireSpin()
-        elif move == Moves.FUSION_FLARE:
+        elif move == Moves.FLAME_BURST:
             return FlameBurst()
-        elif move == Moves.HEAT_CRASH:
+        elif move == Moves.FUSION_FLARE:
             return FusionFlare()
-        elif move == Moves.INCINERATE:
+        elif move == Moves.HEAT_CRASH:
             return HeatCrash()
-        elif move == Moves.INFERNO:
+        elif move == Moves.INCINERATE:
             return Incinerate()
-        elif move == Moves.INFERNO_OVERDRIVE:
+        elif move == Moves.INFERNO:
             return Inferno()
-        elif move == Moves.MAGMA_STORM:
+        elif move == Moves.INFERNO_OVERDRIVE:
             return InfernoOverdrive()
-        elif move == Moves.MIND_BLOWN:
+        elif move == Moves.MAGMA_STORM:
             return MagmaStorm()
-        elif move == Moves.RAGING_FURY:
+        elif move == Moves.MIND_BLOWN:
             return MindBlown()
-        elif move == Moves.SHELL_TRAP:
+        elif move == Moves.RAGING_FURY:
             return RagingFury()
-        elif move == Moves.SIZZLY_SLIDE:
+        elif move == Moves.SHELL_TRAP:
             return ShellTrap()
-        elif move == Moves.SUNNY_DAY:
+        elif move == Moves.SIZZLY_SLIDE:
             return SizzlySlide()
-        elif move == Moves.TORCH_SONG:
+        elif move == Moves.SUNNY_DAY:
             return SunnyDay()
-        elif move == Moves.ACROBATICS:
+        elif move == Moves.TORCH_SONG:
             return TorchSong()
-        elif move == Moves.AERIAL_ACE:
+        elif move == Moves.ACROBATICS:
             return Acrobatics()
-        elif move == Moves.AEROBLAST:
+        elif move == Moves.AERIAL_ACE:
             return AerialAce()
-        elif move == Moves.AIR_CUTTER:
+        elif move == Moves.AEROBLAST:
             return Aeroblast()
-        elif move == Moves.BEAK_BLAST:
+        elif move == Moves.AIR_CUTTER:
             return AirCutter()
-        elif move == Moves.BLEAKWIND_STORM:
+        elif move == Moves.BEAK_BLAST:
             return BeakBlast()
-        elif move == Moves.BRAVE_BIRD:
+        elif move == Moves.BLEAKWIND_STORM:
             return BleakwindStorm()
-        elif move == Moves.CHATTER:
+        elif move == Moves.BRAVE_BIRD:
             return BraveBird()
-        elif move == Moves.DRILL_PECK:
+        elif move == Moves.CHATTER:
             return Chatter()
-        elif move == Moves.DUAL_WINGBEAT:
+        elif move == Moves.DRILL_PECK:
             return DrillPeck()
-        elif move == Moves.FLY:
+        elif move == Moves.DUAL_WINGBEAT:
             return DualWingbeat()
-        elif move == Moves.GUST:
+        elif move == Moves.FLY:
             return Fly()
-        elif move == Moves.HURRICANE:
+        elif move == Moves.GUST:
             return Gust()
-        elif move == Moves.MIRROR_MOVE:
+        elif move == Moves.HURRICANE:
             return Hurricane()
-        elif move == Moves.OBLIVION_WING:
+        elif move == Moves.MIRROR_MOVE:
             return MirrorMove()
-        elif move == Moves.PECK:
+        elif move == Moves.OBLIVION_WING:
             return OblivionWing()
-        elif move == Moves.PLUCK:
+        elif move == Moves.PECK:
             return Peck()
-        elif move == Moves.ROOST:
+        elif move == Moves.PLUCK:
             return Pluck()
-        elif move == Moves.SKY_DROP:
+        elif move == Moves.ROOST:
             return Roost()
-        elif move == Moves.SUPERSONIC_SKYSTRIKE:
+        elif move == Moves.SKY_DROP:
             return SkyDrop()
-        elif move == Moves.TAILWIND:
+        elif move == Moves.SUPERSONIC_SKYSTRIKE:
             return SupersonicSkystrike()
-        elif move == Moves.WING_ATTACK:
+        elif move == Moves.TAILWIND:
             return Tailwind()
-        elif move == Moves.ASTRAL_BARRAGE:
+        elif move == Moves.WING_ATTACK:
             return WingAttack()
-        elif move == Moves.BITTER_MALICE:
+        elif move == Moves.ASTRAL_BARRAGE:
             return AstralBarrage()
-        elif move == Moves.CONFUSE_RAY:
+        elif move == Moves.BITTER_MALICE:
             return BitterMalice()
-        elif move == Moves.CURSE:
+        elif move == Moves.CONFUSE_RAY:
             return ConfuseRay()
-        elif move == Moves.DESTINY_BOND:
+        elif move == Moves.CURSE:
             return Curse()
-        elif move == Moves.GRUDGE:
+        elif move == Moves.DESTINY_BOND:
             return DestinyBond()
-        elif move == Moves.HEX:
+        elif move == Moves.GRUDGE:
             return Grudge()
-        elif move == Moves.INFERNAL_PARADE:
+        elif move == Moves.HEX:
             return Hex()
-        elif move == Moves.LAST_RESPECTS:
+        elif move == Moves.INFERNAL_PARADE:
             return InfernalParade()
-        elif move == Moves.MENACING_MOONRAZE_MAELSTROM:
+        elif move == Moves.LAST_RESPECTS:
             return LastRespects()
-        elif move == Moves.MOONGEIST_BEAM:
+        elif move == Moves.MENACING_MOONRAZE_MAELSTROM:
             return MenacingMoonrazeMaelstrom()
-        elif move == Moves.NIGHTMARE:
+        elif move == Moves.MOONGEIST_BEAM:
             return MoongeistBeam()
-        elif move == Moves.NIGHT_SHADE:
+        elif move == Moves.NIGHTMARE:
             return Nightmare()
-        elif move == Moves.OMINOUS_WIND:
+        elif move == Moves.NIGHT_SHADE:
             return NightShade()
-        elif move == Moves.PHANTOM_FORCE:
+        elif move == Moves.OMINOUS_WIND:
             return OminousWind()
-        elif move == Moves.RAGE_FIST:
+        elif move == Moves.PHANTOM_FORCE:
             return PhantomForce()
-        elif move == Moves.SHADOW_BALL:
+        elif move == Moves.RAGE_FIST:
             return RageFist()
-        elif move == Moves.SHADOW_BONE:
+        elif move == Moves.SHADOW_BALL:
             return ShadowBall()
-        elif move == Moves.SHADOW_CLAW:
+        elif move == Moves.SHADOW_BONE:
             return ShadowBone()
-        elif move == Moves.SHADOW_FORCE:
+        elif move == Moves.SHADOW_CLAW:
             return ShadowClaw()
-        elif move == Moves.SHADOW_PUNCH:
+        elif move == Moves.SHADOW_FORCE:
             return ShadowForce()
-        elif move == Moves.SHADOW_SNEAK:
+        elif move == Moves.SHADOW_PUNCH:
             return ShadowPunch()
-        elif move == Moves.SINISTER_ARROW_RAID:
+        elif move == Moves.SHADOW_SNEAK:
             return ShadowSneak()
-        elif move == Moves.SPECTRAL_THIEF:
+        elif move == Moves.SINISTER_ARROW_RAID:
             return SinisterArrowRaid()
-        elif move == Moves.SPIRIT_SHACKLE:
+        elif move == Moves.SPECTRAL_THIEF:
             return SpectralThief()
-        elif move == Moves.SPITE:
+        elif move == Moves.SPIRIT_SHACKLE:
             return SpiritShackle()
-        elif move == Moves.TRICK_OR_TREAT:
+        elif move == Moves.SPITE:
             return Spite()
-        elif move == Moves.ABSORB:
+        elif move == Moves.TRICK_OR_TREAT:
             return TrickorTreat()
-        elif move == Moves.AROMATHERAPY:
+        elif move == Moves.ABSORB:
             return Absorb()
-        elif move == Moves.BLOOM_DOOM:
+        elif move == Moves.AROMATHERAPY:
             return Aromatherapy()
-        elif move == Moves.BRANCH_POKE:
+        elif move == Moves.BLOOM_DOOM:
             return BloomDoom()
-        elif move == Moves.BULLET_SEED:
+        elif move == Moves.BRANCH_POKE:
             return BranchPoke()
-        elif move == Moves.CHLOROBLAST:
+        elif move == Moves.BULLET_SEED:
             return BulletSeed()
-        elif move == Moves.ENERGY_BALL:
+        elif move == Moves.CHLOROBLAST:
             return Chloroblast()
-        elif move == Moves.FLOWER_TRICK:
+        elif move == Moves.ENERGY_BALL:
             return EnergyBall()
-        elif move == Moves.FOREST_CURSE:
+        elif move == Moves.FLOWER_TRICK:
             return FlowerTrick()
-        elif move == Moves.FRENZY_PLANT:
+        elif move == Moves.FOREST_CURSE:
             return ForestCurse()
-        elif move == Moves.GIGA_DRAIN:
+        elif move == Moves.FRENZY_PLANT:
             return FrenzyPlant()
-        elif move == Moves.GRASSY_GLIDE:
+        elif move == Moves.GIGA_DRAIN:
             return GigaDrain()
-        elif move == Moves.GRASSY_TERRAIN:
+        elif move == Moves.GRASSY_GLIDE:
             return GrassyGlide()
-        elif move == Moves.GRASS_KNOT:
+        elif move == Moves.GRASSY_TERRAIN:
             return GrassyTerrain()
-        elif move == Moves.GRASS_PLEDGE:
+        elif move == Moves.GRASS_KNOT:
             return GrassKnot()
-        elif move == Moves.HORN_LEECH:
+        elif move == Moves.GRASS_PLEDGE:
             return GrassPledge()
-        elif move == Moves.INGRAIN:
+        elif move == Moves.HORN_LEECH:
             return HornLeech()
-        elif move == Moves.JUNGLE_HEALING:
+        elif move == Moves.INGRAIN:
             return Ingrain()
-        elif move == Moves.LEAFAGE:
+        elif move == Moves.JUNGLE_HEALING:
             return JungleHealing()
-        elif move == Moves.LEAF_BLADE:
+        elif move == Moves.LEAFAGE:
             return Leafage()
-        elif move == Moves.LEAF_TORNADO:
+        elif move == Moves.LEAF_BLADE:
             return LeafBlade()
-        elif move == Moves.LEECH_SEED:
+        elif move == Moves.LEAF_TORNADO:
             return LeafTornado()
-        elif move == Moves.MAGICAL_LEAF:
+        elif move == Moves.LEECH_SEED:
             return LeechSeed()
-        elif move == Moves.MEGA_DRAIN:
+        elif move == Moves.MAGICAL_LEAF:
             return MagicalLeaf()
-        elif move == Moves.PETAL_BLIZZARD:
+        elif move == Moves.MEGA_DRAIN:
             return MegaDrain()
-        elif move == Moves.POWER_WHIP:
+        elif move == Moves.PETAL_BLIZZARD:
             return PetalBlizzard()
-        elif move == Moves.RAZOR_LEAF:
+        elif move == Moves.POWER_WHIP:
             return PowerWhip()
-        elif move == Moves.SAPPY_SEED:
+        elif move == Moves.RAZOR_LEAF:
             return RazorLeaf()
-        elif move == Moves.SEED_BOMB:
+        elif move == Moves.SAPPY_SEED:
             return SappySeed()
-        elif move == Moves.SEED_FLARE:
+        elif move == Moves.SEED_BOMB:
             return SeedBomb()
-        elif move == Moves.SNAP_TRAP:
+        elif move == Moves.SEED_FLARE:
             return SeedFlare()
-        elif move == Moves.SOLAR_BEAM:
+        elif move == Moves.SNAP_TRAP:
             return SnapTrap()
-        elif move == Moves.SOLAR_BLADE:
+        elif move == Moves.SOLAR_BEAM:
             return SolarBeam()
-        elif move == Moves.SPIKY_SHIELD:
+        elif move == Moves.SOLAR_BLADE:
             return SolarBlade()
-        elif move == Moves.STUN_SPORE:
+        elif move == Moves.SPIKY_SHIELD:
             return SpikyShield()
-        elif move == Moves.SYNTHESIS:
+        elif move == Moves.STUN_SPORE:
             return StunSpore()
-        elif move == Moves.TRAILBLAZE:
+        elif move == Moves.SYNTHESIS:
             return Synthesis()
-        elif move == Moves.TROP_KICK:
+        elif move == Moves.TRAILBLAZE:
             return Trailblaze()
-        elif move == Moves.VINE_WHIP:
+        elif move == Moves.TROP_KICK:
             return TropKick()
-        elif move == Moves.WOOD_HAMMER:
+        elif move == Moves.VINE_WHIP:
             return VineWhip()
-        elif move == Moves.WORRY_SEED:
+        elif move == Moves.WOOD_HAMMER:
             return WoodHammer()
-        elif move == Moves.BONEMERANG:
+        elif move == Moves.WORRY_SEED:
             return WorrySeed()
-        elif move == Moves.BONE_RUSH:
+        elif move == Moves.BONEMERANG:
             return Bonemerang()
-        elif move == Moves.DIG:
+        elif move == Moves.BONE_RUSH:
             return BoneRush()
-        elif move == Moves.DRILL_RUN:
+        elif move == Moves.DIG:
             return Dig()
-        elif move == Moves.EARTHQUAKE:
+        elif move == Moves.DRILL_RUN:
             return DrillRun()
-        elif move == Moves.EARTH_POWER:
+        elif move == Moves.EARTHQUAKE:
             return Earthquake()
-        elif move == Moves.FISSURE:
+        elif move == Moves.EARTH_POWER:
             return EarthPower()
-        elif move == Moves.HIGH_HORSEPOWER:
+        elif move == Moves.FISSURE:
             return Fissure()
-        elif move == Moves.LAND_WRATH:
+        elif move == Moves.HIGH_HORSEPOWER:
             return HighHorsepower()
-        elif move == Moves.MAGNITUDE:
+        elif move == Moves.LAND_WRATH:
             return LandWrath()
-        elif move == Moves.MUD_BOMB:
+        elif move == Moves.MAGNITUDE:
             return Magnitude()
-        elif move == Moves.MUD_SPORT:
+        elif move == Moves.MUD_BOMB:
             return MudBomb()
-        elif move == Moves.PRECIPICE_BLADES:
+        elif move == Moves.MUD_SPORT:
             return MudSport()
-        elif move == Moves.SANDSEAR_STORM:
+        elif move == Moves.PRECIPICE_BLADES:
             return PrecipiceBlades()
-        elif move == Moves.SAND_TOMB:
+        elif move == Moves.SANDSEAR_STORM:
             return SandsearStorm()
-        elif move == Moves.SCORCHING_SANDS:
+        elif move == Moves.SAND_TOMB:
             return SandTomb()
-        elif move == Moves.SHORE_UP:
+        elif move == Moves.SCORCHING_SANDS:
             return ScorchingSands()
-        elif move == Moves.SPIKES:
+        elif move == Moves.SHORE_UP:
             return ShoreUp()
-        elif move == Moves.STOMPING_TANTRUM:
+        elif move == Moves.SPIKES:
             return Spikes()
-        elif move == Moves.TECTONIC_RAGE:
+        elif move == Moves.STOMPING_TANTRUM:
             return StompingTantrum()
-        elif move == Moves.THOUSAND_ARROWS:
+        elif move == Moves.TECTONIC_RAGE:
             return TectonicRage()
-        elif move == Moves.THOUSAND_WAVES:
+        elif move == Moves.THOUSAND_ARROWS:
             return ThousandArrows()
-        elif move == Moves.AURORA_BEAM:
+        elif move == Moves.THOUSAND_WAVES:
             return ThousandWaves()
-        elif move == Moves.AURORA_VEIL:
+        elif move == Moves.AURORA_BEAM:
             return AuroraBeam()
-        elif move == Moves.AVALANCHE:
+        elif move == Moves.AURORA_VEIL:
             return AuroraVeil()
-        elif move == Moves.CHILLY_RECEPTION:
+        elif move == Moves.AVALANCHE:
             return Avalanche()
-        elif move == Moves.FREEZY_FROST:
+        elif move == Moves.CHILLY_RECEPTION:
             return ChillyReception()
-        elif move == Moves.FROST_BREATH:
+        elif move == Moves.FREEZY_FROST:
             return FreezyFrost()
-        elif move == Moves.GLACIAL_LANCE:
+        elif move == Moves.FROST_BREATH:
             return FrostBreath()
-        elif move == Moves.HAIL:
+        elif move == Moves.GLACIAL_LANCE:
             return GlacialLance()
-        elif move == Moves.HAZE:
+        elif move == Moves.HAIL:
             return Hail()
-        elif move == Moves.ICE_BALL:
+        elif move == Moves.HAZE:
             return Haze()
-        elif move == Moves.ICE_SHARD:
+        elif move == Moves.ICE_BALL:
             return IceBall()
-        elif move == Moves.ICE_SPINNER:
+        elif move == Moves.ICE_SHARD:
             return IceShard()
-        elif move == Moves.ICICLE_SPEAR:
+        elif move == Moves.ICE_SPINNER:
             return IceSpinner()
-        elif move == Moves.MIST:
+        elif move == Moves.ICICLE_SPEAR:
             return IcicleSpear()
-        elif move == Moves.SHEER_COLD:
+        elif move == Moves.MIST:
             return Mist()
-        elif move == Moves.SUBZERO_SLAMMER:
+        elif move == Moves.SHEER_COLD:
             return SheerCold()
-        elif move == Moves.TRIPLE_AXEL:
+        elif move == Moves.SUBZERO_SLAMMER:
             return SubzeroSlammer()
-        elif move == Moves.AFTER_YOU:
+        elif move == Moves.TRIPLE_AXEL:
             return TripleAxel()
-        elif move == Moves.ASSIST:
+        elif move == Moves.AFTER_YOU:
             return AfterYou()
-        elif move == Moves.ATTRACT:
+        elif move == Moves.ASSIST:
             return Assist()
-        elif move == Moves.BARRAGE:
+        elif move == Moves.ATTRACT:
             return Attract()
-        elif move == Moves.BATON_PASS:
+        elif move == Moves.BARRAGE:
             return Barrage()
-        elif move == Moves.BESTOW:
+        elif move == Moves.BATON_PASS:
             return BatonPass()
-        elif move == Moves.BIDE:
+        elif move == Moves.BESTOW:
             return Bestow()
-        elif move == Moves.BIND:
+        elif move == Moves.BIDE:
             return Bide()
-        elif move == Moves.BLOCK:
+        elif move == Moves.BIND:
             return Bind()
-        elif move == Moves.BOOMBURST:
+        elif move == Moves.BLOCK:
             return Block()
-        elif move == Moves.BREAKNECK_BLITZ:
+        elif move == Moves.BOOMBURST:
             return Boomburst()
-        elif move == Moves.CAMOUFLAGE:
+        elif move == Moves.BREAKNECK_BLITZ:
             return BreakneckBlitz()
-        elif move == Moves.CELEBRATE:
+        elif move == Moves.CAMOUFLAGE:
             return Camouflage()
-        elif move == Moves.CHIP_AWAY:
+        elif move == Moves.CELEBRATE:
             return Celebrate()
-        elif move == Moves.COMET_PUNCH:
+        elif move == Moves.CHIP_AWAY:
             return ChipAway()
-        elif move == Moves.CONSTRICT:
+        elif move == Moves.COMET_PUNCH:
             return CometPunch()
-        elif move == Moves.CONVERSION:
+        elif move == Moves.CONSTRICT:
             return Constrict()
-        elif move == Moves.CONVERSION_2:
+        elif move == Moves.CONVERSION:
             return Conversion()
-        elif move == Moves.COPYCAT:
+        elif move == Moves.CONVERSION_2:
             return Conversion2()
-        elif move == Moves.COURT_CHANGE:
+        elif move == Moves.COPYCAT:
             return Copycat()
-        elif move == Moves.COVET:
+        elif move == Moves.COURT_CHANGE:
             return CourtChange()
-        elif move == Moves.CRUSH_CLAW:
+        elif move == Moves.COVET:
             return Covet()
-        elif move == Moves.CRUSH_GRIP:
+        elif move == Moves.CRUSH_CLAW:
             return CrushClaw()
-        elif move == Moves.CUT:
+        elif move == Moves.CRUSH_GRIP:
             return CrushGrip()
-        elif move == Moves.DISABLE:
+        elif move == Moves.CUT:
             return Cut()
-        elif move == Moves.DIZZY_PUNCH:
+        elif move == Moves.DISABLE:
             return Disable()
-        elif move == Moves.DOODLE:
+        elif move == Moves.DIZZY_PUNCH:
             return DizzyPunch()
-        elif move == Moves.DOUBLE_EDGE:
+        elif move == Moves.DOODLE:
             return Doodle()
-        elif move == Moves.DOUBLE_HIT:
+        elif move == Moves.DOUBLE_EDGE:
             return DoubleEdge()
-        elif move == Moves.DOUBLE_SLAP:
+        elif move == Moves.DOUBLE_HIT:
             return DoubleHit()
-        elif move == Moves.ECHOED_VOICE:
+        elif move == Moves.DOUBLE_SLAP:
             return DoubleSlap()
-        elif move == Moves.EGG_BOMB:
+        elif move == Moves.ECHOED_VOICE:
             return EchoedVoice()
-        elif move == Moves.ENCORE:
+        elif move == Moves.EGG_BOMB:
             return EggBomb()
-        elif move == Moves.ENDEAVOR:
+        elif move == Moves.ENCORE:
             return Encore()
-        elif move == Moves.ENDURE:
+        elif move == Moves.ENDEAVOR:
             return Endeavor()
-        elif move == Moves.ENTRAINMENT:
+        elif move == Moves.ENDURE:
             return Endure()
-        elif move == Moves.EXPLOSION:
+        elif move == Moves.ENTRAINMENT:
             return Entrainment()
-        elif move == Moves.EXTREME_SPEED:
+        elif move == Moves.EXPLOSION:
             return Explosion()
-        elif move == Moves.FACADE:
+        elif move == Moves.EXTREME_SPEED:
             return ExtremeSpeed()
-        elif move == Moves.FAKE_OUT:
+        elif move == Moves.FACADE:
             return Facade()
-        elif move == Moves.FALSE_SWIPE:
+        elif move == Moves.FAKE_OUT:
             return FakeOut()
-        elif move == Moves.FEINT:
+        elif move == Moves.FALSE_SWIPE:
             return FalseSwipe()
-        elif move == Moves.FLAIL:
+        elif move == Moves.FEINT:
             return Feint()
-        elif move == Moves.FOCUS_ENERGY:
+        elif move == Moves.FLAIL:
             return Flail()
-        elif move == Moves.FOLLOW_ME:
+        elif move == Moves.FOCUS_ENERGY:
             return FocusEnergy()
-        elif move == Moves.FORESIGHT:
+        elif move == Moves.FOLLOW_ME:
             return FollowMe()
-        elif move == Moves.FRUSTRATION:
+        elif move == Moves.FORESIGHT:
             return Foresight()
-        elif move == Moves.FURY_ATTACK:
+        elif move == Moves.FRUSTRATION:
             return Frustration()
-        elif move == Moves.FURY_SWIPES:
+        elif move == Moves.FURY_ATTACK:
             return FuryAttack()
-        elif move == Moves.GIGA_IMPACT:
+        elif move == Moves.FURY_SWIPES:
             return FurySwipes()
-        elif move == Moves.GLARE:
+        elif move == Moves.GIGA_IMPACT:
             return GigaImpact()
-        elif move == Moves.GUILLOTINE:
+        elif move == Moves.GLARE:
             return Glare()
-        elif move == Moves.HAPPY_HOUR:
+        elif move == Moves.GUILLOTINE:
             return Guillotine()
-        elif move == Moves.HEAD_CHARGE:
+        elif move == Moves.HAPPY_HOUR:
             return HappyHour()
-        elif move == Moves.HEAL_BELL:
+        elif move == Moves.HEAD_CHARGE:
             return HeadCharge()
-        elif move == Moves.HELPING_HAND:
+        elif move == Moves.HEAL_BELL:
             return HealBell()
-        elif move == Moves.HIDDEN_POWER:
+        elif move == Moves.HELPING_HAND:
             return HelpingHand()
-        elif move == Moves.HOLD_BACK:
+        elif move == Moves.HIDDEN_POWER:
             return HiddenPower()
-        elif move == Moves.HOLD_HANDS:
+        elif move == Moves.HOLD_BACK:
             return HoldBack()
-        elif move == Moves.HORN_ATTACK:
+        elif move == Moves.HOLD_HANDS:
             return HoldHands()
-        elif move == Moves.HORN_DRILL:
+        elif move == Moves.HORN_ATTACK:
             return HornAttack()
-        elif move == Moves.HYPER_BEAM:
+        elif move == Moves.HORN_DRILL:
             return HornDrill()
-        elif move == Moves.HYPER_DRILL:
+        elif move == Moves.HYPER_BEAM:
             return HyperBeam()
-        elif move == Moves.HYPER_VOICE:
+        elif move == Moves.HYPER_DRILL:
             return HyperDrill()
-        elif move == Moves.JUDGMENT:
+        elif move == Moves.HYPER_VOICE:
             return HyperVoice()
-        elif move == Moves.LASER_FOCUS:
+        elif move == Moves.JUDGMENT:
             return Judgment()
-        elif move == Moves.LAST_RESORT:
+        elif move == Moves.LASER_FOCUS:
             return LaserFocus()
-        elif move == Moves.LOCK_ON:
+        elif move == Moves.LAST_RESORT:
             return LastResort()
-        elif move == Moves.LUCKY_CHANT:
+        elif move == Moves.LOCK_ON:
             return LockOn()
-        elif move == Moves.MEAN_LOOK:
+        elif move == Moves.LUCKY_CHANT:
             return LuckyChant()
-        elif move == Moves.MEGA_KICK:
+        elif move == Moves.MEAN_LOOK:
             return MeanLook()
-        elif move == Moves.MEGA_PUNCH:
+        elif move == Moves.MEGA_KICK:
             return MegaKick()
-        elif move == Moves.METRONOME:
+        elif move == Moves.MEGA_PUNCH:
             return MegaPunch()
-        elif move == Moves.ME_FIRST:
+        elif move == Moves.METRONOME:
             return Metronome()
-        elif move == Moves.MILK_DRINK:
+        elif move == Moves.ME_FIRST:
             return MeFirst()
-        elif move == Moves.MIMIC:
+        elif move == Moves.MILK_DRINK:
             return MilkDrink()
-        elif move == Moves.MIND_READER:
+        elif move == Moves.MIMIC:
             return Mimic()
-        elif move == Moves.MORNING_SUN:
+        elif move == Moves.MIND_READER:
             return MindReader()
-        elif move == Moves.MULTI_ATTACK:
+        elif move == Moves.MORNING_SUN:
             return MorningSun()
-        elif move == Moves.NATURAL_GIFT:
+        elif move == Moves.MULTI_ATTACK:
             return MultiAttack()
-        elif move == Moves.NATURE_POWER:
+        elif move == Moves.NATURAL_GIFT:
             return NaturalGift()
-        elif move == Moves.ODOR_SLEUTH:
+        elif move == Moves.NATURE_POWER:
             return NaturePower()
-        elif move == Moves.PAIN_SPLIT:
+        elif move == Moves.ODOR_SLEUTH:
             return OdorSleuth()
-        elif move == Moves.PAY_DAY:
+        elif move == Moves.PAIN_SPLIT:
             return PainSplit()
-        elif move == Moves.PERISH_SONG:
+        elif move == Moves.PAY_DAY:
             return PayDay()
-        elif move == Moves.POPULATION_BOMB:
+        elif move == Moves.PERISH_SONG:
             return PerishSong()
-        elif move == Moves.POUND:
+        elif move == Moves.POPULATION_BOMB:
             return PopulationBomb()
-        elif move == Moves.POWER_SHIFT:
+        elif move == Moves.POUND:
             return Pound()
-        elif move == Moves.PRESENT:
+        elif move == Moves.POWER_SHIFT:
             return PowerShift()
-        elif move == Moves.PROTECT:
+        elif move == Moves.PRESENT:
             return Present()
-        elif move == Moves.PSYCH_UP:
+        elif move == Moves.PROTECT:
             return Protect()
-        elif move == Moves.PULVERIZING_PANCAKE:
+        elif move == Moves.PSYCH_UP:
             return PsychUp()
-        elif move == Moves.QUICK_ATTACK:
+        elif move == Moves.PULVERIZING_PANCAKE:
             return PulverizingPancake()
-        elif move == Moves.RAGING_BULL:
+        elif move == Moves.QUICK_ATTACK:
             return QuickAttack()
-        elif move == Moves.RAZOR_WIND:
+        elif move == Moves.RAGING_BULL:
             return RagingBull()
-        elif move == Moves.RECOVER:
+        elif move == Moves.RAZOR_WIND:
             return RazorWind()
-        elif move == Moves.RECYCLE:
+        elif move == Moves.RECOVER:
             return Recover()
-        elif move == Moves.REFLECT_TYPE:
+        elif move == Moves.RECYCLE:
             return Recycle()
-        elif move == Moves.REFRESH:
+        elif move == Moves.REFLECT_TYPE:
             return ReflectType()
-        elif move == Moves.RELIC_SONG:
+        elif move == Moves.REFRESH:
             return Refresh()
-        elif move == Moves.RETALIATE:
+        elif move == Moves.RELIC_SONG:
             return RelicSong()
-        elif move == Moves.RETURN_:
+        elif move == Moves.RETALIATE:
             return Retaliate()
-        elif move == Moves.REVELATION_DANCE:
+        elif move == Moves.RETURN_:
             return Return()
-        elif move == Moves.REVIVAL_BLESSING:
+        elif move == Moves.REVELATION_DANCE:
             return RevelationDance()
-        elif move == Moves.ROAR:
+        elif move == Moves.REVIVAL_BLESSING:
             return RevivalBlessing()
-        elif move == Moves.ROCK_CLIMB:
+        elif move == Moves.ROAR:
             return Roar()
-        elif move == Moves.ROUND:
+        elif move == Moves.ROCK_CLIMB:
             return RockClimb()
-        elif move == Moves.SAFEGUARD:
+        elif move == Moves.ROUND:
             return Round()
-        elif move == Moves.SCRATCH:
+        elif move == Moves.SAFEGUARD:
             return Safeguard()
-        elif move == Moves.SECRET_POWER:
+        elif move == Moves.SCRATCH:
             return Scratch()
-        elif move == Moves.SELF_DESTRUCT:
+        elif move == Moves.SECRET_POWER:
             return SecretPower()
-        elif move == Moves.SHED_TAIL:
+        elif move == Moves.SELF_DESTRUCT:
             return SelfDestruct()
-        elif move == Moves.SIMPLE_BEAM:
+        elif move == Moves.SHED_TAIL:
             return ShedTail()
-        elif move == Moves.SKETCH:
+        elif move == Moves.SIMPLE_BEAM:
             return SimpleBeam()
-        elif move == Moves.SLACK_OFF:
+        elif move == Moves.SKETCH:
             return Sketch()
-        elif move == Moves.SLAM:
+        elif move == Moves.SLACK_OFF:
             return SlackOff()
-        elif move == Moves.SLASH:
+        elif move == Moves.SLAM:
             return Slam()
-        elif move == Moves.SLEEP_TALK:
+        elif move == Moves.SLASH:
             return Slash()
-        elif move == Moves.SMELLING_SALTS:
+        elif move == Moves.SLEEP_TALK:
             return SleepTalk()
-        elif move == Moves.SOFT_BOILED:
+        elif move == Moves.SMELLING_SALTS:
             return SmellingSalts()
-        elif move == Moves.SONIC_BOOM:
+        elif move == Moves.SOFT_BOILED:
             return SoftBoiled()
-        elif move == Moves.SPIKE_CANNON:
+        elif move == Moves.SONIC_BOOM:
             return SonicBoom()
-        elif move == Moves.SPIT_UP:
+        elif move == Moves.SPIKE_CANNON:
             return SpikeCannon()
-        elif move == Moves.SPLASH:
+        elif move == Moves.SPIT_UP:
             return SpitUp()
-        elif move == Moves.SPOTLIGHT:
+        elif move == Moves.SPLASH:
             return Splash()
-        elif move == Moves.STOCKPILE:
+        elif move == Moves.SPOTLIGHT:
             return Spotlight()
-        elif move == Moves.STRENGTH:
+        elif move == Moves.STOCKPILE:
             return Stockpile()
-        elif move == Moves.STRUGGLE:
+        elif move == Moves.STRENGTH:
             return Strength()
-        elif move == Moves.SUBSTITUTE:
+        elif move == Moves.STRUGGLE:
             return Struggle()
-        elif move == Moves.SUPERSONIC:
+        elif move == Moves.SUBSTITUTE:
             return Substitute()
-        elif move == Moves.SUPER_FANG:
+        elif move == Moves.SUPERSONIC:
             return Supersonic()
-        elif move == Moves.SWALLOW:
+        elif move == Moves.SUPER_FANG:
             return SuperFang()
-        elif move == Moves.SWIFT:
+        elif move == Moves.SWALLOW:
             return Swallow()
-        elif move == Moves.TACKLE:
+        elif move == Moves.SWIFT:
             return Swift()
-        elif move == Moves.TAIL_SLAP:
+        elif move == Moves.TACKLE:
             return Tackle()
-        elif move == Moves.TAIL_WHIP:
+        elif move == Moves.TAIL_SLAP:
             return TailSlap()
-        elif move == Moves.TAKE_DOWN:
+        elif move == Moves.TAIL_WHIP:
             return TailWhip()
-        elif move == Moves.TEARFUL_LOOK:
+        elif move == Moves.TAKE_DOWN:
             return TakeDown()
-        elif move == Moves.TEATIME:
+        elif move == Moves.TEARFUL_LOOK:
             return TearfulLook()
-        elif move == Moves.TECHNO_BLAST:
+        elif move == Moves.TEATIME:
             return Teatime()
-        elif move == Moves.TEETER_DANCE:
+        elif move == Moves.TECHNO_BLAST:
             return TechnoBlast()
-        elif move == Moves.TERA_BLAST:
+        elif move == Moves.TEETER_DANCE:
             return TeeterDance()
-        elif move == Moves.TERRAIN_PULSE:
+        elif move == Moves.TERA_BLAST:
             return TeraBlast()
-        elif move == Moves.TICKLE:
+        elif move == Moves.TERRAIN_PULSE:
             return TerrainPulse()
-        elif move == Moves.TIDY_UP:
+        elif move == Moves.TICKLE:
             return Tickle()
-        elif move == Moves.TRANSFORM:
+        elif move == Moves.TIDY_UP:
             return TidyUp()
-        elif move == Moves.TRUMP_CARD:
+        elif move == Moves.TRANSFORM:
             return Transform()
-        elif move == Moves.UPROAR:
+        elif move == Moves.TRUMP_CARD:
             return TrumpCard()
-        elif move == Moves.VEEVEE_VOLLEY:
+        elif move == Moves.UPROAR:
             return Uproar()
-        elif move == Moves.VISE_GRIP:
+        elif move == Moves.VEEVEE_VOLLEY:
             return VeeveeVolley()
-        elif move == Moves.WEATHER_BALL:
+        elif move == Moves.VISE_GRIP:
             return ViseGrip()
-        elif move == Moves.WHIRLWIND:
+        elif move == Moves.WEATHER_BALL:
             return WeatherBall()
-        elif move == Moves.WISH:
+        elif move == Moves.WHIRLWIND:
             return Whirlwind()
-        elif move == Moves.WORK_UP:
+        elif move == Moves.WISH:
             return Wish()
-        elif move == Moves.WRAP:
+        elif move == Moves.WORK_UP:
             return WorkUp()
-        elif move == Moves.WRING_OUT:
+        elif move == Moves.WRAP:
             return Wrap()
-        elif move == Moves.ACID:
+        elif move == Moves.WRING_OUT:
             return WringOut()
-        elif move == Moves.ACID_DOWNPOUR:
+        elif move == Moves.ACID:
             return Acid()
-        elif move == Moves.BANEFUL_BUNKER:
+        elif move == Moves.ACID_DOWNPOUR:
             return AcidDownpour()
-        elif move == Moves.BARB_BARRAGE:
+        elif move == Moves.BANEFUL_BUNKER:
             return BanefulBunker()
-        elif move == Moves.BELCH:
+        elif move == Moves.BARB_BARRAGE:
             return BarbBarrage()
-        elif move == Moves.CLEAR_SMOG:
+        elif move == Moves.BELCH:
             return Belch()
-        elif move == Moves.CORROSIVE_GAS:
+        elif move == Moves.CLEAR_SMOG:
             return ClearSmog()
-        elif move == Moves.DIRE_CLAW:
+        elif move == Moves.CORROSIVE_GAS:
             return CorrosiveGas()
-        elif move == Moves.GASTRO_ACID:
+        elif move == Moves.DIRE_CLAW:
             return DireClaw()
-        elif move == Moves.MORTAL_SPIN:
+        elif move == Moves.GASTRO_ACID:
             return GastroAcid()
-        elif move == Moves.NOXIOUS_TORQUE:
+        elif move == Moves.MORTAL_SPIN:
             return MortalSpin()
-        elif move == Moves.POISON_GAS:
+        elif move == Moves.NOXIOUS_TORQUE:
             return NoxiousTorque()
-        elif move == Moves.POISON_JAB:
+        elif move == Moves.POISON_GAS:
             return PoisonGas()
-        elif move == Moves.POISON_POWDER:
+        elif move == Moves.POISON_JAB:
             return PoisonJab()
-        elif move == Moves.POISON_STING:
+        elif move == Moves.POISON_POWDER:
             return PoisonPowder()
-        elif move == Moves.PURIFY:
+        elif move == Moves.POISON_STING:
             return PoisonSting()
-        elif move == Moves.TOXIC:
+        elif move == Moves.PURIFY:
             return Purify()
-        elif move == Moves.TOXIC_SPIKES:
+        elif move == Moves.TOXIC:
             return Toxic()
-        elif move == Moves.TOXIC_THREAD:
+        elif move == Moves.TOXIC_SPIKES:
             return ToxicSpikes()
-        elif move == Moves.VENOM_DRENCH:
+        elif move == Moves.TOXIC_THREAD:
             return ToxicThread()
-        elif move == Moves.VENOSHOCK:
+        elif move == Moves.VENOM_DRENCH:
             return VenomDrench()
-        elif move == Moves.ALLY_SWITCH:
+        elif move == Moves.VENOSHOCK:
             return Venoshock()
-        elif move == Moves.CONFUSION:
+        elif move == Moves.ALLY_SWITCH:
             return AllySwitch()
-        elif move == Moves.DREAM_EATER:
+        elif move == Moves.CONFUSION:
             return Confusion()
-        elif move == Moves.EERIE_SPELL:
+        elif move == Moves.DREAM_EATER:
             return DreamEater()
-        elif move == Moves.EXPANDING_FORCE:
+        elif move == Moves.EERIE_SPELL:
             return EerieSpell()
-        elif move == Moves.FUTURE_SIGHT:
+        elif move == Moves.EXPANDING_FORCE:
             return ExpandingForce()
-        elif move == Moves.GENESIS_SUPERNOVA:
+        elif move == Moves.FUTURE_SIGHT:
             return FutureSight()
-        elif move == Moves.GLITZY_GLOW:
+        elif move == Moves.GENESIS_SUPERNOVA:
             return GenesisSupernova()
-        elif move == Moves.GRAVITY:
+        elif move == Moves.GLITZY_GLOW:
             return GlitzyGlow()
-        elif move == Moves.GUARD_SPLIT:
+        elif move == Moves.GRAVITY:
             return Gravity()
-        elif move == Moves.GUARD_SWAP:
+        elif move == Moves.GUARD_SPLIT:
             return GuardSplit()
-        elif move == Moves.HEALING_WISH:
+        elif move == Moves.GUARD_SWAP:
             return GuardSwap()
-        elif move == Moves.HEAL_BLOCK:
+        elif move == Moves.HEALING_WISH:
             return HealingWish()
-        elif move == Moves.HEAL_PULSE:
+        elif move == Moves.HEAL_BLOCK:
             return HealBlock()
-        elif move == Moves.HEART_SWAP:
+        elif move == Moves.HEAL_PULSE:
             return HealPulse()
-        elif move == Moves.HYPERSPACE_HOLE:
+        elif move == Moves.HEART_SWAP:
             return HeartSwap()
-        elif move == Moves.IMPRISON:
+        elif move == Moves.HYPERSPACE_HOLE:
             return HyperspaceHole()
-        elif move == Moves.INSTRUCT:
+        elif move == Moves.IMPRISON:
             return Imprison()
-        elif move == Moves.LIGHT_SCREEN:
+        elif move == Moves.INSTRUCT:
             return Instruct()
-        elif move == Moves.LIGHT_THAT_BURNS_THE_SKY:
+        elif move == Moves.LIGHT_SCREEN:
             return LightScreen()
-        elif move == Moves.LUNAR_BLESSING:
+        elif move == Moves.LIGHT_THAT_BURNS_THE_SKY:
             return LightThatBurnstheSky()
-        elif move == Moves.LUNAR_DANCE:
+        elif move == Moves.LUNAR_BLESSING:
             return LunarBlessing()
-        elif move == Moves.LUSTER_PURGE:
+        elif move == Moves.LUNAR_DANCE:
             return LunarDance()
-        elif move == Moves.MAGIC_COAT:
+        elif move == Moves.LUSTER_PURGE:
             return LusterPurge()
-        elif move == Moves.MAGIC_POWDER:
+        elif move == Moves.MAGIC_COAT:
             return MagicCoat()
-        elif move == Moves.MAGIC_ROOM:
+        elif move == Moves.MAGIC_POWDER:
             return MagicPowder()
-        elif move == Moves.MIRACLE_EYE:
+        elif move == Moves.MAGIC_ROOM:
             return MagicRoom()
-        elif move == Moves.MIRROR_COAT:
+        elif move == Moves.MIRACLE_EYE:
             return MiracleEye()
-        elif move == Moves.MIST_BALL:
+        elif move == Moves.MIRROR_COAT:
             return MirrorCoat()
-        elif move == Moves.PHOTON_GEYSER:
+        elif move == Moves.MIST_BALL:
             return MistBall()
-        elif move == Moves.POWER_SPLIT:
+        elif move == Moves.PHOTON_GEYSER:
             return PhotonGeyser()
-        elif move == Moves.POWER_SWAP:
+        elif move == Moves.POWER_SPLIT:
             return PowerSplit()
-        elif move == Moves.POWER_TRICK:
+        elif move == Moves.POWER_SWAP:
             return PowerSwap()
-        elif move == Moves.PRISMATIC_LASER:
+        elif move == Moves.POWER_TRICK:
             return PowerTrick()
-        elif move == Moves.PSYBEAM:
+        elif move == Moves.PRISMATIC_LASER:
             return PrismaticLaser()
-        elif move == Moves.PSYBLADE:
+        elif move == Moves.PSYBEAM:
             return Psybeam()
-        elif move == Moves.PSYCHIC:
+        elif move == Moves.PSYBLADE:
             return Psyblade()
-        elif move == Moves.PSYCHIC_FANGS:
+        elif move == Moves.PSYCHIC:
             return Psychic()
-        elif move == Moves.PSYCHIC_TERRAIN:
+        elif move == Moves.PSYCHIC_FANGS:
             return PsychicFangs()
-        elif move == Moves.PSYCHO_CUT:
+        elif move == Moves.PSYCHIC_TERRAIN:
             return PsychicTerrain()
-        elif move == Moves.PSYCHO_SHIFT:
+        elif move == Moves.PSYCHO_CUT:
             return PsychoCut()
-        elif move == Moves.PSYSHOCK:
+        elif move == Moves.PSYCHO_SHIFT:
             return PsychoShift()
-        elif move == Moves.PSYSTRIKE:
+        elif move == Moves.PSYSHOCK:
             return Psyshock()
-        elif move == Moves.PSYWAVE:
+        elif move == Moves.PSYSTRIKE:
             return Psystrike()
-        elif move == Moves.REFLECT:
+        elif move == Moves.PSYWAVE:
             return Psywave()
-        elif move == Moves.REST:
+        elif move == Moves.REFLECT:
             return Reflect()
-        elif move == Moves.ROLE_PLAY:
+        elif move == Moves.REST:
             return Rest()
-        elif move == Moves.SHATTERED_PSYCHE:
+        elif move == Moves.ROLE_PLAY:
             return RolePlay()
-        elif move == Moves.SKILL_SWAP:
+        elif move == Moves.SHATTERED_PSYCHE:
             return ShatteredPsyche()
-        elif move == Moves.SPEED_SWAP:
+        elif move == Moves.SKILL_SWAP:
             return SkillSwap()
-        elif move == Moves.STORED_POWER:
+        elif move == Moves.SPEED_SWAP:
             return SpeedSwap()
-        elif move == Moves.SYNCHRONOISE:
+        elif move == Moves.STORED_POWER:
             return StoredPower()
-        elif move == Moves.TAKE_HEART:
+        elif move == Moves.SYNCHRONOISE:
             return Synchronoise()
-        elif move == Moves.TELEKINESIS:
+        elif move == Moves.TAKE_HEART:
             return TakeHeart()
-        elif move == Moves.TELEPORT:
+        elif move == Moves.TELEKINESIS:
             return Telekinesis()
-        elif move == Moves.TRICK:
+        elif move == Moves.TELEPORT:
             return Teleport()
-        elif move == Moves.TRICK_ROOM:
+        elif move == Moves.TRICK:
             return Trick()
-        elif move == Moves.TWIN_BEAM:
+        elif move == Moves.TRICK_ROOM:
             return TrickRoom()
-        elif move == Moves.WONDER_ROOM:
+        elif move == Moves.TWIN_BEAM:
             return TwinBeam()
-        elif move == Moves.ACCELEROCK:
+        elif move == Moves.WONDER_ROOM:
             return WonderRoom()
-        elif move == Moves.ANCIENT_POWER:
+        elif move == Moves.ACCELEROCK:
             return Accelerock()
-        elif move == Moves.CONTINENTAL_CRUSH:
+        elif move == Moves.ANCIENT_POWER:
             return AncientPower()
-        elif move == Moves.DIAMOND_STORM:
+        elif move == Moves.CONTINENTAL_CRUSH:
             return ContinentalCrush()
-        elif move == Moves.HEAD_SMASH:
+        elif move == Moves.DIAMOND_STORM:
             return DiamondStorm()
-        elif move == Moves.METEOR_BEAM:
+        elif move == Moves.HEAD_SMASH:
             return HeadSmash()
-        elif move == Moves.POWER_GEM:
+        elif move == Moves.METEOR_BEAM:
             return MeteorBeam()
-        elif move == Moves.ROCK_BLAST:
+        elif move == Moves.POWER_GEM:
             return PowerGem()
-        elif move == Moves.ROCK_THROW:
+        elif move == Moves.ROCK_BLAST:
             return RockBlast()
-        elif move == Moves.ROCK_WRECKER:
+        elif move == Moves.ROCK_THROW:
             return RockThrow()
-        elif move == Moves.ROLLOUT:
+        elif move == Moves.ROCK_WRECKER:
             return RockWrecker()
-        elif move == Moves.SALT_CURE:
+        elif move == Moves.ROLLOUT:
             return Rollout()
-        elif move == Moves.SANDSTORM:
+        elif move == Moves.SALT_CURE:
             return SaltCure()
-        elif move == Moves.SMACK_DOWN:
+        elif move == Moves.SANDSTORM:
             return Sandstorm()
-        elif move == Moves.SPLINTERED_STORMSHARDS:
+        elif move == Moves.SMACK_DOWN:
             return SmackDown()
-        elif move == Moves.STEALTH_ROCK:
+        elif move == Moves.SPLINTERED_STORMSHARDS:
             return SplinteredStormshards()
-        elif move == Moves.STONE_AXE:
+        elif move == Moves.STEALTH_ROCK:
             return StealthRock()
-        elif move == Moves.STONE_EDGE:
+        elif move == Moves.STONE_AXE:
             return StoneAxe()
-        elif move == Moves.TAR_SHOT:
+        elif move == Moves.STONE_EDGE:
             return StoneEdge()
-        elif move == Moves.WIDE_GUARD:
+        elif move == Moves.TAR_SHOT:
             return TarShot()
-        elif move == Moves.STEAMROLLER:
+        elif move == Moves.WIDE_GUARD:
             return WideGuard()
-        elif move == Moves.TWINEEDLE:
+        elif move == Moves.STEAMROLLER:
             return Steamroller()
-        elif move == Moves.BITE:
+        elif move == Moves.TWINEEDLE:
             return Twineedle()
-        elif move == Moves.DARK_PULSE:
+        elif move == Moves.BITE:
             return Bite()
-        elif move == Moves.FIERY_WRATH:
+        elif move == Moves.DARK_PULSE:
             return DarkPulse()
-        elif move == Moves.TAUNT:
+        elif move == Moves.FIERY_WRATH:
             return FieryWrath()
-        elif move == Moves.DRAGON_BREATH:
+        elif move == Moves.TAUNT:
             return Taunt()
-        elif move == Moves.DRAGON_RUSH:
+        elif move == Moves.DRAGON_BREATH:
             return DragonBreath()
-        elif move == Moves.OUTRAGE:
+        elif move == Moves.DRAGON_RUSH:
             return DragonRush()
-        elif move == Moves.TWISTER:
+        elif move == Moves.OUTRAGE:
             return Outrage()
-        elif move == Moves.BOLT_STRIKE:
+        elif move == Moves.TWISTER:
             return Twister()
-        elif move == Moves.DISCHARGE:
+        elif move == Moves.BOLT_STRIKE:
             return BoltStrike()
-        elif move == Moves.SPARK:
+        elif move == Moves.DISCHARGE:
             return Discharge()
-        elif move == Moves.THUNDER:
+        elif move == Moves.SPARK:
             return Spark()
-        elif move == Moves.THUNDERBOLT:
+        elif move == Moves.THUNDER:
             return Thunder()
-        elif move == Moves.THUNDER_FANG:
+        elif move == Moves.THUNDERBOLT:
             return Thunderbolt()
-        elif move == Moves.THUNDER_PUNCH:
+        elif move == Moves.THUNDER_FANG:
             return ThunderFang()
-        elif move == Moves.THUNDER_SHOCK:
+        elif move == Moves.THUNDER_PUNCH:
             return ThunderPunch()
-        elif move == Moves.VOLT_TACKLE:
+        elif move == Moves.THUNDER_SHOCK:
             return ThunderShock()
-        elif move == Moves.ZING_ZAP:
+        elif move == Moves.VOLT_TACKLE:
             return VoltTackle()
-        elif move == Moves.FORCE_PALM:
+        elif move == Moves.ZING_ZAP:
             return ZingZap()
-        elif move == Moves.ROLLING_KICK:
+        elif move == Moves.FORCE_PALM:
             return ForcePalm()
-        elif move == Moves.BLAZE_KICK:
+        elif move == Moves.ROLLING_KICK:
             return RollingKick()
-        elif move == Moves.BLUE_FLARE:
+        elif move == Moves.BLAZE_KICK:
             return BlazeKick()
-        elif move == Moves.EMBER:
+        elif move == Moves.BLUE_FLARE:
             return BlueFlare()
-        elif move == Moves.FIRE_BLAST:
+        elif move == Moves.EMBER:
             return Ember()
-        elif move == Moves.FIRE_FANG:
+        elif move == Moves.FIRE_BLAST:
             return FireBlast()
-        elif move == Moves.FIRE_PUNCH:
+        elif move == Moves.FIRE_FANG:
             return FireFang()
-        elif move == Moves.FLAMETHROWER:
+        elif move == Moves.FIRE_PUNCH:
             return FirePunch()
-        elif move == Moves.FLAME_WHEEL:
+        elif move == Moves.FLAMETHROWER:
             return Flamethrower()
-        elif move == Moves.FLARE_BLITZ:
+        elif move == Moves.FLAME_WHEEL:
             return FlameWheel()
-        elif move == Moves.HEAT_WAVE:
+        elif move == Moves.FLARE_BLITZ:
             return FlareBlitz()
-        elif move == Moves.LAVA_PLUME:
+        elif move == Moves.HEAT_WAVE:
             return HeatWave()
-        elif move == Moves.PYRO_BALL:
+        elif move == Moves.LAVA_PLUME:
             return LavaPlume()
-        elif move == Moves.SACRED_FIRE:
+        elif move == Moves.PYRO_BALL:
             return PyroBall()
-        elif move == Moves.SEARING_SHOT:
+        elif move == Moves.SACRED_FIRE:
             return SacredFire()
-        elif move == Moves.WILL_O_WISP:
+        elif move == Moves.SEARING_SHOT:
             return SearingShot()
-        elif move == Moves.AIR_SLASH:
+        elif move == Moves.WILL_O_WISP:
             return WillOWisp()
-        elif move == Moves.BOUNCE:
+        elif move == Moves.AIR_SLASH:
             return AirSlash()
-        elif move == Moves.FLOATY_FALL:
+        elif move == Moves.BOUNCE:
             return Bounce()
-        elif move == Moves.SKY_ATTACK:
+        elif move == Moves.FLOATY_FALL:
             return FloatyFall()
-        elif move == Moves.ASTONISH:
+        elif move == Moves.SKY_ATTACK:
             return SkyAttack()
-        elif move == Moves.LICK:
+        elif move == Moves.ASTONISH:
             return Astonish()
-        elif move == Moves.GRASS_WHISTLE:
+        elif move == Moves.LICK:
             return Lick()
-        elif move == Moves.NEEDLE_ARM:
+        elif move == Moves.GRASS_WHISTLE:
             return GrassWhistle()
-        elif move == Moves.PETAL_DANCE:
+        elif move == Moves.NEEDLE_ARM:
             return NeedleArm()
-        elif move == Moves.SLEEP_POWDER:
+        elif move == Moves.PETAL_DANCE:
             return PetalDance()
-        elif move == Moves.SPORE:
+        elif move == Moves.SLEEP_POWDER:
             return SleepPowder()
-        elif move == Moves.BONE_CLUB:
+        elif move == Moves.SPORE:
             return Spore()
-        elif move == Moves.BLIZZARD:
+        elif move == Moves.BONE_CLUB:
             return BoneClub()
-        elif move == Moves.FREEZE_DRY:
+        elif move == Moves.BLIZZARD:
             return Blizzard()
-        elif move == Moves.FREEZE_SHOCK:
+        elif move == Moves.FREEZE_DRY:
             return FreezeDry()
-        elif move == Moves.ICE_BEAM:
+        elif move == Moves.FREEZE_SHOCK:
             return FreezeShock()
-        elif move == Moves.ICE_BURN:
+        elif move == Moves.ICE_BEAM:
             return IceBeam()
-        elif move == Moves.ICE_FANG:
+        elif move == Moves.ICE_BURN:
             return IceBurn()
-        elif move == Moves.ICE_PUNCH:
+        elif move == Moves.ICE_FANG:
             return IceFang()
-        elif move == Moves.ICICLE_CRASH:
+        elif move == Moves.ICE_PUNCH:
             return IcePunch()
-        elif move == Moves.POWDER_SNOW:
+        elif move == Moves.ICICLE_CRASH:
             return IcicleCrash()
-        elif move == Moves.BODY_SLAM:
+        elif move == Moves.POWDER_SNOW:
             return PowderSnow()
-        elif move == Moves.HEADBUTT:
+        elif move == Moves.BODY_SLAM:
             return BodySlam()
-        elif move == Moves.HYPER_FANG:
+        elif move == Moves.HEADBUTT:
             return Headbutt()
-        elif move == Moves.LOVELY_KISS:
+        elif move == Moves.HYPER_FANG:
             return HyperFang()
-        elif move == Moves.SING:
+        elif move == Moves.LOVELY_KISS:
             return LovelyKiss()
-        elif move == Moves.SNORE:
+        elif move == Moves.SING:
             return Sing()
-        elif move == Moves.STOMP:
+        elif move == Moves.SNORE:
             return Snore()
-        elif move == Moves.THRASH:
+        elif move == Moves.STOMP:
             return Stomp()
-        elif move == Moves.TRI_ATTACK:
+        elif move == Moves.THRASH:
             return Thrash()
-        elif move == Moves.YAWN:
+        elif move == Moves.TRI_ATTACK:
             return TriAttack()
-        elif move == Moves.CROSS_POISON:
+        elif move == Moves.YAWN:
             return Yawn()
-        elif move == Moves.GUNK_SHOT:
+        elif move == Moves.CROSS_POISON:
             return CrossPoison()
-        elif move == Moves.POISON_FANG:
+        elif move == Moves.GUNK_SHOT:
             return GunkShot()
-        elif move == Moves.POISON_TAIL:
+        elif move == Moves.POISON_FANG:
             return PoisonFang()
-        elif move == Moves.SHELL_SIDE_ARM:
+        elif move == Moves.POISON_TAIL:
             return PoisonTail()
-        elif move == Moves.SLUDGE:
+        elif move == Moves.SHELL_SIDE_ARM:
             return ShellSideArm()
-        elif move == Moves.SLUDGE_BOMB:
+        elif move == Moves.SLUDGE:
             return Sludge()
-        elif move == Moves.SLUDGE_WAVE:
+        elif move == Moves.SLUDGE_BOMB:
             return SludgeBomb()
-        elif move == Moves.SMOG:
+        elif move == Moves.SLUDGE_WAVE:
             return SludgeWave()
-        elif move == Moves.EXTRASENSORY:
+        elif move == Moves.SMOG:
             return Smog()
-        elif move == Moves.FREEZING_GLARE:
+        elif move == Moves.EXTRASENSORY:
             return Extrasensory()
-        elif move == Moves.HEART_STAMP:
+        elif move == Moves.FREEZING_GLARE:
             return FreezingGlare()
-        elif move == Moves.HYPNOSIS:
+        elif move == Moves.HEART_STAMP:
             return HeartStamp()
-        elif move == Moves.ZEN_HEADBUTT:
+        elif move == Moves.HYPNOSIS:
             return Hypnosis()
-        elif move == Moves.ROCK_SLIDE:
+        elif move == Moves.ZEN_HEADBUTT:
             return ZenHeadbutt()
-        elif move == Moves.DOUBLE_IRON_BASH:
+        elif move == Moves.ROCK_SLIDE:
             return RockSlide()
-        elif move == Moves.IRON_HEAD:
+        elif move == Moves.DOUBLE_IRON_BASH:
             return DoubleIronBash()
-        elif move == Moves.SCALD:
+        elif move == Moves.IRON_HEAD:
             return IronHead()
-        elif move == Moves.SPLISHY_SPLASH:
+        elif move == Moves.SCALD:
             return Scald()
-        elif move == Moves.STEAM_ERUPTION:
+        elif move == Moves.SPLISHY_SPLASH:
             return SplishySplash()
-        elif move == Moves.WATERFALL:
+        elif move == Moves.STEAM_ERUPTION:
             return SteamEruption()
-        elif move == Moves.BUG_BUZZ:
+        elif move == Moves.WATERFALL:
             return Waterfall()
-        elif move == Moves.DEFEND_ORDER:
+        elif move == Moves.BUG_BUZZ:
             return BugBuzz()
-        elif move == Moves.FELL_STINGER:
+        elif move == Moves.DEFEND_ORDER:
             return DefendOrder()
-        elif move == Moves.LUNGE:
+        elif move == Moves.FELL_STINGER:
             return FellStinger()
-        elif move == Moves.POUNCE:
+        elif move == Moves.LUNGE:
             return Lunge()
-        elif move == Moves.QUIVER_DANCE:
+        elif move == Moves.POUNCE:
             return Pounce()
-        elif move == Moves.SILK_TRAP:
+        elif move == Moves.QUIVER_DANCE:
             return QuiverDance()
-        elif move == Moves.SKITTER_SMACK:
+        elif move == Moves.SILK_TRAP:
             return SilkTrap()
-        elif move == Moves.STICKY_WEB:
+        elif move == Moves.SKITTER_SMACK:
             return SkitterSmack()
-        elif move == Moves.STRING_SHOT:
+        elif move == Moves.STICKY_WEB:
             return StickyWeb()
-        elif move == Moves.STRUGGLE_BUG:
+        elif move == Moves.STRING_SHOT:
             return StringShot()
-        elif move == Moves.FAKE_TEARS:
+        elif move == Moves.STRUGGLE_BUG:
             return StruggleBug()
-        elif move == Moves.FLATTER:
+        elif move == Moves.FAKE_TEARS:
             return FakeTears()
-        elif move == Moves.HONE_CLAWS:
+        elif move == Moves.FLATTER:
             return Flatter()
-        elif move == Moves.HYPERSPACE_FURY:
+        elif move == Moves.HONE_CLAWS:
             return HoneClaws()
-        elif move == Moves.MEMENTO:
+        elif move == Moves.HYPERSPACE_FURY:
             return HyperspaceFury()
-        elif move == Moves.NASTY_PLOT:
+        elif move == Moves.MEMENTO:
             return Memento()
-        elif move == Moves.OBSTRUCT:
+        elif move == Moves.NASTY_PLOT:
             return NastyPlot()
-        elif move == Moves.PARTING_SHOT:
+        elif move == Moves.OBSTRUCT:
             return Obstruct()
-        elif move == Moves.SNARL:
+        elif move == Moves.PARTING_SHOT:
             return PartingShot()
-        elif move == Moves.BREAKING_SWIPE:
+        elif move == Moves.SNARL:
             return Snarl()
-        elif move == Moves.CLANGING_SCALES:
+        elif move == Moves.BREAKING_SWIPE:
             return BreakingSwipe()
-        elif move == Moves.CLANGOROUS_SOUL:
+        elif move == Moves.CLANGING_SCALES:
             return ClangingScales()
-        elif move == Moves.DRACO_METEOR:
+        elif move == Moves.CLANGOROUS_SOUL:
             return ClangorousSoul()
-        elif move == Moves.DRAGON_DANCE:
+        elif move == Moves.DRACO_METEOR:
             return DracoMeteor()
-        elif move == Moves.SCALE_SHOT:
+        elif move == Moves.DRAGON_DANCE:
             return DragonDance()
-        elif move == Moves.CHARGE:
+        elif move == Moves.SCALE_SHOT:
             return ScaleShot()
-        elif move == Moves.EERIE_IMPULSE:
+        elif move == Moves.CHARGE:
             return Charge()
-        elif move == Moves.ELECTROWEB:
+        elif move == Moves.EERIE_IMPULSE:
             return EerieImpulse()
-        elif move == Moves.MAGNETIC_FLUX:
+        elif move == Moves.ELECTROWEB:
             return Electroweb()
-        elif move == Moves.AROMATIC_MIST:
+        elif move == Moves.MAGNETIC_FLUX:
             return MagneticFlux()
-        elif move == Moves.BABY_DOLL_EYES:
+        elif move == Moves.AROMATIC_MIST:
             return AromaticMist()
-        elif move == Moves.CHARM:
+        elif move == Moves.BABY_DOLL_EYES:
             return BabyDollEyes()
-        elif move == Moves.DECORATE:
+        elif move == Moves.CHARM:
             return Charm()
-        elif move == Moves.FLEUR_CANNON:
+        elif move == Moves.DECORATE:
             return Decorate()
-        elif move == Moves.FLOWER_SHIELD:
+        elif move == Moves.FLEUR_CANNON:
             return FleurCannon()
-        elif move == Moves.GEOMANCY:
+        elif move == Moves.FLOWER_SHIELD:
             return FlowerShield()
-        elif move == Moves.SPIRIT_BREAK:
+        elif move == Moves.GEOMANCY:
             return Geomancy()
-        elif move == Moves.SPRINGTIDE_STORM:
+        elif move == Moves.SPIRIT_BREAK:
             return SpiritBreak()
-        elif move == Moves.BULK_UP:
+        elif move == Moves.SPRINGTIDE_STORM:
             return SpringtideStorm()
-        elif move == Moves.CLOSE_COMBAT:
+        elif move == Moves.BULK_UP:
             return BulkUp()
-        elif move == Moves.HAMMER_ARM:
+        elif move == Moves.CLOSE_COMBAT:
             return CloseCombat()
-        elif move == Moves.LOW_SWEEP:
+        elif move == Moves.HAMMER_ARM:
             return HammerArm()
-        elif move == Moves.NO_RETREAT:
+        elif move == Moves.LOW_SWEEP:
             return LowSweep()
-        elif move == Moves.OCTOLOCK:
+        elif move == Moves.NO_RETREAT:
             return NoRetreat()
-        elif move == Moves.POWER_UP_PUNCH:
+        elif move == Moves.OCTOLOCK:
             return Octolock()
-        elif move == Moves.SUPERPOWER:
+        elif move == Moves.POWER_UP_PUNCH:
             return PowerUpPunch()
-        elif move == Moves.ARMOR_CANNON:
+        elif move == Moves.SUPERPOWER:
             return Superpower()
-        elif move == Moves.FIRE_LASH:
+        elif move == Moves.ARMOR_CANNON:
             return ArmorCannon()
-        elif move == Moves.FLAME_CHARGE:
+        elif move == Moves.FIRE_LASH:
             return FireLash()
-        elif move == Moves.MYSTICAL_FIRE:
+        elif move == Moves.FLAME_CHARGE:
             return FlameCharge()
-        elif move == Moves.OVERHEAT:
+        elif move == Moves.MYSTICAL_FIRE:
             return MysticalFire()
-        elif move == Moves.V_CREATE:
+        elif move == Moves.OVERHEAT:
             return Overheat()
-        elif move == Moves.DEFOG:
+        elif move == Moves.V_CREATE:
             return Vcreate()
-        elif move == Moves.DRAGON_ASCENT:
+        elif move == Moves.DEFOG:
             return Defog()
-        elif move == Moves.FEATHER_DANCE:
+        elif move == Moves.DRAGON_ASCENT:
             return DragonAscent()
-        elif move == Moves.APPLE_ACID:
+        elif move == Moves.FEATHER_DANCE:
             return FeatherDance()
-        elif move == Moves.COTTON_GUARD:
+        elif move == Moves.APPLE_ACID:
             return AppleAcid()
-        elif move == Moves.COTTON_SPORE:
+        elif move == Moves.COTTON_GUARD:
             return CottonGuard()
-        elif move == Moves.DRUM_BEATING:
+        elif move == Moves.COTTON_SPORE:
             return CottonSpore()
-        elif move == Moves.GRAV_APPLE:
+        elif move == Moves.DRUM_BEATING:
             return DrumBeating()
-        elif move == Moves.LEAF_STORM:
+        elif move == Moves.GRAV_APPLE:
             return GravApple()
-        elif move == Moves.SPICY_EXTRACT:
+        elif move == Moves.LEAF_STORM:
             return LeafStorm()
-        elif move == Moves.STRENGTH_SAP:
+        elif move == Moves.SPICY_EXTRACT:
             return SpicyExtract()
-        elif move == Moves.BULLDOZE:
+        elif move == Moves.STRENGTH_SAP:
             return StrengthSap()
-        elif move == Moves.HEADLONG_RUSH:
+        elif move == Moves.BULLDOZE:
             return Bulldoze()
-        elif move == Moves.MUD_SHOT:
+        elif move == Moves.HEADLONG_RUSH:
             return HeadlongRush()
-        elif move == Moves.MUD_SLAP:
+        elif move == Moves.MUD_SHOT:
             return MudShot()
-        elif move == Moves.ROTOTILLER:
+        elif move == Moves.MUD_SLAP:
             return MudSlap()
-        elif move == Moves.SAND_ATTACK:
+        elif move == Moves.ROTOTILLER:
             return Rototiller()
-        elif move == Moves.GLACIATE:
+        elif move == Moves.SAND_ATTACK:
             return SandAttack()
-        elif move == Moves.ICE_HAMMER:
+        elif move == Moves.GLACIATE:
             return Glaciate()
-        elif move == Moves.ICY_WIND:
+        elif move == Moves.ICE_HAMMER:
             return IceHammer()
-        elif move == Moves.MOUNTAIN_GALE:
+        elif move == Moves.ICY_WIND:
             return IcyWind()
-        elif move == Moves.SNOWSCAPE:
+        elif move == Moves.MOUNTAIN_GALE:
             return MountainGale()
-        elif move == Moves.ACUPRESSURE:
+        elif move == Moves.SNOWSCAPE:
             return Snowscape()
-        elif move == Moves.BELLY_DRUM:
+        elif move == Moves.ACUPRESSURE:
             return Acupressure()
-        elif move == Moves.CAPTIVATE:
+        elif move == Moves.BELLY_DRUM:
             return BellyDrum()
-        elif move == Moves.CONFIDE:
+        elif move == Moves.CAPTIVATE:
             return Captivate()
-        elif move == Moves.DEFENSE_CURL:
+        elif move == Moves.CONFIDE:
             return Confide()
-        elif move == Moves.DOUBLE_TEAM:
+        elif move == Moves.DEFENSE_CURL:
             return DefenseCurl()
-        elif move == Moves.EXTREME_EVOBOOST:
+        elif move == Moves.DOUBLE_TEAM:
             return DoubleTeam()
-        elif move == Moves.FILLET_AWAY:
+        elif move == Moves.EXTREME_EVOBOOST:
             return ExtremeEvoboost()
-        elif move == Moves.FLASH:
+        elif move == Moves.FILLET_AWAY:
             return FilletAway()
-        elif move == Moves.GROWL:
+        elif move == Moves.FLASH:
             return Flash()
-        elif move == Moves.GROWTH:
+        elif move == Moves.GROWL:
             return Growl()
-        elif move == Moves.HARDEN:
+        elif move == Moves.GROWTH:
             return Growth()
-        elif move == Moves.HOWL:
+        elif move == Moves.HARDEN:
             return Harden()
-        elif move == Moves.LEER:
+        elif move == Moves.HOWL:
             return Howl()
-        elif move == Moves.MINIMIZE:
+        elif move == Moves.LEER:
             return Leer()
-        elif move == Moves.NOBLE_ROAR:
+        elif move == Moves.MINIMIZE:
             return Minimize()
-        elif move == Moves.PLAY_NICE:
+        elif move == Moves.NOBLE_ROAR:
             return NobleRoar()
-        elif move == Moves.RAGE:
+        elif move == Moves.PLAY_NICE:
             return PlayNice()
-        elif move == Moves.RAPID_SPIN:
+        elif move == Moves.RAGE:
             return Rage()
-        elif move == Moves.SCARY_FACE:
+        elif move == Moves.RAPID_SPIN:
             return RapidSpin()
-        elif move == Moves.SCREECH:
+        elif move == Moves.SCARY_FACE:
             return ScaryFace()
-        elif move == Moves.SHARPEN:
+        elif move == Moves.SCREECH:
             return Screech()
-        elif move == Moves.SHELL_SMASH:
+        elif move == Moves.SHARPEN:
             return Sharpen()
-        elif move == Moves.SKULL_BASH:
+        elif move == Moves.SHELL_SMASH:
             return ShellSmash()
-        elif move == Moves.SMOKESCREEN:
+        elif move == Moves.SKULL_BASH:
             return SkullBash()
-        elif move == Moves.STUFF_CHEEKS:
+        elif move == Moves.SMOKESCREEN:
             return Smokescreen()
-        elif move == Moves.SWAGGER:
+        elif move == Moves.STUFF_CHEEKS:
             return StuffCheeks()
-        elif move == Moves.SWEET_SCENT:
+        elif move == Moves.SWAGGER:
             return Swagger()
-        elif move == Moves.SWORDS_DANCE:
+        elif move == Moves.SWEET_SCENT:
             return SweetScent()
-        elif move == Moves.ACID_ARMOR:
+        elif move == Moves.SWORDS_DANCE:
             return SwordsDance()
-        elif move == Moves.ACID_SPRAY:
+        elif move == Moves.ACID_ARMOR:
             return AcidArmor()
-        elif move == Moves.COIL:
+        elif move == Moves.ACID_SPRAY:
             return AcidSpray()
-        elif move == Moves.AGILITY:
+        elif move == Moves.COIL:
             return Coil()
-        elif move == Moves.AMNESIA:
+        elif move == Moves.AGILITY:
             return Agility()
-        elif move == Moves.BARRIER:
+        elif move == Moves.AMNESIA:
             return Amnesia()
-        elif move == Moves.CALM_MIND:
+        elif move == Moves.BARRIER:
             return Barrier()
-        elif move == Moves.COSMIC_POWER:
+        elif move == Moves.CALM_MIND:
             return CalmMind()
-        elif move == Moves.ESPER_WING:
+        elif move == Moves.COSMIC_POWER:
             return CosmicPower()
-        elif move == Moves.KINESIS:
+        elif move == Moves.ESPER_WING:
             return EsperWing()
-        elif move == Moves.LUMINA_CRASH:
+        elif move == Moves.KINESIS:
             return Kinesis()
-        elif move == Moves.MEDITATE:
+        elif move == Moves.LUMINA_CRASH:
             return LuminaCrash()
-        elif move == Moves.MYSTICAL_POWER:
+        elif move == Moves.MEDITATE:
             return Meditate()
-        elif move == Moves.PSYCHO_BOOST:
+        elif move == Moves.MYSTICAL_POWER:
             return MysticalPower()
-        elif move == Moves.PSYSHIELD_BASH:
+        elif move == Moves.PSYCHO_BOOST:
             return PsychoBoost()
-        elif move == Moves.ROCK_POLISH:
+        elif move == Moves.PSYSHIELD_BASH:
             return PsyshieldBash()
-        elif move == Moves.ROCK_TOMB:
+        elif move == Moves.ROCK_POLISH:
             return RockPolish()
-        elif move == Moves.AUTOTOMIZE:
+        elif move == Moves.ROCK_TOMB:
             return RockTomb()
-        elif move == Moves.IRON_DEFENSE:
+        elif move == Moves.AUTOTOMIZE:
             return Autotomize()
-        elif move == Moves.KING_SHIELD:
+        elif move == Moves.IRON_DEFENSE:
             return IronDefense()
-        elif move == Moves.MAKE_IT_RAIN:
+        elif move == Moves.KING_SHIELD:
             return KingShield()
-        elif move == Moves.METAL_SOUND:
+        elif move == Moves.MAKE_IT_RAIN:
             return MakeItRain()
-        elif move == Moves.SHELTER:
+        elif move == Moves.METAL_SOUND:
             return MetalSound()
-        elif move == Moves.SHIFT_GEAR:
+        elif move == Moves.SHELTER:
             return Shelter()
-        elif move == Moves.SPIN_OUT:
+        elif move == Moves.SHIFT_GEAR:
             return ShiftGear()
-        elif move == Moves.AQUA_STEP:
+        elif move == Moves.SPIN_OUT:
             return SpinOut()
-        elif move == Moves.CHILLING_WATER:
+        elif move == Moves.AQUA_STEP:
             return AquaStep()
-        elif move == Moves.ANCHOR_SHOT:
+        elif move == Moves.CHILLING_WATER:
             return ChillingWater()
-        elif move == Moves.BEHEMOTH_BASH:
+        elif move == Moves.ANCHOR_SHOT:
             return AnchorShot()
-        elif move == Moves.BEHEMOTH_BLADE:
+        elif move == Moves.BEHEMOTH_BASH:
             return BehemothBash()
-        elif move == Moves.BULLET_PUNCH:
+        elif move == Moves.BEHEMOTH_BLADE:
             return BehemothBlade()
-        elif move == Moves.CORKSCREW_CRASH:
+        elif move == Moves.BULLET_PUNCH:
             return BulletPunch()
-        elif move == Moves.DOOM_DESIRE:
+        elif move == Moves.CORKSCREW_CRASH:
             return CorkscrewCrash()
-        elif move == Moves.FLASH_CANNON:
+        elif move == Moves.DOOM_DESIRE:
             return DoomDesire()
-        elif move == Moves.GEAR_GRIND:
+        elif move == Moves.FLASH_CANNON:
             return FlashCannon()
-        elif move == Moves.GEAR_UP:
+        elif move == Moves.GEAR_GRIND:
             return GearGrind()
-        elif move == Moves.GIGATON_HAMMER:
+        elif move == Moves.GEAR_UP:
             return GearUp()
-        elif move == Moves.GYRO_BALL:
+        elif move == Moves.GIGATON_HAMMER:
             return GigatonHammer()
-        elif move == Moves.HEAVY_SLAM:
+        elif move == Moves.GYRO_BALL:
             return GyroBall()
-        elif move == Moves.IRON_TAIL:
+        elif move == Moves.HEAVY_SLAM:
             return HeavySlam()
-        elif move == Moves.MAGNET_BOMB:
+        elif move == Moves.IRON_TAIL:
             return IronTail()
-        elif move == Moves.METAL_BURST:
+        elif move == Moves.MAGNET_BOMB:
             return MagnetBomb()
-        elif move == Moves.METAL_CLAW:
+        elif move == Moves.METAL_BURST:
             return MetalBurst()
-        elif move == Moves.METEOR_MASH:
+        elif move == Moves.METAL_CLAW:
             return MetalClaw()
-        elif move == Moves.MIRROR_SHOT:
+        elif move == Moves.METEOR_MASH:
             return MeteorMash()
-        elif move == Moves.SEARING_SUNRAZE_SMASH:
+        elif move == Moves.MIRROR_SHOT:
             return MirrorShot()
-        elif move == Moves.SMART_STRIKE:
+        elif move == Moves.SEARING_SUNRAZE_SMASH:
             return SearingSunrazeSmash()
-        elif move == Moves.STEEL_BEAM:
+        elif move == Moves.SMART_STRIKE:
             return SmartStrike()
-        elif move == Moves.STEEL_ROLLER:
+        elif move == Moves.STEEL_BEAM:
             return SteelBeam()
-        elif move == Moves.STEEL_WING:
+        elif move == Moves.STEEL_ROLLER:
             return SteelRoller()
-        elif move == Moves.SUNSTEEL_STRIKE:
+        elif move == Moves.STEEL_WING:
             return SteelWing()
-        elif move == Moves.AQUA_CUTTER:
+        elif move == Moves.SUNSTEEL_STRIKE:
             return SunsteelStrike()
-        elif move == Moves.AQUA_JET:
+        elif move == Moves.AQUA_CUTTER:
             return AquaCutter()
-        elif move == Moves.AQUA_RING:
+        elif move == Moves.AQUA_JET:
             return AquaJet()
-        elif move == Moves.AQUA_TAIL:
+        elif move == Moves.AQUA_RING:
             return AquaRing()
-        elif move == Moves.BOUNCY_BUBBLE:
+        elif move == Moves.AQUA_TAIL:
             return AquaTail()
-        elif move == Moves.BRINE:
+        elif move == Moves.BOUNCY_BUBBLE:
             return BouncyBubble()
-        elif move == Moves.BUBBLE:
+        elif move == Moves.BRINE:
             return Brine()
-        elif move == Moves.BUBBLE_BEAM:
+        elif move == Moves.BUBBLE:
             return Bubble()
-        elif move == Moves.CLAMP:
+        elif move == Moves.BUBBLE_BEAM:
             return BubbleBeam()
-        elif move == Moves.CRABHAMMER:
+        elif move == Moves.CLAMP:
             return Clamp()
-        elif move == Moves.DIVE:
+        elif move == Moves.CRABHAMMER:
             return Crabhammer()
-        elif move == Moves.FISHIOUS_REND:
+        elif move == Moves.DIVE:
             return Dive()
-        elif move == Moves.FLIP_TURN:
+        elif move == Moves.FISHIOUS_REND:
             return FishiousRend()
-        elif move == Moves.HYDRO_CANNON:
+        elif move == Moves.FLIP_TURN:
             return FlipTurn()
-        elif move == Moves.HYDRO_PUMP:
+        elif move == Moves.HYDRO_CANNON:
             return HydroCannon()
-        elif move == Moves.HYDRO_STEAM:
+        elif move == Moves.HYDRO_PUMP:
             return HydroPump()
-        elif move == Moves.HYDRO_VORTEX:
+        elif move == Moves.HYDRO_STEAM:
             return HydroSteam()
-        elif move == Moves.JET_PUNCH:
+        elif move == Moves.HYDRO_VORTEX:
             return HydroVortex()
-        elif move == Moves.LIFE_DEW:
+        elif move == Moves.JET_PUNCH:
             return JetPunch()
-        elif move == Moves.LIQUIDATION:
+        elif move == Moves.LIFE_DEW:
             return LifeDew()
-        elif move == Moves.MUDDY_WATER:
+        elif move == Moves.LIQUIDATION:
             return Liquidation()
-        elif move == Moves.OCEANIC_OPERETTA:
+        elif move == Moves.MUDDY_WATER:
             return MuddyWater()
-        elif move == Moves.OCTAZOOKA:
+        elif move == Moves.OCEANIC_OPERETTA:
             return OceanicOperetta()
-        elif move == Moves.ORIGIN_PULSE:
+        elif move == Moves.OCTAZOOKA:
             return Octazooka()
-        elif move == Moves.RAIN_DANCE:
+        elif move == Moves.ORIGIN_PULSE:
             return OriginPulse()
-        elif move == Moves.RAZOR_SHELL:
+        elif move == Moves.RAIN_DANCE:
             return RainDance()
-        elif move == Moves.SNIPE_SHOT:
+        elif move == Moves.RAZOR_SHELL:
             return RazorShell()
-        elif move == Moves.SOAK:
+        elif move == Moves.SNIPE_SHOT:
             return SnipeShot()
-        elif move == Moves.SPARKLING_ARIA:
+        elif move == Moves.SOAK:
             return Soak()
-        elif move == Moves.SURF:
+        elif move == Moves.SPARKLING_ARIA:
             return SparklingAria()
-        elif move == Moves.SURGING_STRIKES:
+        elif move == Moves.SURF:
             return Surf()
-        elif move == Moves.TRIPLE_DIVE:
+        elif move == Moves.SURGING_STRIKES:
             return SurgingStrikes()
-        elif move == Moves.WATER_GUN:
+        elif move == Moves.TRIPLE_DIVE:
             return TripleDive()
-        elif move == Moves.WATER_PLEDGE:
+        elif move == Moves.WATER_GUN:
             return WaterGun()
-        elif move == Moves.WATER_PULSE:
+        elif move == Moves.WATER_PLEDGE:
             return WaterPledge()
-        elif move == Moves.WATER_SHURIKEN:
+        elif move == Moves.WATER_PULSE:
             return WaterPulse()
-        elif move == Moves.WATER_SPORT:
+        elif move == Moves.WATER_SHURIKEN:
             return WaterShuriken()
-        elif move == Moves.WATER_SPOUT:
+        elif move == Moves.WATER_SPORT:
             return WaterSport()
-        elif move == Moves.WAVE_CRASH:
+        elif move == Moves.WATER_SPOUT:
             return WaterSpout()
-        elif move == Moves.WHIRLPOOL:
+        elif move == Moves.WAVE_CRASH:
             return WaveCrash()
-        elif move == Moves.WITHDRAW:
+        elif move == Moves.WHIRLPOOL:
             return Whirlpool()
+        elif move == Moves.WITHDRAW:
+            return Withdraw()
