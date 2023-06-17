@@ -41,6 +41,46 @@ class Waifu(pygame.sprite.Sprite):
         self.KO = False
         self.move_to_use = None
 
+    def __eq__(self, other):
+            if isinstance(other, self.__class__):
+                return (
+                    self.id == other.id
+                    and self.name == other.name
+                    and self.hp == other.hp
+                    and self.attack == other.attack
+                    and self.defense == other.defense
+                    and self.speed == other.speed
+                    and self.types == other.types
+                    and self.level == other.level
+                    and self.list_of_moves == other.list_of_moves
+                    and self.front_image == other.front_image
+                    and self.back_image == other.back_image
+                    and self.in_fight == other.in_fight
+                    and self.KO == other.KO
+                    and self.move_to_use == other.move_to_use
+                )
+            return False
+
+    def __hash__(self):
+        return hash(
+            (
+                self.id,
+                self.name,
+                self.hp,
+                self.attack,
+                self.defense,
+                self.speed,
+                tuple(self.types),
+                self.level,
+                tuple(self.list_of_moves),
+                self.front_image,
+                self.back_image,
+                self.in_fight,
+                self.KO,
+                self.move_to_use,
+            )
+        )
+
     def get_name(self):
         return self.nom
 
