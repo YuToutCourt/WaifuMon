@@ -1,7 +1,7 @@
 from moves.move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-
+from utils.log import log
 
 class Minimize(Move):
     def __init__(self):
@@ -15,8 +15,26 @@ class Minimize(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_reciver):
         """
-        Sharply raises user's Evasiveness.
+        Sharply raises user's Defense and Speed.
         """
-        pass
+        
+
+        if waifu_user.stat_stage_def == 6:
+            log("TOO HIGH", f"{waifu_user.name} Defense can't be raised anymore !")
+
+        else:
+            waifu_user.stat_stage_def += 2
+            multiplier = 2 / (abs(waifu_user.stat_stage_def) + 2)
+            waifu_user.defense = waifu_user.defense * multiplier
+            log("! STAT CHANGE !", f"{waifu_user.name} Defense has been raised !")
+
+        if waifu_user.stat_stage_spd == 6:
+            log("TOO HIGH", f"{waifu_user.name} Speed can't be raised anymore !")
+
+        else:
+            waifu_user.stat_stage_spd += 2
+            multiplier = 2 / (abs(waifu_user.stat_stage_spd) + 2)
+            waifu_user.speed = waifu_user.speed * multiplier
+            log("! STAT CHANGE !", f"{waifu_user.name} Speed has been raised !")

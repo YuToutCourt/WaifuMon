@@ -29,7 +29,7 @@ class Waifu(pygame.sprite.Sprite):
         self.speed = speed
         self.types = types
         self.level = level
-        self.list_of_moves = [MoveFactory.create_move(random.choice(list(Moves))) for _ in range(4)]
+        self.list_of_moves =[MoveFactory.create_move(Moves.BREAKING_SWIPE)] #[MoveFactory.create_move(random.choice(list(Moves))) for _ in range(4)]
         self.front_image = pygame.image.load(
             f"asset/waifu_sprite/{self.id}/{self.id}_front.png"
         )
@@ -40,6 +40,9 @@ class Waifu(pygame.sprite.Sprite):
         self.in_fight = False
         self.KO = False
         self.move_to_use = None
+        self.stat_stage_def = 0
+        self.stat_stage_atk = 0
+        self.stat_stage_spd = 0
 
     def __eq__(self, other):
             if isinstance(other, self.__class__):
@@ -58,6 +61,9 @@ class Waifu(pygame.sprite.Sprite):
                     and self.in_fight == other.in_fight
                     and self.KO == other.KO
                     and self.move_to_use == other.move_to_use
+                    and self.stat_stage_atk == other.stat_stage_atk
+                    and self.stat_stage_def == other.stat_stage_def
+                    and self.stat_stage_spd == other.stat_stage_spd
                 )
             return False
 
@@ -78,6 +84,10 @@ class Waifu(pygame.sprite.Sprite):
                 self.in_fight,
                 self.KO,
                 self.move_to_use,
+                self.stat_stage,
+                self.stat_stage_atk,
+                self.stat_stage_def,
+                self.stat_stage_spd,
             )
         )
 
@@ -92,6 +102,24 @@ class Waifu(pygame.sprite.Sprite):
 
     def get_inventory_image(self):
         return self.inventory_image
+
+    def display_stats(self):
+        from tabulate import tabulate
+
+        table = [["Name", "HP", "Attack", "Defense", "Speed", "Types", "Level"]]
+        table.append(
+            [
+                self.name,
+                self.hp,
+                self.attack,
+                self.defense,
+                self.speed,
+                [type.type_name for type in self.types],
+                self.level,
+            ]
+        )
+        print(tabulate(table, headers="firstrow", tablefmt="fancy_grid"))
+
 
     def display_pv(self):
         """

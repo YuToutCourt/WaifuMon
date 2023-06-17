@@ -1,7 +1,7 @@
 from moves.move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-
+from utils.log import log
 
 class Kinesis(Move):
     def __init__(self):
@@ -15,8 +15,10 @@ class Kinesis(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_reciver):
         """
-        Lowers opponent's Accuracy.
+        Recover 1/4 of the hp_max.
         """
-        pass
+        
+        waifu_user.hp = waifu_user.hp - 1/4 * waifu_user.hp_max
+        

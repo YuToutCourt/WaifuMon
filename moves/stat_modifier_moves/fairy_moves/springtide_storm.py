@@ -1,7 +1,7 @@
 from moves.move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-
+from utils.log import log
 
 class SpringtideStorm(Move):
     def __init__(self):
@@ -15,8 +15,17 @@ class SpringtideStorm(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_reciver):
         """
         Boosts user's stats in Incarnate Forme, or lowers opponent's stats in Therian Forme.
         """
-        pass
+        
+
+        if waifu_user.stat_stage_spd == 6:
+            log("TOO HIGH", f"{waifu_user.name} Speed can't be raised anymore !")
+
+        else:
+            waifu_user.stat_stage_spd += 2
+            multiplier = 2 / (2 + abs(waifu_user.stat_stage_spd))
+            waifu_user.speed = waifu_user.speed * multiplier
+            log("! STAT CHANGE !", f"{waifu_user.name} Speed has been raised !")
