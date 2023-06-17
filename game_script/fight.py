@@ -38,7 +38,7 @@ class Fight:
             self.handle_knockout(defending_waifu)
             return
 
-        self.play_round(defending_waifu, attacking_waifu)
+        self.play_round(attacking_waifu, defending_waifu)
 
     def determine_attack_order(self, waifu1: Waifu, waifu2: Waifu):
         if waifu1.move_to_use.priority == waifu2.move_to_use.priority:

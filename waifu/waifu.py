@@ -1,8 +1,11 @@
 import pygame
+import random
 from wtypes.type import Type
 from typing import List
 from moves.move_factory import MoveFactory
 from moves.enum_moves import Moves
+from utils.log import log
+from utils.handle_input import input_int
 
 class Waifu(pygame.sprite.Sprite):
     def __init__(
@@ -26,7 +29,7 @@ class Waifu(pygame.sprite.Sprite):
         self.speed = speed
         self.types = types
         self.level = level
-        self.list_of_moves = [MoveFactory.create_move(Moves.ATTACK_ORDER)]
+        self.list_of_moves = [MoveFactory.create_move(random.choice(list(Moves))) for _ in range(4)]
         self.front_image = pygame.image.load(
             f"asset/waifu_sprite/{self.id}/{self.id}_front.png"
         )
@@ -74,30 +77,29 @@ class Waifu(pygame.sprite.Sprite):
         print(f"{self.name} Lv.{self.level}")
         print(f"{bar} {round(self.hp, 2)} / {round(self.hp_max, 2)} ❤")
 
+
+    def __display_moves(self):
+        log("Choice a move")
+        for i, move in enumerate(self.list_of_moves):
+            print(f"{i} - {move.name} ({move.pp} PP)")
+
     def choice_move(self):
         """
         Display the moves of the waifu and let the player choose one
         return the move chosen
         """
-        # Code à faire
-        _ = input("tape to continu: ")
-        self.move_to_use = self.list_of_moves[0]
+        if all(move.pp <= 0 for move in self.list_of_moves):
+            log("PP", "Not enough PP, your waifu use struggle")
+            self.move_to_use = MoveFactory.create_move(Moves.STRUGGLE)
+            return self.move_to_use    
 
-        #check if every move has pp left
-        for move in self.list_of_moves:
-            if move.pp > 0:
-                break
-            else:
-                print("Plus de PP, votre waifu utilise struggle")
-                self.move_to_use = self.list_of_moves[0] # to change to use struggle
-                return self.move_to_use
+        self.__display_moves()
+        choice = input_int("Choice a move: ", 0, len(self.list_of_moves) - 1)
+        while self.list_of_moves[choice].pp <= 0:
+            log("PP", "Not enough PP, choose another move")
+            self.__display_moves()
+            choice = input_int("Choice a move: ", 0, len(self.list_of_moves) - 1)
 
-        # check if there is enough pp to use the move
-        if self.move_to_use.pp <= 0:
-            print("PP insuffisant, choisissez une autre attaque")
-            self.choice_move()
-
-        # decrease the pp of the move used
+        self.move_to_use = self.list_of_moves[choice]
         self.move_to_use.pp -= 1
-
         return self.move_to_use
