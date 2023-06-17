@@ -153,6 +153,9 @@ class Fight:
 
     def calculate_damage(self, attacker: Waifu, opponent: Waifu):
         move_used = attacker.move_to_use
+        if move_used.power == 0:
+            return 0
+        
         multiplier = self.__get_multiplier(attacker, move_used, opponent)
 
         damage = (
