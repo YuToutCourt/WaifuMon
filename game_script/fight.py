@@ -48,9 +48,13 @@ class Fight:
         obj = self.__check_team_waifu(waifu1)
 
         if isinstance(obj, Player):
+            waifu1.display_pv()
+            waifu2.display_pv()
             waifu1.choice_move()
             self.enemy_choice(waifu1, waifu2)
         else:
+            waifu2.display_pv()
+            waifu1.display_pv()
             waifu2.choice_move()
             self.player_choice(waifu2, waifu1)
 
@@ -78,7 +82,6 @@ class Fight:
         if uniform(0, 100) <= move_used.accuracy:
             damage = self.calculate_damage(attacker, defender)
             defender.hp -= damage
-            defender.display_pv()
 
             if defender.hp <= 0:
                 return self.handle_knockout(defender)

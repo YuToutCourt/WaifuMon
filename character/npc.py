@@ -4,6 +4,8 @@ from character.character import Character
 from utils.coordinates import Coordinates
 from waifu.waifu import Waifu
 from utils.log import log
+from moves.move_factory import MoveFactory
+from moves.enum_moves import Moves
 
 class NPC(Character):
     def __init__(self, name, coordinates: Coordinates, dialog: str):
@@ -34,10 +36,17 @@ class NPC(Character):
 
     def handle_choice_during_fight(self, waifu_player: Waifu, waifu_npc: Waifu):
         # Ajoutez ici le code spécifique à la classe NPC
-        move = random.choice(waifu_npc.list_of_moves)
-        waifu_npc.move_to_use = move
-        waifu_npc.move_to_use.pp -= 1
-        return move
+
+        if all(move.pp <= 0 for move in waifu_npc.list_of_moves):
+            self.move_to_use = MoveFactory.create_move(Moves.STRUGGLE)
+            return self.move_to_use   
+
+        while True:
+            move = random.choice(waifu_npc.list_of_moves)
+            if move.pp > 0:
+                waifu_npc.move_to_use = move
+                waifu_npc.move_to_use.pp -= 1
+                return move
 
     def choice_next_waifu(self):
         """
