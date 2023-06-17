@@ -83,4 +83,21 @@ class Waifu(pygame.sprite.Sprite):
         _ = input("tape to continu: ")
         self.move_to_use = self.list_of_moves[0]
 
+        #check if every move has pp left
+        for move in self.list_of_moves:
+            if move.pp > 0:
+                break
+            else:
+                print("Plus de PP, votre waifu utilise struggle")
+                self.move_to_use = self.list_of_moves[0] # to change to use struggle
+                return self.move_to_use
+
+        # check if there is enough pp to use the move
+        if self.move_to_use.pp <= 0:
+            print("PP insuffisant, choisissez une autre attaque")
+            self.choice_move()
+
+        # decrease the pp of the move used
+        self.move_to_use.pp -= 1
+
         return self.move_to_use
