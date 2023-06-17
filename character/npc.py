@@ -36,6 +36,7 @@ class NPC(Character):
         # Ajoutez ici le code spécifique à la classe NPC
         move = random.choice(waifu_npc.list_of_moves)
         waifu_npc.move_to_use = move
+        waifu_npc.move_to_use.pp -= 1
         return move
 
     def choice_next_waifu(self):
