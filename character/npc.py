@@ -3,7 +3,7 @@ import random
 from character.character import Character
 from utils.coordinates import Coordinates
 from waifu.waifu import Waifu
-
+from utils.log import log
 
 class NPC(Character):
     def __init__(self, name, coordinates: Coordinates, dialog: str):
@@ -34,7 +34,10 @@ class NPC(Character):
 
     def handle_choice_during_fight(self, waifu_player: Waifu, waifu_npc: Waifu):
         # Ajoutez ici le code spécifique à la classe NPC
-        return waifu_npc.choice_move()
+        move = random.choice(waifu_npc.list_of_moves)
+        waifu_npc.move_to_use = move
+        waifu_npc.move_to_use.pp -= 1
+        return move
 
     def choice_next_waifu(self):
         """

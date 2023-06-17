@@ -4,6 +4,7 @@ from waifu.waifu import Waifu
 from moves.move import Move
 from random import uniform
 from utils.log import log
+from typing import Union
 
 
 class Fight:
@@ -22,13 +23,36 @@ class Fight:
 
         self.play_round(waifu_player, waifu_enemy)
 
+    def __check_team_waifu(self, waifu) -> Union[Player, NPC]:
+        """
+        Check in which team the waifu is
+        :param waifu: Waifu to check
+        :return: Player or NPC
+        """
+        for waifu_player in self.player.team:
+            if waifu_player == waifu:
+                return self.player
+        
+        for waifu_npc in self.npc.team:
+            if waifu_npc == waifu:
+                return self.npc
+            
+        raise Exception("Waifu not found in team")
+        
+
     def play_round(self, waifu1: Waifu, waifu2: Waifu):
         log("Tour", self.tour)
         log("Current battle", f"{waifu1.name} vs {waifu2.name}")
         self.tour += 1
 
-        waifu1.choice_move()
-        self.enemy_choice(waifu1, waifu2)
+        obj = self.__check_team_waifu(waifu1)
+
+        if isinstance(obj, Player):
+            waifu1.choice_move()
+            self.enemy_choice(waifu1, waifu2)
+        else:
+            waifu2.choice_move()
+            self.player_choice(waifu2, waifu1)
 
         attacking_waifu, defending_waifu = self.determine_attack_order(waifu1, waifu2)
 
@@ -38,7 +62,7 @@ class Fight:
             self.handle_knockout(defending_waifu)
             return
 
-        self.play_round(defending_waifu, attacking_waifu)
+        self.play_round(attacking_waifu, defending_waifu)
 
     def determine_attack_order(self, waifu1: Waifu, waifu2: Waifu):
         if waifu1.move_to_use.priority == waifu2.move_to_use.priority:

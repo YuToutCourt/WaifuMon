@@ -32,7 +32,7 @@ class FightScreen:
 
         # def __main_loop(self, player, npc, fight):
         while fight.finished is False:
-            event = pygame.event.get()
+            _ = pygame.event.get()
             if self.__load_waifu(player, npc):
                 self.__update_display()
 
@@ -103,16 +103,13 @@ class FightScreen:
 
     def __update_display(self):
         self.screen.blit(self.background, (0, 0))
-        print("blit background")
         self.screen.blit(
             self.waifu_front,
             (self.screen.get_width() // 1.5, self.screen.get_height() // 2.95),
         )
-        print("blit waifu front")
         self.screen.blit(
             self.waifu_back,
             (self.screen.get_width() // 8, self.screen.get_height() // 2.2),
         )
-        print("blit waifu back")
 
         pygame.display.flip()
