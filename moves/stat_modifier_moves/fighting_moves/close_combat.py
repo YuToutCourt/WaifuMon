@@ -19,7 +19,6 @@ class CloseCombat(Move):
         """
         Lowers user's Defense.
         """
-        
 
         if waifu_user.stat_stage_def == -6:
             log("TOO LOW", f"{waifu_reciver.name} Defense can't be lowered anymore !")
@@ -28,7 +27,4 @@ class CloseCombat(Move):
             waifu_user.stat_stage_def -= 1
             multiplier = 2 / (2 + abs(waifu_user.stat_stage_def))
             waifu_user.defense = waifu_user.defense * multiplier
-            log("! STAT CHANGE !", f"{waifu_reciver.name} Defense has been lowered !")
-            
-        waifu_user.hp -= 10
-        log("! HP CHANGE !", f"{waifu_reciver.name} has lost 10 HP !")
+            log("! STAT CHANGE !", f"{waifu_user.name} Defense has been lowered !")
