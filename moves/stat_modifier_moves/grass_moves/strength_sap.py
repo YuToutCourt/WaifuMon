@@ -23,8 +23,8 @@ class StrengthSap(Move):
         
 
         attack_stat = waifu_reciver.attack
-        if waifu_user.hp + attack_stat > waifu_user.max_hp:
-            waifu_user.hp = waifu_user.max_hp
+        if waifu_user.hp + attack_stat > waifu_user.hp_max:
+            waifu_user.hp = waifu_user.hp_max
         else:
             waifu_user.hp += attack_stat
 

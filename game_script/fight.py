@@ -45,6 +45,12 @@ class Fight:
         log("Current battle", f"{waifu1.name} vs {waifu2.name}")
         self.tour += 1
 
+        if waifu1.status is not None:
+            waifu1.status.apply_status()
+
+        if waifu2.status is not None:
+            waifu2.status.apply_status()
+
         obj = self.__check_team_waifu(waifu1)
 
         if isinstance(obj, Player):
@@ -86,19 +92,22 @@ class Fight:
         if uniform(0, 100) <= move_used.accuracy:
             damage = self.calculate_damage(attacker, defender)
             defender.hp -= damage
-            
+            log(move_used.name, f"{defender.name} a perdu {damage} PV")
             if defender.hp <= 0:
                 defender.display_pv()
                 return self.handle_knockout(defender)
             
             # The try/except is here to handle moves that don't have an effect 
             # (because I don't wont to modify all the moves)
-
             if uniform(0, 100) <= move_used.proba_effect:
                 try:
+                    log("Effect")
                     attacker.move_to_use.effect(attacker, defender)
-                except TypeError:
-                    pass
+                    if defender.hp <= 0:
+                        defender.display_pv()
+                        return self.handle_knockout(defender)
+                except Exception as e:
+                    log("Effect Error ", e)
 
         else:
             print("Le coup n'a pas touché")

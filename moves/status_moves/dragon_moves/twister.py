@@ -17,6 +17,6 @@ class Twister(Move):
 
     def effect(self):
         """
-        May cause flinching. Hits Pok�mon using Fly/Bounce with double power.
+        May cause flinching. Hits Pokemon using Fly/Bounce with double power.
         """
         pass
