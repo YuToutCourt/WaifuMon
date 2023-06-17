@@ -125,10 +125,10 @@ class Fight:
         return self.npc.handle_choice_during_fight(waifu_player, waifu_npc)
 
     def __get_multiplier(self, attacker: Waifu, move_used: Move, opponent: Waifu):
-        if any(attacker_type in opponent.types for attacker_type in attacker.types):
-            multiplier = 1
-        else:
+        if any(move_used.type.type_name == type.type_name for type in attacker.types):
             multiplier = 1.5
+        else:
+            multiplier = 1
 
 
         for type_ in opponent.types:
@@ -152,8 +152,6 @@ class Fight:
         if uniform(0, 100) <= 5.17:
             log("Coup critique !")
             multiplier *= 1.5
-
-        log("After critical", f"Multiplier is {multiplier}")
 
         return multiplier
 

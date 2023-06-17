@@ -117,7 +117,6 @@ class Waifu(pygame.sprite.Sprite):
         print(f"{self.name} Lv.{self.level}")
         print(f"{bar} {round(self.hp, 2)} / {round(self.hp_max, 2)} ❤")
 
-
     def __display_moves(self):
         log("Choice a move")
         for i, move in enumerate(self.list_of_moves):

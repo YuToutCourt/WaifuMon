@@ -15,8 +15,10 @@ class BugBuzz(Move):
             proba_effect=10,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_reciver):
         """
         May lower opponent's Special Defense.
         """
-        pass
+        self.set_waifu_reciver(waifu_reciver)
+
+        
