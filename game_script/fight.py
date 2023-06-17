@@ -56,7 +56,7 @@ class Fight:
             waifu2.display_pv()
             waifu1.display_pv()
             waifu2.choice_move()
-            self.player_choice(waifu2, waifu1)
+            self.enemy_choice(waifu2, waifu1)
 
         attacking_waifu, defending_waifu = self.determine_attack_order(waifu1, waifu2)
 
@@ -84,6 +84,7 @@ class Fight:
             defender.hp -= damage
 
             if defender.hp <= 0:
+                defender.display_pv()
                 return self.handle_knockout(defender)
         else:
             print("Le coup n'a pas touché")
