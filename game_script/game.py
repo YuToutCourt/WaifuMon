@@ -41,6 +41,13 @@ class Game:
             if obj.type == "collision":
                 self.collisions.append(pygame.Rect(obj.x, obj.y, obj.width, obj.height))
 
+        pygame.mixer.init()
+        pygame.mixer.fadeout(1000)
+
+        pygame.mixer.music.load("asset/music/main_theme.mp3")
+        pygame.mixer.music.set_volume(0.1)
+        pygame.mixer.music.play(-1)
+
         self.direction_map = {
             (pygame.K_UP, pygame.K_LEFT, pygame.K_RIGHT): "down",
             (pygame.K_DOWN, pygame.K_LEFT, pygame.K_RIGHT): "up",
