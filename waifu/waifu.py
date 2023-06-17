@@ -1,8 +1,8 @@
 import pygame
 from wtypes.type import Type
 from typing import List
-from moves.dragon_moves.dragon_claw import DragonClaw
-
+from moves.move_factory import MoveFactory
+from moves.enum_moves import Moves
 
 class Waifu(pygame.sprite.Sprite):
     def __init__(
@@ -26,7 +26,7 @@ class Waifu(pygame.sprite.Sprite):
         self.speed = speed
         self.types = types
         self.level = level
-        self.list_of_moves = [DragonClaw()]
+        self.list_of_moves = [MoveFactory.create_move(Moves.ATTACK_ORDER)]
         self.front_image = pygame.image.load(
             f"asset/waifu_sprite/{self.id}/{self.id}_front.png"
         )
