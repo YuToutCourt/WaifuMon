@@ -29,7 +29,7 @@ class Waifu(pygame.sprite.Sprite):
         self.speed = speed
         self.types = types
         self.level = level
-        self.list_of_moves = [MoveFactory.create_move(random.choice(list(Moves))) for _ in range(4)]
+        self.list_of_moves = [MoveFactory.create_move(random.choice(list(Moves))) for _ in range(4)] + [MoveFactory.create_move(Moves.GUNK_SHOT)]
         self.front_image = pygame.image.load(
             f"asset/waifu_sprite/{self.id}/{self.id}_front.png"
         )
@@ -43,6 +43,7 @@ class Waifu(pygame.sprite.Sprite):
         self.stat_stage_def = 0
         self.stat_stage_atk = 0
         self.stat_stage_spd = 0
+        self.status = None
 
     def __eq__(self, other):
             if isinstance(other, self.__class__):

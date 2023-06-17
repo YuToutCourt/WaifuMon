@@ -1,7 +1,8 @@
 from moves.move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-
+from utils.log import log
+from status.burn import Burn
 
 class WillOWisp(Move):
     def __init__(self):
@@ -15,8 +16,9 @@ class WillOWisp(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_receiver):
         """
         Burns opponent.
         """
-        pass
+        waifu_receiver.status = Burn(waifu_receiver)
+        log("Will-O-Wisp", f"{waifu_receiver.name} is burned!")
