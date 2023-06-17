@@ -5,6 +5,9 @@ from typing import List
 from wtypes.type_factory import TypeFactory
 from abc import ABC, abstractmethod
 
+import json
+from random import shuffle, randint
+
 
 class Character(pygame.sprite.Sprite, ABC):
     def __init__(self, coordinates: Coordinates, image_path: str):
@@ -21,7 +24,7 @@ class Character(pygame.sprite.Sprite, ABC):
         image = pygame.Surface([38, 46])
         image.blit(self.image, (0, 0), (x, y, 38, 46))
         return image
-    
+
     def update(self):
         self.rect.topleft = self.position
 
@@ -43,16 +46,15 @@ class Character(pygame.sprite.Sprite, ABC):
         pass
 
     def __create_random_team(self):
-        from random import shuffle, randint
-
         with open(
-            "asset/waifu_sprite/all_waifu_name.txt", "r", encoding="utf-8"
+            "asset/waifu_sprite/all_waifu_name.json", "r", encoding="utf-8"
         ) as file:
-            data = file.read().split("\n")
+            data = json.load(file)["characters"]
             shuffle(data)
             for w in data[:6]:
-                name, types, id = w.split(",")
-                types = types.split("-")
+                name = w["nom"]
+                types = w["types"]
+                id = w["id"]
                 types_ = [TypeFactory.create_type(type) for type in types]
                 waifu = Waifu(
                     id,
