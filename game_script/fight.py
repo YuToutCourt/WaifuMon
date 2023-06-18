@@ -57,16 +57,16 @@ class Fight:
         obj = self.__check_team_waifu(waifu1)
 
         if isinstance(obj, Player):
-            waifu1.display_pv()
+            waifu1.display_hp()
             waifu1.display_stats()
-            waifu2.display_pv()
+            waifu2.display_hp()
             waifu2.display_stats()
             waifu1.choice_move()
             self.enemy_choice(waifu1, waifu2)
         else:
-            waifu2.display_pv()
+            waifu2.display_hp()
             waifu2.display_stats()
-            waifu1.display_pv()
+            waifu1.display_hp()
             waifu1.display_stats()
             waifu2.choice_move()
             self.enemy_choice(waifu2, waifu1)
@@ -105,7 +105,7 @@ class Fight:
             defender.hp -= damage
             log(move_used.name, f"{defender.name} a perdu {damage} PV")
             if defender.hp <= 0:
-                defender.display_pv()
+                defender.display_hp()
                 return self.handle_knockout(defender)
             
             # The try/except is here to handle moves that don't have an effect 
@@ -115,7 +115,7 @@ class Fight:
                     log("Effect")
                     attacker.move_to_use.effect(attacker, defender)
                     if defender.hp <= 0:
-                        defender.display_pv()
+                        defender.display_hp()
                         return self.handle_knockout(defender)
                 except Exception as e:
                     log("Effect Error ", e)

@@ -37,15 +37,16 @@ class NPC(Character):
         # Ajoutez ici le code spécifique à la classe NPC
 
         if all(move.pp <= 0 for move in waifu_npc.list_of_moves):
-            self.move_to_use = MoveFactory.create_move(Moves.STRUGGLE)
-            return self.move_to_use
+            log("NPC PP", "Not enough PP, your waifu use struggle")
+            waifu_npc.move_to_use = MoveFactory.create_move(Moves.STRUGGLE)
+            return waifu_npc.move_to_use
 
         while True:
             move = random.choice(waifu_npc.list_of_moves)
             if move.pp > 0:
                 waifu_npc.move_to_use = move
                 waifu_npc.move_to_use.pp -= 1
-                return move
+                return waifu_npc.move_to_use
 
     def choice_next_waifu(self):
         """
