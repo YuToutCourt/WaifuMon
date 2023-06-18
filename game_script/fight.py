@@ -96,6 +96,7 @@ class Fight:
         if not self.__apply_status_before_attack(attacker):
             if attacker.hp <= 0:
               return self.handle_knockout(attacker)
+            return self.attack(defender, attacker, stop=True)
 
         log("Attack", f"{attacker.name} use {move_used.name}")
         if randint(0, 100) <= move_used.accuracy:
