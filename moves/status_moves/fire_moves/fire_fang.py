@@ -20,5 +20,5 @@ class FireFang(Move):
         """
         May cause flinching and/or burn opponent.
         """
-        waifu_receiver.status = Burn(waifu_receiver)
+        waifu_receiver.status = Burn(waifu_receiver, True)
         log("Fire Fang", f"{waifu_receiver.name} is burned!")

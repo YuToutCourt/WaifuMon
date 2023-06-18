@@ -20,5 +20,5 @@ class Sludge(Move):
         """
         May poison opponent.
         """
-        waifu_receiver.status = Poison(waifu_receiver)
+        waifu_receiver.status = Poison(waifu_receiver, True)
         log("Sludge", f"{waifu_receiver.name} is poisoned!")

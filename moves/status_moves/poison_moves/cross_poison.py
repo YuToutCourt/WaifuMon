@@ -20,5 +20,5 @@ class CrossPoison(Move):
         """
         High critical hit ratio. May poison opponent.
         """
-        waifu_receiver.status = Poison(waifu_receiver)
+        waifu_receiver.status = Poison(waifu_receiver, True)
         log("Cross Poison", f"{waifu_receiver.name} is poisoned!")

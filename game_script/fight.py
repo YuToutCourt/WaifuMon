@@ -2,9 +2,9 @@ from character.npc import NPC
 from character.player import Player
 from waifu.waifu import Waifu
 from moves.move import Move
-from random import uniform
+from random import uniform, randint
 from utils.log import log
-from typing import Union
+from typing import Union, List
 
 
 class Fight:
@@ -39,17 +39,19 @@ class Fight:
             
         raise Exception("Waifu not found in team")
         
+    def __apply_status_before_attack(self, waifu:Waifu):
+        if waifu.status is not None and waifu.status.after_attack == False:
+            return waifu.status.apply_status()
+
+    def __apply_status_after_attack(self, waifus:List[Waifu]):
+        for waifu in waifus:
+            if waifu.status is not None and waifu.status.after_attack:
+                waifu.status.apply_status()
 
     def play_round(self, waifu1: Waifu, waifu2: Waifu):
         log("Tour", self.tour)
         log("Current battle", f"{waifu1.name} vs {waifu2.name}")
         self.tour += 1
-
-        if waifu1.status is not None:
-            waifu1.status.apply_status()
-
-        if waifu2.status is not None:
-            waifu2.status.apply_status()
 
         obj = self.__check_team_waifu(waifu1)
 
@@ -75,6 +77,8 @@ class Fight:
         if defending_waifu.hp <= 0:
             self.handle_knockout(defending_waifu)
             return
+        
+        self.__apply_status_after_attack([waifu1, waifu2])
 
         self.play_round(attacking_waifu, defending_waifu)
 
@@ -88,8 +92,13 @@ class Fight:
 
     def attack(self, attacker: Waifu, defender: Waifu, stop=False):
         move_used = attacker.move_to_use
+
+        if not self.__apply_status_before_attack(attacker):
+            if attacker.hp <= 0:
+              return self.handle_knockout(attacker)
+
         log("Attack", f"{attacker.name} use {move_used.name}")
-        if uniform(0, 100) <= move_used.accuracy:
+        if randint(0, 100) <= move_used.accuracy:
             damage = self.calculate_damage(attacker, defender)
             defender.hp -= damage
             log(move_used.name, f"{defender.name} a perdu {damage} PV")
@@ -99,7 +108,7 @@ class Fight:
             
             # The try/except is here to handle moves that don't have an effect 
             # (because I don't wont to modify all the moves)
-            if uniform(0, 100) <= move_used.proba_effect:
+            if randint(0, 100) <= move_used.proba_effect:
                 try:
                     log("Effect")
                     attacker.move_to_use.effect(attacker, defender)

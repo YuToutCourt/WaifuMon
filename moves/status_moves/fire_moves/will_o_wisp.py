@@ -20,5 +20,5 @@ class WillOWisp(Move):
         """
         Burns opponent.
         """
-        waifu_receiver.status = Burn(waifu_receiver)
+        waifu_receiver.status = Burn(waifu_receiver, True)
         log("Will-O-Wisp", f"{waifu_receiver.name} is burned!")

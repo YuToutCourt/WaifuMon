@@ -6,7 +6,6 @@ class Burn(Status):
     def __init__(self, waifu):
         super().__init__(StatusE.BURN, waifu)
 
-
     def apply_status(self):
         """
         Burn status effect.

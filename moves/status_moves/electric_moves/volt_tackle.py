@@ -1,7 +1,8 @@
 from moves.move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-
+from utils.log import log
+from status.paralysis import Paralysis
 
 class VoltTackle(Move):
     def __init__(self):
@@ -15,8 +16,12 @@ class VoltTackle(Move):
             proba_effect=10,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_reciver):
         """
         User receives recoil damage. May paralyze opponent.
         """
-        pass
+        waifu_reciver.status = Paralysis(waifu_reciver, False)
+        log(self.name, f"{waifu_reciver.name} is paralyse!")
+
+        waifu_user.hp *= 0.8
+        log(self.name, f"{waifu_user.name} receives recoil damage!")

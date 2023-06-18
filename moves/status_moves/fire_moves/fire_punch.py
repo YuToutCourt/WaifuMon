@@ -20,5 +20,5 @@ class FirePunch(Move):
         """
         May burn opponent.
         """
-        waifu_receiver.status = Burn(waifu_receiver)
+        waifu_receiver.status = Burn(waifu_receiver, True)
         log("Fire Punch", f"{waifu_receiver.name} is burned!")

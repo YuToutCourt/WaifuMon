@@ -15,8 +15,12 @@ class HealOrder(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_reciver):
         """
         User recovers half its max HP.
         """
-        pass
+        healing = waifu_user.hp_max / 2
+        if healing + waifu_user.hp >= waifu_user.hp_max:
+            waifu_user.hp = waifu_user.hp_max
+        else:
+            waifu_user.hp += healing

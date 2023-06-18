@@ -6,7 +6,6 @@ class Poison(Status):
     def __init__(self, waifu):
         super().__init__(StatusE.POISON, waifu)
 
-
     def apply_status(self):
         """
         Poison status effect.
