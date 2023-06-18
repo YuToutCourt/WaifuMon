@@ -19,7 +19,6 @@ class PlayNice(Move):
         """
         Lowers opponent's Attack. Always hits.
         """
-        
 
         if waifu_reciver.stat_stage_atk == -6:
             log("TOO LOW", f"{waifu_reciver.name} Attack can't be lowered anymore !")
