@@ -1,10 +1,12 @@
 import pytmx
 import pygame
 import pyscroll
+import time
 
 from character.player import Player
 from utils.coordinates import Coordinates
 from character.npc import NPC
+from character.dialog import Dialog
 
 
 class Game:
@@ -66,6 +68,8 @@ class Game:
         self.group = pyscroll.PyscrollGroup(map_layer=map_layer, default_layer=3)
         self.group.add(self.player)
         self.load_npc(tmx_data)
+        self.dialog = Dialog()
+        self.contact = False
 
     def load_npc(self, tmx_data):
         """
@@ -106,8 +110,13 @@ class Game:
                     pygame.sprite.collide_rect(self.player, npc)
                     and pressed[pygame.K_RETURN]
                 ):
-                    npc.handle_interaction(self.screen, self.player)
-
+                    self.contact = True
+                elif not pygame.sprite.collide_rect(self.player, npc) and pressed[
+                    pygame.K_RETURN
+                ]:
+                    self.contact = False
+                    self.dialog.end_dialog()
+                    
         for collision in self.collisions:
             if pygame.Rect.colliderect(self.player.rect, collision):
                 for keys, direction in self.direction_map.items():
@@ -128,9 +137,14 @@ class Game:
             self.group.center(self.player.rect.center)
             self.handle_collisions()
             self.group.draw(self.screen)
+            self.dialog.display(self.screen)
             pygame.display.flip()
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
-
+                elif event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_RETURN and self.contact:
+                        self.dialog.set_text(npc.dialog)
+                        self.dialog.start_dialog(npc, self.screen, self.player)
+            
         pygame.quit()
