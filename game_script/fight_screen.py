@@ -35,7 +35,7 @@ class FightScreen:
         # main_loop_t = threading.Thread(target=self.__main_loop, args=(player, npc, fight))
         # main_loop_t.start()
 
-        # def __main_loop(self, player, npc, fight):
+        # Display the fight
         while fight.finished is False:
             _ = pygame.event.get()
             if self.__load_waifu(player, npc):
@@ -70,7 +70,7 @@ class FightScreen:
         """
         Charge l'image de fond
         """
-        background = pygame.image.load("asset/Battle/battleground1.png")
+        background = pygame.image.load("asset/Battle/battleground2.jpg")
 
         self.background = pygame.transform.scale(
             background, (self.screen.get_width(), self.screen.get_height())
