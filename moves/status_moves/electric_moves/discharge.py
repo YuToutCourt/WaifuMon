@@ -1,7 +1,8 @@
 from moves.move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-
+from utils.log import log
+from status.paralysis import Paralysis
 
 class Discharge(Move):
     def __init__(self):
@@ -15,8 +16,9 @@ class Discharge(Move):
             proba_effect=30,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_reciver):
         """
         May paralyze opponent.
         """
-        pass
+        waifu_reciver.status = Paralysis(waifu_reciver, False)
+        log("Discharge", f"{waifu_reciver.name} is paralyse!")

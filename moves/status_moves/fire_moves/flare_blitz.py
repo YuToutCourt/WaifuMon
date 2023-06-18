@@ -20,7 +20,7 @@ class FlareBlitz(Move):
         """
         User receives recoil damage. May burn opponent.
         """
-        waifu_receiver.status = Burn(waifu_receiver)
+        waifu_receiver.status = Burn(waifu_receiver, True)
         log("Flare Blitz", f"{waifu_receiver.name} is burned!")
         waifu_user.receive_damage(waifu_user.max_hp * 0.7)
         log("Flare Blitz", f"{waifu_user.name} is hurt by recoil!")

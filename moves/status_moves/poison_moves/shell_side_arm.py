@@ -20,5 +20,5 @@ class ShellSideArm(Move):
         """
         May poison opponent. Inflicts either Special or Physical damage, whichever is better.
         """
-        waifu_receiver.status = Poison(waifu_receiver)
+        waifu_receiver.status = Poison(waifu_receiver, True)
         log("Shell Side Arm", f"{waifu_receiver.name} is poisoned!")

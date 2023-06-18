@@ -20,5 +20,5 @@ class BlazeKick(Move):
         """
         High critical hit ratio. May burn opponent.
         """
-        waifu_receiver.status = Burn(waifu_receiver)
+        waifu_receiver.status = Burn(waifu_receiver, True)
         log("Blaze Kick", f"{waifu_receiver.name} is burned!")

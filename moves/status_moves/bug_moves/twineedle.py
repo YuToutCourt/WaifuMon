@@ -20,5 +20,5 @@ class Twineedle(Move):
         """
         Hits twice in one turn. May poison opponent.
         """
-        defender.status = Poison(defender)
+        defender.status = Poison(defender, True)
         log("Twineedle", f"{defender.name} is poisoned!")
