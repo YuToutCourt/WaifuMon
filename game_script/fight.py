@@ -42,6 +42,7 @@ class Fight:
     def __apply_status_before_attack(self, waifu:Waifu):
         if waifu.status is not None and waifu.status.after_attack == False:
             return waifu.status.apply_status()
+        return True
 
     def __apply_status_after_attack(self, waifus:List[Waifu]):
         for waifu in waifus:
