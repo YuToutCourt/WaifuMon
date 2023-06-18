@@ -27,5 +27,5 @@ class StringShot(Move):
         else:
             waifu_reciver.stat_stage_spd -= 2
             multiplier = 2 / (2 + abs(waifu_reciver.stat_stage_spd))
-            waifu_reciver.speed = waifu_reciver.speed * multiplier
+            waifu_reciver.speed = waifu_reciver.base_speed * multiplier
             log("! STAT CHANGE !",f"{waifu_reciver.name} Speed has been lowered !")

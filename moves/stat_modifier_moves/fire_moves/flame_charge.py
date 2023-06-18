@@ -27,5 +27,5 @@ class FlameCharge(Move):
         else:
             waifu_user.stat_stage_spd += 1
             multiplier = (abs(waifu_user.stat_stage_spd) + 2) / 2
-            waifu_user.speed = waifu_user.speed * multiplier
+            waifu_user.speed = waifu_user.base_speed * multiplier
             log("! STAT CHANGE !", f"{waifu_reciver.name} Speed has been raised !")

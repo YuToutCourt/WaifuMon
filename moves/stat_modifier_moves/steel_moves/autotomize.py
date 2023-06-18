@@ -27,5 +27,5 @@ class Autotomize(Move):
         else:
             waifu_user.stat_stage_spd += 2
             multiplier = 2 / (abs(waifu_user.stat_stage_spd) + 2)
-            waifu_user.speed = waifu_user.speed * multiplier
+            waifu_user.speed = waifu_user.base_speed * multiplier
             log("! STAT CHANGE !", f"{waifu_user.name} Speed has been raised !")

@@ -5,6 +5,9 @@ from moves.move import Move
 from random import uniform, randint
 from utils.log import log
 from typing import Union, List
+from utils.handle_input import input_int    
+from moves.move_factory import MoveFactory
+from moves.enum_moves import Moves
 
 
 class Fight:
@@ -49,6 +52,20 @@ class Fight:
             if waifu.status is not None and waifu.status.after_attack:
                 waifu.status.apply_status()
 
+    def  __user_choice(self, waifu1, waifu2):
+        """
+        User choice
+        The user can either attack or change waifu
+        :param waifu1: Waifu of the player (always)
+        :param waifu2: Waifu of the NPC (always)
+        """
+        choice = input_int("Que voulez-vous faire ?\n1. Attaquer\n2. Changer de waifu\n", 1, 2)
+        if choice == 1:
+            return waifu1, False
+        else:
+            return self.player.choice_next_waifu(waifu1), True
+
+
     def play_round(self, waifu1: Waifu, waifu2: Waifu):
         log("Tour", self.tour)
         log("Current battle", f"{waifu1.name} vs {waifu2.name}")
@@ -61,14 +78,22 @@ class Fight:
             waifu1.display_stats()
             waifu2.display_hp()
             waifu2.display_stats()
-            waifu1.choice_move()
+            waifu1, as_switch  = self.__user_choice(waifu1, waifu2)
+            if not as_switch:
+                waifu1.choice_move()
+            else:
+                waifu1.move_to_use = MoveFactory.create_move(Moves.NOTHING)
             self.enemy_choice(waifu1, waifu2)
         else:
             waifu2.display_hp()
             waifu2.display_stats()
             waifu1.display_hp()
             waifu1.display_stats()
-            waifu2.choice_move()
+            waifu2, as_switch = self.__user_choice(waifu2, waifu1)
+            if not as_switch:
+                waifu2.choice_move()
+            else:
+                waifu2.move_to_use = MoveFactory.create_move(Moves.NOTHING)
             self.enemy_choice(waifu2, waifu1)
 
         attacking_waifu, defending_waifu = self.determine_attack_order(waifu1, waifu2)
@@ -139,7 +164,7 @@ class Fight:
             return
 
         elif self.player.get_waifu_in_fight() is None:
-            self.player.choice_next_waifu()
+            self.player.choice_next_waifu(waifu)
             return self.play_round(
                 self.player.get_waifu_in_fight(), self.npc.get_waifu_in_fight()
             )
@@ -150,7 +175,7 @@ class Fight:
             return
 
         elif self.npc.get_waifu_in_fight() is None:
-            self.npc.choice_next_waifu()
+            self.npc.choice_next_waifu(waifu)
             return self.play_round(
                 self.player.get_waifu_in_fight(), self.npc.get_waifu_in_fight()
             )

@@ -27,5 +27,5 @@ class LeafStorm(Move):
         else:
             waifu_user.stat_stage_atk -= 2
             multiplier = 2 / (abs(waifu_user.stat_stage_atk) + 2)
-            waifu_user.attack = waifu_user.attack * multiplier
+            waifu_user.attack = waifu_user.base_attack * multiplier
             log("! STAT CHANGE !", f"{waifu_reciver.name} Attack has been lowered !")

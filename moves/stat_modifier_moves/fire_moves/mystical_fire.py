@@ -19,7 +19,6 @@ class MysticalFire(Move):
         """
         Lowers opponent's Attack.
         """
-        
 
         if waifu_reciver.stat_stage_atk == -6:
             log("TOO LOW", f"{waifu_reciver.name} Attack can't be lowered anymore !")
@@ -27,5 +26,5 @@ class MysticalFire(Move):
         else:
             waifu_reciver.stat_stage_atk -= 1
             multiplier = 2 / (abs(waifu_reciver.stat_stage_atk) + 2)
-            waifu_reciver.attack = waifu_reciver.attack * multiplier
+            waifu_reciver.attack = waifu_reciver.base_attack * multiplier
             log("! STAT CHANGE !", f"{waifu_reciver.name} Attack has been lowered !")

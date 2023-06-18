@@ -30,7 +30,7 @@ class SkullBash(Move):
             else:
                 waifu_user.stat_stage_def += 1
                 multiplier = 2 / (abs(waifu_user.stat_stage_def) + 2)
-                waifu_user.defense = waifu_user.defense * multiplier
+                waifu_user.defense = waifu_user.base_defense * multiplier
                 log("! STAT CHANGE !", f"{waifu_user.name} Defense has been raised !")
 
         else:
@@ -40,6 +40,6 @@ class SkullBash(Move):
             else:
                 waifu_user.stat_stage_atk += 1
                 multiplier = 2 / (abs(waifu_user.stat_stage_atk) + 2)
-                waifu_user.attack = waifu_user.attack * multiplier
+                waifu_user.attack = waifu_user.base_attack * multiplier
                 log("! STAT CHANGE !", f"{waifu_user.name} Attack has been raised !")
         

@@ -27,7 +27,7 @@ class HammerArm(Move):
         else:
             waifu_user.stat_stage_spd -= 1
             multiplier = 2 / (2 + abs(waifu_user.stat_stage_spd))
-            waifu_user.speed = waifu_user.speed * multiplier
+            waifu_user.speed = waifu_user.base_speed * multiplier
             log("! STAT CHANGE !", f"{waifu_reciver.name} Speed has been lowered !")
             
         waifu_user.hp -= 10

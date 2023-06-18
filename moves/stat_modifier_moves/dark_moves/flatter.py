@@ -27,5 +27,5 @@ class Flatter(Move):
         else:
             waifu_reciver.stat_stage_atk += 1
             multiplier = 2 / (2 + abs(waifu_reciver.stat_stage_atk))
-            waifu_reciver.attack = waifu_reciver.attack * multiplier
+            waifu_reciver.attack = waifu_reciver.base_attack * multiplier
             log("! STAT CHANGE !", f"{waifu_reciver.name} Attack has been raised !")

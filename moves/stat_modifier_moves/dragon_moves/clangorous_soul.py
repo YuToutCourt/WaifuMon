@@ -27,7 +27,7 @@ class ClangorousSoul(Move):
         else:
             waifu_user.stat_stage_atk += 1
             multiplier = 2 / (2 + abs(waifu_user.stat_stage_atk))
-            waifu_user.attack = waifu_user.attack * multiplier
+            waifu_user.attack = waifu_user.base_attack * multiplier
             log("! STAT CHANGE !", f"{waifu_user.name} Attack has been raised !")
         
         if waifu_user.stat_stage_def == 6:
@@ -36,7 +36,7 @@ class ClangorousSoul(Move):
         else:
             waifu_user.stat_stage_def += 1
             multiplier = 2 / (2 + abs(waifu_user.stat_stage_def))
-            waifu_user.defense = waifu_user.defense * multiplier
+            waifu_user.defense = waifu_user.base_defense * multiplier
             log("! STAT CHANGE !", f"{waifu_user.name} Defense has been raised !")
 
 
@@ -46,7 +46,7 @@ class ClangorousSoul(Move):
         else:
             waifu_user.stat_stage_spd += 1
             multiplier = 2 / (2 + abs(waifu_user.stat_stage_spd))
-            waifu_user.speed = waifu_user.speed * multiplier
+            waifu_user.speed = waifu_user.base_speed * multiplier
             log("! STAT CHANGE !", f"{waifu_user.name} Speed has been raised !")
 
         waifu_user.hp *= 0.95

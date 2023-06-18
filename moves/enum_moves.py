@@ -856,3 +856,4 @@ class Moves(Enum):
     WAVE_CRASH = 853
     WHIRLPOOL = 854
     WITHDRAW = 855
+    NOTHING = 856

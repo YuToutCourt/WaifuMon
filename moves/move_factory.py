@@ -853,6 +853,7 @@ from moves.water_moves.water_spout import WaterSpout
 from moves.water_moves.wave_crash import WaveCrash
 from moves.water_moves.whirlpool import Whirlpool
 from moves.water_moves.withdraw import Withdraw
+from moves.nothing_move import Nothing
 
 from moves.move import Move
 from moves.enum_moves import Moves
@@ -2573,3 +2574,5 @@ class MoveFactory:
             return Whirlpool()
         elif move == Moves.WITHDRAW:
             return Withdraw()
+        elif move == Moves.NOTHING:
+            return Nothing()

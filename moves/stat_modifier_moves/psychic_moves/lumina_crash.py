@@ -26,5 +26,5 @@ class LuminaCrash(Move):
         else:
             waifu_reciver.stat_stage_def -= 2
             multiplier = 2 / (abs(waifu_reciver.stat_stage_def) + 2)
-            waifu_reciver.defense = waifu_reciver.defense * multiplier
+            waifu_reciver.defense = waifu_reciver.base_defense * multiplier
             log("! STAT CHANGE !", f"{waifu_reciver.name} Defense has been lowered !")

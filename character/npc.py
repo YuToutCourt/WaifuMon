@@ -6,7 +6,7 @@ from waifu.waifu import Waifu
 from utils.log import log
 from moves.move_factory import MoveFactory
 from moves.enum_moves import Moves
-
+from status.status import StatusE
 
 class NPC(Character):
     def __init__(self, name, coordinates: Coordinates, dialog: str):
@@ -48,10 +48,19 @@ class NPC(Character):
                 waifu_npc.move_to_use.pp -= 1
                 return waifu_npc.move_to_use
 
-    def choice_next_waifu(self):
+    def choice_next_waifu(self, current_waifu: Waifu):
         """
         Change le waifu actif
         """
+        current_waifu.in_fight = False
+
+        # Clean confusions and stats change
+        if current_waifu.status == StatusE.CONFUSE:
+            current_waifu.status = None
+        
+        current_waifu.attack = current_waifu.base_attack
+        current_waifu.defense = current_waifu.base_defense
+        current_waifu.speed = current_waifu.base_speed
 
         waifu = random.choice(self.get_alive_waifu())
         waifu.in_fight = True

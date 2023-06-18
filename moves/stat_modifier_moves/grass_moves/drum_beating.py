@@ -19,7 +19,6 @@ class DrumBeating(Move):
         """
         Lowers opponent's Speed.
         """
-        
 
         if waifu_reciver.stat_stage_spd == -6:
             log("TOO LOW", f"{waifu_reciver.name} Speed can't be lowered anymore !")
@@ -27,5 +26,5 @@ class DrumBeating(Move):
         else:
             waifu_reciver.stat_stage_spd -= 1
             multiplier = 2 / (abs(waifu_reciver.stat_stage_spd) + 2)
-            waifu_reciver.speed = waifu_reciver.speed * multiplier
+            waifu_reciver.speed = waifu_reciver.base_speed * multiplier
             log("! STAT CHANGE !", f"{waifu_reciver.name} Speed has been lowered !")

@@ -27,5 +27,5 @@ class Captivate(Move):
         else:
             waifu_reciver.stat_stage_atk -= 2
             multiplier = 2 / (abs(waifu_reciver.stat_stage_atk) + 2)
-            waifu_reciver.attack = waifu_reciver.attack * multiplier
+            waifu_reciver.attack = waifu_reciver.base_attack * multiplier
             log("! STAT CHANGE !", f"{waifu_reciver.name} Attack has been lowered !")

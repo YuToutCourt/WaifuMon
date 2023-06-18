@@ -26,7 +26,7 @@ class Geomancy(Move):
         else:
             waifu_reciver.stat_stage_atk += 2
             multiplier = 2 / (2 + abs(waifu_reciver.stat_stage_atk))
-            waifu_reciver.attack = waifu_reciver.attack * multiplier
+            waifu_reciver.attack = waifu_reciver.base_attack * multiplier
             log("! STAT CHANGE !", f"{waifu_reciver.name} Attack has been raised !")
 
         if waifu_reciver.stat_stage_def == 6:
@@ -34,7 +34,7 @@ class Geomancy(Move):
         else:
             waifu_reciver.stat_stage_def += 2
             multiplier = 2 / (2 + abs(waifu_reciver.stat_stage_def))
-            waifu_reciver.defense = waifu_reciver.defense * multiplier
+            waifu_reciver.defense = waifu_reciver.base_defense * multiplier
             log("! STAT CHANGE !", f"{waifu_reciver.name} Defense has been raised !")
 
         if waifu_reciver.stat_stage_spd == 6:
@@ -42,5 +42,5 @@ class Geomancy(Move):
         else:
             waifu_reciver.stat_stage_spd += 2
             multiplier = 2 / (2 + abs(waifu_reciver.stat_stage_spd))
-            waifu_reciver.speed = waifu_reciver.speed * multiplier
+            waifu_reciver.speed = waifu_reciver.base_speed * multiplier
             log("! STAT CHANGE !", f"{waifu_reciver.name} Speed has been raised !")
