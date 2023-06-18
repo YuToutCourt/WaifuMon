@@ -19,8 +19,7 @@ class FellStinger(Move):
         """
         Drastically raises user's Attack if target is KO'd.
         """
-        self.set_waif_user(waifu_user)
-        
+
 
         if waifu_reciver.is_ko:
             if waifu_user.stat_stage_atk == 6:

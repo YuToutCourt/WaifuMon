@@ -19,7 +19,7 @@ class DefendOrder(Move):
         """
         Raises user's Defense.
         """
-        self.set_waif_user(waifu_user)
+
 
         if waifu_user.stat_stage_def == 6 :
             log("TOO HIGH",f"{waifu_user.name} Defense can't be raised anymore !")
