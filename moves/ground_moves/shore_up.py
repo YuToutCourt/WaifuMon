@@ -19,5 +19,5 @@ class ShoreUp(Move):
         """
         The user regains up to half of its max HP. It restores more HP in a sandstorm.
         """
-        waifu_user.hp = waifu_user.max_hp//2
+        waifu_user.hp = waifu_user.hp_max//2
         log("HEAL", f"{waifu_user.name} a récupéré la moitié de ses PV !")

@@ -19,6 +19,6 @@ class JungleHealing(Move):
         """
         Restores HP and cures status conditions.
         """
-        waifu_user.hp = waifu_user.max_hp * 0.8
+        waifu_user.hp = waifu_user.hp_max * 0.8
         waifu_user.status = None
         log("HEAL", f"{waifu_user.name} a récupéré 80% de ses PV !, et n'a plus de status !")

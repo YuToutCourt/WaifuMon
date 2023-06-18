@@ -19,5 +19,5 @@ class WoodHammer(Move):
         """
         User receives recoil damage.
         """
-        waifu_user.hp -= waifu_user.max_hp * 0.25
+        waifu_user.hp -= waifu_user.hp_max * 0.25
         log("WoodHammer", f"{waifu_user.name} is hurt by recoil !")

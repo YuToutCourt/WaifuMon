@@ -29,7 +29,7 @@ class Waifu(pygame.sprite.Sprite):
         self.speed = speed
         self.types = types
         self.level = level
-        self.list_of_moves = [MoveFactory.create_move(random.choice(list(Moves))) for _ in range(4)]
+        self.list_of_moves = [MoveFactory.create_move(Moves.BLIZZARD)] #[MoveFactory.create_move(random.choice(list(Moves))) for _ in range(4)]
         self.front_image = pygame.image.load(
             f"asset/waifu_sprite/{self.id}/{self.id}_front.png"
         )
