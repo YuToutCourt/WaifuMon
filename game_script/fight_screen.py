@@ -70,7 +70,7 @@ class FightScreen:
         """
         Charge l'image de fond
         """
-        background = pygame.image.load("asset/Battle/battleground1.png")
+        background = pygame.image.load("asset/Battle/battleground2.jpg")
 
         self.background = pygame.transform.scale(
             background, (self.screen.get_width(), self.screen.get_height())
