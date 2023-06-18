@@ -2,7 +2,7 @@ from random import randint
 from moves.move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-from utils.log import log
+from utils.logger import log
 from status.confuse import Confusion
 
 class PetalDance(Move):

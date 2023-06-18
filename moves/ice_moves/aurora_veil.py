@@ -8,7 +8,7 @@ class AuroraVeil(Move):
         super().__init__(
             "Aurora Veil",
             type=TypeFactory.create_type(Types.ICE),
-            power=0,
+            power=60,
             accuracy=100,
             pp=20,
             priority=0,

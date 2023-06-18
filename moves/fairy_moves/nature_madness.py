@@ -15,8 +15,12 @@ class NatureMadness(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_receiver):
         """
-        Halves the foe's HP.
+        Halves the foe's HP. Deals dmg equal to 50% of the target's current HP.
         """
-        pass
+        if waifu_receiver.hp == waifu_receiver.max_hp:
+            print(f"{waifu_receiver.name} is already full hp")
+        else:
+            waifu_receiver.hp -= waifu_receiver.hp / 2
+            print(f"{waifu_receiver.name} lost half HP")

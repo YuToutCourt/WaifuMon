@@ -8,7 +8,7 @@ class AfterYou(Move):
         super().__init__(
             "After You",
             type=TypeFactory.create_type(Types.NORMAL),
-            power=0,
+            power=100,
             accuracy=100,
             pp=15,
             priority=0,

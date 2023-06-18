@@ -8,7 +8,7 @@ class Bestow(Move):
         super().__init__(
             "Bestow",
             type=TypeFactory.create_type(Types.NORMAL),
-            power=0,
+            power=50,
             accuracy=100,
             pp=15,
             priority=0,

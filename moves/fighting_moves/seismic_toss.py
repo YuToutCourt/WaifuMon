@@ -1,7 +1,7 @@
 from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-
+from utils.logger import log
 
 class SeismicToss(Move):
     def __init__(self):
@@ -15,8 +15,9 @@ class SeismicToss(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_receiver):
         """
         Inflicts damage equal to user's level.
         """
-        pass
+        waifu_receiver.current_health -= waifu_user.level
+        log("Seismic Toss", f"{waifu_user.name} inflicted {waifu_user.level} damage to {waifu_receiver.name}")

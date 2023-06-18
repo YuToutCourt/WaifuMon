@@ -1,7 +1,7 @@
 from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-
+from utils.logger import log
 
 class NightShade(Move):
     def __init__(self):
@@ -15,8 +15,10 @@ class NightShade(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_receiver):
         """
         Inflicts damage equal to user's level.
         """
-        pass
+        damage = waifu_user.level
+        waifu_receiver.hp -= damage
+        log(self.name, "inflicts", damage, "damage to", waifu_receiver.name)

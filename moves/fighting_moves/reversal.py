@@ -8,7 +8,7 @@ class Reversal(Move):
         super().__init__(
             "Reversal",
             type=TypeFactory.create_type(Types.FIGHTING),
-            power=0,
+            power=80,
             accuracy=100,
             pp=15,
             priority=0,

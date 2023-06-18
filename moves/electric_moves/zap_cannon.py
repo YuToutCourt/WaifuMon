@@ -1,7 +1,8 @@
 from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-
+from utils.logger import log
+from status.paralysis import Paralysis
 
 class ZapCannon(Move):
     def __init__(self):
@@ -15,8 +16,12 @@ class ZapCannon(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_receiver):
         """
         Paralyzes opponent.
         """
-        pass
+        if waifu_receiver.status is not None:
+            log(waifu_receiver.name, "is already", waifu_receiver.status.name)
+        else:
+            waifu_receiver.status = Paralysis(waifu_receiver, False)
+            log(self.name, waifu_receiver.name, "is paralyzed")

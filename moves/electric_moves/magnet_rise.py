@@ -1,7 +1,7 @@
 from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-
+from utils.logger import log
 
 class MagnetRise(Move):
     def __init__(self):
@@ -15,8 +15,13 @@ class MagnetRise(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_receiver):
         """
-        User becomes immune to Ground-type moves for 5 turns.
+        User gain the fly type.
         """
-        pass
+        if not any(Types.FLY == type_.type_name for type_ in waifu_user.types):
+            waifu_user.types.append(TypeFactory.create_type(Types.FLY))
+            log(waifu_user.name, "is now Fly type")
+        else:
+            log(waifu_user.name, "is already Fly type")
+        

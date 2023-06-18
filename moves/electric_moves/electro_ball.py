@@ -8,7 +8,7 @@ class ElectroBall(Move):
         super().__init__(
             "Electro Ball",
             type=TypeFactory.create_type(Types.ELECTRIC),
-            power=0,
+            power=90,
             accuracy=100,
             pp=10,
             priority=0,

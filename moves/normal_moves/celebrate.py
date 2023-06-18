@@ -8,7 +8,7 @@ class Celebrate(Move):
         super().__init__(
             "Celebrate",
             type=TypeFactory.create_type(Types.NORMAL),
-            power=0,
+            power=50,
             accuracy=100,
             pp=40,
             priority=0,

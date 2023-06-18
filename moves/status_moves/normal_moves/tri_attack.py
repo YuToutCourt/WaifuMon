@@ -2,7 +2,7 @@ from moves.move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from random import randint
-from utils.log import log
+from utils.logger import log
 from status.burn import Burn
 from status.paralysis import Paralysis
 from status.freeze import Freeze

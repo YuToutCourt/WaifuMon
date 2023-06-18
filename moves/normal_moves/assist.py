@@ -8,7 +8,7 @@ class Assist(Move):
         super().__init__(
             "Assist",
             type=TypeFactory.create_type(Types.NORMAL),
-            power=0,
+            power=60,
             accuracy=100,
             pp=20,
             priority=0,

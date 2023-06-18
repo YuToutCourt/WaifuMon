@@ -1,7 +1,7 @@
 from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-
+from utils.logger import log
 
 class Aromatherapy(Move):
     def __init__(self):
@@ -15,8 +15,9 @@ class Aromatherapy(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_receiver):
         """
-        Cures all status problems in your party.
+        Cures all status problems.
         """
-        pass
+        waifu_user.status = None
+        log(waifu_user.name, "is cured from status problem")

@@ -16,5 +16,7 @@ class DragonPulse(Move):
         )
 
     def effect(self):
-        """ """
+        """
+        No additional effect.
+        """
         pass

@@ -8,7 +8,7 @@ class BreakneckBlitz(Move):
         super().__init__(
             "Breakneck Blitz",
             type=TypeFactory.create_type(Types.NORMAL),
-            power=0,
+            power=190,
             accuracy=100,
             pp=1,
             priority=0,

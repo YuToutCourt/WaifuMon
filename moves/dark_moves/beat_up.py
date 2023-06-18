@@ -8,7 +8,7 @@ class BeatUp(Move):
         super().__init__(
             "Beat Up",
             type=TypeFactory.create_type(Types.DARK),
-            power=0,
+            power=80,
             accuracy=100,
             pp=10,
             priority=0,
@@ -17,6 +17,6 @@ class BeatUp(Move):
 
     def effect(self):
         """
-        Each Pokemon in user's party attacks.
+        No effect.
         """
         pass

@@ -3,7 +3,7 @@ from character.player import Player
 from waifu.waifu import Waifu
 from moves.move import Move
 from random import uniform, randint
-from utils.log import log
+from utils.logger import log
 from typing import Union, List
 from utils.handle_input import input_int    
 from moves.move_factory import MoveFactory
@@ -142,6 +142,9 @@ class Fight:
                     if defender.hp <= 0:
                         defender.display_hp()
                         return self.handle_knockout(defender)
+                    if attacker.hp <= 0:
+                        attacker.display_hp()
+                        return self.handle_knockout(attacker)
                 except Exception as e:
                     log("Effect Error ", e)
 

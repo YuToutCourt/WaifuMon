@@ -1,7 +1,7 @@
 from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-
+from utils.logger import log
 
 class Barrage(Move):
     def __init__(self):
@@ -19,4 +19,43 @@ class Barrage(Move):
         """
         Hits 2-5 times in one turn.
         """
-        pass
+        from random import randint
+        hits = randint(2, 5)
+        for _ in range(hits-1):
+            dmg = self.__calculate_damage(self.waifu_user, self.waifu_receiver)
+            self.waifu_receiver.hp -= dmg
+            log(self.name, self.waifu_user.name, "deals", dmg, "damage")
+            
+
+
+    def __get_multiplier(self, attacker, move_used: Move, opponent):
+            if any(move_used.type.type_name == type.type_name for type in attacker.types):
+                multiplier = 1.5
+            else:
+                multiplier = 1
+
+            for type_ in opponent.types:
+                if move_used.type.type_name in type_.immunities:
+                    return 0
+                
+            for op_type in opponent.types:
+                if move_used.type.type_name in op_type.weaknesses:
+                    multiplier *= 2
+
+            for op_type in opponent.types:
+                if move_used.type.type_name in op_type.resistances:
+                    multiplier /= 2
+
+            return multiplier
+
+    def __calculate_damage(self, attacker, opponent):
+        
+        multiplier = self.__get_multiplier(attacker, self, opponent)
+        damage = (
+            ((2 * attacker.level + 10) / 250)
+            * (attacker.attack / opponent.defense)
+            * self.power
+            + 2
+        ) * multiplier
+
+        return damage

@@ -15,8 +15,9 @@ class FuryCutter(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_receiver):
         """
         Power increases each turn.
         """
-        pass
+        if self.power < 160:
+            self.power *= 2

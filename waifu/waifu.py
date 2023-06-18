@@ -4,7 +4,7 @@ from wtypes.type import Type
 from typing import List
 from moves.move_factory import MoveFactory
 from moves.enum_moves import Moves
-from utils.log import log
+from utils.logger import log
 from utils.handle_input import input_int
 
 class Waifu(pygame.sprite.Sprite):

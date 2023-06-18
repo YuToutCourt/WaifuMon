@@ -8,7 +8,7 @@ class EarthPower(Move):
         super().__init__(
             "Earth Power",
             type=TypeFactory.create_type(Types.GROUND),
-            power=90,
+            power=100,
             accuracy=100,
             pp=10,
             priority=0,
@@ -17,6 +17,6 @@ class EarthPower(Move):
 
     def effect(self):
         """
-        May lower opponent's Special Defense.
+        No effect.
         """
         pass

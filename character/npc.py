@@ -3,7 +3,7 @@ import random
 from character.character import Character
 from utils.coordinates import Coordinates
 from waifu.waifu import Waifu
-from utils.log import log
+from utils.logger import log
 from moves.move_factory import MoveFactory
 from moves.enum_moves import Moves
 from status.status import StatusE

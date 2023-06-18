@@ -17,6 +17,6 @@ class SnapTrap(Move):
 
     def effect(self):
         """
-        Traps opponent, damaging them for 4-5 turns.
+        No effect.
         """
         pass

@@ -16,5 +16,7 @@ class VineWhip(Move):
         )
 
     def effect(self):
-        """ """
+        """ 
+        No effect.
+        """
         pass

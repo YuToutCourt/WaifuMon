@@ -1,7 +1,8 @@
 from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-
+from utils.logger import log
+from status.confuse import Confused
 
 class DynamicPunch(Move):
     def __init__(self):
@@ -15,8 +16,12 @@ class DynamicPunch(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_receiver):
         """
         Confuses opponent.
         """
-        pass
+        if waifu_receiver.status is not None:
+            log(waifu_receiver.name, "is already", waifu_receiver.status.name)
+        else:
+            waifu_receiver.status = Confused(waifu_receiver, False)
+            log(self.name, waifu_receiver.name, "is confused")

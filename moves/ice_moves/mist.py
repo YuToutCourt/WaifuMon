@@ -8,7 +8,7 @@ class Mist(Move):
         super().__init__(
             "Mist",
             type=TypeFactory.create_type(Types.ICE),
-            power=0,
+            power=20,
             accuracy=100,
             pp=30,
             priority=0,

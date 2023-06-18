@@ -8,7 +8,7 @@ class InfernoOverdrive(Move):
         super().__init__(
             "Inferno Overdrive",
             type=TypeFactory.create_type(Types.FIRE),
-            power=0,
+            power=180,
             accuracy=100,
             pp=1,
             priority=0,

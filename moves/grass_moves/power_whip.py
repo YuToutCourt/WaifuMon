@@ -16,5 +16,7 @@ class PowerWhip(Move):
         )
 
     def effect(self):
-        """ """
+        """ 
+        No effect.
+        """
         pass

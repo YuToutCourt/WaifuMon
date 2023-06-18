@@ -8,7 +8,7 @@ class Block(Move):
         super().__init__(
             "Block",
             type=TypeFactory.create_type(Types.NORMAL),
-            power=0,
+            power=150,
             accuracy=100,
             pp=5,
             priority=0,

@@ -1,14 +1,14 @@
 from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-
+from random import randint
 
 class LowKick(Move):
     def __init__(self):
         super().__init__(
             "Low Kick",
             type=TypeFactory.create_type(Types.FIGHTING),
-            power=0,
+            power=randint(1, 120),
             accuracy=100,
             pp=20,
             priority=0,

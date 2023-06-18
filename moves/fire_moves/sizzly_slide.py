@@ -1,7 +1,8 @@
 from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-
+from utils.logger import log
+from status.burn import Burn
 
 class SizzlySlide(Move):
     def __init__(self):
@@ -15,8 +16,12 @@ class SizzlySlide(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_receiver):
         """
         Burns the opponent.
         """
-        pass
+        if waifu_receiver.status is None:
+            waifu_receiver.status = Burn(waifu_receiver, False)
+            log(self.name, waifu_receiver.name, "is burned")
+        else:
+            log(self.name, waifu_receiver.name, "have already a status effect")

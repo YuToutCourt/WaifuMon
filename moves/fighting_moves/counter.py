@@ -8,7 +8,7 @@ class Counter(Move):
         super().__init__(
             "Counter",
             type=TypeFactory.create_type(Types.FIGHTING),
-            power=0,
+            power=70,
             accuracy=100,
             pp=20,
             priority=0,
