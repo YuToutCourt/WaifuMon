@@ -4,8 +4,8 @@ from utils.log import log
 from random import randint
 
 class Freeze(Status):
-    def __init__(self, waifu):
-        super().__init__(StatusE.FREEZE, waifu)
+    def __init__(self, waifu, afer_attack:bool):
+        super().__init__(StatusE.FREEZE, waifu, afer_attack)
 
     def apply_status(self):
         """

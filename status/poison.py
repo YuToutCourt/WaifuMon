@@ -3,8 +3,8 @@ from .status_enum import StatusE
 from utils.log import log
 
 class Poison(Status):
-    def __init__(self, waifu):
-        super().__init__(StatusE.POISON, waifu)
+    def __init__(self, waifu, afer_attack:bool):
+        super().__init__(StatusE.POISON, waifu, afer_attack)
 
     def apply_status(self):
         """

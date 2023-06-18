@@ -5,8 +5,8 @@ from random import randint
 from moves.enum_moves import Moves
 
 class Sleep(Status):
-    def __init__(self, waifu):
-        super().__init__(StatusE.SLEEP, waifu)
+    def __init__(self, waifu, afer_attack:bool):
+        super().__init__(StatusE.SLEEP, waifu, afer_attack)
         self.max_turn = randint(1, 3)
 
     def apply_status(self):
