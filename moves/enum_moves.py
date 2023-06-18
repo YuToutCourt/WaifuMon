@@ -339,11 +339,8 @@ class Moves(Enum):
     LAST_RESORT = 381
     LOCK_ON = 382
     LUCKY_CHANT = 383
-    MEAN_LOOK = 384
     MEGA_KICK = 385
     MEGA_PUNCH = 386
-    METRONOME = 387
-    ME_FIRST = 388
     MILK_DRINK = 389
     MIMIC = 390
     MIND_READER = 391

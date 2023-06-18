@@ -336,11 +336,8 @@ from moves.normal_moves.laser_focus import LaserFocus
 from moves.normal_moves.last_resort import LastResort
 from moves.normal_moves.lock_on import LockOn
 from moves.normal_moves.lucky_chant import LuckyChant
-from moves.normal_moves.mean_look import MeanLook
 from moves.normal_moves.mega_kick import MegaKick
 from moves.normal_moves.mega_punch import MegaPunch
-from moves.normal_moves.metronome import Metronome
-from moves.normal_moves.me_first import MeFirst
 from moves.normal_moves.milk_drink import MilkDrink
 from moves.normal_moves.mimic import Mimic
 from moves.normal_moves.mind_reader import MindReader
@@ -1495,16 +1492,10 @@ class MoveFactory:
             return LockOn()
         elif move == Moves.LUCKY_CHANT:
             return LuckyChant()
-        elif move == Moves.MEAN_LOOK:
-            return MeanLook()
         elif move == Moves.MEGA_KICK:
             return MegaKick()
         elif move == Moves.MEGA_PUNCH:
             return MegaPunch()
-        elif move == Moves.METRONOME:
-            return Metronome()
-        elif move == Moves.ME_FIRST:
-            return MeFirst()
         elif move == Moves.MILK_DRINK:
             return MilkDrink()
         elif move == Moves.MIMIC:
