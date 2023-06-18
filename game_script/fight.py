@@ -2,8 +2,9 @@ from character.npc import NPC
 from character.player import Player
 from waifu.waifu import Waifu
 from moves.move import Move
-from random import uniform
+from random import uniform, randint
 from utils.log import log
+from typing import Union, List
 
 
 class Fight:
@@ -22,13 +23,53 @@ class Fight:
 
         self.play_round(waifu_player, waifu_enemy)
 
+    def __check_team_waifu(self, waifu) -> Union[Player, NPC]:
+        """
+        Check in which team the waifu is
+        :param waifu: Waifu to check
+        :return: Player or NPC
+        """
+        for waifu_player in self.player.team:
+            if waifu_player == waifu:
+                return self.player
+        
+        for waifu_npc in self.npc.team:
+            if waifu_npc == waifu:
+                return self.npc
+            
+        raise Exception("Waifu not found in team")
+        
+    def __apply_status_before_attack(self, waifu:Waifu):
+        if waifu.status is not None and waifu.status.after_attack == False:
+            return waifu.status.apply_status()
+        return True
+
+    def __apply_status_after_attack(self, waifus:List[Waifu]):
+        for waifu in waifus:
+            if waifu.status is not None and waifu.status.after_attack:
+                waifu.status.apply_status()
+
     def play_round(self, waifu1: Waifu, waifu2: Waifu):
         log("Tour", self.tour)
         log("Current battle", f"{waifu1.name} vs {waifu2.name}")
         self.tour += 1
 
-        waifu1.choice_move()
-        self.enemy_choice(waifu1, waifu2)
+        obj = self.__check_team_waifu(waifu1)
+
+        if isinstance(obj, Player):
+            waifu1.display_pv()
+            waifu1.display_stats()
+            waifu2.display_pv()
+            waifu2.display_stats()
+            waifu1.choice_move()
+            self.enemy_choice(waifu1, waifu2)
+        else:
+            waifu2.display_pv()
+            waifu2.display_stats()
+            waifu1.display_pv()
+            waifu1.display_stats()
+            waifu2.choice_move()
+            self.enemy_choice(waifu2, waifu1)
 
         attacking_waifu, defending_waifu = self.determine_attack_order(waifu1, waifu2)
 
@@ -37,8 +78,10 @@ class Fight:
         if defending_waifu.hp <= 0:
             self.handle_knockout(defending_waifu)
             return
+        
+        self.__apply_status_after_attack([waifu1, waifu2])
 
-        self.play_round(defending_waifu, attacking_waifu)
+        self.play_round(attacking_waifu, defending_waifu)
 
     def determine_attack_order(self, waifu1: Waifu, waifu2: Waifu):
         if waifu1.move_to_use.priority == waifu2.move_to_use.priority:
@@ -50,14 +93,33 @@ class Fight:
 
     def attack(self, attacker: Waifu, defender: Waifu, stop=False):
         move_used = attacker.move_to_use
+
+        if not self.__apply_status_before_attack(attacker):
+            if attacker.hp <= 0:
+              return self.handle_knockout(attacker)
+            return self.attack(defender, attacker, stop=True)
+
         log("Attack", f"{attacker.name} use {move_used.name}")
-        if uniform(0, 100) <= move_used.accuracy:
+        if randint(0, 100) <= move_used.accuracy:
             damage = self.calculate_damage(attacker, defender)
             defender.hp -= damage
-            defender.display_pv()
-
+            log(move_used.name, f"{defender.name} a perdu {damage} PV")
             if defender.hp <= 0:
+                defender.display_pv()
                 return self.handle_knockout(defender)
+            
+            # The try/except is here to handle moves that don't have an effect 
+            # (because I don't wont to modify all the moves)
+            if randint(0, 100) <= move_used.proba_effect:
+                try:
+                    log("Effect")
+                    attacker.move_to_use.effect(attacker, defender)
+                    if defender.hp <= 0:
+                        defender.display_pv()
+                        return self.handle_knockout(defender)
+                except Exception as e:
+                    log("Effect Error ", e)
+
         else:
             print("Le coup n'a pas touché")
 
@@ -97,36 +159,38 @@ class Fight:
         return self.npc.handle_choice_during_fight(waifu_player, waifu_npc)
 
     def __get_multiplier(self, attacker: Waifu, move_used: Move, opponent: Waifu):
-        if any(attacker_type in opponent.types for attacker_type in attacker.types):
-            multiplier = 1
-        else:
+        if any(move_used.type.type_name == type.type_name for type in attacker.types):
             multiplier = 1.5
+        else:
+            multiplier = 1
 
         for type_ in opponent.types:
-            if move_used.type == type_.immunities:
-                print("C'est inefficace !")
+            if move_used.type.type_name in type_.immunities:
+                log("C'est inefficace !")
                 return 0
-
+            
         for op_type in opponent.types:
-            if move_used.type in op_type.weaknesses:
-                print("C'est super efficace !")
+            if move_used.type.type_name in op_type.weaknesses:
+                log("C'est super efficace !")
                 multiplier *= 2
 
         for op_type in opponent.types:
-            if move_used.type in op_type.resistances:
-                print("C'est pas très efficace...")
+            if move_used.type.type_name in op_type.resistances:
+                log("C'est pas très efficace...")
                 multiplier /= 2
 
         if uniform(0, 100) <= 5.17:
-            print("Coup critique !")
+            log("Coup critique !")
             multiplier *= 1.5
 
         return multiplier
 
     def calculate_damage(self, attacker: Waifu, opponent: Waifu):
         move_used = attacker.move_to_use
+        if move_used.power == 0:
+            return 0
+        
         multiplier = self.__get_multiplier(attacker, move_used, opponent)
-
         damage = (
             ((2 * attacker.level + 10) / 250)
             * (attacker.attack / opponent.defense)

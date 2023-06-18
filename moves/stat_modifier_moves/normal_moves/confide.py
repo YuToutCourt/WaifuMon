@@ -1,7 +1,7 @@
 from moves.move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-
+from utils.log import log
 
 class Confide(Move):
     def __init__(self):
@@ -15,8 +15,18 @@ class Confide(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_reciver):
         """
-        Lowers opponent's Special Attack.
+        Lowers opponent's Attack.
         """
-        pass
+        
+
+        if waifu_reciver.stat_stage_atk == -6:
+            log("TOO LOW", f"{waifu_reciver.name} Attack can't be lowered anymore !")
+
+        else:
+            waifu_reciver.stat_stage_atk -= 1
+            multiplier = 2 / (abs(waifu_reciver.stat_stage_atk) + 2)
+            waifu_reciver.attack = waifu_reciver.attack * multiplier
+            log("! STAT CHANGE !", f"{waifu_reciver.name} Attack has been lowered !")
+        

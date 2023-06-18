@@ -8,6 +8,6 @@ class BatonPass(Move):
 
     def effect(self):
         """
-        User switches out and gives stat changes to the incoming Pokémon.
+        User switches out and gives stat changes to the incoming Pokemon.
         """
         pass

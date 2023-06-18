@@ -1,7 +1,8 @@
 from moves.move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-
+from utils.log import log
+from status.burn import Burn
 
 class FlareBlitz(Move):
     def __init__(self):
@@ -15,8 +16,11 @@ class FlareBlitz(Move):
             proba_effect=10,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_receiver):
         """
         User receives recoil damage. May burn opponent.
         """
-        pass
+        waifu_receiver.status = Burn(waifu_receiver, True)
+        log("Flare Blitz", f"{waifu_receiver.name} is burned!")
+        waifu_user.receive_damage(waifu_user.hp_max * 0.7)
+        log("Flare Blitz", f"{waifu_user.name} is hurt by recoil!")

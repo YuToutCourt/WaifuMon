@@ -17,6 +17,6 @@ def input_int(txt, min_val=1, max_val=1000000000000):
         if min_val <= number <= max_val:
             return number
         elif number < min_val:
-            print(f"Vous devez choisir un nombre supérieur à {min_val}")
+            print(f"Vous devez choisir un nombre supérieur ou égale à {min_val}")
         else:
-            print(f"Vous devez choisir un nombre inférieur à {max_val}")
+            print(f"Vous devez choisir un nombre inférieur ou égale à {max_val}")

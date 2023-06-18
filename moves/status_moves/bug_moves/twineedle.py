@@ -1,7 +1,8 @@
 from moves.move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-
+from utils.log  import log
+from status.poison import Poison
 
 class Twineedle(Move):
     def __init__(self):
@@ -15,8 +16,9 @@ class Twineedle(Move):
             proba_effect=20,
         )
 
-    def effect(self):
+    def effect(self, attacker, defender):
         """
         Hits twice in one turn. May poison opponent.
         """
-        pass
+        defender.status = Poison(defender, True)
+        log("Twineedle", f"{defender.name} is poisoned!")

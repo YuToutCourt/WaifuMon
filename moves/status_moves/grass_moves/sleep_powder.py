@@ -1,7 +1,8 @@
 from moves.move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-
+from utils.log import log
+from status.sleep import Sleep
 
 class SleepPowder(Move):
     def __init__(self):
@@ -15,8 +16,9 @@ class SleepPowder(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_reciver):
         """
         Puts opponent to sleep.
         """
-        pass
+        waifu_reciver.status = Sleep(waifu_reciver, False)
+        log(self.name, f"{waifu_reciver.name} is now sleeping!")

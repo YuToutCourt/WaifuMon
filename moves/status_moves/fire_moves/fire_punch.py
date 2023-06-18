@@ -1,7 +1,8 @@
 from moves.move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-
+from utils.log import log
+from status.burn import Burn
 
 class FirePunch(Move):
     def __init__(self):
@@ -15,8 +16,9 @@ class FirePunch(Move):
             proba_effect=10,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_receiver):
         """
         May burn opponent.
         """
-        pass
+        waifu_receiver.status = Burn(waifu_receiver, True)
+        log("Fire Punch", f"{waifu_receiver.name} is burned!")

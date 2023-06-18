@@ -24,6 +24,11 @@ class FightScreen:
         self.__fill_screen()
         self.__load_background()
 
+        pygame.mixer.music.stop()
+        pygame.mixer.music.load("asset/music/fight_theme.mp3")
+        pygame.mixer.music.set_volume(1.0)
+        pygame.mixer.music.play(-1)
+
         fight_thread = threading.Thread(target=fight.start)
         fight_thread.start()
 
@@ -32,6 +37,7 @@ class FightScreen:
 
         # def __main_loop(self, player, npc, fight):
         while fight.finished is False:
+            _ = pygame.event.get()
             if self.__load_waifu(player, npc):
                 self.__update_display()
 

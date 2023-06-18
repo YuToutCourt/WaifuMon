@@ -1,7 +1,8 @@
-from ..move import Move
+from moves.move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-
+from utils.log import log
+from status.burn import Burn
 
 class FireFang(Move):
     def __init__(self):
@@ -15,8 +16,9 @@ class FireFang(Move):
             proba_effect=10,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_receiver):
         """
         May cause flinching and/or burn opponent.
         """
-        pass
+        waifu_receiver.status = Burn(waifu_receiver, True)
+        log("Fire Fang", f"{waifu_receiver.name} is burned!")

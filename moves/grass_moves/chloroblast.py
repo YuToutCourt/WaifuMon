@@ -1,7 +1,7 @@
 from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-
+from utils.log import log
 
 class Chloroblast(Move):
     def __init__(self):
@@ -15,8 +15,9 @@ class Chloroblast(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_reciver):
         """
         User receives recoil damage.
         """
-        pass
+        waifu_user.hp -= waifu_user.hp_max * 0.25
+        log("Chloroblast", f"{waifu_user.name} is hurt by recoil !")

@@ -1,7 +1,8 @@
 from moves.move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-
+from utils.log import log
+from status.poison import Poison
 
 class Sludge(Move):
     def __init__(self):
@@ -15,8 +16,9 @@ class Sludge(Move):
             proba_effect=30,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_receiver):
         """
         May poison opponent.
         """
-        pass
+        waifu_receiver.status = Poison(waifu_receiver, True)
+        log("Sludge", f"{waifu_receiver.name} is poisoned!")

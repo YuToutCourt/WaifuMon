@@ -24,7 +24,7 @@ class TypeFactory:
             )
         elif type_name == Types.DRAGON:
             return Type(
-                Types.DRAGON, [Types.ICE, Types.DRAGON, Types.FAIRY], [Types.DRAGON], []
+                Types.DRAGON, [Types.ICE, Types.DRAGON, Types.FAIRY], [Types.FIRE, Types.WATER, Types.ELECTRIC, Types.GRASS], []
             )
         elif type_name == Types.ELECTRIC:
             return Type(

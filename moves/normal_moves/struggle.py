@@ -15,8 +15,8 @@ class Struggle(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_reciver):
         """
         Only usable when all PP are gone. Hurts the user.
         """
-        pass
+        waifu_user.hp -= waifu_user.hp_max * 0.25

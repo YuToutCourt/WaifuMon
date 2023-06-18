@@ -3,6 +3,9 @@ import random
 from character.character import Character
 from utils.coordinates import Coordinates
 from waifu.waifu import Waifu
+from utils.log import log
+from moves.move_factory import MoveFactory
+from moves.enum_moves import Moves
 
 
 class NPC(Character):
@@ -19,7 +22,6 @@ class NPC(Character):
         fight_screen.run_fight(player, self)
 
     def random_move(self):
-        
         new_position = {
             "up": (self.position[0], self.position[1] - self.speed),
             "down": (self.position[0], self.position[1] + self.speed),
@@ -30,11 +32,20 @@ class NPC(Character):
         direction = random.choice(list(new_position.keys()))
 
         self.position = new_position[direction]
-        
 
     def handle_choice_during_fight(self, waifu_player: Waifu, waifu_npc: Waifu):
         # Ajoutez ici le code spécifique à la classe NPC
-        return waifu_npc.choice_move()
+
+        if all(move.pp <= 0 for move in waifu_npc.list_of_moves):
+            self.move_to_use = MoveFactory.create_move(Moves.STRUGGLE)
+            return self.move_to_use
+
+        while True:
+            move = random.choice(waifu_npc.list_of_moves)
+            if move.pp > 0:
+                waifu_npc.move_to_use = move
+                waifu_npc.move_to_use.pp -= 1
+                return move
 
     def choice_next_waifu(self):
         """
