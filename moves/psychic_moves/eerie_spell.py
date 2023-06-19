@@ -1,7 +1,7 @@
 from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-
+from utils.logger import log
 
 class EerieSpell(Move):
     def __init__(self):
@@ -15,8 +15,9 @@ class EerieSpell(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_receiver):
         """
         Deals damage and reduces opponent's PP.
         """
-        pass
+        waifu_receiver.move_to_use.pp -= 4
+        log(self.name, waifu_receiver.name,waifu_receiver.move_to_use.name, "lost 4 PP")

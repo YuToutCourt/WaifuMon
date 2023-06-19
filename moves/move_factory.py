@@ -416,7 +416,6 @@ from moves.poison_moves.toxic import Toxic
 from moves.poison_moves.toxic_thread import ToxicThread
 from moves.poison_moves.venom_drench import VenomDrench
 from moves.poison_moves.venoshock import Venoshock
-from moves.psychic_moves.ally_switch import AllySwitch
 from moves.psychic_moves.confusion import Confusion
 from moves.psychic_moves.dream_eater import DreamEater
 from moves.psychic_moves.eerie_spell import EerieSpell
@@ -424,20 +423,9 @@ from moves.psychic_moves.expanding_force import ExpandingForce
 from moves.psychic_moves.future_sight import FutureSight
 from moves.psychic_moves.genesis_supernova import GenesisSupernova
 from moves.psychic_moves.glitzy_glow import GlitzyGlow
-from moves.psychic_moves.gravity import Gravity
-from moves.psychic_moves.guard_split import GuardSplit
-from moves.psychic_moves.guard_swap import GuardSwap
-from moves.psychic_moves.healing_wish import HealingWish
-from moves.psychic_moves.heal_block import HealBlock
 from moves.psychic_moves.heal_pulse import HealPulse
-from moves.psychic_moves.heart_swap import HeartSwap
-from moves.psychic_moves.hyperspace_hole import HyperspaceHole
-from moves.psychic_moves.imprison import Imprison
-from moves.psychic_moves.instruct import Instruct
-from moves.psychic_moves.light_screen import LightScreen
 from moves.psychic_moves.light_that_burns_the_sky import LightThatBurnstheSky
 from moves.psychic_moves.lunar_blessing import LunarBlessing
-from moves.psychic_moves.lunar_dance import LunarDance
 from moves.psychic_moves.luster_purge import LusterPurge
 from moves.psychic_moves.magic_coat import MagicCoat
 from moves.psychic_moves.magic_powder import MagicPowder
@@ -1601,8 +1589,6 @@ class MoveFactory:
             return Belch()
         elif move == Moves.CLEAR_SMOG:
             return ClearSmog()
-        elif move == Moves.CORROSIVE_GAS:
-            return CorrosiveGas()
         elif move == Moves.DIRE_CLAW:
             return DireClaw()
         elif move == Moves.MORTAL_SPIN:
@@ -1627,8 +1613,6 @@ class MoveFactory:
             return VenomDrench()
         elif move == Moves.VENOSHOCK:
             return Venoshock()
-        elif move == Moves.ALLY_SWITCH:
-            return AllySwitch()
         elif move == Moves.CONFUSION:
             return Confusion()
         elif move == Moves.DREAM_EATER:
@@ -1643,34 +1627,12 @@ class MoveFactory:
             return GenesisSupernova()
         elif move == Moves.GLITZY_GLOW:
             return GlitzyGlow()
-        elif move == Moves.GRAVITY:
-            return Gravity()
-        elif move == Moves.GUARD_SPLIT:
-            return GuardSplit()
-        elif move == Moves.GUARD_SWAP:
-            return GuardSwap()
-        elif move == Moves.HEALING_WISH:
-            return HealingWish()
-        elif move == Moves.HEAL_BLOCK:
-            return HealBlock()
         elif move == Moves.HEAL_PULSE:
             return HealPulse()
-        elif move == Moves.HEART_SWAP:
-            return HeartSwap()
-        elif move == Moves.HYPERSPACE_HOLE:
-            return HyperspaceHole()
-        elif move == Moves.IMPRISON:
-            return Imprison()
-        elif move == Moves.INSTRUCT:
-            return Instruct()
-        elif move == Moves.LIGHT_SCREEN:
-            return LightScreen()
         elif move == Moves.LIGHT_THAT_BURNS_THE_SKY:
             return LightThatBurnstheSky()
         elif move == Moves.LUNAR_BLESSING:
             return LunarBlessing()
-        elif move == Moves.LUNAR_DANCE:
-            return LunarDance()
         elif move == Moves.LUSTER_PURGE:
             return LusterPurge()
         elif move == Moves.MAGIC_COAT:
