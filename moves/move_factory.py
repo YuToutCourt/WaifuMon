@@ -401,13 +401,10 @@ from moves.normal_moves.wrap import Wrap
 from moves.normal_moves.wring_out import WringOut
 from moves.poison_moves.acid import Acid
 from moves.poison_moves.acid_downpour import AcidDownpour
-from moves.poison_moves.baneful_bunker import BanefulBunker
 from moves.poison_moves.barb_barrage import BarbBarrage
 from moves.poison_moves.belch import Belch
 from moves.poison_moves.clear_smog import ClearSmog
-from moves.poison_moves.corrosive_gas import CorrosiveGas
 from moves.poison_moves.dire_claw import DireClaw
-from moves.poison_moves.gastro_acid import GastroAcid
 from moves.poison_moves.mortal_spin import MortalSpin
 from moves.poison_moves.noxious_torque import NoxiousTorque
 from moves.poison_moves.poison_gas import PoisonGas
@@ -416,7 +413,6 @@ from moves.poison_moves.poison_powder import PoisonPowder
 from moves.poison_moves.poison_sting import PoisonSting
 from moves.poison_moves.purify import Purify
 from moves.poison_moves.toxic import Toxic
-from moves.poison_moves.toxic_spikes import ToxicSpikes
 from moves.poison_moves.toxic_thread import ToxicThread
 from moves.poison_moves.venom_drench import VenomDrench
 from moves.poison_moves.venoshock import Venoshock
@@ -1599,8 +1595,6 @@ class MoveFactory:
             return Acid()
         elif move == Moves.ACID_DOWNPOUR:
             return AcidDownpour()
-        elif move == Moves.BANEFUL_BUNKER:
-            return BanefulBunker()
         elif move == Moves.BARB_BARRAGE:
             return BarbBarrage()
         elif move == Moves.BELCH:
@@ -1611,8 +1605,6 @@ class MoveFactory:
             return CorrosiveGas()
         elif move == Moves.DIRE_CLAW:
             return DireClaw()
-        elif move == Moves.GASTRO_ACID:
-            return GastroAcid()
         elif move == Moves.MORTAL_SPIN:
             return MortalSpin()
         elif move == Moves.NOXIOUS_TORQUE:
@@ -1629,8 +1621,6 @@ class MoveFactory:
             return Purify()
         elif move == Moves.TOXIC:
             return Toxic()
-        elif move == Moves.TOXIC_SPIKES:
-            return ToxicSpikes()
         elif move == Moves.TOXIC_THREAD:
             return ToxicThread()
         elif move == Moves.VENOM_DRENCH:

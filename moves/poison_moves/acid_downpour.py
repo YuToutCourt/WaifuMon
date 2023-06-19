@@ -8,7 +8,7 @@ class AcidDownpour(Move):
         super().__init__(
             "Acid Downpour",
             type=TypeFactory.create_type(Types.POISON),
-            power=0,
+            power=190,
             accuracy=100,
             pp=1,
             priority=0,

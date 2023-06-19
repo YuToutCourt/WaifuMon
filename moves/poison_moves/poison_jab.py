@@ -1,7 +1,8 @@
 from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-
+from utils.logger import log
+from status.poison import Poison
 
 class PoisonJab(Move):
     def __init__(self):
@@ -15,8 +16,12 @@ class PoisonJab(Move):
             proba_effect=30,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_receiver):
         """
-        May poison the opponent.
+        Poisons opponent.
         """
-        pass
+        if waifu_receiver.status is not None:
+            log("But it failed")
+            return
+        waifu_receiver.status = Poison(waifu_receiver, True)
+        log(self.name, waifu_receiver.name, "was poisoned")
