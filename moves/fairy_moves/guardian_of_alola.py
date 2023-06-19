@@ -20,5 +20,5 @@ class GuardianofAlola(Move):
         """
         Tapu-exclusive Z-move. Cuts opponent's HP by 75%.
         """
-        waifu_receiver.hp -= waifu_receiver.max_hp * 0.25
+        waifu_receiver.hp -= waifu_receiver.hp_max * 0.25
         log(waifu_receiver.name, "has lost 75% of its HP")

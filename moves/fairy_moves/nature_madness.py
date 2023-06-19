@@ -19,7 +19,7 @@ class NatureMadness(Move):
         """
         Halves the foe's HP. Deals dmg equal to 50% of the target's current HP.
         """
-        if waifu_receiver.hp == waifu_receiver.max_hp:
+        if waifu_receiver.hp == waifu_receiver.hp_max:
             print(f"{waifu_receiver.name} is already full hp")
         else:
             waifu_receiver.hp -= waifu_receiver.hp / 2

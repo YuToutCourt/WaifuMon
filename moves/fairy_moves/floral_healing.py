@@ -20,16 +20,16 @@ class FloralHealing(Move):
         """
         The user restores the target's HP by up to half of its max HP. It restores more HP when the user has the Grass Types
         """
-        if waifu_receiver.hp == waifu_receiver.max_hp:
+        if waifu_receiver.hp == waifu_receiver.hp_max:
             log(waifu_receiver.name, "is already full hp")
         else:
             if any(Types.GRASS == type_.type_name for type_ in waifu_user.types):
-                waifu_receiver.hp += waifu_receiver.max_hp * 0.75
-                if waifu_receiver.hp > waifu_receiver.max_hp:
-                    waifu_receiver.hp = waifu_receiver.max_hp
+                waifu_receiver.hp += waifu_receiver.hp_max * 0.75
+                if waifu_receiver.hp > waifu_receiver.hp_max:
+                    waifu_receiver.hp = waifu_receiver.hp_max
                 log(waifu_receiver.name, "has recovered a lot of HP")
             else:
-                waifu_receiver.hp += waifu_receiver.max_hp * 0.5
-                if waifu_receiver.hp > waifu_receiver.max_hp:
-                    waifu_receiver.hp = waifu_receiver.max_hp
+                waifu_receiver.hp += waifu_receiver.hp_max * 0.5
+                if waifu_receiver.hp > waifu_receiver.hp_max:
+                    waifu_receiver.hp = waifu_receiver.hp_max
                 log(waifu_receiver.name, "has recovered HP")
