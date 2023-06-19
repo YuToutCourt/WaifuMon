@@ -1,7 +1,7 @@
 from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-
+from utils.logger import log
 
 class PowerShift(Move):
     def __init__(self):
@@ -15,8 +15,11 @@ class PowerShift(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_receiver):
         """
         Switches offensive and defensive stats.
         """
-        pass
+        waifu_user.stat_stag_atk, waifu_user.stat_stag_de = waifu_user.stat_stag_def, waifu_user.stat_stag_atk
+        waifu_user.attack, waifu_user.defense = waifu_user.defense, waifu_user.attack
+
+        log(self.name, f"{waifu_user.name} have swap his atk with his def")

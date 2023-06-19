@@ -343,12 +343,8 @@ from moves.normal_moves.mimic import Mimic
 from moves.normal_moves.mind_reader import MindReader
 from moves.normal_moves.morning_sun import MorningSun
 from moves.normal_moves.multi_attack import MultiAttack
-from moves.normal_moves.natural_gift import NaturalGift
-from moves.normal_moves.nature_power import NaturePower
-from moves.normal_moves.odor_sleuth import OdorSleuth
 from moves.normal_moves.pain_split import PainSplit
 from moves.normal_moves.pay_day import PayDay
-from moves.normal_moves.perish_song import PerishSong
 from moves.normal_moves.population_bomb import PopulationBomb
 from moves.normal_moves.pound import Pound
 from moves.normal_moves.power_shift import PowerShift
@@ -367,17 +363,11 @@ from moves.normal_moves.relic_song import RelicSong
 from moves.normal_moves.retaliate import Retaliate
 from moves.normal_moves.return_ import Return
 from moves.normal_moves.revelation_dance import RevelationDance
-from moves.normal_moves.revival_blessing import RevivalBlessing
-from moves.normal_moves.roar import Roar
 from moves.normal_moves.rock_climb import RockClimb
 from moves.normal_moves.round import Round
-from moves.normal_moves.safeguard import Safeguard
 from moves.normal_moves.scratch import Scratch
 from moves.normal_moves.secret_power import SecretPower
 from moves.normal_moves.self_destruct import SelfDestruct
-from moves.normal_moves.shed_tail import ShedTail
-from moves.normal_moves.simple_beam import SimpleBeam
-from moves.normal_moves.sketch import Sketch
 from moves.normal_moves.slack_off import SlackOff
 from moves.normal_moves.slam import Slam
 from moves.normal_moves.slash import Slash
@@ -386,36 +376,25 @@ from moves.normal_moves.smelling_salts import SmellingSalts
 from moves.normal_moves.soft_boiled import SoftBoiled
 from moves.normal_moves.sonic_boom import SonicBoom
 from moves.normal_moves.spike_cannon import SpikeCannon
-from moves.normal_moves.spit_up import SpitUp
 from moves.normal_moves.splash import Splash
-from moves.normal_moves.spotlight import Spotlight
-from moves.normal_moves.stockpile import Stockpile
 from moves.normal_moves.strength import Strength
 from moves.normal_moves.struggle import Struggle
-from moves.normal_moves.substitute import Substitute
 from moves.normal_moves.supersonic import Supersonic
 from moves.normal_moves.super_fang import SuperFang
-from moves.normal_moves.swallow import Swallow
 from moves.normal_moves.swift import Swift
 from moves.normal_moves.tackle import Tackle
 from moves.normal_moves.tail_slap import TailSlap
 from moves.normal_moves.tail_whip import TailWhip
 from moves.normal_moves.take_down import TakeDown
-from moves.normal_moves.tearful_look import TearfulLook
-from moves.normal_moves.teatime import Teatime
 from moves.normal_moves.techno_blast import TechnoBlast
 from moves.normal_moves.teeter_dance import TeeterDance
 from moves.normal_moves.tera_blast import TeraBlast
 from moves.normal_moves.terrain_pulse import TerrainPulse
 from moves.normal_moves.tickle import Tickle
-from moves.normal_moves.tidy_up import TidyUp
-from moves.normal_moves.transform import Transform
 from moves.normal_moves.trump_card import TrumpCard
 from moves.normal_moves.uproar import Uproar
-from moves.normal_moves.veevee_volley import VeeveeVolley
 from moves.normal_moves.vise_grip import ViseGrip
 from moves.normal_moves.weather_ball import WeatherBall
-from moves.normal_moves.whirlwind import Whirlwind
 from moves.normal_moves.wish import Wish
 from moves.normal_moves.work_up import WorkUp
 from moves.normal_moves.wrap import Wrap
@@ -1506,18 +1485,10 @@ class MoveFactory:
             return MorningSun()
         elif move == Moves.MULTI_ATTACK:
             return MultiAttack()
-        elif move == Moves.NATURAL_GIFT:
-            return NaturalGift()
-        elif move == Moves.NATURE_POWER:
-            return NaturePower()
-        elif move == Moves.ODOR_SLEUTH:
-            return OdorSleuth()
         elif move == Moves.PAIN_SPLIT:
             return PainSplit()
         elif move == Moves.PAY_DAY:
             return PayDay()
-        elif move == Moves.PERISH_SONG:
-            return PerishSong()
         elif move == Moves.POPULATION_BOMB:
             return PopulationBomb()
         elif move == Moves.POUND:
@@ -1554,28 +1525,14 @@ class MoveFactory:
             return Return()
         elif move == Moves.REVELATION_DANCE:
             return RevelationDance()
-        elif move == Moves.REVIVAL_BLESSING:
-            return RevivalBlessing()
-        elif move == Moves.ROAR:
-            return Roar()
         elif move == Moves.ROCK_CLIMB:
             return RockClimb()
-        elif move == Moves.ROUND:
-            return Round()
-        elif move == Moves.SAFEGUARD:
-            return Safeguard()
         elif move == Moves.SCRATCH:
             return Scratch()
         elif move == Moves.SECRET_POWER:
             return SecretPower()
         elif move == Moves.SELF_DESTRUCT:
             return SelfDestruct()
-        elif move == Moves.SHED_TAIL:
-            return ShedTail()
-        elif move == Moves.SIMPLE_BEAM:
-            return SimpleBeam()
-        elif move == Moves.SKETCH:
-            return Sketch()
         elif move == Moves.SLACK_OFF:
             return SlackOff()
         elif move == Moves.SLAM:
@@ -1592,26 +1549,16 @@ class MoveFactory:
             return SonicBoom()
         elif move == Moves.SPIKE_CANNON:
             return SpikeCannon()
-        elif move == Moves.SPIT_UP:
-            return SpitUp()
         elif move == Moves.SPLASH:
             return Splash()
-        elif move == Moves.SPOTLIGHT:
-            return Spotlight()
-        elif move == Moves.STOCKPILE:
-            return Stockpile()
         elif move == Moves.STRENGTH:
             return Strength()
         elif move == Moves.STRUGGLE:
             return Struggle()
-        elif move == Moves.SUBSTITUTE:
-            return Substitute()
         elif move == Moves.SUPERSONIC:
             return Supersonic()
         elif move == Moves.SUPER_FANG:
             return SuperFang()
-        elif move == Moves.SWALLOW:
-            return Swallow()
         elif move == Moves.SWIFT:
             return Swift()
         elif move == Moves.TACKLE:
@@ -1622,10 +1569,6 @@ class MoveFactory:
             return TailWhip()
         elif move == Moves.TAKE_DOWN:
             return TakeDown()
-        elif move == Moves.TEARFUL_LOOK:
-            return TearfulLook()
-        elif move == Moves.TEATIME:
-            return Teatime()
         elif move == Moves.TECHNO_BLAST:
             return TechnoBlast()
         elif move == Moves.TEETER_DANCE:
@@ -1636,22 +1579,14 @@ class MoveFactory:
             return TerrainPulse()
         elif move == Moves.TICKLE:
             return Tickle()
-        elif move == Moves.TIDY_UP:
-            return TidyUp()
-        elif move == Moves.TRANSFORM:
-            return Transform()
         elif move == Moves.TRUMP_CARD:
             return TrumpCard()
         elif move == Moves.UPROAR:
             return Uproar()
-        elif move == Moves.VEEVEE_VOLLEY:
-            return VeeveeVolley()
         elif move == Moves.VISE_GRIP:
             return ViseGrip()
         elif move == Moves.WEATHER_BALL:
             return WeatherBall()
-        elif move == Moves.WHIRLWIND:
-            return Whirlwind()
         elif move == Moves.WISH:
             return Wish()
         elif move == Moves.WORK_UP:

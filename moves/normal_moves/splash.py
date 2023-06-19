@@ -1,7 +1,7 @@
 from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-
+from utils.logger import log
 
 class Splash(Move):
     def __init__(self):
@@ -15,8 +15,8 @@ class Splash(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_receiver):
         """
         Doesn't do ANYTHING.
         """
-        pass
+        log("Does nothing")

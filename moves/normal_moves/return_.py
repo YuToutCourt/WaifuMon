@@ -8,7 +8,7 @@ class Return(Move):
         super().__init__(
             "Return",
             type=TypeFactory.create_type(Types.NORMAL),
-            power=0,
+            power=80,
             accuracy=100,
             pp=20,
             priority=0,

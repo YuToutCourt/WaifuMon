@@ -16,5 +16,7 @@ class ViseGrip(Move):
         )
 
     def effect(self):
-        """ """
+        """
+        No effect.
+        """
         pass

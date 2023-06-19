@@ -1,7 +1,7 @@
 from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-
+from utils.logger import log
 
 class SonicBoom(Move):
     def __init__(self):
@@ -15,8 +15,9 @@ class SonicBoom(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_receiver):
         """
         Always inflicts 20 HP.
         """
-        pass
+        waifu_receiver.hp -= 20
+        log(self.name, waifu_receiver.name, f"lost 20 HP")
