@@ -67,6 +67,7 @@ class Fight:
 
 
     def play_round(self, waifu1: Waifu, waifu2: Waifu):
+        if self.finished: return
         log("Tour", self.tour)
         log("Current battle", f"{waifu1.name} vs {waifu2.name}")
         self.tour += 1

@@ -20,7 +20,7 @@ class Synthesis(Move):
         """
         User recovers HP.
         """
-        recover = waifu_user.max_hp * 0.4
+        recover = waifu_user.hp_max * 0.4
         if waifu_user.hp + recover > waifu_user.hp_max:
             recover = waifu_user.hp_max - waifu_user.hp
 

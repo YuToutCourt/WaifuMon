@@ -20,5 +20,8 @@ class Kinesis(Move):
         """
         Recover 1/4 of the hp_max.
         """
-
-        waifu_user.hp = waifu_user.hp - 1 / 4 * waifu_user.hp_max
+        heal = 1 / 4 * waifu_user.hp_max
+        if waifu_user.hp + heal > waifu_user.hp_max:
+            heal = waifu_user.hp_max - waifu_user.hp
+        waifu_user.hp += heal
+        log(waifu_user.name, "Recover", heal, "hp")
