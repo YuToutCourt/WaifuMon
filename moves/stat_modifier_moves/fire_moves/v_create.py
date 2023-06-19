@@ -3,6 +3,7 @@ from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
 
+
 class Vcreate(Move):
     def __init__(self):
         super().__init__(
@@ -19,9 +20,8 @@ class Vcreate(Move):
         """
         Lowers user's Defense and Speed.
         """
-        
 
-        if waifu_user.stat_stage_def == -6:
+        if waifu_user.stat_stage_def <= -6:
             log("TOO LOW", f"{waifu_reciver.name} Defense can't be lowered anymore !")
 
         else:
@@ -30,7 +30,7 @@ class Vcreate(Move):
             waifu_user.defense = waifu_user.base_defense * multiplier
             log("! STAT CHANGE !", f"{waifu_reciver.name} Defense has been lowered !")
 
-        if waifu_user.stat_stage_spd == -6:
+        if waifu_user.stat_stage_spd <= -6:
             log("TOO LOW", f"{waifu_reciver.name} Speed can't be lowered anymore !")
 
         else:
@@ -38,4 +38,3 @@ class Vcreate(Move):
             multiplier = 2 / (abs(waifu_user.stat_stage_spd) + 2)
             waifu_user.speed = waifu_user.base_speed * multiplier
             log("! STAT CHANGE !", f"{waifu_reciver.name} Speed has been lowered !")
-        

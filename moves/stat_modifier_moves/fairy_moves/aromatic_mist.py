@@ -3,6 +3,7 @@ from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
 
+
 class AromaticMist(Move):
     def __init__(self):
         super().__init__(
@@ -19,9 +20,8 @@ class AromaticMist(Move):
         """
         Raises Defense of an ally.
         """
-        
 
-        if waifu_reciver.stat_stage_def == 6:
+        if waifu_reciver.stat_stage_def >= 6:
             log("TOO HIGH", f"{waifu_reciver.name} Defense can't be raised anymore !")
 
         else:

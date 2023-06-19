@@ -3,6 +3,7 @@ from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
 
+
 class DragonAscent(Move):
     def __init__(self):
         super().__init__(
@@ -19,9 +20,8 @@ class DragonAscent(Move):
         """
         Lowers user's Defense.
         """
-        
 
-        if waifu_user.stat_stage_atk == -6:
+        if waifu_user.stat_stage_atk <= -6:
             log("TOO LOW", f"{waifu_reciver.name} Attack can't be lowered anymore !")
 
         else:
@@ -30,7 +30,7 @@ class DragonAscent(Move):
             waifu_user.attack = waifu_user.base_attack * multiplier
             log("! STAT CHANGE !", f"{waifu_reciver.name} Attack has been lowered !")
 
-        if waifu_user.stat_stage_spd == -6:
+        if waifu_user.stat_stage_spd <= -6:
             log("TOO LOW", f"{waifu_reciver.name} Speed can't be lowered anymore !")
 
         else:

@@ -3,6 +3,7 @@ from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
 
+
 class BabyDollEyes(Move):
     def __init__(self):
         super().__init__(
@@ -19,9 +20,8 @@ class BabyDollEyes(Move):
         """
         Always goes first. Lowers the target's attack.
         """
-        
 
-        if waifu_reciver.stat_stage_atk == -6:
+        if waifu_reciver.stat_stage_atk <= -6:
             log("TOO LOW", f"{waifu_reciver.name} Attack can't be lowered anymore !")
 
         else:

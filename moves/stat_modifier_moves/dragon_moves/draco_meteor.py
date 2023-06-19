@@ -3,6 +3,7 @@ from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
 
+
 class DracoMeteor(Move):
     def __init__(self):
         super().__init__(
@@ -19,9 +20,8 @@ class DracoMeteor(Move):
         """
         Sharply lowers user's Attack.
         """
-        
 
-        if waifu_user.stat_stage_atk == -6:
+        if waifu_user.stat_stage_atk <= -6:
             log("TOO LOW", f"{waifu_user.name} Attack can't be lowered anymore !")
 
         else:

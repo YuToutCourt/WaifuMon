@@ -3,6 +3,7 @@ from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
 
+
 class SpicyExtract(Move):
     def __init__(self):
         super().__init__(
@@ -19,9 +20,8 @@ class SpicyExtract(Move):
         """
         Harshly lowers the opponent's Defense and sharply raises their Attack.
         """
-        
 
-        if waifu_reciver.stat_stage_def == -6:
+        if waifu_reciver.stat_stage_def <= -6:
             log("TOO LOW", f"{waifu_reciver.name} Defense can't be lowered anymore !")
 
         else:
@@ -30,11 +30,11 @@ class SpicyExtract(Move):
             waifu_reciver.defense = waifu_reciver.base_defense * multiplier
             log("! STAT CHANGE !", f"{waifu_reciver.name} Defense has been lowered !")
 
-        if waifu_reciver.stat_stage_atk == 6:
+        if waifu_reciver.stat_stage_atk >= 6:
             log("TOO HIGH", f"{waifu_reciver.name} Attack can't be raised anymore !")
 
         else:
             waifu_reciver.stat_stage_atk += 2
-            multiplier = 2 / (abs(waifu_reciver.stat_stage_atk) + 2)
+            multiplier = (abs(waifu_reciver.stat_stage_atk) + 2) / 2
             waifu_reciver.attack = waifu_reciver.base_attack * multiplier
             log("! STAT CHANGE !", f"{waifu_reciver.name} Attack has been raised !")

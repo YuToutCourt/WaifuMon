@@ -3,6 +3,7 @@ from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
 
+
 class FlameCharge(Move):
     def __init__(self):
         super().__init__(
@@ -19,9 +20,8 @@ class FlameCharge(Move):
         """
         Raises user's Speed.
         """
-        
 
-        if waifu_user.stat_stage_spd == 6:
+        if waifu_user.stat_stage_spd >= 6:
             log("TOO HIGH", f"{waifu_reciver.name} Speed can't be raised anymore !")
 
         else:

@@ -3,6 +3,7 @@ from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
 
+
 class MysticalFire(Move):
     def __init__(self):
         super().__init__(
@@ -20,7 +21,7 @@ class MysticalFire(Move):
         Lowers opponent's Attack.
         """
 
-        if waifu_reciver.stat_stage_atk == -6:
+        if waifu_reciver.stat_stage_atk <= -6:
             log("TOO LOW", f"{waifu_reciver.name} Attack can't be lowered anymore !")
 
         else:

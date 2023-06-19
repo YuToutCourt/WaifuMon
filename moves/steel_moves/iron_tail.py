@@ -20,7 +20,7 @@ class IronTail(Move):
         May lower opponent's Defense.
         """
             
-        if waifu_reciver.stat_stage_def == -6:
+        if waifu_reciver.stat_stage_def <= -6:
             log("TOO LOW", f"{waifu_reciver.name} Defense can't be lowered anymore !")
 
         else:

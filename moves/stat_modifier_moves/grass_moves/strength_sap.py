@@ -3,6 +3,7 @@ from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
 
+
 class StrengthSap(Move):
     def __init__(self):
         super().__init__(
@@ -19,8 +20,6 @@ class StrengthSap(Move):
         """
         The user restores its HP by the same amount as the target's Attack stat. It also lowers the target's Attack stat.
         """
-        
-        
 
         attack_stat = waifu_reciver.attack
         if waifu_user.hp + attack_stat > waifu_user.hp_max:
@@ -28,7 +27,7 @@ class StrengthSap(Move):
         else:
             waifu_user.hp += attack_stat
 
-        if waifu_reciver.stat_stage_atk == -6:
+        if waifu_reciver.stat_stage_atk <= -6:
             log("TOO LOW", f"{waifu_reciver.name} Attack can't be lowered anymore !")
 
         else:

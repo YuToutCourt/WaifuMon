@@ -3,6 +3,7 @@ from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
 
+
 class GravApple(Move):
     def __init__(self):
         super().__init__(
@@ -19,9 +20,8 @@ class GravApple(Move):
         """
         Lowers the opponent's Defense stat.
         """
-        
 
-        if waifu_reciver.stat_stage_def == -6:
+        if waifu_reciver.stat_stage_def <= -6:
             log("TOO LOW", f"{waifu_reciver.name} Defense can't be lowered anymore !")
 
         else:

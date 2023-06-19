@@ -28,7 +28,7 @@ class ToxicThread(Move):
             waifu_reciver.status = Poison
             log("! STATUS CHANGE !", f"{waifu_reciver.name} has been poisoned !")
 
-        if waifu_reciver.stat_stage_spd == -6:
+        if waifu_reciver.stat_stage_spd <= -6:
             log("TOO LOW", f"{waifu_reciver.name} Speed can't be lowered anymore !")
 
         else:

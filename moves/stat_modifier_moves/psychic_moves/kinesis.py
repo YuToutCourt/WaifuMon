@@ -3,6 +3,7 @@ from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
 
+
 class Kinesis(Move):
     def __init__(self):
         super().__init__(
@@ -19,6 +20,5 @@ class Kinesis(Move):
         """
         Recover 1/4 of the hp_max.
         """
-        
-        waifu_user.hp = waifu_user.hp - 1/4 * waifu_user.hp_max
-        
+
+        waifu_user.hp = waifu_user.hp - 1 / 4 * waifu_user.hp_max

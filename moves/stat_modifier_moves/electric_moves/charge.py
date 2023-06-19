@@ -3,6 +3,7 @@ from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
 
+
 class Charge(Move):
     def __init__(self):
         super().__init__(
@@ -19,9 +20,8 @@ class Charge(Move):
         """
         Raises user's Defense.
         """
-        
 
-        if waifu_user.stat_stage_def == 6:
+        if waifu_user.stat_stage_def >= 6:
             log("TOO HIGH", f"{waifu_reciver.name} Defense can't be raised anymore !")
 
         else:
@@ -29,4 +29,3 @@ class Charge(Move):
             multiplier = (abs(waifu_user.stat_stage_def) + 2) / 2
             waifu_user.defense = waifu_user.base_defense * multiplier
             log("! STAT CHANGE !", f"{waifu_reciver.name} Defense has been raised !")
-            

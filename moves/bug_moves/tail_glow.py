@@ -19,7 +19,7 @@ class TailGlow(Move):
         """
         Drastically raises user Attack.
         """
-        if waifu_user.stat_stage_atk == 6:
+        if waifu_user.stat_stage_atk >= 6:
             log("TOO HIGH", f"{waifu_user.name} Attack can't be raised anymore !")
 
         else:

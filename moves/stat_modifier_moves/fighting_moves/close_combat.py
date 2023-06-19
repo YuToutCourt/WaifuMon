@@ -3,6 +3,7 @@ from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
 
+
 class CloseCombat(Move):
     def __init__(self):
         super().__init__(
@@ -20,7 +21,7 @@ class CloseCombat(Move):
         Lowers user's Defense.
         """
 
-        if waifu_user.stat_stage_def == -6:
+        if waifu_user.stat_stage_def <= -6:
             log("TOO LOW", f"{waifu_reciver.name} Defense can't be lowered anymore !")
 
         else:

@@ -19,7 +19,7 @@ class SilverWind(Move):
         """
         May raise all stats of user at once.
         """
-        if waifu_user.stat_stage_atk == 6:
+        if waifu_user.stat_stage_atk >= 6:
             log("TOO HIGH", f"{waifu_user.name} Attack can't be raised anymore !")
 
         else:
@@ -28,7 +28,7 @@ class SilverWind(Move):
             waifu_user.attack = waifu_user.base_attack * multiplier
             log("! STAT CHANGE !", f"{waifu_user.name} Attack has been raised !")
             
-        if waifu_user.stat_stage_def == 6 :
+        if waifu_user.stat_stage_def >= 6 :
             log("TOO HIGH", f"{waifu_user.name} Defense can't be raised anymore !")
 
         else:
@@ -37,7 +37,7 @@ class SilverWind(Move):
             waifu_user.defense = waifu_user.base_defense * multiplier
             log("! STAT CHANGE !", f"{waifu_user.name} Defense has been raised !")
             
-        if waifu_user.stat_stage_spd == 6 :
+        if waifu_user.stat_stage_spd >= 6 :
             log("TOO HIGH", f"{waifu_user.name} Speed can't be raised anymore !")
 
         else:
