@@ -22,7 +22,7 @@ class Nuzzle(Move):
         Paralyzes opponent.
         """
         if waifu_receiver.status is not None:
-            log(waifu_receiver.name, "is already", waifu_receiver.status.name)
+            log(waifu_receiver.name, "is already", waifu_receiver.status.status)
         else:
             waifu_receiver.status = Paralysis(waifu_receiver, False)
             log(self.name, waifu_receiver.name, "is paralyzed")

@@ -137,7 +137,6 @@ class Fight:
             # (because I don't wont to modify all the moves)
             if randint(0, 100) <= move_used.proba_effect:
                 try:
-                    log("Effect")
                     attacker.move_to_use.effect(attacker, defender)
                     if defender.hp <= 0:
                         defender.display_hp()
