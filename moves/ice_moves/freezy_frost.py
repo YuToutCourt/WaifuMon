@@ -3,6 +3,7 @@ from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
 
+
 class FreezyFrost(Move):
     def __init__(self):
         super().__init__(
@@ -36,4 +37,3 @@ class FreezyFrost(Move):
         waifu_receiver.speed = waifu_receiver.base_speed
 
         log(waifu_receiver.name, "stat changes were removed")
-

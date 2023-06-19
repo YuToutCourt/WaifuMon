@@ -733,6 +733,7 @@ from moves.nothing_move import Nothing
 from moves.move import Move
 from moves.enum_moves import Moves
 
+
 class MoveFactory:
     @staticmethod
     def create_move(move: Moves) -> Move:

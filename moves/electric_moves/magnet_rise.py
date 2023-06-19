@@ -3,6 +3,7 @@ from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
 
+
 class MagnetRise(Move):
     def __init__(self):
         super().__init__(
@@ -24,4 +25,3 @@ class MagnetRise(Move):
             log(waifu_user.name, "is now Fly type")
         else:
             log(waifu_user.name, "is already Fly type")
-        

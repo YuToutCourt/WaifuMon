@@ -16,7 +16,7 @@ class OrderUp(Move):
         )
 
     def effect(self):
-        """ 
+        """
         No additional effect.
         """
         pass

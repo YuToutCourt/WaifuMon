@@ -3,6 +3,7 @@ from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
 
+
 class TrickorTreat(Move):
     def __init__(self):
         super().__init__(
@@ -23,5 +24,4 @@ class TrickorTreat(Move):
             if type_.type_name == Types.GHOST:
                 return
 
-        waifu_receiver.type.append(TypeFactory.create_type(Types.GHOST))            
-
+        waifu_receiver.type.append(TypeFactory.create_type(Types.GHOST))

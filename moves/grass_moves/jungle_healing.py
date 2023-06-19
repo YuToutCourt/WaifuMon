@@ -3,6 +3,7 @@ from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
 
+
 class JungleHealing(Move):
     def __init__(self):
         super().__init__(
@@ -21,4 +22,7 @@ class JungleHealing(Move):
         """
         waifu_user.hp = waifu_user.hp_max * 0.8
         waifu_user.status = None
-        log("HEAL", f"{waifu_user.name} a récupéré 80% de ses PV !, et n'a plus de status !")
+        log(
+            "HEAL",
+            f"{waifu_user.name} a récupéré 80% de ses PV !, et n'a plus de status !",
+        )

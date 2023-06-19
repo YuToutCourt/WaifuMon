@@ -3,6 +3,7 @@ from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
 
+
 class GrassyTerrain(Move):
     def __init__(self):
         super().__init__(
@@ -17,9 +18,10 @@ class GrassyTerrain(Move):
 
     def effect(self, waifu_user, waifu_receiver):
         """
-        Restores a little HP 
+        Restores a little HP
         """
         from random import randint
+
         restore = randint(1, 5) * waifu_user.level
         if waifu_user.hp + restore > waifu_user.hp_max:
             waifu_user.hp = waifu_user.hp_max

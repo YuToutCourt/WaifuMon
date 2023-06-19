@@ -4,6 +4,7 @@ from wtypes.enum_types import Types
 from utils.logger import log
 from status.burn import Burn
 
+
 class BurningJealousy(Move):
     def __init__(self):
         super().__init__(
@@ -19,7 +20,11 @@ class BurningJealousy(Move):
     def effect(self, waifu_user, waifu_receiver):
         """
         Burns any that have had their stats boosted.
-        """        
-        if waifu_receiver.stat_stage_atk > 0 or waifu_receiver.stat_stage_def > 0 or waifu_receiver.stat_stage_spd > 0:
+        """
+        if (
+            waifu_receiver.stat_stage_atk > 0
+            or waifu_receiver.stat_stage_def > 0
+            or waifu_receiver.stat_stage_spd > 0
+        ):
             waifu_receiver.status = Burn(waifu_receiver, False)
             log(self.name, waifu_receiver.name, "is burned")

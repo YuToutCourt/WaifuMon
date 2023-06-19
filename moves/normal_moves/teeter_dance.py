@@ -4,6 +4,7 @@ from wtypes.enum_types import Types
 from utils.logger import log
 from status.confuse import Confusion
 
+
 class TeeterDance(Move):
     def __init__(self):
         super().__init__(
@@ -31,4 +32,3 @@ class TeeterDance(Move):
             return
         waifu_user.status = Confusion(waifu_user, False)
         log(self.name, waifu_user.name, "became confused")
-

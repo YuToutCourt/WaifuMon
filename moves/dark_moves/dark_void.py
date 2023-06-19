@@ -4,6 +4,7 @@ from wtypes.enum_types import Types
 from status.sleep import Sleep
 from utils.logger import log
 
+
 class DarkVoid(Move):
     def __init__(self):
         super().__init__(
@@ -25,4 +26,3 @@ class DarkVoid(Move):
             log(self.name, waifu_receiver.name, "fell asleep")
         else:
             log(self.name, waifu_receiver.name, "is already asleep")
- 

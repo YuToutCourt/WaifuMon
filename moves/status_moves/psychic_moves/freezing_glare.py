@@ -4,6 +4,7 @@ from wtypes.enum_types import Types
 from utils.logger import log
 from status.freeze import Freeze
 
+
 class FreezingGlare(Move):
     def __init__(self):
         super().__init__(
@@ -22,4 +23,3 @@ class FreezingGlare(Move):
         """
         waifu_reciver.status = Freeze(waifu_reciver, False)
         log(self.name, f"{waifu_reciver.name} is now freeze!")
-

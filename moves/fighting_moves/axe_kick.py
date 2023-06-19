@@ -4,6 +4,7 @@ from wtypes.enum_types import Types
 from utils.logger import log
 from status.confuse import Confusion
 
+
 class AxeKick(Move):
     def __init__(self):
         super().__init__(
@@ -18,7 +19,7 @@ class AxeKick(Move):
 
     def effect(self, waifu_user, waifu_receiver):
         """
-        May confuse opponent. 
+        May confuse opponent.
         """
         if waifu_receiver.status is not None:
             log(waifu_receiver.name, "is already", waifu_receiver.status.name)

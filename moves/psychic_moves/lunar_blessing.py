@@ -3,6 +3,7 @@ from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
 
+
 class LunarBlessing(Move):
     def __init__(self):
         super().__init__(
@@ -27,4 +28,8 @@ class LunarBlessing(Move):
         if waifu_user.hp + heal > waifu_user.hp_max:
             heal = waifu_user.hp_max - waifu_user.hp
         waifu_user.hp += heal
-        log(self.name, waifu_user.name, f"recovered {heal} HP, and cleared status conditions")
+        log(
+            self.name,
+            waifu_user.name,
+            f"recovered {heal} HP, and cleared status conditions",
+        )

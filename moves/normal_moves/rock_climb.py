@@ -4,6 +4,7 @@ from wtypes.enum_types import Types
 from utils.logger import log
 from status.confuse import Confusion
 
+
 class RockClimb(Move):
     def __init__(self):
         super().__init__(
@@ -25,4 +26,3 @@ class RockClimb(Move):
             log(self.name, waifu_receiver.name, "is confused")
         else:
             log(self.name, waifu_receiver.name, "is already confused")
-        

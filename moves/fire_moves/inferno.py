@@ -4,6 +4,7 @@ from wtypes.enum_types import Types
 from utils.logger import log
 from status.burn import Burn
 
+
 class Inferno(Move):
     def __init__(self):
         super().__init__(

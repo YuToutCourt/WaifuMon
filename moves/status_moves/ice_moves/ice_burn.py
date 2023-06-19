@@ -4,6 +4,7 @@ from wtypes.enum_types import Types
 from utils.logger import log
 from status.burn import Burn
 
+
 class IceBurn(Move):
     def __init__(self):
         super().__init__(
@@ -22,4 +23,3 @@ class IceBurn(Move):
         """
         waifu_receiver.status = Burn(waifu_receiver, True)
         log("Ice Burn", f"{waifu_receiver.name} is burned!")
-

@@ -16,7 +16,7 @@ class FairyWind(Move):
         )
 
     def effect(self):
-        """ 
+        """
         No effect.
         """
         pass

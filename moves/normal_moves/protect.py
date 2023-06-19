@@ -3,6 +3,7 @@ from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
 
+
 class Protect(Move):
     def __init__(self):
         super().__init__(
@@ -19,7 +20,7 @@ class Protect(Move):
         """
         Raises the user's Defense by 2 stage.
         """
-        
+
         if waifu_user.stat_stage_def >= 6:
             log(f"{waifu_user.name}'s Defense can't go any higher!")
 

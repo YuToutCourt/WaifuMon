@@ -3,6 +3,7 @@ from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
 
+
 class PsychUp(Move):
     def __init__(self):
         super().__init__(
@@ -29,7 +30,7 @@ class PsychUp(Move):
         elif waifu_user.stat_stage_atk < 0:
             multiplier = 2 / (2 + abs(waifu_user.stat_stage_atk))
             waifu_user.attack = waifu_user.attack_base * multiplier
-        
+
         if waifu_user.stat_stage_def > 0:
             multiplier = (2 + waifu_user.stat_stage_def) / 2
             waifu_user.defense = waifu_user.defense_base * multiplier

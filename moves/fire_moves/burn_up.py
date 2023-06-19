@@ -4,6 +4,7 @@ from wtypes.enum_types import Types
 from utils.logger import log
 from status.burn import Burn
 
+
 class BurnUp(Move):
     def __init__(self):
         super().__init__(
@@ -25,4 +26,3 @@ class BurnUp(Move):
             waifu_user.types.remove(TypeFactory.create_type(Types.FIRE))
             log(self.name, waifu_user.name, "is burned and is no longer Fire type")
         log(self.name, waifu_user.name, "is burned")
-

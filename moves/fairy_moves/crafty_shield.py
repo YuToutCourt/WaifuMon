@@ -3,6 +3,7 @@ from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
 
+
 class CraftyShield(Move):
     def __init__(self):
         super().__init__(
@@ -21,4 +22,3 @@ class CraftyShield(Move):
         """
         waifu_user.status = None
         log(waifu_user.name, "remove every status")
-

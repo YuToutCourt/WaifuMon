@@ -3,6 +3,7 @@ from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
 
+
 class DualChop(Move):
     def __init__(self):
         super().__init__(
@@ -23,29 +24,27 @@ class DualChop(Move):
         log(self.name, "dealt", damage, "damage to", waifu_receiver.name)
         waifu_receiver.hp -= damage
 
-
     def __get_multiplier(self, attacker, move_used: Move, opponent):
-            if any(move_used.type.type_name == type.type_name for type in attacker.types):
-                multiplier = 1.5
-            else:
-                multiplier = 1
+        if any(move_used.type.type_name == type.type_name for type in attacker.types):
+            multiplier = 1.5
+        else:
+            multiplier = 1
 
-            for type_ in opponent.types:
-                if move_used.type.type_name in type_.immunities:
-                    return 0
-                
-            for op_type in opponent.types:
-                if move_used.type.type_name in op_type.weaknesses:
-                    multiplier *= 2
+        for type_ in opponent.types:
+            if move_used.type.type_name in type_.immunities:
+                return 0
 
-            for op_type in opponent.types:
-                if move_used.type.type_name in op_type.resistances:
-                    multiplier /= 2
+        for op_type in opponent.types:
+            if move_used.type.type_name in op_type.weaknesses:
+                multiplier *= 2
 
-            return multiplier
+        for op_type in opponent.types:
+            if move_used.type.type_name in op_type.resistances:
+                multiplier /= 2
+
+        return multiplier
 
     def __calculate_damage(self, attacker, opponent):
-        
         multiplier = self.__get_multiplier(attacker, self, opponent)
         damage = (
             ((2 * attacker.level + 10) / 250)
@@ -55,4 +54,3 @@ class DualChop(Move):
         ) * multiplier
 
         return damage
-

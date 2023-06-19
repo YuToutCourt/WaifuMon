@@ -16,7 +16,7 @@ class BlazingTorque(Move):
         )
 
     def effect(self):
-        """ 
+        """
         No effect.
         """
         pass

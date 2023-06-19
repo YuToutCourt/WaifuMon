@@ -16,7 +16,7 @@ class XScissor(Move):
         )
 
     def effect(self):
-        """ 
+        """
         No effect.
         """
         pass

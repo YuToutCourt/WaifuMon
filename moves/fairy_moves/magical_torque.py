@@ -16,7 +16,7 @@ class MagicalTorque(Move):
         )
 
     def effect(self):
-        """ 
+        """
         No effect.
         """
         pass

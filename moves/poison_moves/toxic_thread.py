@@ -4,6 +4,7 @@ from wtypes.enum_types import Types
 from utils.logger import log
 from status.poison import Poison
 
+
 class ToxicThread(Move):
     def __init__(self):
         super().__init__(
@@ -20,7 +21,7 @@ class ToxicThread(Move):
         """
         Poisons opponent and lowers its Speed.
         """
-            
+
         if waifu_reciver.status is not None:
             log("Already get status", f"{waifu_reciver.name} already get status !")
 

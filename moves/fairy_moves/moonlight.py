@@ -17,7 +17,7 @@ class Moonlight(Move):
 
     def effect(self, waifu_user, waifu_receiver):
         """
-        User recovers half HP. 
+        User recovers half HP.
         """
         waifu_user.current_health += waifu_user.max_health / 2
         if waifu_user.current_health > waifu_user.max_health:

@@ -3,6 +3,7 @@ from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from random import randint
 
+
 class Magnitude(Move):
     def __init__(self):
         super().__init__(

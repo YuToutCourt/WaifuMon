@@ -16,7 +16,7 @@ class Megahorn(Move):
         )
 
     def effect(self):
-        """ 
+        """
         No effect.
         """
         pass

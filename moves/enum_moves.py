@@ -1,5 +1,6 @@
 from enum import Enum
 
+
 class Moves(Enum):
     ATTACK_ORDER = 1
     BUG_BITE = 2

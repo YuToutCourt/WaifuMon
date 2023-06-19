@@ -16,7 +16,7 @@ class Peck(Move):
         )
 
     def effect(self):
-        """ 
+        """
         No effect.
         """
         pass

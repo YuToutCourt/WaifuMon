@@ -26,6 +26,6 @@ class Snowscape(Move):
 
         else:
             waifu_user.stat_stage_def += 1
-            multiplier = (abs(waifu_user.stat_stage_def) + 2) / 2 
+            multiplier = (abs(waifu_user.stat_stage_def) + 2) / 2
             waifu_user.defense = waifu_user.base_defense * multiplier
             log("! STAT CHANGE !", f"{waifu_user.name} Defense has been raised !")

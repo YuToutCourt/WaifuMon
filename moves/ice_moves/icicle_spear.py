@@ -3,6 +3,7 @@ from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
 
+
 class IcicleSpear(Move):
     def __init__(self):
         super().__init__(
@@ -20,12 +21,12 @@ class IcicleSpear(Move):
         Hits 2-5 times in one turn.
         """
         from random import randint
+
         hits = randint(2, 5)
-        for i in range(hits-1):
+        for i in range(hits - 1):
             damage = self.__calculate_damage(waifu_user, waifu_receiver)
             waifu_receiver.hp -= damage
             log(self.name, waifu_user.name, "deals", damage, "damage")
-
 
     def __get_multiplier(self, attacker, move_used: Move, opponent):
         if any(move_used.type.type_name == type.type_name for type in attacker.types):
@@ -36,7 +37,7 @@ class IcicleSpear(Move):
         for type_ in opponent.types:
             if move_used.type.type_name in type_.immunities:
                 return 0
-            
+
         for op_type in opponent.types:
             if move_used.type.type_name in op_type.weaknesses:
                 multiplier *= 2
@@ -48,7 +49,6 @@ class IcicleSpear(Move):
         return multiplier
 
     def __calculate_damage(self, attacker, opponent):
-        
         multiplier = self.__get_multiplier(attacker, self, opponent)
         damage = (
             ((2 * attacker.level + 10) / 250)

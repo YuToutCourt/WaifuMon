@@ -3,6 +3,7 @@ from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
 
+
 class OminousWind(Move):
     def __init__(self):
         super().__init__(
@@ -42,4 +43,3 @@ class OminousWind(Move):
             multiplier = (abs(waifu_user.stat_stage_spd) + 2) / 2
             waifu_user.speed = waifu_user.base_speed * multiplier
             log(waifu_user.name, "Speed was boosted by 1 stage")
-

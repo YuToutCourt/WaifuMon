@@ -3,6 +3,7 @@ from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
 
+
 class ChargeBeam(Move):
     def __init__(self):
         super().__init__(
@@ -25,5 +26,5 @@ class ChargeBeam(Move):
         else:
             waifu_user.stat_stage_atk += 1
             log(waifu_user.name, "Attack rose by 1 stage")
-            multiplier = (abs(waifu_user.stat_stage_atk) + 2 ) / 2
+            multiplier = (abs(waifu_user.stat_stage_atk) + 2) / 2
             waifu_user.attack = waifu_user.base_attack * multiplier

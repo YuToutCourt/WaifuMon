@@ -3,6 +3,7 @@ from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
 
+
 class BulletSeed(Move):
     def __init__(self):
         super().__init__(
@@ -20,35 +21,34 @@ class BulletSeed(Move):
         Hits 2-5 times in one turn.
         """
         from random import randint
+
         hit = randint(2, 5)
-        for _ in range(hit-1):
+        for _ in range(hit - 1):
             dmg = self.__calculate_damage(waifu_user, waifu_receiver)
             waifu_receiver.hp -= dmg
             log(self.name, "hit", waifu_receiver.name, "for", dmg, "HP")
 
-
     def __get_multiplier(self, attacker, move_used: Move, opponent):
-            if any(move_used.type.type_name == type.type_name for type in attacker.types):
-                multiplier = 1.5
-            else:
-                multiplier = 1
+        if any(move_used.type.type_name == type.type_name for type in attacker.types):
+            multiplier = 1.5
+        else:
+            multiplier = 1
 
-            for type_ in opponent.types:
-                if move_used.type.type_name in type_.immunities:
-                    return 0
-                
-            for op_type in opponent.types:
-                if move_used.type.type_name in op_type.weaknesses:
-                    multiplier *= 2
+        for type_ in opponent.types:
+            if move_used.type.type_name in type_.immunities:
+                return 0
 
-            for op_type in opponent.types:
-                if move_used.type.type_name in op_type.resistances:
-                    multiplier /= 2
+        for op_type in opponent.types:
+            if move_used.type.type_name in op_type.weaknesses:
+                multiplier *= 2
 
-            return multiplier
+        for op_type in opponent.types:
+            if move_used.type.type_name in op_type.resistances:
+                multiplier /= 2
+
+        return multiplier
 
     def __calculate_damage(self, attacker, opponent):
-        
         multiplier = self.__get_multiplier(attacker, self, opponent)
         damage = (
             ((2 * attacker.level + 10) / 250)

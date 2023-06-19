@@ -3,6 +3,7 @@ from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
 
+
 class Tickle(Move):
     def __init__(self):
         super().__init__(
@@ -23,7 +24,7 @@ class Tickle(Move):
             log(self.name, waifu_receiver.name, "cannot go lower")
             return
         waifu_receiver.stat_stage_atk -= 1
-        multiplier = 2/ 2 + abs(waifu_receiver.stat_stage_atk)
+        multiplier = 2 / 2 + abs(waifu_receiver.stat_stage_atk)
         waifu_receiver.attack = int(waifu_receiver.base_attack * multiplier)
         log(self.name, waifu_receiver.name, "Attack fell")
 

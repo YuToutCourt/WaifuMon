@@ -3,6 +3,7 @@ from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
 
+
 class DragonRage(Move):
     def __init__(self):
         super().__init__(
@@ -21,4 +22,3 @@ class DragonRage(Move):
         """
         waifu_receiver.hp -= 40
         log(self.name, waifu_receiver.name, "lost 40 HP")
-

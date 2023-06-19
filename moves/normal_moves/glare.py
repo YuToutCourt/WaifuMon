@@ -4,6 +4,7 @@ from wtypes.enum_types import Types
 from status.paralysis import Paralysis
 from utils.logger import log
 
+
 class Glare(Move):
     def __init__(self):
         super().__init__(

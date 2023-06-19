@@ -3,6 +3,7 @@ from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
 
+
 class ThunderousKick(Move):
     def __init__(self):
         super().__init__(
@@ -26,4 +27,3 @@ class ThunderousKick(Move):
             multiplier = 2 / (abs(waifu_receiver.stat_stage_def) + 2)
             waifu_receiver.defense = waifu_receiver.base_defense * multiplier
             log(waifu_receiver.name, "Defense was lowered by 1 stage")
-

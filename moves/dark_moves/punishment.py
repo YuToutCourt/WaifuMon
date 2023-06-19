@@ -3,6 +3,7 @@ from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
 
+
 class Punishment(Move):
     def __init__(self):
         super().__init__(
@@ -19,5 +20,12 @@ class Punishment(Move):
         """
         Power increases when opponent's stats have been raised.
         """
-        self.power = 60 + (20 * abs(waifu_receiver.stat_stage_def + waifu_receiver.stat_stage_atk + waifu_receiver.stat_stage_spd))
+        self.power = 60 + (
+            20
+            * abs(
+                waifu_receiver.stat_stage_def
+                + waifu_receiver.stat_stage_atk
+                + waifu_receiver.stat_stage_spd
+            )
+        )
         log(self.name, f"Power is now {self.power}")
