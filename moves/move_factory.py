@@ -455,7 +455,6 @@ from moves.rock_moves.smack_down import SmackDown
 from moves.rock_moves.splintered_stormshards import SplinteredStormshards
 from moves.rock_moves.stone_axe import StoneAxe
 from moves.rock_moves.stone_edge import StoneEdge
-from moves.rock_moves.wide_guard import WideGuard
 from moves.status_moves.bug_moves.steamroller import Steamroller
 from moves.status_moves.bug_moves.twineedle import Twineedle
 from moves.status_moves.dark_moves.bite import Bite
@@ -684,7 +683,6 @@ from moves.steel_moves.doom_desire import DoomDesire
 from moves.steel_moves.flash_cannon import FlashCannon
 from moves.steel_moves.gear_grind import GearGrind
 from moves.steel_moves.gigaton_hammer import GigatonHammer
-from moves.steel_moves.heavy_slam import HeavySlam
 from moves.steel_moves.iron_tail import IronTail
 from moves.steel_moves.magnet_bomb import MagnetBomb
 from moves.steel_moves.metal_claw import MetalClaw
@@ -1597,26 +1595,10 @@ class MoveFactory:
             return LunarBlessing()
         elif move == Moves.LUSTER_PURGE:
             return LusterPurge()
-        elif move == Moves.MAGIC_COAT:
-            return MagicCoat()
-        elif move == Moves.MAGIC_POWDER:
-            return MagicPowder()
-        elif move == Moves.MAGIC_ROOM:
-            return MagicRoom()
-        elif move == Moves.MIRACLE_EYE:
-            return MiracleEye()
-        elif move == Moves.MIRROR_COAT:
-            return MirrorCoat()
         elif move == Moves.MIST_BALL:
             return MistBall()
         elif move == Moves.PHOTON_GEYSER:
             return PhotonGeyser()
-        elif move == Moves.POWER_SPLIT:
-            return PowerSplit()
-        elif move == Moves.POWER_SWAP:
-            return PowerSwap()
-        elif move == Moves.POWER_TRICK:
-            return PowerTrick()
         elif move == Moves.PRISMATIC_LASER:
             return PrismaticLaser()
         elif move == Moves.PSYBEAM:
@@ -1627,54 +1609,24 @@ class MoveFactory:
             return Psychic()
         elif move == Moves.PSYCHIC_FANGS:
             return PsychicFangs()
-        elif move == Moves.PSYCHIC_TERRAIN:
-            return PsychicTerrain()
-        elif move == Moves.PSYCHO_CUT:
-            return PsychoCut()
-        elif move == Moves.PSYCHO_SHIFT:
-            return PsychoShift()
         elif move == Moves.PSYSHOCK:
             return Psyshock()
         elif move == Moves.PSYSTRIKE:
             return Psystrike()
-        elif move == Moves.PSYWAVE:
-            return Psywave()
         elif move == Moves.REFLECT:
             return Reflect()
         elif move == Moves.REST:
             return Rest()
-        elif move == Moves.ROLE_PLAY:
-            return RolePlay()
-        elif move == Moves.SHATTERED_PSYCHE:
-            return ShatteredPsyche()
-        elif move == Moves.SKILL_SWAP:
-            return SkillSwap()
-        elif move == Moves.SPEED_SWAP:
-            return SpeedSwap()
         elif move == Moves.STORED_POWER:
             return StoredPower()
         elif move == Moves.SYNCHRONOISE:
             return Synchronoise()
-        elif move == Moves.TAKE_HEART:
-            return TakeHeart()
-        elif move == Moves.TELEKINESIS:
-            return Telekinesis()
-        elif move == Moves.TELEPORT:
-            return Teleport()
-        elif move == Moves.TRICK:
-            return Trick()
-        elif move == Moves.TRICK_ROOM:
-            return TrickRoom()
         elif move == Moves.TWIN_BEAM:
             return TwinBeam()
-        elif move == Moves.WONDER_ROOM:
-            return WonderRoom()
         elif move == Moves.ACCELEROCK:
             return Accelerock()
         elif move == Moves.ANCIENT_POWER:
             return AncientPower()
-        elif move == Moves.CONTINENTAL_CRUSH:
-            return ContinentalCrush()
         elif move == Moves.DIAMOND_STORM:
             return DiamondStorm()
         elif move == Moves.HEAD_SMASH:
@@ -1693,22 +1645,14 @@ class MoveFactory:
             return Rollout()
         elif move == Moves.SALT_CURE:
             return SaltCure()
-        elif move == Moves.SANDSTORM:
-            return Sandstorm()
         elif move == Moves.SMACK_DOWN:
             return SmackDown()
         elif move == Moves.SPLINTERED_STORMSHARDS:
             return SplinteredStormshards()
-        elif move == Moves.STEALTH_ROCK:
-            return StealthRock()
         elif move == Moves.STONE_AXE:
             return StoneAxe()
         elif move == Moves.STONE_EDGE:
             return StoneEdge()
-        elif move == Moves.TAR_SHOT:
-            return TarShot()
-        elif move == Moves.WIDE_GUARD:
-            return WideGuard()
         elif move == Moves.STEAMROLLER:
             return Steamroller()
         elif move == Moves.TWINEEDLE:
@@ -2157,28 +2101,18 @@ class MoveFactory:
             return BehemothBlade()
         elif move == Moves.BULLET_PUNCH:
             return BulletPunch()
-        elif move == Moves.CORKSCREW_CRASH:
-            return CorkscrewCrash()
         elif move == Moves.DOOM_DESIRE:
             return DoomDesire()
         elif move == Moves.FLASH_CANNON:
             return FlashCannon()
         elif move == Moves.GEAR_GRIND:
             return GearGrind()
-        elif move == Moves.GEAR_UP:
-            return GearUp()
         elif move == Moves.GIGATON_HAMMER:
             return GigatonHammer()
-        elif move == Moves.GYRO_BALL:
-            return GyroBall()
-        elif move == Moves.HEAVY_SLAM:
-            return HeavySlam()
         elif move == Moves.IRON_TAIL:
             return IronTail()
         elif move == Moves.MAGNET_BOMB:
             return MagnetBomb()
-        elif move == Moves.METAL_BURST:
-            return MetalBurst()
         elif move == Moves.METAL_CLAW:
             return MetalClaw()
         elif move == Moves.METEOR_MASH:
@@ -2201,8 +2135,6 @@ class MoveFactory:
             return AquaCutter()
         elif move == Moves.AQUA_JET:
             return AquaJet()
-        elif move == Moves.AQUA_RING:
-            return AquaRing()
         elif move == Moves.AQUA_TAIL:
             return AquaTail()
         elif move == Moves.BOUNCY_BUBBLE:
@@ -2229,12 +2161,8 @@ class MoveFactory:
             return HydroPump()
         elif move == Moves.HYDRO_STEAM:
             return HydroSteam()
-        elif move == Moves.HYDRO_VORTEX:
-            return HydroVortex()
         elif move == Moves.JET_PUNCH:
             return JetPunch()
-        elif move == Moves.LIFE_DEW:
-            return LifeDew()
         elif move == Moves.LIQUIDATION:
             return Liquidation()
         elif move == Moves.MUDDY_WATER:
@@ -2245,14 +2173,10 @@ class MoveFactory:
             return Octazooka()
         elif move == Moves.ORIGIN_PULSE:
             return OriginPulse()
-        elif move == Moves.RAIN_DANCE:
-            return RainDance()
         elif move == Moves.RAZOR_SHELL:
             return RazorShell()
         elif move == Moves.SNIPE_SHOT:
             return SnipeShot()
-        elif move == Moves.SOAK:
-            return Soak()
         elif move == Moves.SPARKLING_ARIA:
             return SparklingAria()
         elif move == Moves.SURF:
@@ -2269,15 +2193,11 @@ class MoveFactory:
             return WaterPulse()
         elif move == Moves.WATER_SHURIKEN:
             return WaterShuriken()
-        elif move == Moves.WATER_SPORT:
-            return WaterSport()
         elif move == Moves.WATER_SPOUT:
             return WaterSpout()
         elif move == Moves.WAVE_CRASH:
             return WaveCrash()
         elif move == Moves.WHIRLPOOL:
             return Whirlpool()
-        elif move == Moves.WITHDRAW:
-            return Withdraw()
         elif move == Moves.NOTHING:
             return Nothing()
