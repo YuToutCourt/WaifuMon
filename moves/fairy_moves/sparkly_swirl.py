@@ -1,6 +1,7 @@
 from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
+from utils.logger import log
 
 
 class SparklySwirl(Move):
@@ -15,8 +16,12 @@ class SparklySwirl(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_receiver):
         """
-        Cures all status problems in the party Pokemon.
+        Cures all status problems.
         """
-        pass
+        if waifu_user.status is None:
+            log(waifu_user.name, "is not affected by any status")
+        else:
+            waifu_user.status = None
+            log(waifu_user.name, "remove every status")

@@ -1,7 +1,8 @@
 from moves.move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-from utils.log import log
+from utils.logger import log
+
 
 class Barrier(Move):
     def __init__(self):
@@ -19,13 +20,12 @@ class Barrier(Move):
         """
         Sharply raises user's Defense.
         """
-        
 
-        if waifu_user.stat_stage_def == 6:
+        if waifu_user.stat_stage_def >= 6:
             log("TOO HIGH", f"{waifu_user.name} Defense can't be raised anymore !")
 
         else:
             waifu_user.stat_stage_def += 2
-            multiplier = 2 / (abs(waifu_user.stat_stage_def) + 2)
-            waifu_user.defense = waifu_user.defense * multiplier
+            multiplier = (abs(waifu_user.stat_stage_def) + 2) / 2
+            waifu_user.defense = waifu_user.base_defense * multiplier
             log("! STAT CHANGE !", f"{waifu_user.name} Defense has been raised !")

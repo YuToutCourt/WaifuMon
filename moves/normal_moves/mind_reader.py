@@ -8,7 +8,7 @@ class MindReader(Move):
         super().__init__(
             "Mind Reader",
             type=TypeFactory.create_type(Types.NORMAL),
-            power=0,
+            power=150,
             accuracy=100,
             pp=5,
             priority=0,

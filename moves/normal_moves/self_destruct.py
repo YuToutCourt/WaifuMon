@@ -1,6 +1,7 @@
 from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
+from utils.logger import log
 
 
 class SelfDestruct(Move):
@@ -15,8 +16,9 @@ class SelfDestruct(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_receiver):
         """
         User faints.
         """
-        pass
+        waifu_user.hp = 0
+        log(self.name, waifu_user.name, "fainted")

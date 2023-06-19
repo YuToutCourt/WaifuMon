@@ -2,10 +2,12 @@ from moves.move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from random import randint
-from utils.log import log
+from utils.logger import log
 from status.burn import Burn
 from status.paralysis import Paralysis
 from status.freeze import Freeze
+
+
 class TriAttack(Move):
     def __init__(self):
         super().__init__(
@@ -23,7 +25,7 @@ class TriAttack(Move):
         May paralyze, burn or freeze opponent.
         """
         number = randint(1, 3)
-        
+
         match number:
             case 1:
                 waifu_reciver.status = Burn(waifu_reciver, True)
@@ -31,7 +33,7 @@ class TriAttack(Move):
             case 2:
                 waifu_reciver.status = Paralysis(waifu_reciver, False)
                 log(self.name, f"{waifu_reciver.name} is now paralyse")
-            
+
             case 3:
                 waifu_reciver.status = Freeze(waifu_reciver, False)
                 log(self.name, f"{waifu_reciver.name} is now freeze")

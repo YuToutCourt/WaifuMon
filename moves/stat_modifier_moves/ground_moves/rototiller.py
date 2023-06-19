@@ -1,7 +1,8 @@
 from moves.move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-from utils.log import log
+from utils.logger import log
+
 
 class Rototiller(Move):
     def __init__(self):
@@ -19,14 +20,12 @@ class Rototiller(Move):
         """
         Raises Attack.
         """
-        
 
-        if waifu_user.stat_stage_atk == 6:
+        if waifu_user.stat_stage_atk >= 6:
             log("TOO HIGH", f"{waifu_reciver.name} Attack can't be raised anymore !")
 
         else:
             waifu_user.stat_stage_atk += 1
             multiplier = 2 / (abs(waifu_user.stat_stage_atk) + 2)
-            waifu_user.attack = waifu_user.attack * multiplier
+            waifu_user.attack = waifu_user.base_attack * multiplier
             log("! STAT CHANGE !", f"{waifu_reciver.name} Attack has been raised !")
-        

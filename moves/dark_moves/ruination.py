@@ -1,6 +1,7 @@
 from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
+from utils.logger import log
 
 
 class Ruination(Move):
@@ -15,8 +16,9 @@ class Ruination(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_receiver):
         """
         Halves the opponent's HP.
         """
-        pass
+        waifu_receiver.hp //= 2
+        log(self.name, waifu_receiver.name, "lost half of their HP")

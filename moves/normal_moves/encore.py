@@ -8,7 +8,7 @@ class Encore(Move):
         super().__init__(
             "Encore",
             type=TypeFactory.create_type(Types.NORMAL),
-            power=0,
+            power=110,
             accuracy=100,
             pp=5,
             priority=0,

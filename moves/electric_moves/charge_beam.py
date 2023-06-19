@@ -1,6 +1,7 @@
 from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
+from utils.logger import log
 
 
 class ChargeBeam(Move):
@@ -15,8 +16,15 @@ class ChargeBeam(Move):
             proba_effect=70,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_receiver):
         """
-        May raise user's Special Attack.
+        May raise user's Attack.
         """
-        pass
+        if waifu_user.stat_stage_atk >= 6:
+            log("Too high!", waifu_user.name, "Attack can't go any higher")
+
+        else:
+            waifu_user.stat_stage_atk += 1
+            log(waifu_user.name, "Attack rose by 1 stage")
+            multiplier = (abs(waifu_user.stat_stage_atk) + 2) / 2
+            waifu_user.attack = waifu_user.base_attack * multiplier

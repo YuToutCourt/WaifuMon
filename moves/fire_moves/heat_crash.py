@@ -8,7 +8,7 @@ class HeatCrash(Move):
         super().__init__(
             "Heat Crash",
             type=TypeFactory.create_type(Types.FIRE),
-            power=0,
+            power=90,
             accuracy=100,
             pp=10,
             priority=0,

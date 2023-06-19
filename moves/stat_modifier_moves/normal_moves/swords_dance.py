@@ -1,7 +1,8 @@
 from moves.move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-from utils.log import log
+from utils.logger import log
+
 
 class SwordsDance(Move):
     def __init__(self):
@@ -19,13 +20,12 @@ class SwordsDance(Move):
         """
         Sharply raises user's Attack.
         """
-        
 
-        if waifu_user.stat_stage_atk == 6:
+        if waifu_user.stat_stage_atk >= 6:
             log("TOO HIGH", f"{waifu_user.name} Attack can't be raised anymore !")
 
         else:
             waifu_user.stat_stage_atk += 2
-            multiplier = 2 / (abs(waifu_user.stat_stage_atk) + 2)
-            waifu_user.attack = waifu_user.attack * multiplier
+            multiplier = (abs(waifu_user.stat_stage_atk) + 2) / 2
+            waifu_user.attack = waifu_user.base_attack * multiplier
             log("! STAT CHANGE !", f"{waifu_user.name} Attack has been raised !")

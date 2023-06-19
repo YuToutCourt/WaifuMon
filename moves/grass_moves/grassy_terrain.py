@@ -1,6 +1,7 @@
 from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
+from utils.logger import log
 
 
 class GrassyTerrain(Move):
@@ -15,8 +16,14 @@ class GrassyTerrain(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_receiver):
         """
-        Restores a little HP of all Pokemon for 5 turns.
+        Restores a little HP
         """
-        pass
+        from random import randint
+
+        restore = randint(1, 5) * waifu_user.level
+        if waifu_user.hp + restore > waifu_user.hp_max:
+            waifu_user.hp = waifu_user.hp_max
+        waifu_user.hp += restore
+        log(self.name, waifu_user.name, "restores", restore, "HP")

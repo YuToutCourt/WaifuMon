@@ -8,7 +8,7 @@ class DireClaw(Move):
         super().__init__(
             "Dire Claw",
             type=TypeFactory.create_type(Types.POISON),
-            power=80,
+            power=90,
             accuracy=100,
             pp=15,
             priority=0,
@@ -17,6 +17,6 @@ class DireClaw(Move):
 
     def effect(self):
         """
-        High critical hit ratio. May poison, paralyze or make the opponent drowsy.
+        High critical hit ratio.
         """
         pass

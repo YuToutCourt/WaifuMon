@@ -11,7 +11,7 @@ class ExtremeSpeed(Move):
             power=80,
             accuracy=100,
             pp=5,
-            priority=1,
+            priority=2,
             proba_effect=100,
         )
 

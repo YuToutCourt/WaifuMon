@@ -16,5 +16,7 @@ class CombatTorque(Move):
         )
 
     def effect(self):
-        """ """
+        """
+        No effect.
+        """
         pass

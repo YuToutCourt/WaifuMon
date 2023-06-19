@@ -8,7 +8,7 @@ class SupersonicSkystrike(Move):
         super().__init__(
             "Supersonic Skystrike",
             type=TypeFactory.create_type(Types.FLYING),
-            power=0,
+            power=150,
             accuracy=100,
             pp=1,
             priority=0,

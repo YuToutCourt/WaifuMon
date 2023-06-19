@@ -8,7 +8,7 @@ class TwinkleTackle(Move):
         super().__init__(
             "Twinkle Tackle",
             type=TypeFactory.create_type(Types.FAIRY),
-            power=0,
+            power=120,
             accuracy=100,
             pp=1,
             priority=0,

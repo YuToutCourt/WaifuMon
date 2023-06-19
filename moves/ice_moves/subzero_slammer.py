@@ -8,7 +8,7 @@ class SubzeroSlammer(Move):
         super().__init__(
             "Subzero Slammer",
             type=TypeFactory.create_type(Types.ICE),
-            power=0,
+            power=190,
             accuracy=100,
             pp=1,
             priority=0,

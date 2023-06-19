@@ -1,7 +1,8 @@
 from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-from utils.log import log
+from utils.logger import log
+
 
 class TakeDown(Move):
     def __init__(self):

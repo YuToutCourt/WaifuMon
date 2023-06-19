@@ -2,8 +2,9 @@ from moves.move import Move
 from random import randint
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-from utils.log import log
+from utils.logger import log
 from status.confuse import Confusion
+
 
 class Thrash(Move):
     def __init__(self):
@@ -23,7 +24,7 @@ class Thrash(Move):
         User attacks for 2-3 turns but then becomes confused.
         """
         if self.turn >= 2:
-            if randint(0 ,1):
+            if randint(0, 1):
                 waifu_user.status = Confusion(waifu_user, False)
                 log(self.name, f"{waifu_user.name} is confuse!")
                 self.turn = 0

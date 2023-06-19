@@ -8,7 +8,7 @@ class TropKick(Move):
         super().__init__(
             "Trop Kick",
             type=TypeFactory.create_type(Types.GRASS),
-            power=70,
+            power=80,
             accuracy=100,
             pp=15,
             priority=0,
@@ -17,6 +17,6 @@ class TropKick(Move):
 
     def effect(self):
         """
-        Lowers opponent's Attack.
+        No effect.
         """
         pass

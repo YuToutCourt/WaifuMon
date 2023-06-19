@@ -8,29 +8,20 @@ from moves.bug_moves.leech_life import LeechLife
 from moves.bug_moves.megahorn import Megahorn
 from moves.bug_moves.pin_missile import PinMissile
 from moves.bug_moves.pollen_puff import PollenPuff
-from moves.bug_moves.powder import Powder
-from moves.bug_moves.rage_powder import RagePowder
-from moves.bug_moves.savage_spin_out import SavageSpinOut
 from moves.bug_moves.signal_beam import SignalBeam
 from moves.bug_moves.silver_wind import SilverWind
-from moves.bug_moves.spider_web import SpiderWeb
 from moves.bug_moves.tail_glow import TailGlow
-from moves.bug_moves.u_turn import Uturn
 from moves.bug_moves.x_scissor import XScissor
 from moves.dark_moves.assurance import Assurance
 from moves.dark_moves.baddy_bad import BaddyBad
 from moves.dark_moves.beat_up import BeatUp
-from moves.dark_moves.black_hole_eclipse import BlackHoleEclipse
 from moves.dark_moves.brutal_swing import BrutalSwing
 from moves.dark_moves.ceaseless_edge import CeaselessEdge
-from moves.dark_moves.comeuppance import Comeuppance
 from moves.dark_moves.crunch import Crunch
 from moves.dark_moves.darkest_lariat import DarkestLariat
 from moves.dark_moves.dark_void import DarkVoid
-from moves.dark_moves.embargo import Embargo
 from moves.dark_moves.false_surrender import FalseSurrender
 from moves.dark_moves.feint_attack import FeintAttack
-from moves.dark_moves.fling import Fling
 from moves.dark_moves.foul_play import FoulPlay
 from moves.dark_moves.jaw_lock import JawLock
 from moves.dark_moves.knock_off import KnockOff
@@ -43,19 +34,13 @@ from moves.dark_moves.payback import Payback
 from moves.dark_moves.power_trip import PowerTrip
 from moves.dark_moves.punishment import Punishment
 from moves.dark_moves.pursuit import Pursuit
-from moves.dark_moves.quash import Quash
 from moves.dark_moves.ruination import Ruination
-from moves.dark_moves.snatch import Snatch
 from moves.dark_moves.sucker_punch import SuckerPunch
-from moves.dark_moves.switcheroo import Switcheroo
-from moves.dark_moves.thief import Thief
 from moves.dark_moves.throat_chop import ThroatChop
-from moves.dark_moves.torment import Torment
 from moves.dark_moves.wicked_blow import WickedBlow
 from moves.dark_moves.wicked_torque import WickedTorque
 from moves.dragon_moves.clangorous_soulblaze import ClangorousSoulblaze
 from moves.dragon_moves.core_enforcer import CoreEnforcer
-from moves.dragon_moves.devastating_drake import DevastatingDrake
 from moves.dragon_moves.dragon_claw import DragonClaw
 from moves.dragon_moves.dragon_darts import DragonDarts
 from moves.dragon_moves.dragon_energy import DragonEnergy
@@ -76,17 +61,14 @@ from moves.electric_moves.buzzy_buzz import BuzzyBuzz
 from moves.electric_moves.catastropika import Catastropika
 from moves.electric_moves.charge_beam import ChargeBeam
 from moves.electric_moves.double_shock import DoubleShock
-from moves.electric_moves.electrify import Electrify
 from moves.electric_moves.electro_ball import ElectroBall
 from moves.electric_moves.electro_drift import ElectroDrift
 from moves.electric_moves.fusion_bolt import FusionBolt
 from moves.electric_moves.gigavolt_havoc import GigavoltHavoc
-from moves.electric_moves.ion_deluge import IonDeluge
 from moves.electric_moves.magnet_rise import MagnetRise
 from moves.electric_moves.nuzzle import Nuzzle
 from moves.electric_moves.overdrive import Overdrive
 from moves.electric_moves.parabolic_charge import ParabolicCharge
-from moves.electric_moves.pika_papow import PikaPapow
 from moves.electric_moves.plasma_fists import PlasmaFists
 from moves.electric_moves.rising_voltage import RisingVoltage
 from moves.electric_moves.shock_wave import ShockWave
@@ -102,14 +84,12 @@ from moves.fairy_moves.crafty_shield import CraftyShield
 from moves.fairy_moves.dazzling_gleam import DazzlingGleam
 from moves.fairy_moves.disarming_voice import DisarmingVoice
 from moves.fairy_moves.draining_kiss import DrainingKiss
-from moves.fairy_moves.fairy_lock import FairyLock
 from moves.fairy_moves.fairy_wind import FairyWind
 from moves.fairy_moves.floral_healing import FloralHealing
 from moves.fairy_moves.guardian_of_alola import GuardianofAlola
 from moves.fairy_moves.light_of_ruin import LightofRuin
 from moves.fairy_moves.magical_torque import MagicalTorque
 from moves.fairy_moves.misty_explosion import MistyExplosion
-from moves.fairy_moves.misty_terrain import MistyTerrain
 from moves.fairy_moves.moonblast import Moonblast
 from moves.fairy_moves.moonlight import Moonlight
 from moves.fairy_moves.nature_madness import NatureMadness
@@ -129,7 +109,6 @@ from moves.fighting_moves.collision_course import CollisionCourse
 from moves.fighting_moves.combat_torque import CombatTorque
 from moves.fighting_moves.counter import Counter
 from moves.fighting_moves.cross_chop import CrossChop
-from moves.fighting_moves.detect import Detect
 from moves.fighting_moves.double_kick import DoubleKick
 from moves.fighting_moves.drain_punch import DrainPunch
 from moves.fighting_moves.dynamic_punch import DynamicPunch
@@ -142,7 +121,6 @@ from moves.fighting_moves.jump_kick import JumpKick
 from moves.fighting_moves.karate_chop import KarateChop
 from moves.fighting_moves.low_kick import LowKick
 from moves.fighting_moves.mach_punch import MachPunch
-from moves.fighting_moves.mat_block import MatBlock
 from moves.fighting_moves.meteor_assault import MeteorAssault
 from moves.fighting_moves.quick_guard import QuickGuard
 from moves.fighting_moves.revenge import Revenge
@@ -181,7 +159,6 @@ from moves.fire_moves.mind_blown import MindBlown
 from moves.fire_moves.raging_fury import RagingFury
 from moves.fire_moves.shell_trap import ShellTrap
 from moves.fire_moves.sizzly_slide import SizzlySlide
-from moves.fire_moves.sunny_day import SunnyDay
 from moves.fire_moves.torch_song import TorchSong
 from moves.flying_moves.acrobatics import Acrobatics
 from moves.flying_moves.aerial_ace import AerialAce
@@ -196,7 +173,6 @@ from moves.flying_moves.dual_wingbeat import DualWingbeat
 from moves.flying_moves.fly import Fly
 from moves.flying_moves.gust import Gust
 from moves.flying_moves.hurricane import Hurricane
-from moves.flying_moves.mirror_move import MirrorMove
 from moves.flying_moves.oblivion_wing import OblivionWing
 from moves.flying_moves.peck import Peck
 from moves.flying_moves.pluck import Pluck
@@ -208,15 +184,12 @@ from moves.flying_moves.wing_attack import WingAttack
 from moves.ghost_moves.astral_barrage import AstralBarrage
 from moves.ghost_moves.bitter_malice import BitterMalice
 from moves.ghost_moves.confuse_ray import ConfuseRay
-from moves.ghost_moves.curse import Curse
-from moves.ghost_moves.destiny_bond import DestinyBond
 from moves.ghost_moves.grudge import Grudge
 from moves.ghost_moves.hex import Hex
 from moves.ghost_moves.infernal_parade import InfernalParade
 from moves.ghost_moves.last_respects import LastRespects
 from moves.ghost_moves.menacing_moonraze_maelstrom import MenacingMoonrazeMaelstrom
 from moves.ghost_moves.moongeist_beam import MoongeistBeam
-from moves.ghost_moves.nightmare import Nightmare
 from moves.ghost_moves.night_shade import NightShade
 from moves.ghost_moves.ominous_wind import OminousWind
 from moves.ghost_moves.phantom_force import PhantomForce
@@ -248,12 +221,10 @@ from moves.grass_moves.grassy_terrain import GrassyTerrain
 from moves.grass_moves.grass_knot import GrassKnot
 from moves.grass_moves.grass_pledge import GrassPledge
 from moves.grass_moves.horn_leech import HornLeech
-from moves.grass_moves.ingrain import Ingrain
 from moves.grass_moves.jungle_healing import JungleHealing
 from moves.grass_moves.leafage import Leafage
 from moves.grass_moves.leaf_blade import LeafBlade
 from moves.grass_moves.leaf_tornado import LeafTornado
-from moves.grass_moves.leech_seed import LeechSeed
 from moves.grass_moves.magical_leaf import MagicalLeaf
 from moves.grass_moves.mega_drain import MegaDrain
 from moves.grass_moves.petal_blizzard import PetalBlizzard
@@ -272,7 +243,6 @@ from moves.grass_moves.trailblaze import Trailblaze
 from moves.grass_moves.trop_kick import TropKick
 from moves.grass_moves.vine_whip import VineWhip
 from moves.grass_moves.wood_hammer import WoodHammer
-from moves.grass_moves.worry_seed import WorrySeed
 from moves.ground_moves.bonemerang import Bonemerang
 from moves.ground_moves.bone_rush import BoneRush
 from moves.ground_moves.dig import Dig
@@ -284,13 +254,11 @@ from moves.ground_moves.high_horsepower import HighHorsepower
 from moves.ground_moves.land_wrath import LandWrath
 from moves.ground_moves.magnitude import Magnitude
 from moves.ground_moves.mud_bomb import MudBomb
-from moves.ground_moves.mud_sport import MudSport
 from moves.ground_moves.precipice_blades import PrecipiceBlades
 from moves.ground_moves.sandsear_storm import SandsearStorm
 from moves.ground_moves.sand_tomb import SandTomb
 from moves.ground_moves.scorching_sands import ScorchingSands
 from moves.ground_moves.shore_up import ShoreUp
-from moves.ground_moves.spikes import Spikes
 from moves.ground_moves.stomping_tantrum import StompingTantrum
 from moves.ground_moves.tectonic_rage import TectonicRage
 from moves.ground_moves.thousand_arrows import ThousandArrows
@@ -298,11 +266,9 @@ from moves.ground_moves.thousand_waves import ThousandWaves
 from moves.ice_moves.aurora_beam import AuroraBeam
 from moves.ice_moves.aurora_veil import AuroraVeil
 from moves.ice_moves.avalanche import Avalanche
-from moves.ice_moves.chilly_reception import ChillyReception
 from moves.ice_moves.freezy_frost import FreezyFrost
 from moves.ice_moves.frost_breath import FrostBreath
 from moves.ice_moves.glacial_lance import GlacialLance
-from moves.ice_moves.hail import Hail
 from moves.ice_moves.haze import Haze
 from moves.ice_moves.ice_ball import IceBall
 from moves.ice_moves.ice_shard import IceShard
@@ -314,9 +280,7 @@ from moves.ice_moves.subzero_slammer import SubzeroSlammer
 from moves.ice_moves.triple_axel import TripleAxel
 from moves.normal_moves.after_you import AfterYou
 from moves.normal_moves.assist import Assist
-from moves.normal_moves.attract import Attract
 from moves.normal_moves.barrage import Barrage
-from moves.normal_moves.baton_pass import BatonPass
 from moves.normal_moves.bestow import Bestow
 from moves.normal_moves.bide import Bide
 from moves.normal_moves.bind import Bind
@@ -329,14 +293,10 @@ from moves.normal_moves.chip_away import ChipAway
 from moves.normal_moves.comet_punch import CometPunch
 from moves.normal_moves.constrict import Constrict
 from moves.normal_moves.conversion import Conversion
-from moves.normal_moves.conversion_2 import Conversion2
-from moves.normal_moves.copycat import Copycat
-from moves.normal_moves.court_change import CourtChange
 from moves.normal_moves.covet import Covet
 from moves.normal_moves.crush_claw import CrushClaw
 from moves.normal_moves.crush_grip import CrushGrip
 from moves.normal_moves.cut import Cut
-from moves.normal_moves.disable import Disable
 from moves.normal_moves.dizzy_punch import DizzyPunch
 from moves.normal_moves.doodle import Doodle
 from moves.normal_moves.double_edge import DoubleEdge
@@ -354,23 +314,18 @@ from moves.normal_moves.facade import Facade
 from moves.normal_moves.fake_out import FakeOut
 from moves.normal_moves.false_swipe import FalseSwipe
 from moves.normal_moves.feint import Feint
-from moves.normal_moves.flail import Flail
 from moves.normal_moves.focus_energy import FocusEnergy
-from moves.normal_moves.follow_me import FollowMe
-from moves.normal_moves.foresight import Foresight
 from moves.normal_moves.frustration import Frustration
 from moves.normal_moves.fury_attack import FuryAttack
 from moves.normal_moves.fury_swipes import FurySwipes
 from moves.normal_moves.giga_impact import GigaImpact
 from moves.normal_moves.glare import Glare
 from moves.normal_moves.guillotine import Guillotine
-from moves.normal_moves.happy_hour import HappyHour
 from moves.normal_moves.head_charge import HeadCharge
 from moves.normal_moves.heal_bell import HealBell
 from moves.normal_moves.helping_hand import HelpingHand
 from moves.normal_moves.hidden_power import HiddenPower
 from moves.normal_moves.hold_back import HoldBack
-from moves.normal_moves.hold_hands import HoldHands
 from moves.normal_moves.horn_attack import HornAttack
 from moves.normal_moves.horn_drill import HornDrill
 from moves.normal_moves.hyper_beam import HyperBeam
@@ -381,22 +336,15 @@ from moves.normal_moves.laser_focus import LaserFocus
 from moves.normal_moves.last_resort import LastResort
 from moves.normal_moves.lock_on import LockOn
 from moves.normal_moves.lucky_chant import LuckyChant
-from moves.normal_moves.mean_look import MeanLook
 from moves.normal_moves.mega_kick import MegaKick
 from moves.normal_moves.mega_punch import MegaPunch
-from moves.normal_moves.metronome import Metronome
-from moves.normal_moves.me_first import MeFirst
 from moves.normal_moves.milk_drink import MilkDrink
 from moves.normal_moves.mimic import Mimic
 from moves.normal_moves.mind_reader import MindReader
 from moves.normal_moves.morning_sun import MorningSun
 from moves.normal_moves.multi_attack import MultiAttack
-from moves.normal_moves.natural_gift import NaturalGift
-from moves.normal_moves.nature_power import NaturePower
-from moves.normal_moves.odor_sleuth import OdorSleuth
 from moves.normal_moves.pain_split import PainSplit
 from moves.normal_moves.pay_day import PayDay
-from moves.normal_moves.perish_song import PerishSong
 from moves.normal_moves.population_bomb import PopulationBomb
 from moves.normal_moves.pound import Pound
 from moves.normal_moves.power_shift import PowerShift
@@ -415,17 +363,11 @@ from moves.normal_moves.relic_song import RelicSong
 from moves.normal_moves.retaliate import Retaliate
 from moves.normal_moves.return_ import Return
 from moves.normal_moves.revelation_dance import RevelationDance
-from moves.normal_moves.revival_blessing import RevivalBlessing
-from moves.normal_moves.roar import Roar
 from moves.normal_moves.rock_climb import RockClimb
 from moves.normal_moves.round import Round
-from moves.normal_moves.safeguard import Safeguard
 from moves.normal_moves.scratch import Scratch
 from moves.normal_moves.secret_power import SecretPower
 from moves.normal_moves.self_destruct import SelfDestruct
-from moves.normal_moves.shed_tail import ShedTail
-from moves.normal_moves.simple_beam import SimpleBeam
-from moves.normal_moves.sketch import Sketch
 from moves.normal_moves.slack_off import SlackOff
 from moves.normal_moves.slam import Slam
 from moves.normal_moves.slash import Slash
@@ -434,49 +376,35 @@ from moves.normal_moves.smelling_salts import SmellingSalts
 from moves.normal_moves.soft_boiled import SoftBoiled
 from moves.normal_moves.sonic_boom import SonicBoom
 from moves.normal_moves.spike_cannon import SpikeCannon
-from moves.normal_moves.spit_up import SpitUp
 from moves.normal_moves.splash import Splash
-from moves.normal_moves.spotlight import Spotlight
-from moves.normal_moves.stockpile import Stockpile
 from moves.normal_moves.strength import Strength
 from moves.normal_moves.struggle import Struggle
-from moves.normal_moves.substitute import Substitute
 from moves.normal_moves.supersonic import Supersonic
 from moves.normal_moves.super_fang import SuperFang
-from moves.normal_moves.swallow import Swallow
 from moves.normal_moves.swift import Swift
 from moves.normal_moves.tackle import Tackle
 from moves.normal_moves.tail_slap import TailSlap
 from moves.normal_moves.tail_whip import TailWhip
 from moves.normal_moves.take_down import TakeDown
-from moves.normal_moves.tearful_look import TearfulLook
-from moves.normal_moves.teatime import Teatime
 from moves.normal_moves.techno_blast import TechnoBlast
 from moves.normal_moves.teeter_dance import TeeterDance
 from moves.normal_moves.tera_blast import TeraBlast
 from moves.normal_moves.terrain_pulse import TerrainPulse
 from moves.normal_moves.tickle import Tickle
-from moves.normal_moves.tidy_up import TidyUp
-from moves.normal_moves.transform import Transform
 from moves.normal_moves.trump_card import TrumpCard
 from moves.normal_moves.uproar import Uproar
-from moves.normal_moves.veevee_volley import VeeveeVolley
 from moves.normal_moves.vise_grip import ViseGrip
 from moves.normal_moves.weather_ball import WeatherBall
-from moves.normal_moves.whirlwind import Whirlwind
 from moves.normal_moves.wish import Wish
 from moves.normal_moves.work_up import WorkUp
 from moves.normal_moves.wrap import Wrap
 from moves.normal_moves.wring_out import WringOut
 from moves.poison_moves.acid import Acid
 from moves.poison_moves.acid_downpour import AcidDownpour
-from moves.poison_moves.baneful_bunker import BanefulBunker
 from moves.poison_moves.barb_barrage import BarbBarrage
 from moves.poison_moves.belch import Belch
 from moves.poison_moves.clear_smog import ClearSmog
-from moves.poison_moves.corrosive_gas import CorrosiveGas
 from moves.poison_moves.dire_claw import DireClaw
-from moves.poison_moves.gastro_acid import GastroAcid
 from moves.poison_moves.mortal_spin import MortalSpin
 from moves.poison_moves.noxious_torque import NoxiousTorque
 from moves.poison_moves.poison_gas import PoisonGas
@@ -485,11 +413,9 @@ from moves.poison_moves.poison_powder import PoisonPowder
 from moves.poison_moves.poison_sting import PoisonSting
 from moves.poison_moves.purify import Purify
 from moves.poison_moves.toxic import Toxic
-from moves.poison_moves.toxic_spikes import ToxicSpikes
 from moves.poison_moves.toxic_thread import ToxicThread
 from moves.poison_moves.venom_drench import VenomDrench
 from moves.poison_moves.venoshock import Venoshock
-from moves.psychic_moves.ally_switch import AllySwitch
 from moves.psychic_moves.confusion import Confusion
 from moves.psychic_moves.dream_eater import DreamEater
 from moves.psychic_moves.eerie_spell import EerieSpell
@@ -497,60 +423,25 @@ from moves.psychic_moves.expanding_force import ExpandingForce
 from moves.psychic_moves.future_sight import FutureSight
 from moves.psychic_moves.genesis_supernova import GenesisSupernova
 from moves.psychic_moves.glitzy_glow import GlitzyGlow
-from moves.psychic_moves.gravity import Gravity
-from moves.psychic_moves.guard_split import GuardSplit
-from moves.psychic_moves.guard_swap import GuardSwap
-from moves.psychic_moves.healing_wish import HealingWish
-from moves.psychic_moves.heal_block import HealBlock
 from moves.psychic_moves.heal_pulse import HealPulse
-from moves.psychic_moves.heart_swap import HeartSwap
-from moves.psychic_moves.hyperspace_hole import HyperspaceHole
-from moves.psychic_moves.imprison import Imprison
-from moves.psychic_moves.instruct import Instruct
-from moves.psychic_moves.light_screen import LightScreen
 from moves.psychic_moves.light_that_burns_the_sky import LightThatBurnstheSky
 from moves.psychic_moves.lunar_blessing import LunarBlessing
-from moves.psychic_moves.lunar_dance import LunarDance
 from moves.psychic_moves.luster_purge import LusterPurge
-from moves.psychic_moves.magic_coat import MagicCoat
-from moves.psychic_moves.magic_powder import MagicPowder
-from moves.psychic_moves.magic_room import MagicRoom
-from moves.psychic_moves.miracle_eye import MiracleEye
-from moves.psychic_moves.mirror_coat import MirrorCoat
 from moves.psychic_moves.mist_ball import MistBall
 from moves.psychic_moves.photon_geyser import PhotonGeyser
-from moves.psychic_moves.power_split import PowerSplit
-from moves.psychic_moves.power_swap import PowerSwap
-from moves.psychic_moves.power_trick import PowerTrick
 from moves.psychic_moves.prismatic_laser import PrismaticLaser
 from moves.psychic_moves.psybeam import Psybeam
 from moves.psychic_moves.psyblade import Psyblade
 from moves.psychic_moves.psychic import Psychic
 from moves.psychic_moves.psychic_fangs import PsychicFangs
-from moves.psychic_moves.psychic_terrain import PsychicTerrain
 from moves.psychic_moves.psycho_cut import PsychoCut
-from moves.psychic_moves.psycho_shift import PsychoShift
 from moves.psychic_moves.psyshock import Psyshock
 from moves.psychic_moves.psystrike import Psystrike
-from moves.psychic_moves.psywave import Psywave
-from moves.psychic_moves.reflect import Reflect
-from moves.psychic_moves.rest import Rest
-from moves.psychic_moves.role_play import RolePlay
-from moves.psychic_moves.shattered_psyche import ShatteredPsyche
-from moves.psychic_moves.skill_swap import SkillSwap
-from moves.psychic_moves.speed_swap import SpeedSwap
 from moves.psychic_moves.stored_power import StoredPower
 from moves.psychic_moves.synchronoise import Synchronoise
-from moves.psychic_moves.take_heart import TakeHeart
-from moves.psychic_moves.telekinesis import Telekinesis
-from moves.psychic_moves.teleport import Teleport
-from moves.psychic_moves.trick import Trick
-from moves.psychic_moves.trick_room import TrickRoom
 from moves.psychic_moves.twin_beam import TwinBeam
-from moves.psychic_moves.wonder_room import WonderRoom
 from moves.rock_moves.accelerock import Accelerock
 from moves.rock_moves.ancient_power import AncientPower
-from moves.rock_moves.continental_crush import ContinentalCrush
 from moves.rock_moves.diamond_storm import DiamondStorm
 from moves.rock_moves.head_smash import HeadSmash
 from moves.rock_moves.meteor_beam import MeteorBeam
@@ -560,14 +451,10 @@ from moves.rock_moves.rock_throw import RockThrow
 from moves.rock_moves.rock_wrecker import RockWrecker
 from moves.rock_moves.rollout import Rollout
 from moves.rock_moves.salt_cure import SaltCure
-from moves.rock_moves.sandstorm import Sandstorm
 from moves.rock_moves.smack_down import SmackDown
 from moves.rock_moves.splintered_stormshards import SplinteredStormshards
-from moves.rock_moves.stealth_rock import StealthRock
 from moves.rock_moves.stone_axe import StoneAxe
 from moves.rock_moves.stone_edge import StoneEdge
-from moves.rock_moves.tar_shot import TarShot
-from moves.rock_moves.wide_guard import WideGuard
 from moves.status_moves.bug_moves.steamroller import Steamroller
 from moves.status_moves.bug_moves.twineedle import Twineedle
 from moves.status_moves.dark_moves.bite import Bite
@@ -792,17 +679,12 @@ from moves.steel_moves.anchor_shot import AnchorShot
 from moves.steel_moves.behemoth_bash import BehemothBash
 from moves.steel_moves.behemoth_blade import BehemothBlade
 from moves.steel_moves.bullet_punch import BulletPunch
-from moves.steel_moves.corkscrew_crash import CorkscrewCrash
 from moves.steel_moves.doom_desire import DoomDesire
 from moves.steel_moves.flash_cannon import FlashCannon
 from moves.steel_moves.gear_grind import GearGrind
-from moves.steel_moves.gear_up import GearUp
 from moves.steel_moves.gigaton_hammer import GigatonHammer
-from moves.steel_moves.gyro_ball import GyroBall
-from moves.steel_moves.heavy_slam import HeavySlam
 from moves.steel_moves.iron_tail import IronTail
 from moves.steel_moves.magnet_bomb import MagnetBomb
-from moves.steel_moves.metal_burst import MetalBurst
 from moves.steel_moves.metal_claw import MetalClaw
 from moves.steel_moves.meteor_mash import MeteorMash
 from moves.steel_moves.mirror_shot import MirrorShot
@@ -814,7 +696,6 @@ from moves.steel_moves.steel_wing import SteelWing
 from moves.steel_moves.sunsteel_strike import SunsteelStrike
 from moves.water_moves.aqua_cutter import AquaCutter
 from moves.water_moves.aqua_jet import AquaJet
-from moves.water_moves.aqua_ring import AquaRing
 from moves.water_moves.aqua_tail import AquaTail
 from moves.water_moves.bouncy_bubble import BouncyBubble
 from moves.water_moves.brine import Brine
@@ -828,18 +709,14 @@ from moves.water_moves.flip_turn import FlipTurn
 from moves.water_moves.hydro_cannon import HydroCannon
 from moves.water_moves.hydro_pump import HydroPump
 from moves.water_moves.hydro_steam import HydroSteam
-from moves.water_moves.hydro_vortex import HydroVortex
 from moves.water_moves.jet_punch import JetPunch
-from moves.water_moves.life_dew import LifeDew
 from moves.water_moves.liquidation import Liquidation
 from moves.water_moves.muddy_water import MuddyWater
 from moves.water_moves.oceanic_operetta import OceanicOperetta
 from moves.water_moves.octazooka import Octazooka
 from moves.water_moves.origin_pulse import OriginPulse
-from moves.water_moves.rain_dance import RainDance
 from moves.water_moves.razor_shell import RazorShell
 from moves.water_moves.snipe_shot import SnipeShot
-from moves.water_moves.soak import Soak
 from moves.water_moves.sparkling_aria import SparklingAria
 from moves.water_moves.surf import Surf
 from moves.water_moves.surging_strikes import SurgingStrikes
@@ -848,14 +725,14 @@ from moves.water_moves.water_gun import WaterGun
 from moves.water_moves.water_pledge import WaterPledge
 from moves.water_moves.water_pulse import WaterPulse
 from moves.water_moves.water_shuriken import WaterShuriken
-from moves.water_moves.water_sport import WaterSport
 from moves.water_moves.water_spout import WaterSpout
 from moves.water_moves.wave_crash import WaveCrash
 from moves.water_moves.whirlpool import Whirlpool
-from moves.water_moves.withdraw import Withdraw
+from moves.nothing_move import Nothing
 
 from moves.move import Move
 from moves.enum_moves import Moves
+
 
 class MoveFactory:
     @staticmethod
@@ -883,22 +760,12 @@ class MoveFactory:
             return PinMissile()
         elif move == Moves.POLLEN_PUFF:
             return PollenPuff()
-        elif move == Moves.POWDER:
-            return Powder()
-        elif move == Moves.RAGE_POWDER:
-            return RagePowder()
-        elif move == Moves.SAVAGE_SPIN_OUT:
-            return SavageSpinOut()
         elif move == Moves.SIGNAL_BEAM:
             return SignalBeam()
         elif move == Moves.SILVER_WIND:
             return SilverWind()
-        elif move == Moves.SPIDER_WEB:
-            return SpiderWeb()
         elif move == Moves.TAIL_GLOW:
             return TailGlow()
-        elif move == Moves.U_TURN:
-            return Uturn()
         elif move == Moves.X_SCISSOR:
             return XScissor()
         elif move == Moves.ASSURANCE:
@@ -907,28 +774,20 @@ class MoveFactory:
             return BaddyBad()
         elif move == Moves.BEAT_UP:
             return BeatUp()
-        elif move == Moves.BLACK_HOLE_ECLIPSE:
-            return BlackHoleEclipse()
         elif move == Moves.BRUTAL_SWING:
             return BrutalSwing()
         elif move == Moves.CEASELESS_EDGE:
             return CeaselessEdge()
-        elif move == Moves.COMEUPPANCE:
-            return Comeuppance()
         elif move == Moves.CRUNCH:
             return Crunch()
         elif move == Moves.DARKEST_LARIAT:
             return DarkestLariat()
         elif move == Moves.DARK_VOID:
             return DarkVoid()
-        elif move == Moves.EMBARGO:
-            return Embargo()
         elif move == Moves.FALSE_SURRENDER:
             return FalseSurrender()
         elif move == Moves.FEINT_ATTACK:
             return FeintAttack()
-        elif move == Moves.FLING:
-            return Fling()
         elif move == Moves.FOUL_PLAY:
             return FoulPlay()
         elif move == Moves.JAW_LOCK:
@@ -953,22 +812,12 @@ class MoveFactory:
             return Punishment()
         elif move == Moves.PURSUIT:
             return Pursuit()
-        elif move == Moves.QUASH:
-            return Quash()
         elif move == Moves.RUINATION:
             return Ruination()
-        elif move == Moves.SNATCH:
-            return Snatch()
         elif move == Moves.SUCKER_PUNCH:
             return SuckerPunch()
-        elif move == Moves.SWITCHEROO:
-            return Switcheroo()
-        elif move == Moves.THIEF:
-            return Thief()
         elif move == Moves.THROAT_CHOP:
             return ThroatChop()
-        elif move == Moves.TORMENT:
-            return Torment()
         elif move == Moves.WICKED_BLOW:
             return WickedBlow()
         elif move == Moves.WICKED_TORQUE:
@@ -977,8 +826,6 @@ class MoveFactory:
             return ClangorousSoulblaze()
         elif move == Moves.CORE_ENFORCER:
             return CoreEnforcer()
-        elif move == Moves.DEVASTATING_DRAKE:
-            return DevastatingDrake()
         elif move == Moves.DRAGON_CLAW:
             return DragonClaw()
         elif move == Moves.DRAGON_DARTS:
@@ -1019,8 +866,6 @@ class MoveFactory:
             return ChargeBeam()
         elif move == Moves.DOUBLE_SHOCK:
             return DoubleShock()
-        elif move == Moves.ELECTRIFY:
-            return Electrify()
         elif move == Moves.ELECTRO_BALL:
             return ElectroBall()
         elif move == Moves.ELECTRO_DRIFT:
@@ -1029,8 +874,6 @@ class MoveFactory:
             return FusionBolt()
         elif move == Moves.GIGAVOLT_HAVOC:
             return GigavoltHavoc()
-        elif move == Moves.ION_DELUGE:
-            return IonDeluge()
         elif move == Moves.MAGNET_RISE:
             return MagnetRise()
         elif move == Moves.NUZZLE:
@@ -1039,8 +882,6 @@ class MoveFactory:
             return Overdrive()
         elif move == Moves.PARABOLIC_CHARGE:
             return ParabolicCharge()
-        elif move == Moves.PIKA_PAPOW:
-            return PikaPapow()
         elif move == Moves.PLASMA_FISTS:
             return PlasmaFists()
         elif move == Moves.RISING_VOLTAGE:
@@ -1071,8 +912,6 @@ class MoveFactory:
             return DisarmingVoice()
         elif move == Moves.DRAINING_KISS:
             return DrainingKiss()
-        elif move == Moves.FAIRY_LOCK:
-            return FairyLock()
         elif move == Moves.FAIRY_WIND:
             return FairyWind()
         elif move == Moves.FLORAL_HEALING:
@@ -1085,8 +924,6 @@ class MoveFactory:
             return MagicalTorque()
         elif move == Moves.MISTY_EXPLOSION:
             return MistyExplosion()
-        elif move == Moves.MISTY_TERRAIN:
-            return MistyTerrain()
         elif move == Moves.MOONBLAST:
             return Moonblast()
         elif move == Moves.MOONLIGHT:
@@ -1125,8 +962,6 @@ class MoveFactory:
             return Counter()
         elif move == Moves.CROSS_CHOP:
             return CrossChop()
-        elif move == Moves.DETECT:
-            return Detect()
         elif move == Moves.DOUBLE_KICK:
             return DoubleKick()
         elif move == Moves.DRAIN_PUNCH:
@@ -1151,8 +986,6 @@ class MoveFactory:
             return LowKick()
         elif move == Moves.MACH_PUNCH:
             return MachPunch()
-        elif move == Moves.MAT_BLOCK:
-            return MatBlock()
         elif move == Moves.METEOR_ASSAULT:
             return MeteorAssault()
         elif move == Moves.QUICK_GUARD:
@@ -1229,8 +1062,6 @@ class MoveFactory:
             return ShellTrap()
         elif move == Moves.SIZZLY_SLIDE:
             return SizzlySlide()
-        elif move == Moves.SUNNY_DAY:
-            return SunnyDay()
         elif move == Moves.TORCH_SONG:
             return TorchSong()
         elif move == Moves.ACROBATICS:
@@ -1259,8 +1090,6 @@ class MoveFactory:
             return Gust()
         elif move == Moves.HURRICANE:
             return Hurricane()
-        elif move == Moves.MIRROR_MOVE:
-            return MirrorMove()
         elif move == Moves.OBLIVION_WING:
             return OblivionWing()
         elif move == Moves.PECK:
@@ -1283,10 +1112,6 @@ class MoveFactory:
             return BitterMalice()
         elif move == Moves.CONFUSE_RAY:
             return ConfuseRay()
-        elif move == Moves.CURSE:
-            return Curse()
-        elif move == Moves.DESTINY_BOND:
-            return DestinyBond()
         elif move == Moves.GRUDGE:
             return Grudge()
         elif move == Moves.HEX:
@@ -1299,8 +1124,6 @@ class MoveFactory:
             return MenacingMoonrazeMaelstrom()
         elif move == Moves.MOONGEIST_BEAM:
             return MoongeistBeam()
-        elif move == Moves.NIGHTMARE:
-            return Nightmare()
         elif move == Moves.NIGHT_SHADE:
             return NightShade()
         elif move == Moves.OMINOUS_WIND:
@@ -1363,8 +1186,6 @@ class MoveFactory:
             return GrassPledge()
         elif move == Moves.HORN_LEECH:
             return HornLeech()
-        elif move == Moves.INGRAIN:
-            return Ingrain()
         elif move == Moves.JUNGLE_HEALING:
             return JungleHealing()
         elif move == Moves.LEAFAGE:
@@ -1373,8 +1194,6 @@ class MoveFactory:
             return LeafBlade()
         elif move == Moves.LEAF_TORNADO:
             return LeafTornado()
-        elif move == Moves.LEECH_SEED:
-            return LeechSeed()
         elif move == Moves.MAGICAL_LEAF:
             return MagicalLeaf()
         elif move == Moves.MEGA_DRAIN:
@@ -1411,8 +1230,6 @@ class MoveFactory:
             return VineWhip()
         elif move == Moves.WOOD_HAMMER:
             return WoodHammer()
-        elif move == Moves.WORRY_SEED:
-            return WorrySeed()
         elif move == Moves.BONEMERANG:
             return Bonemerang()
         elif move == Moves.BONE_RUSH:
@@ -1435,8 +1252,6 @@ class MoveFactory:
             return Magnitude()
         elif move == Moves.MUD_BOMB:
             return MudBomb()
-        elif move == Moves.MUD_SPORT:
-            return MudSport()
         elif move == Moves.PRECIPICE_BLADES:
             return PrecipiceBlades()
         elif move == Moves.SANDSEAR_STORM:
@@ -1447,8 +1262,6 @@ class MoveFactory:
             return ScorchingSands()
         elif move == Moves.SHORE_UP:
             return ShoreUp()
-        elif move == Moves.SPIKES:
-            return Spikes()
         elif move == Moves.STOMPING_TANTRUM:
             return StompingTantrum()
         elif move == Moves.TECTONIC_RAGE:
@@ -1463,16 +1276,12 @@ class MoveFactory:
             return AuroraVeil()
         elif move == Moves.AVALANCHE:
             return Avalanche()
-        elif move == Moves.CHILLY_RECEPTION:
-            return ChillyReception()
         elif move == Moves.FREEZY_FROST:
             return FreezyFrost()
         elif move == Moves.FROST_BREATH:
             return FrostBreath()
         elif move == Moves.GLACIAL_LANCE:
             return GlacialLance()
-        elif move == Moves.HAIL:
-            return Hail()
         elif move == Moves.HAZE:
             return Haze()
         elif move == Moves.ICE_BALL:
@@ -1495,12 +1304,8 @@ class MoveFactory:
             return AfterYou()
         elif move == Moves.ASSIST:
             return Assist()
-        elif move == Moves.ATTRACT:
-            return Attract()
         elif move == Moves.BARRAGE:
             return Barrage()
-        elif move == Moves.BATON_PASS:
-            return BatonPass()
         elif move == Moves.BESTOW:
             return Bestow()
         elif move == Moves.BIDE:
@@ -1525,12 +1330,6 @@ class MoveFactory:
             return Constrict()
         elif move == Moves.CONVERSION:
             return Conversion()
-        elif move == Moves.CONVERSION_2:
-            return Conversion2()
-        elif move == Moves.COPYCAT:
-            return Copycat()
-        elif move == Moves.COURT_CHANGE:
-            return CourtChange()
         elif move == Moves.COVET:
             return Covet()
         elif move == Moves.CRUSH_CLAW:
@@ -1539,8 +1338,6 @@ class MoveFactory:
             return CrushGrip()
         elif move == Moves.CUT:
             return Cut()
-        elif move == Moves.DISABLE:
-            return Disable()
         elif move == Moves.DIZZY_PUNCH:
             return DizzyPunch()
         elif move == Moves.DOODLE:
@@ -1575,14 +1372,8 @@ class MoveFactory:
             return FalseSwipe()
         elif move == Moves.FEINT:
             return Feint()
-        elif move == Moves.FLAIL:
-            return Flail()
         elif move == Moves.FOCUS_ENERGY:
             return FocusEnergy()
-        elif move == Moves.FOLLOW_ME:
-            return FollowMe()
-        elif move == Moves.FORESIGHT:
-            return Foresight()
         elif move == Moves.FRUSTRATION:
             return Frustration()
         elif move == Moves.FURY_ATTACK:
@@ -1595,8 +1386,6 @@ class MoveFactory:
             return Glare()
         elif move == Moves.GUILLOTINE:
             return Guillotine()
-        elif move == Moves.HAPPY_HOUR:
-            return HappyHour()
         elif move == Moves.HEAD_CHARGE:
             return HeadCharge()
         elif move == Moves.HEAL_BELL:
@@ -1607,8 +1396,6 @@ class MoveFactory:
             return HiddenPower()
         elif move == Moves.HOLD_BACK:
             return HoldBack()
-        elif move == Moves.HOLD_HANDS:
-            return HoldHands()
         elif move == Moves.HORN_ATTACK:
             return HornAttack()
         elif move == Moves.HORN_DRILL:
@@ -1629,16 +1416,10 @@ class MoveFactory:
             return LockOn()
         elif move == Moves.LUCKY_CHANT:
             return LuckyChant()
-        elif move == Moves.MEAN_LOOK:
-            return MeanLook()
         elif move == Moves.MEGA_KICK:
             return MegaKick()
         elif move == Moves.MEGA_PUNCH:
             return MegaPunch()
-        elif move == Moves.METRONOME:
-            return Metronome()
-        elif move == Moves.ME_FIRST:
-            return MeFirst()
         elif move == Moves.MILK_DRINK:
             return MilkDrink()
         elif move == Moves.MIMIC:
@@ -1649,18 +1430,10 @@ class MoveFactory:
             return MorningSun()
         elif move == Moves.MULTI_ATTACK:
             return MultiAttack()
-        elif move == Moves.NATURAL_GIFT:
-            return NaturalGift()
-        elif move == Moves.NATURE_POWER:
-            return NaturePower()
-        elif move == Moves.ODOR_SLEUTH:
-            return OdorSleuth()
         elif move == Moves.PAIN_SPLIT:
             return PainSplit()
         elif move == Moves.PAY_DAY:
             return PayDay()
-        elif move == Moves.PERISH_SONG:
-            return PerishSong()
         elif move == Moves.POPULATION_BOMB:
             return PopulationBomb()
         elif move == Moves.POUND:
@@ -1697,28 +1470,14 @@ class MoveFactory:
             return Return()
         elif move == Moves.REVELATION_DANCE:
             return RevelationDance()
-        elif move == Moves.REVIVAL_BLESSING:
-            return RevivalBlessing()
-        elif move == Moves.ROAR:
-            return Roar()
         elif move == Moves.ROCK_CLIMB:
             return RockClimb()
-        elif move == Moves.ROUND:
-            return Round()
-        elif move == Moves.SAFEGUARD:
-            return Safeguard()
         elif move == Moves.SCRATCH:
             return Scratch()
         elif move == Moves.SECRET_POWER:
             return SecretPower()
         elif move == Moves.SELF_DESTRUCT:
             return SelfDestruct()
-        elif move == Moves.SHED_TAIL:
-            return ShedTail()
-        elif move == Moves.SIMPLE_BEAM:
-            return SimpleBeam()
-        elif move == Moves.SKETCH:
-            return Sketch()
         elif move == Moves.SLACK_OFF:
             return SlackOff()
         elif move == Moves.SLAM:
@@ -1735,26 +1494,16 @@ class MoveFactory:
             return SonicBoom()
         elif move == Moves.SPIKE_CANNON:
             return SpikeCannon()
-        elif move == Moves.SPIT_UP:
-            return SpitUp()
         elif move == Moves.SPLASH:
             return Splash()
-        elif move == Moves.SPOTLIGHT:
-            return Spotlight()
-        elif move == Moves.STOCKPILE:
-            return Stockpile()
         elif move == Moves.STRENGTH:
             return Strength()
         elif move == Moves.STRUGGLE:
             return Struggle()
-        elif move == Moves.SUBSTITUTE:
-            return Substitute()
         elif move == Moves.SUPERSONIC:
             return Supersonic()
         elif move == Moves.SUPER_FANG:
             return SuperFang()
-        elif move == Moves.SWALLOW:
-            return Swallow()
         elif move == Moves.SWIFT:
             return Swift()
         elif move == Moves.TACKLE:
@@ -1765,10 +1514,6 @@ class MoveFactory:
             return TailWhip()
         elif move == Moves.TAKE_DOWN:
             return TakeDown()
-        elif move == Moves.TEARFUL_LOOK:
-            return TearfulLook()
-        elif move == Moves.TEATIME:
-            return Teatime()
         elif move == Moves.TECHNO_BLAST:
             return TechnoBlast()
         elif move == Moves.TEETER_DANCE:
@@ -1779,22 +1524,14 @@ class MoveFactory:
             return TerrainPulse()
         elif move == Moves.TICKLE:
             return Tickle()
-        elif move == Moves.TIDY_UP:
-            return TidyUp()
-        elif move == Moves.TRANSFORM:
-            return Transform()
         elif move == Moves.TRUMP_CARD:
             return TrumpCard()
         elif move == Moves.UPROAR:
             return Uproar()
-        elif move == Moves.VEEVEE_VOLLEY:
-            return VeeveeVolley()
         elif move == Moves.VISE_GRIP:
             return ViseGrip()
         elif move == Moves.WEATHER_BALL:
             return WeatherBall()
-        elif move == Moves.WHIRLWIND:
-            return Whirlwind()
         elif move == Moves.WISH:
             return Wish()
         elif move == Moves.WORK_UP:
@@ -1807,20 +1544,14 @@ class MoveFactory:
             return Acid()
         elif move == Moves.ACID_DOWNPOUR:
             return AcidDownpour()
-        elif move == Moves.BANEFUL_BUNKER:
-            return BanefulBunker()
         elif move == Moves.BARB_BARRAGE:
             return BarbBarrage()
         elif move == Moves.BELCH:
             return Belch()
         elif move == Moves.CLEAR_SMOG:
             return ClearSmog()
-        elif move == Moves.CORROSIVE_GAS:
-            return CorrosiveGas()
         elif move == Moves.DIRE_CLAW:
             return DireClaw()
-        elif move == Moves.GASTRO_ACID:
-            return GastroAcid()
         elif move == Moves.MORTAL_SPIN:
             return MortalSpin()
         elif move == Moves.NOXIOUS_TORQUE:
@@ -1837,16 +1568,12 @@ class MoveFactory:
             return Purify()
         elif move == Moves.TOXIC:
             return Toxic()
-        elif move == Moves.TOXIC_SPIKES:
-            return ToxicSpikes()
         elif move == Moves.TOXIC_THREAD:
             return ToxicThread()
         elif move == Moves.VENOM_DRENCH:
             return VenomDrench()
         elif move == Moves.VENOSHOCK:
             return Venoshock()
-        elif move == Moves.ALLY_SWITCH:
-            return AllySwitch()
         elif move == Moves.CONFUSION:
             return Confusion()
         elif move == Moves.DREAM_EATER:
@@ -1861,56 +1588,18 @@ class MoveFactory:
             return GenesisSupernova()
         elif move == Moves.GLITZY_GLOW:
             return GlitzyGlow()
-        elif move == Moves.GRAVITY:
-            return Gravity()
-        elif move == Moves.GUARD_SPLIT:
-            return GuardSplit()
-        elif move == Moves.GUARD_SWAP:
-            return GuardSwap()
-        elif move == Moves.HEALING_WISH:
-            return HealingWish()
-        elif move == Moves.HEAL_BLOCK:
-            return HealBlock()
         elif move == Moves.HEAL_PULSE:
             return HealPulse()
-        elif move == Moves.HEART_SWAP:
-            return HeartSwap()
-        elif move == Moves.HYPERSPACE_HOLE:
-            return HyperspaceHole()
-        elif move == Moves.IMPRISON:
-            return Imprison()
-        elif move == Moves.INSTRUCT:
-            return Instruct()
-        elif move == Moves.LIGHT_SCREEN:
-            return LightScreen()
         elif move == Moves.LIGHT_THAT_BURNS_THE_SKY:
             return LightThatBurnstheSky()
         elif move == Moves.LUNAR_BLESSING:
             return LunarBlessing()
-        elif move == Moves.LUNAR_DANCE:
-            return LunarDance()
         elif move == Moves.LUSTER_PURGE:
             return LusterPurge()
-        elif move == Moves.MAGIC_COAT:
-            return MagicCoat()
-        elif move == Moves.MAGIC_POWDER:
-            return MagicPowder()
-        elif move == Moves.MAGIC_ROOM:
-            return MagicRoom()
-        elif move == Moves.MIRACLE_EYE:
-            return MiracleEye()
-        elif move == Moves.MIRROR_COAT:
-            return MirrorCoat()
         elif move == Moves.MIST_BALL:
             return MistBall()
         elif move == Moves.PHOTON_GEYSER:
             return PhotonGeyser()
-        elif move == Moves.POWER_SPLIT:
-            return PowerSplit()
-        elif move == Moves.POWER_SWAP:
-            return PowerSwap()
-        elif move == Moves.POWER_TRICK:
-            return PowerTrick()
         elif move == Moves.PRISMATIC_LASER:
             return PrismaticLaser()
         elif move == Moves.PSYBEAM:
@@ -1921,54 +1610,24 @@ class MoveFactory:
             return Psychic()
         elif move == Moves.PSYCHIC_FANGS:
             return PsychicFangs()
-        elif move == Moves.PSYCHIC_TERRAIN:
-            return PsychicTerrain()
-        elif move == Moves.PSYCHO_CUT:
-            return PsychoCut()
-        elif move == Moves.PSYCHO_SHIFT:
-            return PsychoShift()
         elif move == Moves.PSYSHOCK:
             return Psyshock()
         elif move == Moves.PSYSTRIKE:
             return Psystrike()
-        elif move == Moves.PSYWAVE:
-            return Psywave()
         elif move == Moves.REFLECT:
             return Reflect()
         elif move == Moves.REST:
             return Rest()
-        elif move == Moves.ROLE_PLAY:
-            return RolePlay()
-        elif move == Moves.SHATTERED_PSYCHE:
-            return ShatteredPsyche()
-        elif move == Moves.SKILL_SWAP:
-            return SkillSwap()
-        elif move == Moves.SPEED_SWAP:
-            return SpeedSwap()
         elif move == Moves.STORED_POWER:
             return StoredPower()
         elif move == Moves.SYNCHRONOISE:
             return Synchronoise()
-        elif move == Moves.TAKE_HEART:
-            return TakeHeart()
-        elif move == Moves.TELEKINESIS:
-            return Telekinesis()
-        elif move == Moves.TELEPORT:
-            return Teleport()
-        elif move == Moves.TRICK:
-            return Trick()
-        elif move == Moves.TRICK_ROOM:
-            return TrickRoom()
         elif move == Moves.TWIN_BEAM:
             return TwinBeam()
-        elif move == Moves.WONDER_ROOM:
-            return WonderRoom()
         elif move == Moves.ACCELEROCK:
             return Accelerock()
         elif move == Moves.ANCIENT_POWER:
             return AncientPower()
-        elif move == Moves.CONTINENTAL_CRUSH:
-            return ContinentalCrush()
         elif move == Moves.DIAMOND_STORM:
             return DiamondStorm()
         elif move == Moves.HEAD_SMASH:
@@ -1987,22 +1646,14 @@ class MoveFactory:
             return Rollout()
         elif move == Moves.SALT_CURE:
             return SaltCure()
-        elif move == Moves.SANDSTORM:
-            return Sandstorm()
         elif move == Moves.SMACK_DOWN:
             return SmackDown()
         elif move == Moves.SPLINTERED_STORMSHARDS:
             return SplinteredStormshards()
-        elif move == Moves.STEALTH_ROCK:
-            return StealthRock()
         elif move == Moves.STONE_AXE:
             return StoneAxe()
         elif move == Moves.STONE_EDGE:
             return StoneEdge()
-        elif move == Moves.TAR_SHOT:
-            return TarShot()
-        elif move == Moves.WIDE_GUARD:
-            return WideGuard()
         elif move == Moves.STEAMROLLER:
             return Steamroller()
         elif move == Moves.TWINEEDLE:
@@ -2451,28 +2102,18 @@ class MoveFactory:
             return BehemothBlade()
         elif move == Moves.BULLET_PUNCH:
             return BulletPunch()
-        elif move == Moves.CORKSCREW_CRASH:
-            return CorkscrewCrash()
         elif move == Moves.DOOM_DESIRE:
             return DoomDesire()
         elif move == Moves.FLASH_CANNON:
             return FlashCannon()
         elif move == Moves.GEAR_GRIND:
             return GearGrind()
-        elif move == Moves.GEAR_UP:
-            return GearUp()
         elif move == Moves.GIGATON_HAMMER:
             return GigatonHammer()
-        elif move == Moves.GYRO_BALL:
-            return GyroBall()
-        elif move == Moves.HEAVY_SLAM:
-            return HeavySlam()
         elif move == Moves.IRON_TAIL:
             return IronTail()
         elif move == Moves.MAGNET_BOMB:
             return MagnetBomb()
-        elif move == Moves.METAL_BURST:
-            return MetalBurst()
         elif move == Moves.METAL_CLAW:
             return MetalClaw()
         elif move == Moves.METEOR_MASH:
@@ -2495,8 +2136,6 @@ class MoveFactory:
             return AquaCutter()
         elif move == Moves.AQUA_JET:
             return AquaJet()
-        elif move == Moves.AQUA_RING:
-            return AquaRing()
         elif move == Moves.AQUA_TAIL:
             return AquaTail()
         elif move == Moves.BOUNCY_BUBBLE:
@@ -2523,12 +2162,8 @@ class MoveFactory:
             return HydroPump()
         elif move == Moves.HYDRO_STEAM:
             return HydroSteam()
-        elif move == Moves.HYDRO_VORTEX:
-            return HydroVortex()
         elif move == Moves.JET_PUNCH:
             return JetPunch()
-        elif move == Moves.LIFE_DEW:
-            return LifeDew()
         elif move == Moves.LIQUIDATION:
             return Liquidation()
         elif move == Moves.MUDDY_WATER:
@@ -2539,14 +2174,10 @@ class MoveFactory:
             return Octazooka()
         elif move == Moves.ORIGIN_PULSE:
             return OriginPulse()
-        elif move == Moves.RAIN_DANCE:
-            return RainDance()
         elif move == Moves.RAZOR_SHELL:
             return RazorShell()
         elif move == Moves.SNIPE_SHOT:
             return SnipeShot()
-        elif move == Moves.SOAK:
-            return Soak()
         elif move == Moves.SPARKLING_ARIA:
             return SparklingAria()
         elif move == Moves.SURF:
@@ -2563,13 +2194,11 @@ class MoveFactory:
             return WaterPulse()
         elif move == Moves.WATER_SHURIKEN:
             return WaterShuriken()
-        elif move == Moves.WATER_SPORT:
-            return WaterSport()
         elif move == Moves.WATER_SPOUT:
             return WaterSpout()
         elif move == Moves.WAVE_CRASH:
             return WaveCrash()
         elif move == Moves.WHIRLPOOL:
             return Whirlpool()
-        elif move == Moves.WITHDRAW:
-            return Withdraw()
+        elif move == Moves.NOTHING:
+            return Nothing()

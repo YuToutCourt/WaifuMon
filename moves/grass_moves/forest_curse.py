@@ -1,6 +1,7 @@
 from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
+from utils.logger import log
 
 
 class ForestCurse(Move):
@@ -15,8 +16,13 @@ class ForestCurse(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_receiver):
         """
         Adds Grass type to opponent.
         """
-        pass
+        for type_ in waifu_receiver.type:
+            if type_.type_name == Types.GRASS:
+                return
+
+        waifu_receiver.type.append(TypeFactory.create_type(Types.GRASS))
+        log(waifu_receiver.name, "is cursed by the forest")

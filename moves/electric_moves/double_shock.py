@@ -1,6 +1,7 @@
 from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
+from utils.logger import log
 
 
 class DoubleShock(Move):
@@ -15,8 +16,10 @@ class DoubleShock(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_receiver):
         """
         After using this move, the user will no longer be Electric type.
         """
-        pass
+        if any(Types.ELECTRIC == type_.type_name for type_ in waifu_user.types):
+            waifu_user.types.remove(TypeFactory.create_type(Types.ELECTRIC))
+            log(waifu_user.name, "is no longer Electric type")

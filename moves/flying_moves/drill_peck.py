@@ -16,5 +16,7 @@ class DrillPeck(Move):
         )
 
     def effect(self):
-        """ """
+        """
+        No effect.
+        """
         pass

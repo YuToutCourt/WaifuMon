@@ -1,6 +1,7 @@
 from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
+from utils.logger import log
 
 
 class VictoryDance(Move):
@@ -15,8 +16,23 @@ class VictoryDance(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_receiver):
         """
         Raises Attack and Defense.
         """
-        pass
+        if waifu_user.stat_stage_atk >= 6:
+            log(waifu_user.name, "attack can't be boosted anymore")
+        else:
+            waifu_user.stat_stage_atk += 1
+            multiplier = (abs(waifu_user.stat_stage_atk) + 2) / 2
+            waifu_user.attack = int(waifu_user.base_attack * multiplier)
+            log(waifu_user.name, "Attack was boosted by 1 stage")
+
+        if waifu_user.stat_stage_def >= 6:
+            log(waifu_user.name, "defense can't be boosted anymore")
+
+        else:
+            waifu_user.stat_stage_def += 1
+            multiplier = (abs(waifu_user.stat_stage_def) + 2) / 2
+            waifu_user.defense = int(waifu_user.base_defense * multiplier)
+            log(waifu_user.name, "Defense was boosted by 1 stage")

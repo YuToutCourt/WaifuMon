@@ -1,6 +1,7 @@
 from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
+from utils.logger import log
 
 
 class QuickGuard(Move):
@@ -15,8 +16,14 @@ class QuickGuard(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_receiver):
         """
-        Protects the user's team from high-priority moves.
+        Raises the user's Defense by 1 stage.
         """
-        pass
+        if waifu_user.stat_stage_def >= 6:
+            log(waifu_user.name, "can't have its Defense raised anymore")
+        else:
+            waifu_user.stat_stage_def += 1
+            multiplier = (abs(waifu_user.stat_stage_def) + 2) / 2
+            waifu_user.defense = waifu_user.base_defense * multiplier
+            log(waifu_user.name, "Defense was raised by 1 stage")

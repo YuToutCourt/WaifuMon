@@ -8,7 +8,7 @@ class LuckyChant(Move):
         super().__init__(
             "Lucky Chant",
             type=TypeFactory.create_type(Types.NORMAL),
-            power=0,
+            power=50,
             accuracy=100,
             pp=30,
             priority=0,

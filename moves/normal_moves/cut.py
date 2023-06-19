@@ -16,5 +16,7 @@ class Cut(Move):
         )
 
     def effect(self):
-        """ """
+        """
+        No effect.
+        """
         pass

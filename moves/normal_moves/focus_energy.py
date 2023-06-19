@@ -8,7 +8,7 @@ class FocusEnergy(Move):
         super().__init__(
             "Focus Energy",
             type=TypeFactory.create_type(Types.NORMAL),
-            power=0,
+            power=40,
             accuracy=100,
             pp=30,
             priority=0,

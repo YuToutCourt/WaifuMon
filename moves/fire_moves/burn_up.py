@@ -1,6 +1,8 @@
 from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
+from utils.logger import log
+from status.burn import Burn
 
 
 class BurnUp(Move):
@@ -15,8 +17,12 @@ class BurnUp(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_receiver):
         """
         To inflict massive damage, the user burns itself out. After using this move, the user will no longer be Fire type.
         """
-        pass
+        waifu_user.status = Burn(waifu_user, False)
+        if any(Types.FIRE == type_.type_name for type_ in waifu_user.types):
+            waifu_user.types.remove(TypeFactory.create_type(Types.FIRE))
+            log(self.name, waifu_user.name, "is burned and is no longer Fire type")
+        log(self.name, waifu_user.name, "is burned")

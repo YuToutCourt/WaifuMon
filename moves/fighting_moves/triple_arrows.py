@@ -17,6 +17,6 @@ class TripleArrows(Move):
 
     def effect(self):
         """
-        Raises critical hit ratio and lowers target's Defense.
+        Raises critical hit ratio.
         """
         pass

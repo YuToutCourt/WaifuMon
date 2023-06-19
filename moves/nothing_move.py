@@ -1,22 +1,22 @@
-from ..move import Move
+from moves.move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 
 
-class Snatch(Move):
+class Nothing(Move):
     def __init__(self):
         super().__init__(
-            "Snatch",
-            type=TypeFactory.create_type(Types.DARK),
+            "Nothing",
+            type=TypeFactory.create_type(Types.NORMAL),
             power=0,
             accuracy=100,
-            pp=10,
+            pp=1,
             priority=0,
-            proba_effect=100,
+            proba_effect=0,
         )
 
     def effect(self):
         """
-        Steals the effects of the opponent's next move.
+        High critical hit ratio.
         """
         pass

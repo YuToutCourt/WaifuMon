@@ -16,5 +16,7 @@ class NoxiousTorque(Move):
         )
 
     def effect(self):
-        """ """
+        """
+        No effect.
+        """
         pass

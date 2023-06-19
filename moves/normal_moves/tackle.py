@@ -16,5 +16,7 @@ class Tackle(Move):
         )
 
     def effect(self):
-        """ """
+        """
+        No effect.
+        """
         pass

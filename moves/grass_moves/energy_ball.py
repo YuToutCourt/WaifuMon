@@ -17,6 +17,6 @@ class EnergyBall(Move):
 
     def effect(self):
         """
-        May lower opponent's Special Defense.
+        No effect.
         """
         pass

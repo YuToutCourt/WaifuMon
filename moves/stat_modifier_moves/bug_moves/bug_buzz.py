@@ -1,7 +1,8 @@
 from moves.move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-from utils.log import log
+from utils.logger import log
+
 
 class BugBuzz(Move):
     def __init__(self):
@@ -15,22 +16,16 @@ class BugBuzz(Move):
             proba_effect=10,
         )
 
-
     def effect(self, waifu_user, waifu_reciver):
         """
         May lower opponent's Defense.
         """
-        
 
-        if waifu_reciver.stat_stage_def == -6 :
-            log("TOO LOW",f"{waifu_reciver.name} Defense can't be lowered anymore !")
+        if waifu_reciver.stat_stage_def <= -6:
+            log("TOO LOW", f"{waifu_reciver.name} Defense can't be lowered anymore !")
 
-        else :
+        else:
             waifu_reciver.stat_stage_def -= 1
-            multiplier  = 2/(2+abs(waifu_reciver.stat_stage_def))
-            waifu_reciver.defense = waifu_reciver.defense * multiplier
-            log("! STAT CHANGE !",f"{waifu_reciver.name} Defense has been lowered !")
-
-
-
-
+            multiplier = 2 / (2 + abs(waifu_reciver.stat_stage_def))
+            waifu_reciver.defense = waifu_reciver.base_defense * multiplier
+            log("! STAT CHANGE !", f"{waifu_reciver.name} Defense has been lowered !")

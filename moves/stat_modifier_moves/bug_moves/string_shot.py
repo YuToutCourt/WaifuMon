@@ -1,7 +1,8 @@
 from moves.move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-from utils.log import log
+from utils.logger import log
+
 
 class StringShot(Move):
     def __init__(self):
@@ -19,13 +20,12 @@ class StringShot(Move):
         """
         Sharply lowers opponent's Speed.
         """
-        
 
-        if waifu_reciver.stat_stage_spd == -6:
+        if waifu_reciver.stat_stage_spd <= -6:
             log("TOO LOW", f"{waifu_reciver.name} Speed can't be lowered anymore !")
 
         else:
             waifu_reciver.stat_stage_spd -= 2
             multiplier = 2 / (2 + abs(waifu_reciver.stat_stage_spd))
-            waifu_reciver.speed = waifu_reciver.speed * multiplier
-            log("! STAT CHANGE !",f"{waifu_reciver.name} Speed has been lowered !")
+            waifu_reciver.speed = waifu_reciver.base_speed * multiplier
+            log("! STAT CHANGE !", f"{waifu_reciver.name} Speed has been lowered !")

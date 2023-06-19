@@ -4,7 +4,7 @@ from wtypes.type import Type
 from typing import List
 from moves.move_factory import MoveFactory
 from moves.enum_moves import Moves
-from utils.log import log
+from utils.logger import log
 from utils.handle_input import input_int
 
 class Waifu(pygame.sprite.Sprite):
@@ -25,8 +25,11 @@ class Waifu(pygame.sprite.Sprite):
         self.hp = hp
         self.hp_max = hp
         self.attack = attack
+        self.base_attack = attack
         self.defense = defense
+        self.base_defense = defense
         self.speed = speed
+        self.base_speed = speed
         self.types = types
         self.level = level
         self.list_of_moves = [MoveFactory.create_move(random.choice(list(Moves))) for _ in range(4)]

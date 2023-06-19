@@ -1,7 +1,8 @@
 from moves.move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-from utils.log import log
+from utils.logger import log
+
 
 class Acupressure(Move):
     def __init__(self):
@@ -20,23 +21,26 @@ class Acupressure(Move):
         Sharply raises a random stat.
         """
         from random import choice
-        
-        stats = [waifu_user.stat_stage_atk, waifu_user.stat_stage_def,  waifu_user.stat_stage_spd]
+
+        stats = [
+            waifu_user.stat_stage_atk,
+            waifu_user.stat_stage_def,
+            waifu_user.stat_stage_spd,
+        ]
         stat = choice(stats)
 
-        if stat == 6:
+        if stat >= 6:
             log("TOO HIGH", f"{waifu_user.name} {stat} can't be raised anymore !")
 
         else:
             stat += 2
-            multiplier = 2 / (abs(stat) + 2)
+            multiplier = (abs(stat) + 2) / 2
             if stat == waifu_user.stat_stage_atk:
-                waifu_user.attack = waifu_user.attack * multiplier
+                waifu_user.attack = waifu_user.base_attack * multiplier
                 log("! STAT CHANGE !", f"{waifu_user.name} Attack has been raised !")
             elif stat == waifu_user.stat_stage_def:
-                waifu_user.defense = waifu_user.defense * multiplier
+                waifu_user.defense = waifu_user.base_defense * multiplier
                 log("! STAT CHANGE !", f"{waifu_user.name} Defense has been raised !")
             elif stat == waifu_user.stat_stage_spd:
-                waifu_user.speed = waifu_user.speed * multiplier
+                waifu_user.speed = waifu_user.base_speed * multiplier
                 log("! STAT CHANGE !", f"{waifu_user.name} Speed has been raised !")
-

@@ -16,5 +16,7 @@ class WingAttack(Move):
         )
 
     def effect(self):
-        """ """
+        """
+        No effect.
+        """
         pass

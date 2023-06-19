@@ -1,6 +1,7 @@
 from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
+from utils.logger import log
 
 
 class HornDrill(Move):
@@ -15,8 +16,9 @@ class HornDrill(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_receiver):
         """
         One-Hit-KO, if it hits.
         """
-        pass
+        waifu_receiver.hp = 0
+        log(self.name, "makes", waifu_receiver.name, "faint")

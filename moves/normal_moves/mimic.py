@@ -8,7 +8,7 @@ class Mimic(Move):
         super().__init__(
             "Mimic",
             type=TypeFactory.create_type(Types.NORMAL),
-            power=0,
+            power=110,
             accuracy=100,
             pp=10,
             priority=0,

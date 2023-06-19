@@ -8,7 +8,7 @@ class Entrainment(Move):
         super().__init__(
             "Entrainment",
             type=TypeFactory.create_type(Types.NORMAL),
-            power=0,
+            power=90,
             accuracy=100,
             pp=15,
             priority=0,

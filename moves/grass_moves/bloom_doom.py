@@ -8,7 +8,7 @@ class BloomDoom(Move):
         super().__init__(
             "Bloom Doom",
             type=TypeFactory.create_type(Types.GRASS),
-            power=0,
+            power=180,
             accuracy=100,
             pp=1,
             priority=0,

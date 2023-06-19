@@ -1,6 +1,7 @@
 from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
+from utils.logger import log
 
 
 class SuperFang(Move):
@@ -15,8 +16,9 @@ class SuperFang(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_receiver):
         """
         Always takes off half of the opponent's HP.
         """
-        pass
+        waifu_receiver.hp = waifu_receiver.hp // 2
+        log(self.name, waifu_receiver.name, f"lost half of its HP")

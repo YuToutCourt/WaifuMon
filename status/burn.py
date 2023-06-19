@@ -1,6 +1,6 @@
 from .status import Status
 from .status_enum import StatusE
-from utils.log import log
+from utils.logger import log
 
 class Burn(Status):
     def __init__(self, waifu, afer_attack:bool):

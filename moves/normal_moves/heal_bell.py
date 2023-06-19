@@ -20,4 +20,3 @@ class HealBell(Move):
         Heals the user's status conditions.
         """
         waifu_user.status = None
-

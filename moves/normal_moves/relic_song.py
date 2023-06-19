@@ -1,6 +1,8 @@
 from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
+from utils.logger import log
+from status.sleep import Sleep
 
 
 class RelicSong(Move):
@@ -15,8 +17,12 @@ class RelicSong(Move):
             proba_effect=10,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_receiver):
         """
         May put the target to sleep.
         """
-        pass
+        if waifu_receiver.status is None:
+            waifu_receiver.status = Sleep(waifu_receiver, False)
+            log(f"{waifu_receiver.name} fell asleep!")
+        else:
+            log(f"{waifu_receiver.name} is already asleep!")

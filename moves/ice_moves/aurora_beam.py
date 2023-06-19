@@ -8,15 +8,15 @@ class AuroraBeam(Move):
         super().__init__(
             "Aurora Beam",
             type=TypeFactory.create_type(Types.ICE),
-            power=65,
+            power=85,
             accuracy=100,
-            pp=20,
+            pp=15,
             priority=0,
             proba_effect=10,
         )
 
     def effect(self):
         """
-        May lower opponent's Attack.
+        No effect.
         """
         pass

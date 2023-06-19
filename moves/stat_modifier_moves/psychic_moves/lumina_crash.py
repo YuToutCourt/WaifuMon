@@ -1,7 +1,9 @@
 from moves.move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-from utils.log import log
+from utils.logger import log
+
+
 class LuminaCrash(Move):
     def __init__(self):
         super().__init__(
@@ -18,13 +20,12 @@ class LuminaCrash(Move):
         """
         Harshly lowers targets Defense.
         """
-        
 
-        if waifu_reciver.stat_stage_def == -6:
+        if waifu_reciver.stat_stage_def <= -6:
             log("TOO LOW", f"{waifu_reciver.name} Defense can't be lowered anymore !")
 
         else:
             waifu_reciver.stat_stage_def -= 2
             multiplier = 2 / (abs(waifu_reciver.stat_stage_def) + 2)
-            waifu_reciver.defense = waifu_reciver.defense * multiplier
+            waifu_reciver.defense = waifu_reciver.base_defense * multiplier
             log("! STAT CHANGE !", f"{waifu_reciver.name} Defense has been lowered !")

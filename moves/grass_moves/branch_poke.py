@@ -16,5 +16,7 @@ class BranchPoke(Move):
         )
 
     def effect(self):
-        """ """
+        """
+        No effect.
+        """
         pass

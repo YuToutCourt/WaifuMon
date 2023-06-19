@@ -8,7 +8,7 @@ class GigavoltHavoc(Move):
         super().__init__(
             "Gigavolt Havoc",
             type=TypeFactory.create_type(Types.ELECTRIC),
-            power=0,
+            power=150,
             accuracy=100,
             pp=1,
             priority=0,

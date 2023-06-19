@@ -16,5 +16,7 @@ class MegaPunch(Move):
         )
 
     def effect(self):
-        """ """
+        """
+        No effect.
+        """
         pass

@@ -8,7 +8,7 @@ class Recycle(Move):
         super().__init__(
             "Recycle",
             type=TypeFactory.create_type(Types.NORMAL),
-            power=0,
+            power=80,
             accuracy=100,
             pp=10,
             priority=0,

@@ -8,7 +8,7 @@ class Retaliate(Move):
         super().__init__(
             "Retaliate",
             type=TypeFactory.create_type(Types.NORMAL),
-            power=70,
+            power=140,
             accuracy=100,
             pp=5,
             priority=0,

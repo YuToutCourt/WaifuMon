@@ -1,6 +1,7 @@
 from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
+from utils.logger import log
 
 
 class Camouflage(Move):
@@ -15,8 +16,14 @@ class Camouflage(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_receiver):
         """
         Changes user's type randomly.
         """
-        pass
+        from random import choice
+
+        random_type = TypeFactory.create_type(choice(list(Types)))
+
+        waifu_user.types.clear()
+        waifu_user.types.append(random_type)
+        log(self.name, "changes", waifu_user.name, "type to", random_type.name)

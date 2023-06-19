@@ -1,7 +1,8 @@
 from moves.move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-from utils.log import log
+from utils.logger import log
+
 
 class NoRetreat(Move):
     def __init__(self):
@@ -19,32 +20,29 @@ class NoRetreat(Move):
         """
         Raises all stats
         """
-        
-        
-
-        if waifu_user.stat_stage_atk == 6:
-            log("TOO HIGH", f"{waifu_reciver.name} Attack can't be raised anymore !")
+        if waifu_user.stat_stage_atk >= 6:
+            log("TOO HIGH", f"{waifu_user.name} Attack can't be raised anymore !")
 
         else:
             waifu_user.stat_stage_atk += 1
             multiplier = (abs(waifu_user.stat_stage_atk) + 2) / 2
-            waifu_user.attack = waifu_user.attack * multiplier
-            log("! STAT CHANGE !", f"{waifu_reciver.name} Attack has been raised !")
-            
-        if waifu_user.stat_stage_def == 6 :
-            log("TOO HIGH", f"{waifu_reciver.name} Defense can't be raised anymore !")
+            waifu_user.attack = waifu_user.base_attack * multiplier
+            log("! STAT CHANGE !", f"{waifu_user.name} Attack has been raised !")
+
+        if waifu_user.stat_stage_def >= 6:
+            log("TOO HIGH", f"{waifu_user.name} Defense can't be raised anymore !")
 
         else:
             waifu_user.stat_stage_def += 1
             multiplier = (abs(waifu_user.stat_stage_def) + 2) / 2
-            waifu_user.defense = waifu_user.defense * multiplier
-            log("! STAT CHANGE !", f"{waifu_reciver.name} Defense has been raised !")
-            
-        if waifu_user.stat_stage_spd == 6 :
-            log("TOO HIGH", f"{waifu_reciver.name} Speed can't be raised anymore !")
+            waifu_user.defense = waifu_user.base_defense * multiplier
+            log("! STAT CHANGE !", f"{waifu_user.name} Defense has been raised !")
+
+        if waifu_user.stat_stage_spd >= 6:
+            log("TOO HIGH", f"{waifu_user.name} Speed can't be raised anymore !")
 
         else:
             waifu_user.stat_stage_spd += 1
             multiplier = (abs(waifu_user.stat_stage_spd) + 2) / 2
-            waifu_user.speed = waifu_user.speed * multiplier
-            log("! STAT CHANGE !", f"{waifu_reciver.name} Speed has been raised !")
+            waifu_user.speed = waifu_user.base_speed * multiplier
+            log("! STAT CHANGE !", f"{waifu_user.name} Speed has been raised !")

@@ -8,7 +8,7 @@ class TectonicRage(Move):
         super().__init__(
             "Tectonic Rage",
             type=TypeFactory.create_type(Types.GROUND),
-            power=0,
+            power=190,
             accuracy=100,
             pp=1,
             priority=0,

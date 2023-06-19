@@ -1,6 +1,8 @@
 from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
+from utils.logger import log
+from status.burn import Burn
 
 
 class SandsearStorm(Move):
@@ -15,8 +17,12 @@ class SandsearStorm(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_receiver):
         """
         May burn target.
         """
-        pass
+        if waifu_receiver.status is None:
+            waifu_receiver.status = Burn(waifu_receiver, True)
+            log(self.name, "burns", waifu_receiver.name)
+        else:
+            log(self.name, "already has a status problem")

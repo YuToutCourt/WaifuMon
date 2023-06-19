@@ -16,5 +16,7 @@ class Scratch(Move):
         )
 
     def effect(self):
-        """ """
+        """
+        No effect.
+        """
         pass

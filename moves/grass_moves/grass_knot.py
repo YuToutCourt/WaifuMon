@@ -8,7 +8,7 @@ class GrassKnot(Move):
         super().__init__(
             "Grass Knot",
             type=TypeFactory.create_type(Types.GRASS),
-            power=0,
+            power=80,
             accuracy=100,
             pp=20,
             priority=0,

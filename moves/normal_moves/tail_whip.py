@@ -1,6 +1,7 @@
 from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
+from utils.logger import log
 
 
 class TailWhip(Move):
@@ -15,8 +16,14 @@ class TailWhip(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_receiver):
         """
         Lowers opponent's Defense.
         """
-        pass
+        if waifu_receiver.stat_stage_def <= -6:
+            log(self.name, waifu_receiver.name, "cannot go lower")
+            return
+        waifu_receiver.stat_stage_def -= 1
+        multiplier = 2 + abs(waifu_receiver.stat_stage_def) / 2
+        waifu_receiver.defense = int(waifu_receiver.base_defense * multiplier)
+        log(self.name, waifu_receiver.name, "Defense fell")

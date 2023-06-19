@@ -15,8 +15,11 @@ class Moonlight(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_receiver):
         """
-        User recovers HP. Amount varies with the weather.
+        User recovers half HP.
         """
-        pass
+        waifu_user.current_health += waifu_user.max_health / 2
+        if waifu_user.current_health > waifu_user.max_health:
+            waifu_user.current_health = waifu_user.max_health
+        print(f"{waifu_user.name} recovered half HP")

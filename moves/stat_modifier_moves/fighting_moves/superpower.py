@@ -1,7 +1,8 @@
 from moves.move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-from utils.log import log
+from utils.logger import log
+
 
 class Superpower(Move):
     def __init__(self):
@@ -19,22 +20,21 @@ class Superpower(Move):
         """
         Lowers user's Attack and Defense.
         """
-        
 
-        if waifu_user.stat_stage_atk == -6:
+        if waifu_user.stat_stage_atk <= -6:
             log("TOO LOW", f"{waifu_reciver.name} Attack can't be lowered anymore !")
 
         else:
             waifu_user.stat_stage_atk -= 1
             multiplier = 2 / (2 + abs(waifu_user.stat_stage_atk))
-            waifu_user.attack = waifu_user.attack * multiplier
+            waifu_user.attack = waifu_user.base_attack * multiplier
             log("! STAT CHANGE !", f"{waifu_reciver.name} Attack has been lowered !")
-            
-        if waifu_user.stat_stage_def == -6:
+
+        if waifu_user.stat_stage_def <= -6:
             log("TOO LOW", f"{waifu_reciver.name} Defense can't be lowered anymore !")
 
         else:
             waifu_user.stat_stage_def -= 1
             multiplier = 2 / (2 + abs(waifu_user.stat_stage_def))
-            waifu_user.defense = waifu_user.defense * multiplier
+            waifu_user.defense = waifu_user.base_defense * multiplier
             log("! STAT CHANGE !", f"{waifu_reciver.name} Defense has been lowered !")

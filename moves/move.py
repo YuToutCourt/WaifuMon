@@ -21,7 +21,6 @@ class Move(ABC):
         self.priority = priority
         self.proba_effect = proba_effect
 
-
     @abstractmethod
     def effect(self):
         pass
