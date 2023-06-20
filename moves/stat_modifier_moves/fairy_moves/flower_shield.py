@@ -23,9 +23,9 @@ class FlowerShield(Move):
 
         for type_ in waifu_reciver.types:
             if type_.type_name == Types.GRASS:
-                if waifu_reciver.stat_stag_def < 6:
-                    waifu_reciver.stat_stag_def += 2
-                    multiplier = (2 + abs(waifu_reciver.stat_stag_def)) / 2
+                if waifu_reciver.stat_stage_def < 6:
+                    waifu_reciver.stat_stage_def += 2
+                    multiplier = (2 + abs(waifu_reciver.stat_stage_def)) / 2
                     waifu_reciver.defense = waifu_reciver.base_defense * multiplier
                     log(
                         "! STAT CHANGE !",
@@ -34,9 +34,9 @@ class FlowerShield(Move):
 
         for type_ in waifu_user.types:
             if type_.type_name == Types.GRASS:
-                if waifu_user.stat_stag_def < 6:
-                    waifu_user.stat_stag_def += 2
-                    multiplier = (2 + abs(waifu_user.stat_stag_def)) / 2
+                if waifu_user.stat_stage_def < 6:
+                    waifu_user.stat_stage_def += 2
+                    multiplier = (2 + abs(waifu_user.stat_stage_def)) / 2
                     waifu_user.defense = waifu_user.base_defense * multiplier
                     log(
                         "! STAT CHANGE !",

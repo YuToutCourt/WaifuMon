@@ -20,9 +20,9 @@ class PowerShift(Move):
         """
         Switches offensive and defensive stats.
         """
-        waifu_user.stat_stag_atk, waifu_user.stat_stag_de = (
-            waifu_user.stat_stag_def,
-            waifu_user.stat_stag_atk,
+        waifu_user.stat_stage_atk, waifu_user.stat_stage_de = (
+            waifu_user.stat_stage_def,
+            waifu_user.stat_stage_atk,
         )
         waifu_user.attack, waifu_user.defense = waifu_user.defense, waifu_user.attack
 

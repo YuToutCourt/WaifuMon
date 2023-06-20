@@ -134,10 +134,23 @@ class FightScreen:
             pygame.draw.rect(bar_surface, color, green_rect)
 
             return bar_surface
+    
+    def create_pokeball(self, width, height):
+        """
+        Create a pokeball surface.
+        """
+        pokeball = pygame.image.load("asset/Battle/icon_ball.png")
+        pokeball = pygame.transform.scale(pokeball, (width, height))
+        
+        return pokeball
+
 
 
     def __update_display(self, player_waifu, npc_waifu):
         self.screen.blit(self.background, (0, 0))
+
+        pokeball = self.create_pokeball(52, 55)
+        self.screen.blit(pokeball, (self.screen.get_width() // 1.1, self.screen.get_height() // 1.1))
 
         # Position and dimensions calculations based on screen size
         screen_width = self.screen.get_width()
@@ -199,7 +212,7 @@ class FightScreen:
 
         self.screen.blit(
             self.waifu_front,
-            (self.screen.get_width() // 1.5, self.screen.get_height() // 2.95),
+            (self.screen.get_width() // 1.5, self.screen.get_height() * 0.42),
         )
         self.screen.blit(
             self.waifu_back,
