@@ -41,10 +41,6 @@ class Character(pygame.sprite.Sprite, ABC):
     def get_alive_waifu(self):
         return [waifu for waifu in self.team if not waifu.KO]
 
-    @abstractmethod
-    def choice_next_waifu(self):
-        pass
-
     def __create_random_team(self):
         with open(
             "asset/waifu_sprite/all_waifu_name.json", "r", encoding="utf-8"

@@ -26,5 +26,5 @@ class BurningJealousy(Move):
             or waifu_receiver.stat_stage_def > 0
             or waifu_receiver.stat_stage_spd > 0
         ):
-            waifu_receiver.status = Burn(waifu_receiver, False)
+            waifu_receiver.status = Burn(waifu_receiver, True)
             log(self.name, waifu_receiver.name, "is burned")

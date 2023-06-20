@@ -84,7 +84,12 @@ class Fight:
                 waifu1.choice_move()
             else:
                 waifu1.move_to_use = MoveFactory.create_move(Moves.NOTHING)
-            self.enemy_choice(waifu1, waifu2)
+
+            waifu2, as_switch = self.npc.handle_choice_during_fight(waifu1, waifu2)
+            if as_switch:
+                waifu2.move_to_use = MoveFactory.create_move(Moves.NOTHING)
+
+            
         else:
             waifu2.display_hp()
             waifu2.display_stats()
@@ -95,7 +100,10 @@ class Fight:
                 waifu2.choice_move()
             else:
                 waifu2.move_to_use = MoveFactory.create_move(Moves.NOTHING)
-            self.enemy_choice(waifu2, waifu1)
+
+            waifu1, as_switch = self.npc.handle_choice_during_fight(waifu2, waifu1)
+            if as_switch:
+                waifu1.move_to_use = MoveFactory.create_move(Moves.NOTHING)
 
         attacking_waifu, defending_waifu = self.determine_attack_order(waifu1, waifu2)
 
@@ -103,9 +111,15 @@ class Fight:
 
         if defending_waifu.hp <= 0:
             self.handle_knockout(defending_waifu)
+            self.__apply_status_after_attack([waifu1, waifu2])
+            if attacking_waifu.hp <= 0:
+                self.handle_knockout(attacking_waifu)
             return
         
         self.__apply_status_after_attack([waifu1, waifu2])
+        if attacking_waifu.hp <= 0:
+            self.handle_knockout(attacking_waifu)
+            return
 
         self.play_round(attacking_waifu, defending_waifu)
 
@@ -178,13 +192,11 @@ class Fight:
             return
 
         elif self.npc.get_waifu_in_fight() is None:
-            self.npc.choice_next_waifu(waifu)
+            self.npc.handle_choice_during_fight(None, None, True)
             return self.play_round(
                 self.player.get_waifu_in_fight(), self.npc.get_waifu_in_fight()
             )
 
-    def enemy_choice(self, waifu_player: Waifu, waifu_npc: Waifu):
-        return self.npc.handle_choice_during_fight(waifu_player, waifu_npc)
 
     def __get_multiplier(self, attacker: Waifu, move_used: Move, opponent: Waifu):
         if any(move_used.type.type_name == type.type_name for type in attacker.types):

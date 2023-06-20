@@ -1614,10 +1614,6 @@ class MoveFactory:
             return Psyshock()
         elif move == Moves.PSYSTRIKE:
             return Psystrike()
-        elif move == Moves.REFLECT:
-            return Reflect()
-        elif move == Moves.REST:
-            return Rest()
         elif move == Moves.STORED_POWER:
             return StoredPower()
         elif move == Moves.SYNCHRONOISE:

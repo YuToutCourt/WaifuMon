@@ -442,7 +442,6 @@ class Moves(Enum):
     PSYSHOCK = 533
     PSYSTRIKE = 534
     REFLECT = 536
-    REST = 537
     STORED_POWER = 542
     SYNCHRONOISE = 543
     TWIN_BEAM = 549

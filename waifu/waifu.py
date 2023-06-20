@@ -88,7 +88,6 @@ class Waifu(pygame.sprite.Sprite):
                 self.in_fight,
                 self.KO,
                 self.move_to_use,
-                self.stat_stage,
                 self.stat_stage_atk,
                 self.stat_stage_def,
                 self.stat_stage_spd,
@@ -159,6 +158,13 @@ class Waifu(pygame.sprite.Sprite):
         Display the moves of the waifu and let the player choose one
         return the move chosen
         """
+        for move in self.list_of_moves:
+            if move is not None:
+                log("PP", f"{move.name} : {move.pp} PP")
+            else :
+                log("PP", "None", self.list_of_moves)
+
+
         if all(move.pp <= 0 for move in self.list_of_moves):
             log("PP", "Not enough PP, your waifu use struggle")
             self.move_to_use = MoveFactory.create_move(Moves.STRUGGLE)
