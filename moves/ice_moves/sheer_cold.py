@@ -21,4 +21,4 @@ class SheerCold(Move):
         One-Hit-KO, if it hits.
         """
         waifu_receiver.hp = 0
-        log(self.name, "hits", waifu_receiver.name)
+        log(self.name, "reduce", waifu_receiver.name, "hp to 0")

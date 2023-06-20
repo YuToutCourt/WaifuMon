@@ -57,14 +57,15 @@ def choice_waifu(waifu_ia, waifu_player, npc):
             best_waifu[waifu] = 1
         else:
             best_waifu[waifu] = 0
+            
         for move in waifu.list_of_moves:
             if move.power == 0: continue
-            multiplier = get_multiplier(waifu, move, waifu_player)
+            multiplier = calculate_damage(waifu, move, waifu_player)
             best_waifu[waifu] += multiplier
 
         for move in waifu_player.list_of_moves:
             if move.power == 0: continue
-            multiplier = get_multiplier(waifu_player, move, waifu)
+            multiplier = calculate_damage(waifu_player, move, waifu)
             best_waifu[waifu] -= multiplier
 
     best_waifu = sorted(best_waifu.items(), key=lambda x: x[1], reverse=True)[0][0]
