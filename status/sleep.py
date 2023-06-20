@@ -17,7 +17,7 @@ class Sleep(Status):
         Max turn == random(1, 3)
         :return: True if the pokemon is able to attack else False
         """
-        if self.waifu.move_to_use.type_name in [Moves.SNORE, Moves.SLEEP_TALK]:
+        if self.waifu.move_to_use.name in [Moves.SNORE, Moves.SLEEP_TALK]:
             self.turns += 1
             return True
         

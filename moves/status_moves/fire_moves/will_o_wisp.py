@@ -11,7 +11,7 @@ class WillOWisp(Move):
             "Will-O-Wisp",
             type=TypeFactory.create_type(Types.FIRE),
             power=0,
-            accuracy=85,
+            accuracy=100,
             pp=15,
             priority=0,
             proba_effect=100,

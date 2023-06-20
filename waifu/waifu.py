@@ -6,6 +6,13 @@ from moves.move_factory import MoveFactory
 from moves.enum_moves import Moves
 from utils.logger import log
 from utils.handle_input import input_int
+from status.burn import Burn
+from status.poison import Poison
+from status.paralysis import Paralysis
+from status.freeze import Freeze
+from status.sleep import Sleep
+
+
 
 class Waifu(pygame.sprite.Sprite):
     def __init__(
@@ -46,7 +53,8 @@ class Waifu(pygame.sprite.Sprite):
         self.stat_stage_def = 0
         self.stat_stage_atk = 0
         self.stat_stage_spd = 0
-        self.status = None
+        status_list = [Burn(self, True), Poison(self, True), Paralysis(self, False), Freeze(self, False), Sleep(self, False)]
+        self.status = random.choice(status_list)
 
     def __eq__(self, other):
             if isinstance(other, self.__class__):

@@ -3,6 +3,7 @@ import random
 import threading
 
 from game_script.fight import Fight
+from utils.logger import log
 
 # from utils.my_thread import MyThread
 
@@ -128,10 +129,13 @@ class FightScreen:
             red = int((1 - current_hp / max_hp) * 255)
             green = int((current_hp / max_hp) * 255)
             color = (red, green, 0)
-
+            
             # Draw the green portion of the bar
             green_rect = pygame.Rect(0, 0, green_width, bar_height)
-            pygame.draw.rect(bar_surface, color, green_rect)
+            try:
+                pygame.draw.rect(bar_surface, color, green_rect)
+            except Exception as e:
+                log("Color for hp bar", color, e)
 
             return bar_surface
     
@@ -144,6 +148,15 @@ class FightScreen:
         
         return pokeball
 
+
+    def create_badge_status(self, width, height, path):
+        """
+        Create a badge status surface.
+        """
+        badge = pygame.image.load(f"asset/Battle/{path}")
+        badge = pygame.transform.scale(badge, (width, height))
+        
+        return badge
 
 
     def __update_display(self, player_waifu, npc_waifu):
@@ -184,8 +197,6 @@ class FightScreen:
 
 
         # Position and dimensions calculations based on screen size
-
-
         player_name_x = int(screen_width * 0.760)
         player_name_y = int(screen_height * 0.8195)
         player_level_x = int(screen_width * 0.8855)
@@ -204,12 +215,21 @@ class FightScreen:
         npc_hp_bar_x = int(screen_width * 0.0292)
         npc_hp_bar_y = int(screen_height * 0.0667)
 
-        if player_waifu.get_waifu_in_fight() is not None:
+        waifu_player = player_waifu.get_waifu_in_fight()
+        waifu_npc = npc_waifu.get_waifu_in_fight()
+
+
+        if waifu_player is not None:
+
+            if waifu_player.status is not None:
+                status_surface = self.create_badge_status(40, 40, f"{waifu_player.status.status.name}.png")
+                self.screen.blit(status_surface, (screen_width * 0.78334, screen_height * 0.854))
+
             # Afficher les informations du waifu du joueur
-            waifu_player_name = player_waifu.get_waifu_in_fight().name
-            waifu_player_hp = player_waifu.get_waifu_in_fight().hp
-            waifu_player_max_hp = player_waifu.get_waifu_in_fight().hp_max
-            waifu_player_level = player_waifu.get_waifu_in_fight().level
+            waifu_player_name = waifu_player.name
+            waifu_player_hp = waifu_player.hp
+            waifu_player_max_hp = waifu_player.hp_max
+            waifu_player_level = waifu_player.level
 
             player_name_surface = self.create_text(waifu_player_name, 30, (0, 0, 0))
             player_hp_surface = self.create_text(f"{round(waifu_player_hp)}/{waifu_player_max_hp}", 30, (0, 0, 0))
@@ -227,13 +247,17 @@ class FightScreen:
                 (self.screen.get_width() // 8, self.screen.get_height() // 2.2),
             )
 
-        if npc_waifu.get_waifu_in_fight() is not None:
+        if waifu_npc is not None:
+
+            if waifu_npc.status is not None:
+                status_surface = self.create_badge_status(40, 40, f"{waifu_npc.status.status.name}.png")
+                self.screen.blit(status_surface, (screen_width * 0.2, screen_height * 0.075))
         
             # Afficher les informations du waifu du NPC
-            waifu_npc_name = npc_waifu.get_waifu_in_fight().name
-            waifu_npc_hp = npc_waifu.get_waifu_in_fight().hp
-            waifu_npc_max_hp = npc_waifu.get_waifu_in_fight().hp_max
-            waifu_npc_level = npc_waifu.get_waifu_in_fight().level
+            waifu_npc_name = waifu_npc.name
+            waifu_npc_hp = waifu_npc.hp
+            waifu_npc_max_hp = waifu_npc.hp_max
+            waifu_npc_level = waifu_npc.level
 
             npc_hp_bar = self.create_hp_bar(waifu_npc_hp, waifu_npc_max_hp, int(screen_width * 0.1063), int(screen_height * 0.013))
             self.screen.blit(npc_hp_bar, (npc_hp_bar_x, npc_hp_bar_y))
