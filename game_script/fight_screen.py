@@ -172,7 +172,7 @@ class FightScreen:
         player_hp_surface = self.create_text(f"{round(waifu_player_hp)}/{waifu_player_max_hp}", 30, (0, 0, 0))
         player_level_surface = self.create_text(f"Lv{waifu_player_level}", 30, (0, 0, 0))
         
-        player_hp_bar = self.create_hp_bar(waifu_player_hp, waifu_player_max_hp, int(screen_width * 0.105), int(screen_height * 0.013))
+        player_hp_bar = self.create_hp_bar(waifu_player_hp, waifu_player_max_hp, int(screen_width * 0.1063), int(screen_height * 0.013))
         self.screen.blit(player_hp_bar, (player_hp_bar_x, player_hp_bar_y))
 
         self.screen.blit(player_name_surface, (player_name_x, player_name_y))
