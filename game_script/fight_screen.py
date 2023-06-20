@@ -3,7 +3,6 @@ import random
 import threading
 
 from game_script.fight import Fight
-from character.dialog import Dialog
 
 # from utils.my_thread import MyThread
 
@@ -16,7 +15,6 @@ class FightScreen:
         self.background = None
         self.waifu_front = None
         self.waifu_back = None
-        self.dialog = Dialog()
 
     def run_fight(self, player, npc):
         """
@@ -141,8 +139,27 @@ class FightScreen:
     def __update_display(self, player_waifu, npc_waifu):
         self.screen.blit(self.background, (0, 0))
 
-        # mouse_pos = pygame.mouse.get_pos()
-        # print(mouse_pos)
+        # Position and dimensions calculations based on screen size
+        screen_width = self.screen.get_width()
+        screen_height = self.screen.get_height()
+
+        player_name_x = int(screen_width * 0.760)
+        player_name_y = int(screen_height * 0.8195)
+        player_level_x = int(screen_width * 0.8855)
+        player_level_y = int(screen_height * 0.8195)
+        player_hp_x = int(screen_width * 0.8855)
+        player_hp_y = int(screen_height * 0.87963)
+        player_hp_bar_x = int(screen_width * 0.86355)
+        player_hp_bar_y = int(screen_height * 0.85)
+
+        npc_name_x = int(screen_width * 0.03)
+        npc_name_y = int(screen_height * 0.06)
+        npc_level_x = int(screen_width * 0.18)
+        npc_level_y = int(screen_height * 0.06)
+        npc_hp_x = int(screen_width * 0.12)
+        npc_hp_y = int(screen_height * 0.12)
+        npc_hp_bar_x = int(screen_width * 0.03)
+        npc_hp_bar_y = int(screen_height * 0.15)
 
 
         # Afficher les informations du waifu du joueur
@@ -155,12 +172,12 @@ class FightScreen:
         player_hp_surface = self.create_text(f"{round(waifu_player_hp)}/{waifu_player_max_hp}", 30, (0, 0, 0))
         player_level_surface = self.create_text(f"Lv{waifu_player_level}", 30, (0, 0, 0))
         
-        player_hp_bar = self.create_hp_bar(waifu_player_hp, waifu_player_max_hp, 204, 14)
-        self.screen.blit(player_hp_bar, (1658, 918))
+        player_hp_bar = self.create_hp_bar(waifu_player_hp, waifu_player_max_hp, int(screen_width * 0.105), int(screen_height * 0.013))
+        self.screen.blit(player_hp_bar, (player_hp_bar_x, player_hp_bar_y))
 
-        self.screen.blit(player_name_surface, (1460, 885))
-        self.screen.blit(player_level_surface, (1700, 885))
-        self.screen.blit(player_hp_surface, (1700, 950))
+        self.screen.blit(player_name_surface, (player_name_x, player_name_y))
+        self.screen.blit(player_level_surface, (player_level_x, player_level_y))
+        self.screen.blit(player_hp_surface, (player_hp_x, player_hp_y))
         
         # Afficher les informations du waifu du NPC
         waifu_npc_name = npc_waifu.get_waifu_in_fight().name
@@ -168,17 +185,16 @@ class FightScreen:
         waifu_npc_max_hp = npc_waifu.get_waifu_in_fight().hp_max
         waifu_npc_level = npc_waifu.get_waifu_in_fight().level
 
-        npc_hp_bar = self.create_hp_bar(waifu_npc_hp, waifu_npc_max_hp, 204, 14)
-        self.screen.blit(npc_hp_bar, (56, 72))
-
+        npc_hp_bar = self.create_hp_bar(waifu_npc_hp, waifu_npc_max_hp, int(screen_width * 0.12), int(screen_height * 0.018))
+        self.screen.blit(npc_hp_bar, (npc_hp_bar_x, npc_hp_bar_y))
 
         npc_name_surface = self.create_text(waifu_npc_name, 30, (0, 0, 0))
         npc_hp_surface = self.create_text(f"{round(waifu_npc_hp)}/{waifu_npc_max_hp}", 30, (0, 0, 0))
         npc_level_surface = self.create_text(f"Lv{waifu_npc_level}", 30, (0, 0, 0))
 
-        self.screen.blit(npc_name_surface, (50, 38))
-        self.screen.blit(npc_level_surface, (300, 38))
-        self.screen.blit(npc_hp_surface, (160, 102))
+        self.screen.blit(npc_name_surface, (npc_name_x, npc_name_y))
+        self.screen.blit(npc_level_surface, (npc_level_x, npc_level_y))
+        self.screen.blit(npc_hp_surface, (npc_hp_x, npc_hp_y))
        
 
         self.screen.blit(
