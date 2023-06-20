@@ -116,9 +116,34 @@ class FightScreen:
         text_surface = font.render(text, True, color)
         return text_surface
 
+    def create_hp_bar(self, current_hp, max_hp, bar_width, bar_height):
+            """
+            Create an HP bar surface with a gradual color transition.
+            """
+            bar_surface = pygame.Surface((bar_width, bar_height))
+            bar_surface.fill((255, 255, 255))  # Fill with white color
+
+            # Calculate the width of the green portion of the bar
+            green_width = int((current_hp / max_hp) * bar_width)
+
+            # Calculate the RGB color based on HP percentage
+            red = int((1 - current_hp / max_hp) * 255)
+            green = int((current_hp / max_hp) * 255)
+            color = (red, green, 0)
+
+            # Draw the green portion of the bar
+            green_rect = pygame.Rect(0, 0, green_width, bar_height)
+            pygame.draw.rect(bar_surface, color, green_rect)
+
+            return bar_surface
+
 
     def __update_display(self, player_waifu, npc_waifu):
         self.screen.blit(self.background, (0, 0))
+
+        # mouse_pos = pygame.mouse.get_pos()
+        # print(mouse_pos)
+
 
         # Afficher les informations du waifu du joueur
         waifu_player_name = player_waifu.get_waifu_in_fight().name
@@ -129,6 +154,9 @@ class FightScreen:
         player_name_surface = self.create_text(waifu_player_name, 30, (0, 0, 0))
         player_hp_surface = self.create_text(f"{round(waifu_player_hp)}/{waifu_player_max_hp}", 30, (0, 0, 0))
         player_level_surface = self.create_text(f"Lv{waifu_player_level}", 30, (0, 0, 0))
+        
+        player_hp_bar = self.create_hp_bar(waifu_player_hp, waifu_player_max_hp, 204, 14)
+        self.screen.blit(player_hp_bar, (1658, 918))
 
         self.screen.blit(player_name_surface, (1460, 885))
         self.screen.blit(player_level_surface, (1700, 885))
@@ -139,6 +167,10 @@ class FightScreen:
         waifu_npc_hp = npc_waifu.get_waifu_in_fight().hp
         waifu_npc_max_hp = npc_waifu.get_waifu_in_fight().hp_max
         waifu_npc_level = npc_waifu.get_waifu_in_fight().level
+
+        npc_hp_bar = self.create_hp_bar(waifu_npc_hp, waifu_npc_max_hp, 204, 14)
+        self.screen.blit(npc_hp_bar, (56, 72))
+
 
         npc_name_surface = self.create_text(waifu_npc_name, 30, (0, 0, 0))
         npc_hp_surface = self.create_text(f"{round(waifu_npc_hp)}/{waifu_npc_max_hp}", 30, (0, 0, 0))
