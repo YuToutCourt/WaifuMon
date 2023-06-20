@@ -41,7 +41,7 @@ class FightScreen:
         while fight.finished is False:
             _ = pygame.event.get()
             if self.__load_waifu(player, npc):
-                self.__update_display("UwU")
+                self.__update_display(player, npc)
 
     def __fill_screen(self):
         """
@@ -108,10 +108,46 @@ class FightScreen:
 
         return waifu_ is not None and waifu__ is not None
 
-    def __update_display(self, data):
+    def create_text(self, text, font_size, color):
+        """
+        Créer un texte
+        """
+        font = pygame.font.Font(None, font_size)
+        text_surface = font.render(text, True, color)
+        return text_surface
+
+
+    def __update_display(self, player_waifu, npc_waifu):
         self.screen.blit(self.background, (0, 0))
-        self.dialog.display_fight(self.screen)
-        self.dialog.add_data_fight(data)
+
+        # Afficher les informations du waifu du joueur
+        waifu_player_name = player_waifu.get_waifu_in_fight().name
+        waifu_player_hp = player_waifu.get_waifu_in_fight().hp
+        waifu_player_max_hp = player_waifu.get_waifu_in_fight().hp_max
+        waifu_player_level = player_waifu.get_waifu_in_fight().level
+
+        player_name_surface = self.create_text(waifu_player_name, 30, (0, 0, 0))
+        player_hp_surface = self.create_text(f"{round(waifu_player_hp)}/{waifu_player_max_hp}", 30, (0, 0, 0))
+        player_level_surface = self.create_text(f"Lv{waifu_player_level}", 30, (0, 0, 0))
+
+        self.screen.blit(player_name_surface, (1460, 885))
+        self.screen.blit(player_level_surface, (1700, 885))
+        self.screen.blit(player_hp_surface, (1700, 950))
+        
+        # Afficher les informations du waifu du NPC
+        waifu_npc_name = npc_waifu.get_waifu_in_fight().name
+        waifu_npc_hp = npc_waifu.get_waifu_in_fight().hp
+        waifu_npc_max_hp = npc_waifu.get_waifu_in_fight().hp_max
+        waifu_npc_level = npc_waifu.get_waifu_in_fight().level
+
+        npc_name_surface = self.create_text(waifu_npc_name, 30, (0, 0, 0))
+        npc_hp_surface = self.create_text(f"{round(waifu_npc_hp)}/{waifu_npc_max_hp}", 30, (0, 0, 0))
+        npc_level_surface = self.create_text(f"Lv{waifu_npc_level}", 30, (0, 0, 0))
+
+        self.screen.blit(npc_name_surface, (50, 38))
+        self.screen.blit(npc_level_surface, (300, 38))
+        self.screen.blit(npc_hp_surface, (160, 102))
+       
 
         self.screen.blit(
             self.waifu_front,

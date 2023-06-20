@@ -3,7 +3,7 @@ from utils.coordinates import Coordinates
 from waifu.waifu import Waifu
 from typing import List
 from wtypes.type_factory import TypeFactory
-from abc import ABC, abstractmethod
+from abc import ABC
 
 import json
 from random import shuffle, randint
@@ -33,6 +33,9 @@ class Character(pygame.sprite.Sprite, ABC):
             print(waifu.name)
 
     def get_waifu_in_fight(self):
+        """
+        Retourne le waifu qui est en combat
+        """
         for waifu in self.team:
             if waifu.in_fight:
                 return waifu
