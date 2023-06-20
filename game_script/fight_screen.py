@@ -152,14 +152,14 @@ class FightScreen:
         player_hp_bar_x = int(screen_width * 0.86355)
         player_hp_bar_y = int(screen_height * 0.85)
 
-        npc_name_x = int(screen_width * 0.03)
-        npc_name_y = int(screen_height * 0.06)
-        npc_level_x = int(screen_width * 0.18)
-        npc_level_y = int(screen_height * 0.06)
-        npc_hp_x = int(screen_width * 0.12)
-        npc_hp_y = int(screen_height * 0.12)
-        npc_hp_bar_x = int(screen_width * 0.03)
-        npc_hp_bar_y = int(screen_height * 0.15)
+        npc_name_x = int(screen_width * 0.0261)
+        npc_name_y = int(screen_height * 0.0352)
+        npc_level_x = int(screen_width * 0.1563)
+        npc_level_y = int(screen_height * 0.0352)
+        npc_hp_x = int(screen_width * 0.08073)
+        npc_hp_y = int(screen_height * 0.09445)
+        npc_hp_bar_x = int(screen_width * 0.0292)
+        npc_hp_bar_y = int(screen_height * 0.0667)
 
 
         # Afficher les informations du waifu du joueur
@@ -185,7 +185,7 @@ class FightScreen:
         waifu_npc_max_hp = npc_waifu.get_waifu_in_fight().hp_max
         waifu_npc_level = npc_waifu.get_waifu_in_fight().level
 
-        npc_hp_bar = self.create_hp_bar(waifu_npc_hp, waifu_npc_max_hp, int(screen_width * 0.12), int(screen_height * 0.018))
+        npc_hp_bar = self.create_hp_bar(waifu_npc_hp, waifu_npc_max_hp, int(screen_width * 0.1063), int(screen_height * 0.013))
         self.screen.blit(npc_hp_bar, (npc_hp_bar_x, npc_hp_bar_y))
 
         npc_name_surface = self.create_text(waifu_npc_name, 30, (0, 0, 0))
