@@ -60,11 +60,13 @@ def choice_waifu(waifu_ia, waifu_player, npc):
             
         for move in waifu.list_of_moves:
             log("IA CHOICE WAIFU", move)
+            if move is None: continue
             if move.power == 0: continue
             multiplier = calculate_damage(waifu, move, waifu_player)
             best_waifu[waifu] += multiplier
 
         for move in waifu_player.list_of_moves:
+            if move is None: continue
             if move.power == 0: continue
             multiplier = calculate_damage(waifu_player, move, waifu)
             best_waifu[waifu] -= multiplier
@@ -87,6 +89,7 @@ def choice_move(waifu_ia, waifu_player):
 
     # Parcourir les attaques de la waifu de l'IA pour trouver celle qui inflige le plus de dégâts
     for move in waifu_ia.list_of_moves:
+        if move is None: continue
         if move.pp == 0: continue
         damage = calculate_damage(waifu_ia, move, waifu_player)
         if damage > highest_damage:

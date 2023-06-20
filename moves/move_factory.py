@@ -2198,3 +2198,6 @@ class MoveFactory:
             return Whirlpool()
         elif move == Moves.NOTHING:
             return Nothing()
+
+        else:
+            raise Exception("Move not found: " + str(move))
