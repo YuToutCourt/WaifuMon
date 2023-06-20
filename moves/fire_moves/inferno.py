@@ -22,7 +22,7 @@ class Inferno(Move):
         Burns opponent.
         """
         if waifu_receiver.status is None:
-            waifu_receiver.status = Burn(waifu_receiver, False)
+            waifu_receiver.status = Burn(waifu_receiver, True)
             log(self.name, waifu_receiver.name, "is burned")
         else:
             log(self.name, waifu_receiver.name, "have already a status effect")

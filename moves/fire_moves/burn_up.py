@@ -21,7 +21,7 @@ class BurnUp(Move):
         """
         To inflict massive damage, the user burns itself out. After using this move, the user will no longer be Fire type.
         """
-        waifu_user.status = Burn(waifu_user, False)
+        waifu_user.status = Burn(waifu_receiver, True)
         if any(Types.FIRE == type_.type_name for type_ in waifu_user.types):
             waifu_user.types.remove(TypeFactory.create_type(Types.FIRE))
             log(self.name, waifu_user.name, "is burned and is no longer Fire type")

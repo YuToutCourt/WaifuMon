@@ -84,7 +84,12 @@ class Fight:
                 waifu1.choice_move()
             else:
                 waifu1.move_to_use = MoveFactory.create_move(Moves.NOTHING)
-            self.enemy_choice(waifu1, waifu2)
+
+            waifu2, as_switch = self.npc.handle_choice_during_fight(waifu1, waifu2)
+            if as_switch:
+                waifu2.move_to_use = MoveFactory.create_move(Moves.NOTHING)
+
+            
         else:
             waifu2.display_hp()
             waifu2.display_stats()
@@ -95,7 +100,10 @@ class Fight:
                 waifu2.choice_move()
             else:
                 waifu2.move_to_use = MoveFactory.create_move(Moves.NOTHING)
-            self.enemy_choice(waifu2, waifu1)
+
+            waifu1, as_switch = self.npc.handle_choice_during_fight(waifu2, waifu1)
+            if as_switch:
+                waifu1.move_to_use = MoveFactory.create_move(Moves.NOTHING)
 
         attacking_waifu, defending_waifu = self.determine_attack_order(waifu1, waifu2)
 
@@ -103,9 +111,15 @@ class Fight:
 
         if defending_waifu.hp <= 0:
             self.handle_knockout(defending_waifu)
+            self.__apply_status_after_attack([waifu1, waifu2])
+            if attacking_waifu.hp <= 0:
+                self.handle_knockout(attacking_waifu)
             return
         
         self.__apply_status_after_attack([waifu1, waifu2])
+        if attacking_waifu.hp <= 0:
+            self.handle_knockout(attacking_waifu)
+            return
 
         self.play_round(attacking_waifu, defending_waifu)
 
@@ -117,11 +131,27 @@ class Fight:
             [waifu1, waifu2], key=lambda waifu: waifu.move_to_use.priority, reverse=True
         )
 
+    def move_effect(self, attacker, defender, move_used):
+        # The try/except is here to handle moves that don't have an effect 
+        # (because I don't wont to modify all the moves)
+        if randint(0, 100) <= move_used.proba_effect:
+            try:
+                attacker.move_to_use.effect(attacker, defender)
+                if defender.hp <= 0:
+                    defender.display_hp()
+                    return self.handle_knockout(defender)
+                if attacker.hp <= 0:
+                    attacker.display_hp()
+                    return self.handle_knockout(attacker)
+            except Exception as e:
+                log("Effect Error ", e)
+
     def attack(self, attacker: Waifu, defender: Waifu, stop=False):
         move_used = attacker.move_to_use
 
         if not self.__apply_status_before_attack(attacker):
             if attacker.hp <= 0:
+              self.move_effect(attacker, defender, move_used)
               return self.handle_knockout(attacker)
             return self.attack(defender, attacker, stop=True)
 
@@ -131,25 +161,21 @@ class Fight:
             defender.hp -= damage
             log(move_used.name, f"{defender.name} a perdu {damage} PV")
             if defender.hp <= 0:
+                self.move_effect(attacker, defender, move_used)
                 defender.display_hp()
                 return self.handle_knockout(defender)
             
-            # The try/except is here to handle moves that don't have an effect 
-            # (because I don't wont to modify all the moves)
-            if randint(0, 100) <= move_used.proba_effect:
-                try:
-                    attacker.move_to_use.effect(attacker, defender)
-                    if defender.hp <= 0:
-                        defender.display_hp()
-                        return self.handle_knockout(defender)
-                    if attacker.hp <= 0:
-                        attacker.display_hp()
-                        return self.handle_knockout(attacker)
-                except Exception as e:
-                    log("Effect Error ", e)
-
         else:
             print("Le coup n'a pas touché")
+
+        self.move_effect(attacker, defender, move_used)
+        if attacker.hp <= 0:
+            attacker.display_hp()
+            return self.handle_knockout(attacker)
+        
+        if defender.hp <= 0:
+            defender.display_hp()
+            return self.handle_knockout(defender)
 
         if stop:
             return
@@ -178,13 +204,11 @@ class Fight:
             return
 
         elif self.npc.get_waifu_in_fight() is None:
-            self.npc.choice_next_waifu(waifu)
+            self.npc.handle_choice_during_fight(self.player.get_waifu_in_fight(), waifu, True)
             return self.play_round(
                 self.player.get_waifu_in_fight(), self.npc.get_waifu_in_fight()
             )
 
-    def enemy_choice(self, waifu_player: Waifu, waifu_npc: Waifu):
-        return self.npc.handle_choice_during_fight(waifu_player, waifu_npc)
 
     def __get_multiplier(self, attacker: Waifu, move_used: Move, opponent: Waifu):
         if any(move_used.type.type_name == type.type_name for type in attacker.types):
