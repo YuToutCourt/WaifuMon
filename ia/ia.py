@@ -59,6 +59,7 @@ def choice_waifu(waifu_ia, waifu_player, npc):
             best_waifu[waifu] = 0
             
         for move in waifu.list_of_moves:
+            log("IA CHOICE WAIFU", move)
             if move.power == 0: continue
             multiplier = calculate_damage(waifu, move, waifu_player)
             best_waifu[waifu] += multiplier
