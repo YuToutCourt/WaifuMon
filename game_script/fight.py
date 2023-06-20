@@ -184,7 +184,7 @@ class Fight:
     def handle_knockout(self, waifu: Waifu):
         log(f"{waifu.name} est KO")
         waifu.KO = True
-        # waifu.in_fight = False
+        waifu.in_fight = False
 
         # Make the player or the npc choose a new waifu
         if len(self.player.get_alive_waifu()) == 0:
