@@ -41,7 +41,7 @@ class FightScreen:
         while fight.finished is False:
             _ = pygame.event.get()
             if self.__load_waifu(player, npc):
-                self.__update_display()
+                self.__update_display("UwU")
 
     def __fill_screen(self):
         """
