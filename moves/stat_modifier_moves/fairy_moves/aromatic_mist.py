@@ -18,14 +18,14 @@ class AromaticMist(Move):
 
     def effect(self, waifu_user, waifu_reciver):
         """
-        Raises Defense of an ally.
+        Raises Defense
         """
 
-        if waifu_reciver.stat_stage_def >= 6:
-            log("TOO HIGH", f"{waifu_reciver.name} Defense can't be raised anymore !")
+        if waifu_user.stat_stage_def >= 6:
+            log("TOO HIGH", f"{waifu_user.name} Defense can't be raised anymore !")
 
         else:
-            waifu_reciver.stat_stage_def += 1
-            multiplier = (abs(waifu_reciver.stat_stage_def) + 2) / 2
-            waifu_reciver.defense = waifu_reciver.base_defense * multiplier
-            log("! STAT CHANGE !", f"{waifu_reciver.name} Defense has been raised !")
+            waifu_user.stat_stage_def += 1
+            multiplier = (abs(waifu_user.stat_stage_def) + 2) / 2
+            waifu_user.defense = waifu_user.base_defense * multiplier
+            log("! STAT CHANGE !", f"{waifu_user.name} Defense has been raised !")
