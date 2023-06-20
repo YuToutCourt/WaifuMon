@@ -135,11 +135,11 @@ class FightScreen:
 
             return bar_surface
     
-    def create_pokeball(self, width, height):
+    def create_pokeball(self, width, height, path):
         """
         Create a pokeball surface.
         """
-        pokeball = pygame.image.load("asset/Battle/icon_ball.png")
+        pokeball = pygame.image.load(f"asset/Battle/{path}")
         pokeball = pygame.transform.scale(pokeball, (width, height))
         
         return pokeball
@@ -148,13 +148,43 @@ class FightScreen:
 
     def __update_display(self, player_waifu, npc_waifu):
         self.screen.blit(self.background, (0, 0))
-
-        pokeball = self.create_pokeball(52, 55)
-        self.screen.blit(pokeball, (self.screen.get_width() // 1.1, self.screen.get_height() // 1.1))
-
-        # Position and dimensions calculations based on screen size
         screen_width = self.screen.get_width()
         screen_height = self.screen.get_height()
+
+        player_pokeballs = []
+        for waifu in player_waifu.team:
+            if waifu.KO:
+                player_pokeballs.append(self.create_pokeball(52, 55, "icon_ball_faint.png"))
+            elif waifu.status is not None:
+                player_pokeballs.append(self.create_pokeball(52, 55, "icon_ball_status.png"))
+            else:
+                player_pokeballs.append(self.create_pokeball(52, 55, "icon_ball.png"))
+
+        decalage = 0
+        for pokeball in player_pokeballs:
+            self.screen.blit(pokeball, (screen_width * 0.760 + decalage, screen_height * 0.9371))
+            decalage += 55
+
+        npc_pokeballs = []
+        for waifu in npc_waifu.team:
+            if waifu.KO:
+                npc_pokeballs.append(self.create_pokeball(52, 55, "icon_ball_faint.png"))
+            elif waifu.status is not None:
+                npc_pokeballs.append(self.create_pokeball(52, 55, "icon_ball_status.png"))
+            else:
+                npc_pokeballs.append(self.create_pokeball(52, 55, "icon_ball.png"))
+
+        decalage = 0
+        for pokeball in npc_pokeballs:
+            self.screen.blit(pokeball, (screen_width * 0.0261 + decalage, screen_height * 0.146))
+            decalage += 55
+
+        # mouse_pos = pygame.mouse.get_pos()
+        # print(mouse_pos)
+
+
+        # Position and dimensions calculations based on screen size
+
 
         player_name_x = int(screen_width * 0.760)
         player_name_y = int(screen_height * 0.8195)
@@ -174,49 +204,52 @@ class FightScreen:
         npc_hp_bar_x = int(screen_width * 0.0292)
         npc_hp_bar_y = int(screen_height * 0.0667)
 
+        if player_waifu.get_waifu_in_fight() is not None:
+            # Afficher les informations du waifu du joueur
+            waifu_player_name = player_waifu.get_waifu_in_fight().name
+            waifu_player_hp = player_waifu.get_waifu_in_fight().hp
+            waifu_player_max_hp = player_waifu.get_waifu_in_fight().hp_max
+            waifu_player_level = player_waifu.get_waifu_in_fight().level
 
-        # Afficher les informations du waifu du joueur
-        waifu_player_name = player_waifu.get_waifu_in_fight().name
-        waifu_player_hp = player_waifu.get_waifu_in_fight().hp
-        waifu_player_max_hp = player_waifu.get_waifu_in_fight().hp_max
-        waifu_player_level = player_waifu.get_waifu_in_fight().level
+            player_name_surface = self.create_text(waifu_player_name, 30, (0, 0, 0))
+            player_hp_surface = self.create_text(f"{round(waifu_player_hp)}/{waifu_player_max_hp}", 30, (0, 0, 0))
+            player_level_surface = self.create_text(f"Lv{waifu_player_level}", 30, (0, 0, 0))
+            
+            player_hp_bar = self.create_hp_bar(waifu_player_hp, waifu_player_max_hp, int(screen_width * 0.1063), int(screen_height * 0.013))
+            self.screen.blit(player_hp_bar, (player_hp_bar_x, player_hp_bar_y))
 
-        player_name_surface = self.create_text(waifu_player_name, 30, (0, 0, 0))
-        player_hp_surface = self.create_text(f"{round(waifu_player_hp)}/{waifu_player_max_hp}", 30, (0, 0, 0))
-        player_level_surface = self.create_text(f"Lv{waifu_player_level}", 30, (0, 0, 0))
+            self.screen.blit(player_name_surface, (player_name_x, player_name_y))
+            self.screen.blit(player_level_surface, (player_level_x, player_level_y))
+            self.screen.blit(player_hp_surface, (player_hp_x, player_hp_y))
+
+            self.screen.blit(
+                self.waifu_back,
+                (self.screen.get_width() // 8, self.screen.get_height() // 2.2),
+            )
+
+        if npc_waifu.get_waifu_in_fight() is not None:
         
-        player_hp_bar = self.create_hp_bar(waifu_player_hp, waifu_player_max_hp, int(screen_width * 0.1063), int(screen_height * 0.013))
-        self.screen.blit(player_hp_bar, (player_hp_bar_x, player_hp_bar_y))
+            # Afficher les informations du waifu du NPC
+            waifu_npc_name = npc_waifu.get_waifu_in_fight().name
+            waifu_npc_hp = npc_waifu.get_waifu_in_fight().hp
+            waifu_npc_max_hp = npc_waifu.get_waifu_in_fight().hp_max
+            waifu_npc_level = npc_waifu.get_waifu_in_fight().level
 
-        self.screen.blit(player_name_surface, (player_name_x, player_name_y))
-        self.screen.blit(player_level_surface, (player_level_x, player_level_y))
-        self.screen.blit(player_hp_surface, (player_hp_x, player_hp_y))
-        
-        # Afficher les informations du waifu du NPC
-        waifu_npc_name = npc_waifu.get_waifu_in_fight().name
-        waifu_npc_hp = npc_waifu.get_waifu_in_fight().hp
-        waifu_npc_max_hp = npc_waifu.get_waifu_in_fight().hp_max
-        waifu_npc_level = npc_waifu.get_waifu_in_fight().level
+            npc_hp_bar = self.create_hp_bar(waifu_npc_hp, waifu_npc_max_hp, int(screen_width * 0.1063), int(screen_height * 0.013))
+            self.screen.blit(npc_hp_bar, (npc_hp_bar_x, npc_hp_bar_y))
 
-        npc_hp_bar = self.create_hp_bar(waifu_npc_hp, waifu_npc_max_hp, int(screen_width * 0.1063), int(screen_height * 0.013))
-        self.screen.blit(npc_hp_bar, (npc_hp_bar_x, npc_hp_bar_y))
+            npc_name_surface = self.create_text(waifu_npc_name, 30, (0, 0, 0))
+            npc_hp_surface = self.create_text(f"{round(waifu_npc_hp)}/{waifu_npc_max_hp}", 30, (0, 0, 0))
+            npc_level_surface = self.create_text(f"Lv{waifu_npc_level}", 30, (0, 0, 0))
 
-        npc_name_surface = self.create_text(waifu_npc_name, 30, (0, 0, 0))
-        npc_hp_surface = self.create_text(f"{round(waifu_npc_hp)}/{waifu_npc_max_hp}", 30, (0, 0, 0))
-        npc_level_surface = self.create_text(f"Lv{waifu_npc_level}", 30, (0, 0, 0))
-
-        self.screen.blit(npc_name_surface, (npc_name_x, npc_name_y))
-        self.screen.blit(npc_level_surface, (npc_level_x, npc_level_y))
-        self.screen.blit(npc_hp_surface, (npc_hp_x, npc_hp_y))
+            self.screen.blit(npc_name_surface, (npc_name_x, npc_name_y))
+            self.screen.blit(npc_level_surface, (npc_level_x, npc_level_y))
+            self.screen.blit(npc_hp_surface, (npc_hp_x, npc_hp_y))
        
+            self.screen.blit(
+                self.waifu_front,
+                (self.screen.get_width() // 1.5, self.screen.get_height() * 0.42),
+            )
 
-        self.screen.blit(
-            self.waifu_front,
-            (self.screen.get_width() // 1.5, self.screen.get_height() * 0.42),
-        )
-        self.screen.blit(
-            self.waifu_back,
-            (self.screen.get_width() // 8, self.screen.get_height() // 2.2),
-        )
 
         pygame.display.flip()
