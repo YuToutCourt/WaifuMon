@@ -3,6 +3,7 @@ import random
 import threading
 
 from game_script.fight import Fight
+from character.dialog import Dialog
 
 # from utils.my_thread import MyThread
 
@@ -15,6 +16,7 @@ class FightScreen:
         self.background = None
         self.waifu_front = None
         self.waifu_back = None
+        self.dialog = Dialog()
 
     def run_fight(self, player, npc):
         """
@@ -23,7 +25,7 @@ class FightScreen:
         fight = Fight(player, npc)
         self.__fill_screen()
         self.__load_background()
-
+        
         pygame.mixer.music.stop()
         pygame.mixer.music.load("asset/music/fight_theme.mp3")
         pygame.mixer.music.set_volume(1.0)
@@ -106,8 +108,11 @@ class FightScreen:
 
         return waifu_ is not None and waifu__ is not None
 
-    def __update_display(self):
+    def __update_display(self, data):
         self.screen.blit(self.background, (0, 0))
+        self.dialog.display_fight(self.screen)
+        self.dialog.add_data_fight(data)
+
         self.screen.blit(
             self.waifu_front,
             (self.screen.get_width() // 1.5, self.screen.get_height() // 2.95),
