@@ -16,12 +16,13 @@ class FightScreen:
         self.background = None
         self.waifu_front = None
         self.waifu_back = None
+        self.figth = None
 
     def run_fight(self, player, npc):
         """
         Lance un combat
         """
-        fight = Fight(player, npc)
+        self.fight = Fight(player, npc)
         self.__fill_screen()
         self.__load_background()
         
@@ -30,17 +31,21 @@ class FightScreen:
         pygame.mixer.music.set_volume(1.0)
         pygame.mixer.music.play(-1)
 
-        fight_thread = threading.Thread(target=fight.start)
+        fight_thread = threading.Thread(target=self.fight.start)
         fight_thread.start()
 
         # main_loop_t = threading.Thread(target=self.__main_loop, args=(player, npc, fight))
         # main_loop_t.start()
 
+        player.fightscreen = self
+        player.screen = self.screen
+
+
         # Display the fight
-        while fight.finished is False:
-            _ = pygame.event.get()
+        while self.fight.finished is False:
+            event = pygame.event.get()
             if self.__load_waifu(player, npc):
-                self.__update_display(player, npc)
+                self.__update_display(player, npc, event)
 
     def __fill_screen(self):
         """
@@ -107,11 +112,12 @@ class FightScreen:
 
         return waifu_ is not None and waifu__ is not None
 
-    def create_text(self, text, font_size, color):
+    def create_text(self, text, font_size, color, font=None):
         """
         Créer un texte
         """
-        font = pygame.font.Font(None, font_size)
+        if font is None:
+            font = pygame.font.Font(None, font_size)
         text_surface = font.render(text, True, color)
         return text_surface
 
@@ -159,7 +165,7 @@ class FightScreen:
         return badge
 
 
-    def __update_display(self, player_waifu, npc_waifu):
+    def __update_display(self, player_waifu, npc_waifu, event):
         self.screen.blit(self.background, (0, 0))
         screen_width = self.screen.get_width()
         screen_height = self.screen.get_height()
@@ -277,3 +283,4 @@ class FightScreen:
 
 
         pygame.display.flip()
+

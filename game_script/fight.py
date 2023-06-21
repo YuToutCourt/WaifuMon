@@ -86,11 +86,12 @@ class Fight:
             else:
                 waifu1.move_to_use = MoveFactory.create_move(Moves.NOTHING)
 
+            self.user_turn = False
+
             waifu2, as_switch = self.npc.handle_choice_during_fight(waifu1, waifu2)
             if as_switch:
                 waifu2.move_to_use = MoveFactory.create_move(Moves.NOTHING)
 
-            
         else:
             waifu2.display_hp()
             waifu2.display_stats()
@@ -101,6 +102,8 @@ class Fight:
                 waifu2.choice_move()
             else:
                 waifu2.move_to_use = MoveFactory.create_move(Moves.NOTHING)
+            
+            self.user_turn = False
 
             waifu1, as_switch = self.npc.handle_choice_during_fight(waifu2, waifu1)
             if as_switch:

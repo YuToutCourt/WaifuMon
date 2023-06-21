@@ -368,7 +368,6 @@ class Moves(Enum):
     RETURN_ = 416
     REVELATION_DANCE = 417
     ROCK_CLIMB = 420
-    ROUND = 421
     SCRATCH = 423
     SECRET_POWER = 424
     SELF_DESTRUCT = 425
