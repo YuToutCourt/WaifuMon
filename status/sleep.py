@@ -21,7 +21,7 @@ class Sleep(Status):
             self.turns += 1
             return True
         
-        elif self.turn == self.max_turn :
+        elif self.turns == self.max_turn :
             self.waifu.status = None
             self.turns = 0
             log("Sleep", f"{self.waifu.name} is awake now!")

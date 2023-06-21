@@ -21,11 +21,11 @@ class Decorate(Move):
         Sharply raises target's Attack.
         """
 
-        if waifu_reciver.stat_stage_atk >= 6:
-            log("TOO HIGH", f"{waifu_reciver.name} Attack can't be raised anymore !")
+        if waifu_user.stat_stage_atk >= 6:
+            log("TOO HIGH", f"{waifu_user.name} Attack can't be raised anymore !")
 
         else:
-            waifu_reciver.stat_stage_atk += 2
-            multiplier = (2 + abs(waifu_reciver.stat_stage_atk)) / 2
-            waifu_reciver.attack = waifu_reciver.base_attack * multiplier
-            log("! STAT CHANGE !", f"{waifu_reciver.name} Attack has been raised !")
+            waifu_user.stat_stage_atk += 2
+            multiplier = (2 + abs(waifu_user.stat_stage_atk)) / 2
+            waifu_user.attack = waifu_user.base_attack * multiplier
+            log("! STAT CHANGE !", f"{waifu_user.name} Attack has been raised !")
