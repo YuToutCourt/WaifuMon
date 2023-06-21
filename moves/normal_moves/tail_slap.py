@@ -2,7 +2,7 @@ from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
-
+from utils.animation import animation_damage
 
 class TailSlap(Move):
     def __init__(self):
@@ -21,16 +21,18 @@ class TailSlap(Move):
         Hits 2-5 times in one turn.
         """
         from random import randint
+        from time import sleep
 
         nb_hits = randint(2, 5)
         for _ in range(nb_hits - 1):
             damage = self.__calculate_damage(waifu_user, waifu_receiver)
-            waifu_receiver.hp -= damage
+            animation_damage(waifu_receiver, damage)
             log(
                 self.name,
                 waifu_user.name,
                 f"hit {waifu_receiver.name} for {damage} damage",
             )
+            sleep(1)
 
     def __get_multiplier(self, attacker, move_used: Move, opponent):
         if any(move_used.type.type_name == type.type_name for type in attacker.types):

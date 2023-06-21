@@ -2,7 +2,7 @@ from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
-
+from utils.animation import animation_damage
 
 class FinalGambit(Move):
     def __init__(self):
@@ -20,9 +20,10 @@ class FinalGambit(Move):
         """
         Inflicts damage equal to the user's remaining HP. User faints.
         """
-        waifu_receiver.current_health -= waifu_user.current_health
-        waifu_user.current_health = 0
+        current_health = waifu_user.hp
+        animation_damage(waifu_user, waifu_user.hp)
+        animation_damage(waifu_receiver, current_health)
         log(
             "Final Gambit",
-            f"{waifu_user.name} inflicted {waifu_user.current_health} damage to {waifu_receiver.name}",
+            f"{waifu_user.name} inflicted {current_health} damage to {waifu_receiver.name}",
         )

@@ -2,7 +2,7 @@ from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
-
+from utils.animation import animation_heal
 
 class Purify(Move):
     def __init__(self):
@@ -25,5 +25,5 @@ class Purify(Move):
             return
         waifu_receiver.status = None
         log(self.name, waifu_receiver.name, "was cured of its status condition")
-        waifu_user.hp = waifu_user.hp_max
+        animation_heal(waifu_user, waifu_user.hp_max)
         log(self.name, waifu_user.name, "healed")

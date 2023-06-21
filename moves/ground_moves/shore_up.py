@@ -2,7 +2,7 @@ from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
-
+from utils.animation import animation_heal
 
 class ShoreUp(Move):
     def __init__(self):
@@ -21,7 +21,5 @@ class ShoreUp(Move):
         The user regains up to half of its max HP.
         """
         heal = waifu_user.hp_max // 2
-        if waifu_user.hp + heal >= waifu_user.hp_max:
-            heal = waifu_user.hp_max - waifu_user.hp
-        waifu_user.hp += heal 
+        animation_heal(waifu_user, heal)
         log("HEAL", f"{waifu_user.name} a récupéré la moitié de ses PV !")

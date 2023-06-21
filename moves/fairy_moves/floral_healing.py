@@ -2,7 +2,7 @@ from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
-
+from utils.animation import animation_heal
 
 class FloralHealing(Move):
     def __init__(self):
@@ -24,12 +24,10 @@ class FloralHealing(Move):
             log(waifu_receiver.name, "is already full hp")
         else:
             if any(Types.GRASS == type_.type_name for type_ in waifu_user.types):
-                waifu_receiver.hp += waifu_receiver.hp_max * 0.75
-                if waifu_receiver.hp > waifu_receiver.hp_max:
-                    waifu_receiver.hp = waifu_receiver.hp_max
+                heal = waifu_receiver.hp_max * 0.75
+                animation_heal(waifu_receiver, heal)
                 log(waifu_receiver.name, "has recovered a lot of HP")
             else:
-                waifu_receiver.hp += waifu_receiver.hp_max * 0.5
-                if waifu_receiver.hp > waifu_receiver.hp_max:
-                    waifu_receiver.hp = waifu_receiver.hp_max
+                heal = waifu_receiver.hp_max * 0.5
+                animation_heal(waifu_receiver, heal)
                 log(waifu_receiver.name, "has recovered HP")

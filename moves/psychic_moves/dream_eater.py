@@ -3,7 +3,7 @@ from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
 from status.status_enum import StatusE
-
+from utils.animation import animation_damage
 
 class DreamEater(Move):
     def __init__(self):
@@ -27,9 +27,7 @@ class DreamEater(Move):
 
         dmg = self.__calculate_damage(waifu_user, waifu_receiver)
         heal = dmg / 2
-        if waifu_user.hp + heal > waifu_user.hp_max:
-            heal = waifu_user.hp_max - waifu_user.hp
-        waifu_user.hp += heal
+        animation_damage(waifu_receiver, dmg)
         log(self.name, waifu_user.name, f"recovered {heal} HP")
 
     def __get_multiplier(self, attacker, move_used: Move, opponent):

@@ -2,6 +2,7 @@ from .status import Status
 from .status_enum import StatusE
 from utils.logger import log
 from random import randint
+from utils.animation import animation_damage
 
 class Confusion(Status):
     def __init__(self, waifu, afer_attack:bool):
@@ -22,7 +23,7 @@ class Confusion(Status):
         else :
             log("Confuse", f"{self.waifu.name} hurt him self.")
             dmg = self.__calculate_damage(self.waifu, self.waifu)
-            self.waifu.hp -= dmg
+            animation_damage(self.waifu, dmg)
 
             self.turns += 1
             return False

@@ -15,8 +15,12 @@ class SparklingAria(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_receiver):
         """
         Heals the burns of its target.
         """
-        pass
+        if waifu_receiver.status.status.name == "BURN":
+            waifu_receiver.status = None
+            print(f"{waifu_receiver.name} is no longer burned")
+        else:
+            print(f"{waifu_receiver.name} is not burned")

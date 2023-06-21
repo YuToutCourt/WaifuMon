@@ -2,7 +2,7 @@ from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
-
+from utils.animation import animation_damage
 
 class PinMissile(Move):
     def __init__(self):
@@ -21,12 +21,14 @@ class PinMissile(Move):
         Hits 2-5 times in one turn.
         """
         from random import randint
+        from time import sleep
 
         hits = randint(2, 5)
         for _ in range(hits - 1):
             dmg = self.__calculate_damage(waifu_user, waifu_receiver)
-            waifu_receiver.hp -= dmg
+            animation_damage(waifu_receiver, dmg)
             log(self.name, waifu_receiver.name, f"lost {dmg} HP")
+            sleep(1)
 
     def __get_multiplier(self, attacker, move_used: Move, opponent):
         from random import uniform

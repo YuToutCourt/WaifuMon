@@ -1,7 +1,8 @@
 from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-
+from utils.logger import log
+from utils.animation import animation_heal
 
 class HealPulse(Move):
     def __init__(self):
@@ -20,7 +21,4 @@ class HealPulse(Move):
         User recovers half its max HP.
         """
         healing = waifu_user.hp_max / 2
-        if healing + waifu_user.hp >= waifu_user.hp_max:
-            waifu_user.hp = waifu_user.hp_max
-        else:
-            waifu_user.hp += healing
+        animation_heal(waifu_user, healing)

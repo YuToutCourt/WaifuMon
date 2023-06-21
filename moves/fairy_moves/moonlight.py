@@ -1,7 +1,7 @@
 from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-
+from utils.animation import animation_heal
 
 class Moonlight(Move):
     def __init__(self):
@@ -19,7 +19,6 @@ class Moonlight(Move):
         """
         User recovers half HP.
         """
-        waifu_user.current_health += waifu_user.max_health / 2
-        if waifu_user.current_health > waifu_user.max_health:
-            waifu_user.current_health = waifu_user.max_health
+        heal = waifu_user.max_health / 2
+        animation_heal(waifu_user, heal)
         print(f"{waifu_user.name} recovered half HP")

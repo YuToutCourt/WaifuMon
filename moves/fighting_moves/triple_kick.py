@@ -2,7 +2,7 @@ from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
-
+from utils.animation import animation_damage
 
 class TripleKick(Move):
     def __init__(self):
@@ -20,14 +20,17 @@ class TripleKick(Move):
         """
         Hits thrice in one turn at increasing power.
         """
+        from time import sleep
+        
         for _ in range(2):
             self.power *= 3
             damage = self.__calculate_damage(waifu_user, waifu_receiver)
-            waifu_receiver.hp -= damage
+            animation_damage(waifu_receiver, damage)
             log(
                 self.name,
                 f"{waifu_user.name} inflicted {damage} damage to {waifu_receiver.name}",
             )
+            sleep(1)
 
         self.power = 10
 

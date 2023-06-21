@@ -2,7 +2,7 @@ from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
-
+from utils.animation import animation_heal
 
 class JungleHealing(Move):
     def __init__(self):
@@ -20,7 +20,7 @@ class JungleHealing(Move):
         """
         Restores HP and cures status conditions.
         """
-        waifu_user.hp = waifu_user.hp_max * 0.8
+        animation_heal(waifu_user, waifu_user.hp_max * 0.8)
         waifu_user.status = None
         log(
             "HEAL",

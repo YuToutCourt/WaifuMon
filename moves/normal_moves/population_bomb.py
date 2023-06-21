@@ -2,7 +2,7 @@ from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
-
+from utils.animation import animation_damage
 
 class PopulationBomb(Move):
     def __init__(self):
@@ -21,12 +21,14 @@ class PopulationBomb(Move):
         Hits 1-10 times in a row.
         """
         from random import randint
+        from time import sleep
 
         hits = randint(1, 10)
         for _ in range(hits - 1):
             dmg = self.__calculate_damage(waifu_user, waifu_receiver)
-            waifu_receiver -= dmg
+            animation_damage(waifu_receiver, dmg)
             log(self.name, waifu_receiver.name, f"lost {dmg} hp")
+            sleep(1)
 
     def __get_multiplier(self, attacker, move_used: Move, opponent):
         if any(move_used.type.type_name == type.type_name for type in attacker.types):
