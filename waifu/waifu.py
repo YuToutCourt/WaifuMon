@@ -118,7 +118,7 @@ class Waifu(pygame.sprite.Sprite):
                 self.attack,
                 self.defense,
                 self.speed,
-                [type.type_name for type in self.types],
+                [type.type_name.name for type in self.types],
                 self.level,
             ]
         )
@@ -150,21 +150,16 @@ class Waifu(pygame.sprite.Sprite):
         print(f"{bar} {round(self.hp, 2)} / {round(self.hp_max, 2)} ❤")
 
     def __display_moves(self):
+        from colorama import Fore
         log("Choice a move")
         for i, move in enumerate(self.list_of_moves):
-            print(f"{i} - {move.name} ({move.pp} PP)")
+            print(f"{i} - {move.type.type_name.value} {move.name} {Fore.RESET} ({move.pp} PP)")
 
     def choice_move(self):
         """
         Display the moves of the waifu and let the player choose one
         return the move chosen
         """
-        for move in self.list_of_moves:
-            if move is not None:
-                log("PP", f"{move.name} : {move.pp} PP")
-            else :
-                log("PP", "None", self.list_of_moves)
-
 
         if all(move.pp <= 0 for move in self.list_of_moves):
             log("PP", "Not enough PP, your waifu use struggle")

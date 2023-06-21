@@ -1,22 +1,24 @@
 from enum import Enum
+from colorama import Fore, init
 
+init()
 
 class Types(Enum):
-    WATER = 0
-    FIRE = 1
-    GRASS = 2
-    ELECTRIC = 3
-    NORMAL = 4
-    FIGHTING = 5
-    FLYING = 6
-    POISON = 7
-    GROUND = 8
-    ROCK = 9
-    BUG = 10
-    GHOST = 11
-    STEEL = 12
-    PSYCHIC = 13
-    ICE = 14
-    DRAGON = 15
-    DARK = 16
-    FAIRY = 17
+    WATER = Fore.BLUE + "WATER"
+    FIRE = Fore.RED + "FIRE"
+    GRASS = Fore.GREEN + "GRASS"
+    ELECTRIC = Fore.YELLOW + "ELECTRIC"
+    NORMAL = Fore.LIGHTWHITE_EX + "NORMAL"
+    FIGHTING = Fore.RED + "FIGHTING"
+    FLYING = Fore.CYAN + "FLYING" 
+    POISON = Fore.MAGENTA + "POISON"
+    GROUND = Fore.YELLOW + "GROUND" 
+    ROCK = Fore.LIGHTBLACK_EX + "ROCK" 
+    BUG = Fore.GREEN + "BUG" 
+    GHOST = Fore.MAGENTA + "GHOST" 
+    STEEL = Fore.LIGHTCYAN_EX + "STEEL" 
+    PSYCHIC = Fore.MAGENTA + "PSYCHIC" 
+    ICE = Fore.CYAN + "ICE" 
+    DRAGON = Fore.LIGHTMAGENTA_EX + "DRAGON"
+    DARK = Fore.BLACK + "DARK" 
+    FAIRY = Fore.LIGHTMAGENTA_EX + "FAIRY"

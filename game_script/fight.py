@@ -221,6 +221,7 @@ class Fight:
             multiplier = 1
 
         for type_ in opponent.types:
+            log(type_.immunities, move_used.type.type_name)
             if move_used.type.type_name in type_.immunities:
                 log("C'est inefficace !")
                 return 0

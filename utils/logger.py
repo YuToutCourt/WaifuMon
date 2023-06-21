@@ -1,6 +1,6 @@
 from colorama import Fore, Style
 from random import choice
-
+from moves.move import Move
 
 def log(*args):
     """
