@@ -22,10 +22,10 @@ class CottonGuard(Move):
         """
 
         if waifu_user.stat_stage_def >= 6:
-            log("TOO HIGH", f"{waifu_reciver.name} Defense can't be raised anymore !")
+            log("TOO HIGH", f"{waifu_user.name} Defense can't be raised anymore !")
 
         else:
             waifu_user.stat_stage_def += 3
             multiplier = 2 / (abs(waifu_user.stat_stage_def) + 2)
             waifu_user.defense = waifu_user.base_defense * multiplier
-            log("! STAT CHANGE !", f"{waifu_reciver.name} Defense has been raised !")
+            log("! STAT CHANGE !", f"{waifu_user.name} Defense has been raised !")

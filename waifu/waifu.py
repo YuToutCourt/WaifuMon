@@ -7,6 +7,7 @@ from moves.enum_moves import Moves
 from utils.logger import log
 from utils.handle_input import input_int
 
+
 class Waifu(pygame.sprite.Sprite):
     def __init__(
         self,

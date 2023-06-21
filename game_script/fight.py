@@ -8,6 +8,7 @@ from typing import Union, List
 from utils.handle_input import input_int    
 from moves.move_factory import MoveFactory
 from moves.enum_moves import Moves
+from utils.animation import animation_damage
 
 
 class Fight:
@@ -158,26 +159,29 @@ class Fight:
         log("Attack", f"{attacker.name} use {move_used.name}")
         if randint(0, 100) <= move_used.accuracy:
             damage = self.calculate_damage(attacker, defender)
-            defender.hp -= damage
+            # defender.hp -= damage
+            animation_damage(defender, damage)
             log(move_used.name, f"{defender.name} a perdu {damage} PV")
             if defender.hp <= 0:
                 self.move_effect(attacker, defender, move_used)
                 defender.display_hp()
                 return self.handle_knockout(defender)
             
+            self.move_effect(attacker, defender, move_used)
+            if attacker.hp <= 0:
+                attacker.display_hp()
+                return self.handle_knockout(attacker)
+            
+            if defender.hp <= 0:
+                defender.display_hp()
+                return self.handle_knockout(defender)
+            
         else:
             print("Le coup n'a pas touché")
 
-        self.move_effect(attacker, defender, move_used)
-        if attacker.hp <= 0:
-            attacker.display_hp()
-            return self.handle_knockout(attacker)
-        
-        if defender.hp <= 0:
-            defender.display_hp()
-            return self.handle_knockout(defender)
 
         if stop:
+            self.__apply_status_after_attack([attacker, defender])
             return
         self.attack(defender, attacker, stop=True)
 

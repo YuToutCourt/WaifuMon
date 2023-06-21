@@ -1,7 +1,6 @@
 import pytmx
 import pygame
 import pyscroll
-import time
 
 from character.player import Player
 from utils.coordinates import Coordinates
@@ -204,6 +203,11 @@ class Game:
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_RETURN and self.contact:
                         self.dialog.set_text(npc.dialog)
-                        self.dialog.start_dialog(npc, self.screen, self.player)
+                        self.dialog.start_dialog()
+                        if self.dialog.fight == True:
+                            npc.handle_interaction(self.screen, self.player)
+                        else:
+                            pass
+
             
         pygame.quit()
