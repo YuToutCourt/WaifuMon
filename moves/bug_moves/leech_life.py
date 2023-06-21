@@ -2,7 +2,7 @@ from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
 from utils.logger import log
-
+from utils.animation import animation_heal
 
 class LeechLife(Move):
     def __init__(self):
@@ -21,7 +21,7 @@ class LeechLife(Move):
         User recovers half the HP inflicted on opponent.
         """
         damage = self.__calculate_damage(waifu_user, waifu_receiver)
-        waifu_user.hp += damage / 2
+        animation_heal(waifu_user, damage / 2)
         log(self.name, waifu_user.name, f"recovered {damage / 2} HP")
 
     def __get_multiplier(self, attacker, move_used: Move, opponent):

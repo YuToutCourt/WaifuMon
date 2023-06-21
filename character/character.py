@@ -55,14 +55,24 @@ class Character(pygame.sprite.Sprite, ABC):
                 types = w["types"]
                 id = w["id"]
                 types_ = [TypeFactory.create_type(type) for type in types]
+
+                while True:
+                    hp = randint(50, 255)
+                    attack = randint(40, 190)
+                    defense = randint(40, 230)
+                    speed = randint(35, 180)
+                    somme = hp + attack + defense + speed
+                    if 330 <= somme <= 550:
+                        break
+
                 waifu = Waifu(
                     id,
                     name,
-                    randint(50, 200),
-                    randint(50, 200),
-                    randint(50, 200),
-                    randint(50, 100),
+                    randint(50, 255),
+                    randint(40, 190),
+                    randint(40, 230),
+                    randint(35, 180),
                     types_,
-                    randint(1, 100),
+                    randint(45, 60),
                 )
                 self.team.append(waifu)
