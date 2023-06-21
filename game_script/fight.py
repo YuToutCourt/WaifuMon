@@ -167,17 +167,18 @@ class Fight:
                 defender.display_hp()
                 return self.handle_knockout(defender)
             
+            self.move_effect(attacker, defender, move_used)
+            if attacker.hp <= 0:
+                attacker.display_hp()
+                return self.handle_knockout(attacker)
+            
+            if defender.hp <= 0:
+                defender.display_hp()
+                return self.handle_knockout(defender)
+            
         else:
             print("Le coup n'a pas touché")
 
-        self.move_effect(attacker, defender, move_used)
-        if attacker.hp <= 0:
-            attacker.display_hp()
-            return self.handle_knockout(attacker)
-        
-        if defender.hp <= 0:
-            defender.display_hp()
-            return self.handle_knockout(defender)
 
         if stop:
             self.__apply_status_after_attack([attacker, defender])

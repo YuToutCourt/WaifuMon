@@ -83,6 +83,14 @@ def choice_move(waifu_ia, waifu_player):
     """
     Choice if the IA attack or switch
     """
+    from random import choice
+
+    if all(move.pp == 0 for move in waifu_ia.list_of_moves):
+        waifu_ia.move_to_use = MoveFactory.create_move(Moves.STRUGGLE)
+        waifu_ia.move_to_use = best_move
+        return waifu_ia
+
+
     best_move = None
     highest_damage = float('-inf')
 
@@ -96,7 +104,7 @@ def choice_move(waifu_ia, waifu_player):
             highest_damage = damage
 
     if best_move is None:
-        waifu_ia.move_to_use = MoveFactory.create_move(Moves.STRUGGLE)
+        best_move = choice(waifu_ia.list_of_moves, lambda move: move.pp > 0)
     
     waifu_ia.move_to_use = best_move
     waifu_ia.move_to_use.pp -= 1

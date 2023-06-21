@@ -1,7 +1,7 @@
 from ..move import Move
 from wtypes.type_factory import TypeFactory
 from wtypes.enum_types import Types
-
+from utils.animation import animation_heal
 
 class Wish(Move):
     def __init__(self):
@@ -15,8 +15,11 @@ class Wish(Move):
             proba_effect=100,
         )
 
-    def effect(self):
+    def effect(self, waifu_user, waifu_reciver):
         """
-        The user recovers HP in the following turn.
+        The user recovers HP.
         """
-        pass
+        healing = waifu_user.hp_max / 2
+        if healing + waifu_user.hp >= waifu_user.hp_max:
+            healing = waifu_user.hp_max - waifu_user.hp
+        animation_heal(waifu_user, healing)
