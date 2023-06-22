@@ -114,15 +114,15 @@ class Fight:
 
         self.attack(attacking_waifu, defending_waifu)
 
-        # if defending_waifu.hp <= 0:
-        #     self.handle_knockout(defending_waifu, True)
-        #     if attacking_waifu.hp <= 0:
-        #         self.handle_knockout(attacking_waifu, True)
-        #     return
+        if defending_waifu.hp <= 0:
+            self.handle_knockout(defending_waifu, True)
+            if attacking_waifu.hp <= 0:
+                self.handle_knockout(attacking_waifu, True)
+            return
         
-        # if attacking_waifu.hp <= 0:
-        #     self.handle_knockout(attacking_waifu, True)
-        #     return
+        if attacking_waifu.hp <= 0:
+            self.handle_knockout(attacking_waifu, True)
+            return
 
         self.play_round(attacking_waifu, defending_waifu)
 
