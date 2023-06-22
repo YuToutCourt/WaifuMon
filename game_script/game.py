@@ -44,7 +44,8 @@ class Game:
             for obj in layer:
                 if not isinstance(obj, pytmx.TiledObject):
                     continue
-                if obj.name == "Player" or obj.name == "enter" or obj.name == "spawn_outdoor" or obj.name=="exit" or obj.name == "spawn_indoor" or obj.name == "second_exit" or obj.name is None:
+                ignored_names = ["Player", "enter", "spawn_outdoor", "exit", "spawn_indoor", "second_exit", None]
+                if obj.name in ignored_names: 
                     continue
                 coordinates = Coordinates(obj.x, obj.y)
                 npc = NPC(obj.name, coordinates, obj.properties["dialog"])
