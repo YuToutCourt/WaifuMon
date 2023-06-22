@@ -27,7 +27,7 @@ class SpringtideStorm(Move):
         else:
             waifu_user.stat_stage_atk += 1
             multiplier = (2 + abs(waifu_user.stat_stage_atk)) / 2
-            waifu_user.attack = waifu_user.base_attack * multiplier
+            waifu_user.attack = waifu_user.apply_stat_change(waifu_user.base_attack, waifu_user.stat_stage_atk)
             log("! STAT CHANGE !", f"{waifu_user.name} Attack has been raised !")
 
         if waifu_user.stat_stage_def >= 6:
@@ -36,7 +36,7 @@ class SpringtideStorm(Move):
         else:
             waifu_user.stat_stage_def += 1
             multiplier = (2 + abs(waifu_user.stat_stage_def)) / 2
-            waifu_user.defense = waifu_user.base_defense * multiplier
+            waifu_user.defense = waifu_user.apply_stat_change(waifu_user.base_defense, waifu_user.stat_stage_def)
             log("! STAT CHANGE !", f"{waifu_user.name} Defense has been raised !")
 
         if waifu_user.stat_stage_spd >= 6:
@@ -48,7 +48,7 @@ class SpringtideStorm(Move):
         else:
             waifu_user.stat_stage_spd += 1
             multiplier = (2 + abs(waifu_user.stat_stage_spd)) / 2
-            waifu_user.speed = waifu_user.base_speed * multiplier
+            waifu_user.speed = waifu_user.apply_stat_change(waifu_user.base_speed, waifu_user.stat_stage_spd)
             log("! STAT CHANGE !", f"{waifu_user.name} speed has been raised !")
 
         if waifu_reciver.stat_stage_atk <= -6:
@@ -57,7 +57,7 @@ class SpringtideStorm(Move):
         else:
             waifu_reciver.stat_stage_atk -= 1
             multiplier = 2 / (2 + abs(waifu_reciver.stat_stage_atk))
-            waifu_reciver.attack = waifu_reciver.base_attack * multiplier
+            waifu_reciver.attack = waifu_reciver.apply_stat_change(waifu_reciver.base_attack, waifu_reciver.stat_stage_atk)
             log("! STAT CHANGE !", f"{waifu_reciver.name} Attack has been lowered !")
 
         if waifu_reciver.stat_stage_def <= -6:
@@ -66,7 +66,7 @@ class SpringtideStorm(Move):
         else:
             waifu_reciver.stat_stage_def -= 1
             multiplier = 2 / (2 + abs(waifu_reciver.stat_stage_def))
-            waifu_reciver.defense = waifu_reciver.base_defense * multiplier
+            waifu_reciver.defense = waifu_reciver.apply_stat_change(waifu_reciver.base_defense, waifu_reciver.stat_stage_def)
             log("! STAT CHANGE !", f"{waifu_reciver.name} Defense has been lowered !")
 
         if waifu_reciver.stat_stage_spd <= -6:
@@ -78,5 +78,5 @@ class SpringtideStorm(Move):
         else:
             waifu_reciver.stat_stage_spd -= 1
             multiplier = 2 / (2 + abs(waifu_reciver.stat_stage_spd))
-            waifu_reciver.speed = waifu_reciver.base_speed * multiplier
+            waifu_reciver.speed = waifu_reciver.apply_stat_change(waifu_reciver.base_speed, waifu_reciver.stat_stage_spd)
             log("! STAT CHANGE !", f"{waifu_reciver.name} speed has been lowered !")

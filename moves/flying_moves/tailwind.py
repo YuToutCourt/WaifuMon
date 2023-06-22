@@ -25,5 +25,5 @@ class Tailwind(Move):
         else:
             waifu_user.stat_stage_speed += 2
             multiplier = (abs(waifu_user.stat_stage_speed) + 2) / 2
-            waifu_user.speed = waifu_user.base_speed * multiplier
+            waifu_user.speed = waifu_user.apply_stat_change(waifu_user.base_speed, waifu_user.stat_stage_spd)
             log(waifu_user.name, "Speed was boosted by 2 stage")

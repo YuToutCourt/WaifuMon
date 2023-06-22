@@ -27,7 +27,7 @@ class Minimize(Move):
         else:
             waifu_user.stat_stage_def += 2
             multiplier = (abs(waifu_user.stat_stage_def) + 2) / 2
-            waifu_user.defense = waifu_user.base_defense * multiplier
+            waifu_user.defense = waifu_user.apply_stat_change(waifu_user.base_defense, waifu_user.stat_stage_def)
             log("! STAT CHANGE !", f"{waifu_user.name} Defense has been raised !")
 
         if waifu_user.stat_stage_spd >= 6:
@@ -36,5 +36,5 @@ class Minimize(Move):
         else:
             waifu_user.stat_stage_spd += 2
             multiplier = (abs(waifu_user.stat_stage_spd) + 2) / 2
-            waifu_user.speed = waifu_user.base_speed * multiplier
+            waifu_user.speed = waifu_user.apply_stat_change(waifu_user.base_speed, waifu_user.stat_stage_spd)
             log("! STAT CHANGE !", f"{waifu_user.name} Speed has been raised !")

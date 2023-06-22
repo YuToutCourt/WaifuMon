@@ -25,5 +25,5 @@ class QuickGuard(Move):
         else:
             waifu_user.stat_stage_def += 1
             multiplier = (abs(waifu_user.stat_stage_def) + 2) / 2
-            waifu_user.defense = waifu_user.base_defense * multiplier
+            waifu_user.defense = waifu_user.apply_stat_change(waifu_user.base_defense, waifu_user.stat_stage_def)
             log(waifu_user.name, "Defense was raised by 1 stage")

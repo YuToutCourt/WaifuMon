@@ -106,6 +106,17 @@ class Waifu(pygame.sprite.Sprite):
 
     def get_inventory_image(self):
         return self.inventory_image
+    
+    def apply_stat_change(self, stat, level):
+        modifiers = {
+            -6: 1/4, -5: 2/7, -4: 1/3, -3: 2/5,
+            -2: 1/2, -1: 2/3, 0: 1, 1: 3/2,
+            2: 2, 3: 5/2, 4: 3, 5: 7/2, 6: 4
+        }
+
+        modifier = modifiers.get(level, 1)
+        new_stat = stat * modifier
+        return new_stat
 
     def display_stats(self):
         from tabulate import tabulate

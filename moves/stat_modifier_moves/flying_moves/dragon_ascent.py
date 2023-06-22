@@ -27,7 +27,7 @@ class DragonAscent(Move):
         else:
             waifu_user.stat_stage_atk -= 1
             multiplier = 2 / (abs(waifu_user.stat_stage_atk) + 2)
-            waifu_user.attack = waifu_user.base_attack * multiplier
+            waifu_user.attack = waifu_user.apply_stat_change(waifu_user.base_attack, waifu_user.stat_stage_atk)
             log("! STAT CHANGE !", f"{waifu_reciver.name} Attack has been lowered !")
 
         if waifu_user.stat_stage_spd <= -6:
@@ -36,5 +36,5 @@ class DragonAscent(Move):
         else:
             waifu_user.stat_stage_spd -= 1
             multiplier = 2 / (abs(waifu_user.stat_stage_spd) + 2)
-            waifu_user.speed = waifu_user.base_speed * multiplier
+            waifu_user.speed = waifu_user.apply_stat_change(waifu_user.base_speed, waifu_user.stat_stage_spd)
             log("! STAT CHANGE !", f"{waifu_reciver.name} Speed has been lowered !")

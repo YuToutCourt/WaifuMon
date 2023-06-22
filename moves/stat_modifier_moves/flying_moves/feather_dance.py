@@ -27,5 +27,5 @@ class FeatherDance(Move):
         else:
             waifu_reciver.stat_stage_atk -= 2
             multiplier = 2 / (abs(waifu_reciver.stat_stage_atk) + 2)
-            waifu_reciver.attack = waifu_reciver.base_attack * multiplier
+            waifu_reciver.attack = waifu_reciver.apply_stat_change(waifu_reciver.base_attack, waifu_reciver.stat_stage_atk)
             log("! STAT CHANGE !", f"{waifu_reciver.name} Attack has been lowered !")

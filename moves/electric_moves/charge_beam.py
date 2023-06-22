@@ -27,4 +27,4 @@ class ChargeBeam(Move):
             waifu_user.stat_stage_atk += 1
             log(waifu_user.name, "Attack rose by 1 stage")
             multiplier = (abs(waifu_user.stat_stage_atk) + 2) / 2
-            waifu_user.attack = waifu_user.base_attack * multiplier
+            waifu_user.attack = waifu_user.apply_stat_change(waifu_user.base_attack, waifu_user.stat_stage_atk)

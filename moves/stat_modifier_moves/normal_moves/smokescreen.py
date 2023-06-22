@@ -27,5 +27,5 @@ class Smokescreen(Move):
         else:
             waifu_reciver.stat_stage_def -= 1
             multiplier = 2 / (abs(waifu_reciver.stat_stage_def) + 2)
-            waifu_reciver.defense = waifu_reciver.base_defense * multiplier
+            waifu_reciver.defense = waifu_reciver.apply_stat_change(waifu_reciver.base_defense, waifu_reciver.stat_stage_def)
             log("! STAT CHANGE !", f"{waifu_reciver.name} Defense has been lowered !")

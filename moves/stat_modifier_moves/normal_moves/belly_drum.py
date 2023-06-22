@@ -27,7 +27,7 @@ class BellyDrum(Move):
         else:
             waifu_user.stat_stage_atk = 6
             multiplier = (abs(waifu_user.stat_stage_atk) + 2) / 2
-            waifu_user.attack = waifu_user.base_attack * multiplier
+            waifu_user.attack = waifu_user.apply_stat_change(waifu_user.base_attack, waifu_user.stat_stage_atk)
             log("! STAT CHANGE !", f"{waifu_user.name} Attack has been raised !")
 
         waifu_user.hp = waifu_user.hp / 2

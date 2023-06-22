@@ -23,7 +23,7 @@ class Trailblaze(Move):
         if waifu_user.stat_stage_spd < 6:
             waifu_user.stat_stage_spd += 1
             multiplier = (abs(waifu_user.stat_stage_spd) + 2) / 2
-            waifu_user.speed = waifu_user.base_speed * multiplier
+            waifu_user.speed = waifu_user.apply_stat_change(waifu_user.base_speed, waifu_user.stat_stage_spd)
             log(waifu_user.name, "Speed rose")
         else:
             log(waifu_user.name, "Speed can't be raised anymore")

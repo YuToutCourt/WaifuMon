@@ -26,7 +26,7 @@ class FlowerShield(Move):
                 if waifu_reciver.stat_stage_def < 6:
                     waifu_reciver.stat_stage_def += 2
                     multiplier = (2 + abs(waifu_reciver.stat_stage_def)) / 2
-                    waifu_reciver.defense = waifu_reciver.base_defense * multiplier
+                    waifu_reciver.defense = waifu_reciver.apply_stat_change(waifu_reciver.base_defense, waifu_reciver.stat_stage_def)
                     log(
                         "! STAT CHANGE !",
                         f"{waifu_reciver.name} Defense has been raised !",
@@ -37,7 +37,7 @@ class FlowerShield(Move):
                 if waifu_user.stat_stage_def < 6:
                     waifu_user.stat_stage_def += 2
                     multiplier = (2 + abs(waifu_user.stat_stage_def)) / 2
-                    waifu_user.defense = waifu_user.base_defense * multiplier
+                    waifu_user.defense = waifu_user.apply_stat_change(waifu_user.base_defense, waifu_user.stat_stage_def)
                     log(
                         "! STAT CHANGE !",
                         f"{waifu_user.name} Defense has been raised !",

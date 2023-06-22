@@ -36,11 +36,11 @@ class Acupressure(Move):
             stat += 2
             multiplier = (abs(stat) + 2) / 2
             if stat == waifu_user.stat_stage_atk:
-                waifu_user.attack = waifu_user.base_attack * multiplier
+                waifu_user.attack = waifu_user.apply_stat_change(waifu_user.base_attack, waifu_user.stat_stage_atk)
                 log("! STAT CHANGE !", f"{waifu_user.name} Attack has been raised !")
             elif stat == waifu_user.stat_stage_def:
-                waifu_user.defense = waifu_user.base_defense * multiplier
+                waifu_user.defense = waifu_user.apply_stat_change(waifu_user.base_defense, waifu_user.stat_stage_def)
                 log("! STAT CHANGE !", f"{waifu_user.name} Defense has been raised !")
             elif stat == waifu_user.stat_stage_spd:
-                waifu_user.speed = waifu_user.base_speed * multiplier
+                waifu_user.speed = waifu_user.apply_stat_change(waifu_user.base_speed, waifu_user.stat_stage_spd)
                 log("! STAT CHANGE !", f"{waifu_user.name} Speed has been raised !")

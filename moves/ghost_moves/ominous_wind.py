@@ -25,7 +25,7 @@ class OminousWind(Move):
         else:
             waifu_user.stat_stage_atk += 1
             multiplier = (abs(waifu_user.stat_stage_atk) + 2) / 2
-            waifu_user.attack = waifu_user.base_attack * multiplier
+            waifu_user.attack = waifu_user.apply_stat_change(waifu_user.base_attack, waifu_user.stat_stage_atk)
             log(waifu_user.name, "Attack was boosted by 1 stage")
 
         if waifu_user.stat_stage_def >= 6:
@@ -33,7 +33,7 @@ class OminousWind(Move):
         else:
             waifu_user.stat_stage_def += 1
             multiplier = (abs(waifu_user.stat_stage_def) + 2) / 2
-            waifu_user.defense = waifu_user.base_defense * multiplier
+            waifu_user.defense = waifu_user.apply_stat_change(waifu_user.base_defense, waifu_user.stat_stage_def)
             log(waifu_user.name, "Defense was boosted by 1 stage")
 
         if waifu_user.stat_stage_spd >= 6:
@@ -41,5 +41,5 @@ class OminousWind(Move):
         else:
             waifu_user.stat_stage_spd += 1
             multiplier = (abs(waifu_user.stat_stage_spd) + 2) / 2
-            waifu_user.speed = waifu_user.base_speed * multiplier
+            waifu_user.speed = waifu_user.apply_stat_change(waifu_user.base_speed, waifu_user.stat_stage_spd)
             log(waifu_user.name, "Speed was boosted by 1 stage")

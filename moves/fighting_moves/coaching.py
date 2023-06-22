@@ -25,7 +25,7 @@ class Coaching(Move):
         else:
             waifu_user.stat_stage_atk += 1
             multiplier = (abs(waifu_user.stat_stage_atk) + 2) / 2
-            waifu_user.attack = int(waifu_user.base_attack * multiplier)
+            waifu_user.attack = int(waifu_user.apply_stat_change(waifu_user.base_attack, waifu_user.stat_stage_atk))
             log(waifu_user.name, "Attack was boosted by 1 stage")
 
         if waifu_user.stat_stage_def >= 6:
@@ -34,5 +34,5 @@ class Coaching(Move):
         else:
             waifu_user.stat_stage_def += 1
             multiplier = (abs(waifu_user.stat_stage_def) + 2) / 2
-            waifu_user.defense = int(waifu_user.base_defense * multiplier)
+            waifu_user.defense = int(waifu_user.apply_stat_change(waifu_user.base_defense, waifu_user.stat_stage_def))
             log(waifu_user.name, "Defense was boosted by 1 stage")

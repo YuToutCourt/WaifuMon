@@ -27,5 +27,5 @@ class IcyWind(Move):
         else:
             waifu_reciver.stat_stage_spd -= 1
             multiplier = 2 / (abs(waifu_reciver.stat_stage_spd) + 2)
-            waifu_reciver.speed = waifu_reciver.base_speed * multiplier
+            waifu_reciver.speed = waifu_reciver.apply_stat_change(waifu_reciver.base_speed, waifu_reciver.stat_stage_spd)
             log("! STAT CHANGE !", f"{waifu_reciver.name} Speed has been lowered !")

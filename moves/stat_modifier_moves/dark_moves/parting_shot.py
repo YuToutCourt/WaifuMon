@@ -27,5 +27,5 @@ class PartingShot(Move):
         else:
             waifu_reciver.stat_stage_atk -= 1
             multiplier = 2 / (2 + abs(waifu_reciver.stat_stage_atk))
-            waifu_reciver.attack = waifu_reciver.base_attack * multiplier
+            waifu_reciver.attack = waifu_reciver.apply_stat_change(waifu_reciver.base_attack, waifu_reciver.stat_stage_atk)
             log("! STAT CHANGE !", f"{waifu_reciver.name} Attack has been lowered !")
