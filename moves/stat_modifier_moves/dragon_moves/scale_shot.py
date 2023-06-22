@@ -32,7 +32,7 @@ class ScaleShot(Move):
             waifu_user.stat_stage_def -= 1
             multiplier_spd = (2 + abs(waifu_user.stat_stage_spd)) / 2
             multiplier_def = 2 / (2 + abs(waifu_user.stat_stage_def))
-            waifu_user.speed = waifu_user.apply_stat_change(waifu_user.base_speed, waifu_user.stat_stage_spd)_spd
-            waifu_user.defense = waifu_user.apply_stat_change(waifu_user.base_defense, waifu_user.stat_stage_def)_def
+            waifu_user.speed = waifu_user.apply_stat_change(waifu_user.base_speed, waifu_user.stat_stage_spd)
+            waifu_user.defense = waifu_user.apply_stat_change(waifu_user.base_defense, waifu_user.stat_stage_def)
             log("! STAT CHANGE !", f"{waifu_user.name} Speed has been boosted !")
             log("! STAT CHANGE !", f"{waifu_user.name} Defense has been lowered !")
