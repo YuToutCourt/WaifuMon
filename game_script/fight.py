@@ -69,6 +69,7 @@ class Fight:
 
     def play_round(self, waifu1: Waifu, waifu2: Waifu):
         if self.finished: return
+        self.__apply_status_after_attack([waifu1, waifu2])
         log("Tour", self.tour)
         log("Current battle", f"{waifu1.name} vs {waifu2.name}")
         self.tour += 1
@@ -113,17 +114,15 @@ class Fight:
 
         self.attack(attacking_waifu, defending_waifu)
 
-        if defending_waifu.hp <= 0:
-            self.handle_knockout(defending_waifu)
-            self.__apply_status_after_attack([waifu1, waifu2])
-            if attacking_waifu.hp <= 0:
-                self.handle_knockout(attacking_waifu)
-            return
+        # if defending_waifu.hp <= 0:
+        #     self.handle_knockout(defending_waifu, True)
+        #     if attacking_waifu.hp <= 0:
+        #         self.handle_knockout(attacking_waifu, True)
+        #     return
         
-        self.__apply_status_after_attack([waifu1, waifu2])
-        if attacking_waifu.hp <= 0:
-            self.handle_knockout(attacking_waifu)
-            return
+        # if attacking_waifu.hp <= 0:
+        #     self.handle_knockout(attacking_waifu, True)
+        #     return
 
         self.play_round(attacking_waifu, defending_waifu)
 
@@ -154,30 +153,25 @@ class Fight:
         move_used = attacker.move_to_use
 
         if not self.__apply_status_before_attack(attacker):
-            if attacker.hp <= 0:
-              self.move_effect(attacker, defender, move_used)
-              return self.handle_knockout(attacker)
-            return self.attack(defender, attacker, stop=True)
+            return self.attack(defender, attacker, stop)
 
         log("Attack", f"{attacker.name} use {move_used.name}")
         if randint(0, 100) <= move_used.accuracy:
             damage = self.calculate_damage(attacker, defender)
-            # defender.hp -= damage
             animation_damage(defender, damage)
             log(move_used.name, f"{defender.name} a perdu {damage} PV")
             if defender.hp <= 0:
-                self.move_effect(attacker, defender, move_used)
                 defender.display_hp()
-                return self.handle_knockout(defender)
+                return self.handle_knockout(defender, True)
             
             self.move_effect(attacker, defender, move_used)
             if attacker.hp <= 0:
                 attacker.display_hp()
-                return self.handle_knockout(attacker)
+                return self.handle_knockout(attacker, stop)
             
             if defender.hp <= 0:
                 defender.display_hp()
-                return self.handle_knockout(defender)
+                return self.handle_knockout(defender, True)
             
         else:
             print("Le coup n'a pas touché")
@@ -188,11 +182,12 @@ class Fight:
             return
         self.attack(defender, attacker, stop=True)
 
-    def handle_knockout(self, waifu: Waifu):
-        log(f"{waifu.name} est KO")
-        waifu.KO = True
-        waifu.in_fight = False
-
+    def handle_knockout(self, waifu_ko: Waifu, end_turn=False):
+        log(f"{waifu_ko.name} est KO")
+        waifu_ko.KO = True
+        waifu_ko.in_fight = False
+        waifu_ko.status = None
+            
         # Make the player or the npc choose a new waifu
         if len(self.player.get_alive_waifu()) == 0:
             print("Player à perdu, le NPC a gagné")
@@ -200,10 +195,11 @@ class Fight:
             return
 
         elif self.player.get_waifu_in_fight() is None:
-            self.player.choice_next_waifu(waifu)
-            return self.play_round(
-                self.player.get_waifu_in_fight(), self.npc.get_waifu_in_fight()
-            )
+            self.player.choice_next_waifu(waifu_ko)
+            if end_turn:
+                return self.play_round(
+                    self.player.get_waifu_in_fight(), self.npc.get_waifu_in_fight()
+                )
 
         if len(self.npc.get_alive_waifu()) == 0:
             print("NPC à perdu, le Player a gagné")
@@ -211,10 +207,13 @@ class Fight:
             return
 
         elif self.npc.get_waifu_in_fight() is None:
-            self.npc.handle_choice_during_fight(self.player.get_waifu_in_fight(), waifu, True)
-            return self.play_round(
-                self.player.get_waifu_in_fight(), self.npc.get_waifu_in_fight()
-            )
+            self.npc.handle_choice_during_fight(self.player.get_waifu_in_fight(), waifu_ko, True)
+            if end_turn:
+                return self.play_round(
+                    self.player.get_waifu_in_fight(), self.npc.get_waifu_in_fight()
+                )
+            
+        return
 
 
     def __get_multiplier(self, attacker: Waifu, move_used: Move, opponent: Waifu):
@@ -259,3 +258,5 @@ class Fight:
         ) * multiplier
 
         return damage
+
+

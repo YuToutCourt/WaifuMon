@@ -134,7 +134,7 @@ class FightScreen:
             # Calculate the RGB color based on HP percentage
             red = int((1 - current_hp / max_hp) * 255)
             green = int((current_hp / max_hp) * 255)
-            color = (red, green, 0)
+            color = (red, green, 60)
             
             # Draw the green portion of the bar
             green_rect = pygame.Rect(0, 0, green_width, bar_height)
