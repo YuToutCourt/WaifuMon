@@ -9,6 +9,20 @@ class MapManager:
         self.current_map = "Desert"
         self.screen = screen
         self.player = player
+        self.direction_map = {
+            (pygame.K_UP, pygame.K_LEFT, pygame.K_RIGHT): "down",
+            (pygame.K_DOWN, pygame.K_LEFT, pygame.K_RIGHT): "up",
+            (pygame.K_LEFT, pygame.K_UP, pygame.K_DOWN): "right",
+            (pygame.K_RIGHT, pygame.K_UP, pygame.K_DOWN): "left",
+            (pygame.K_UP, pygame.K_LEFT): "down_right",
+            (pygame.K_UP, pygame.K_RIGHT): "down_left",
+            (pygame.K_DOWN, pygame.K_LEFT): "up_right",
+            (pygame.K_DOWN, pygame.K_RIGHT): "up_left",
+            (pygame.K_UP,): "down",
+            (pygame.K_DOWN,): "up",
+            (pygame.K_LEFT,): "right",
+            (pygame.K_RIGHT,): "left",
+        }
         self.register_map("Desert", portals=[Portal("Desert", "House", "enter", "spawn_indoor")])
         self.register_map("House", portals=[Portal("House", "Desert", "exit", "spawn_outdoor")])
         self.spawn_player("Player")
@@ -16,7 +30,7 @@ class MapManager:
     def get_tmx_data(self):
         return self.get_map().tmx_data
 
-    def get_map(self):
+    def get_map(self) -> Map:
         return self.maps[self.current_map]
     
     def get_collisions(self):
@@ -50,25 +64,11 @@ class MapManager:
         pygame.mixer.music.set_volume(0.1)
         pygame.mixer.music.play(-1)
 
-        self.direction_map = {
-            (pygame.K_UP, pygame.K_LEFT, pygame.K_RIGHT): "down",
-            (pygame.K_DOWN, pygame.K_LEFT, pygame.K_RIGHT): "up",
-            (pygame.K_LEFT, pygame.K_UP, pygame.K_DOWN): "right",
-            (pygame.K_RIGHT, pygame.K_UP, pygame.K_DOWN): "left",
-            (pygame.K_UP, pygame.K_LEFT): "down_right",
-            (pygame.K_UP, pygame.K_RIGHT): "down_left",
-            (pygame.K_DOWN, pygame.K_LEFT): "up_right",
-            (pygame.K_DOWN, pygame.K_RIGHT): "up_left",
-            (pygame.K_UP,): "down",
-            (pygame.K_DOWN,): "up",
-            (pygame.K_LEFT,): "right",
-            (pygame.K_RIGHT,): "left",
-        }
 
-        self.group = pyscroll.PyscrollGroup(map_layer=map_layer, default_layer=3)
-        self.group.add(self.player)
+        group = pyscroll.PyscrollGroup(map_layer=map_layer, default_layer=3)
+        group.add(self.player)
 
-        self.maps[name] = Map(name, collisions, self.group, tmx_data, portals)
+        self.maps[name] = Map(name, collisions, group, tmx_data, portals, self.player, self.screen)
 
     def spawn_player(self, name):
         point = self.get_object(name)
