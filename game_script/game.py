@@ -38,19 +38,18 @@ class Game:
 
         return self.player.move(pressed, False)
 
-
-
     def run(self):
         """
         Boucle principale du jeu
         """
         running = True
         while running:
+            current_map = self.map_manager.get_map()
             self.handle_input()
-            self.map_manager.get_map().move_npc()
+            current_map.move_npc()
             self.map_manager.update()
             self.map_manager.draw()
-            self.map_manager.get_map().handle_collisions()
+            current_map.handle_collisions()
             pygame.display.flip()
 
             for event in pygame.event.get():

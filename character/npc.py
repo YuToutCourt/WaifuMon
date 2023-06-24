@@ -14,6 +14,7 @@ class NPC(Character):
         self.name = name
         self.dialog = Dialog(dialog)
         self.speed = 0.2
+        self.target_position = None
         
 
     def handle_interaction(self, screen, player):
@@ -33,19 +34,41 @@ class NPC(Character):
         fight_screen = FightScreen(screen)
         fight_screen.run_fight(player, self)
 
-    def random_move(self):
-        new_position = {
-            "up": (self.position[0], self.position[1] - self.speed),
-            "down": (self.position[0], self.position[1] + self.speed),
-            "left": (self.position[0] - self.speed, self.position[1]),
-            "right": (self.position[0] + self.speed, self.position[1]),
-        }
-
-        direction = random.choice(list(new_position.keys()))
-
-        self.position = new_position[direction]
-
     def handle_choice_during_fight(self, waifu_player=None, waifu_npc=None, have_to_switch=False):
-        
         return attack_or_switch(waifu_npc, waifu_player, self, have_to_switch)
+
+    def random_move(self, collisions):
+        if self.target_position is None or self.position == self.target_position:
+            self.target_position = self.generate_random_position()
+
+        direction_vector = (
+            self.target_position[0] - self.position[0],
+            self.target_position[1] - self.position[1]
+        )
+
+        direction_length = (direction_vector[0] ** 2 + direction_vector[1] ** 2) ** 0.5
+
+        if direction_length > self.speed:
+            normalized_direction = (
+                direction_vector[0] / direction_length,
+                direction_vector[1] / direction_length
+            )
+            movement = (
+                normalized_direction[0] * self.speed,
+                normalized_direction[1] * self.speed
+            )
+        else:
+            movement = direction_vector
+
+        self.position = (
+            self.position[0] + movement[0],
+            self.position[1] + movement[1]
+        )
+
+    def generate_random_position(self):
+        max_x, min_x = 800, 18
+        max_y, min_y = 700, 200
+
+
+        return random.uniform(0, max_x), random.uniform(0, max_y)
 

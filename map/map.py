@@ -45,4 +45,4 @@ class Map:
     def move_npc(self):
         for npc in self.group.sprites():
             if isinstance(npc, NPC):
-                npc.random_move()
+                npc.random_move(self.collisions)

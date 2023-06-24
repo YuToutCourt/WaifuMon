@@ -2,7 +2,6 @@ import pygame, pytmx, pyscroll
 from map.portal import Portal
 from map.map import Map
 
-
 class MapManager:
     def __init__(self, screen, player):
         self.maps = dict()
@@ -80,7 +79,7 @@ class MapManager:
                 point = self.get_object(portal.point_origin)
                 rect = pygame.Rect(point.x, point.y, point.width, point.height)
                 if self.player.rect.colliderect(rect):
-                    copy_portal = portal
+                    # copy_portal = portal
                     self.current_map = portal.world_destination
                     self.spawn_player(portal.point_destination)
 

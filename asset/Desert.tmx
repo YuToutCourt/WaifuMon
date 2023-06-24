@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="60" height="300" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="74">
+<map version="1.10" tiledversion="1.10.1" orientation="orthogonal" renderorder="right-down" width="60" height="300" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="75">
  <tileset firstgid="1" source="Tileset/desert_town_by_aveontrainer_ddncjjc.tsx"/>
  <tileset firstgid="2302" source="Tileset/mishmash_of_tropical_tiles_by_princ.tsx"/>
  <layer id="1" name="Calque de Tuiles 1" width="60" height="300">
@@ -347,14 +347,13 @@
   <object id="45" type="collision" x="114" y="146" width="124" height="130"/>
   <object id="46" type="collision" x="362" y="236" width="28" height="46"/>
   <object id="47" type="collision" x="648" y="244" width="32" height="40"/>
-  <object id="49" type="collision" x="136" y="480" width="129" height="144"/>
-  <object id="50" type="collision" x="120" y="400" width="142" height="82"/>
+  <object id="49" type="collision" x="136" y="402.5" width="129" height="221.5"/>
   <object id="51" type="collision" x="742" y="94" width="98" height="42"/>
-  <object id="56" type="collision" x="569.333" y="1.33333" width="389.333" height="15.3333"/>
+  <object id="56" type="collision" x="569.333" y="0" width="389.333" height="15.3333"/>
   <object id="58" type="collision" x="1.3335" y="2" width="381.333" height="12"/>
-  <object id="60" type="collision" x="942.424" y="14.5455" width="16.4848" height="4770.3"/>
+  <object id="60" type="collision" x="944" y="14.5455" width="16.4848" height="4770.3"/>
   <object id="61" type="collision" x="0.000166667" y="4785.33" width="960.666" height="16"/>
-  <object id="62" type="collision" x="0.7576" y="14.85" width="16.4848" height="4770.3"/>
+  <object id="62" type="collision" x="0" y="14.85" width="16.4848" height="4770.3"/>
   <object id="63" type="collision" x="105" y="556" width="31" height="69"/>
   <object id="64" type="collision" x="267" y="475" width="81" height="125"/>
   <object id="65" type="collision" x="268" y="599" width="92" height="25"/>
