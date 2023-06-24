@@ -13,7 +13,6 @@ class Dialog:
         self.box = pygame.transform.scale(box, (800, 100))
         self.font = pygame.font.Font("asset/Dialog/dialog_font.ttf", 20)
         self.texts = [line.strip() for line in text.split("\n") if line.strip()]
-        log("Dialog text: ", self.texts)
         self.text_index = 0
         self.letter_index = 0
         self.reading = True
