@@ -3,9 +3,8 @@ Containt all the fonction of the 'IA'
 """
 from moves.move_factory import MoveFactory
 from moves.enum_moves import Moves
-from utils.logger import log
 
-def waifu_player_dangerous(waifu_ia, waifu_player, npc):
+def waifu_player_dangerous(waifu_ia, waifu_player):
     """
     Check if the waifu of the player is dangerous
     :param waifu_ia: Waifu of the IA
@@ -29,7 +28,7 @@ def attack_or_switch(waifu_ia, waifu_player, npc, have_to_switch=False):
     if have_to_switch:
         return choice_waifu(waifu_ia, waifu_player, npc), True
 
-    dangerous = waifu_player_dangerous(waifu_ia, waifu_player, npc)
+    dangerous = waifu_player_dangerous(waifu_ia, waifu_player)
 
     if dangerous:
         waifu_chosen = choice_waifu(waifu_ia, waifu_player, npc)

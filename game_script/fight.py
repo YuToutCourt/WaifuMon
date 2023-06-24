@@ -15,7 +15,7 @@ class Fight:
     def __init__(self, player: Player, npc: NPC):
         self.player = player
         self.npc = npc
-        self.tour = 0
+        self.turn = 0
         self.finished = False
 
     def start(self):
@@ -70,9 +70,9 @@ class Fight:
     def play_round(self, waifu1: Waifu, waifu2: Waifu):
         if self.finished: return
         self.__apply_status_after_attack([waifu1, waifu2])
-        log("Tour", self.tour)
+        log("Tour", self.turn)
         log("Current battle", f"{waifu1.name} vs {waifu2.name}")
-        self.tour += 1
+        self.turn += 1
 
         obj = self.__check_team_waifu(waifu1)
 

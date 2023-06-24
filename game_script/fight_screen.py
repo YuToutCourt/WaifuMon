@@ -5,8 +5,6 @@ import threading
 from game_script.fight import Fight
 from utils.logger import log
 
-# from utils.my_thread import MyThread
-
 
 class FightScreen:
     def __init__(self, screen):
@@ -40,8 +38,8 @@ class FightScreen:
         # Display the fight
         while self.fight.finished is False:
             event = pygame.event.get()
-            if self.__load_waifu(player, npc):
-                self.__update_display(player, npc, event)
+            self.__load_waifu(player, npc)
+            self.__update_display(player, npc, event)
 
     def __fill_screen(self):
         """
@@ -83,12 +81,8 @@ class FightScreen:
         Charge l'image des waifu
         """
 
-        waifu_ = None
-        waifu__ = None
-
-        for waifu in npc.team:
-            if waifu.in_fight:
-                waifu_ = waifu
+        waifu_ = npc.get_waifu_in_fight()
+        waifu__ = player.get_waifu_in_fight()
 
         if waifu_ is not None:
             self.waifu_front = pygame.transform.scale(
@@ -96,17 +90,11 @@ class FightScreen:
                 (self.screen.get_width() // 5, self.screen.get_height() // 3),
             )
 
-        for waifu in player.team:
-            if waifu.in_fight:
-                waifu__ = waifu
-
         if waifu__ is not None:
             self.waifu_back = pygame.transform.scale(
                 waifu__.get_back_image(),
                 (self.screen.get_width() // 3.75, self.screen.get_height() // 1.75),
             )
-
-        return waifu_ is not None and waifu__ is not None
 
     def create_text(self, text, font_size, color, font=None):
         """
