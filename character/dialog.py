@@ -31,7 +31,6 @@ class Dialog:
 
         screen.blit(self.box, (self.X_POSITION, self.Y_POSITION))
         text = self.font.render(self.texts[self.text_index][0:self.letter_index], False, (0, 0, 0))
-        log(self.texts[self.text_index][0:self.letter_index])
         screen.blit(text, (self.X_POSITION + 70, self.Y_POSITION + 20))
 
 
