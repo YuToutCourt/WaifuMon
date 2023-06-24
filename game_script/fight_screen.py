@@ -37,10 +37,6 @@ class FightScreen:
         # main_loop_t = threading.Thread(target=self.__main_loop, args=(player, npc, fight))
         # main_loop_t.start()
 
-        player.fightscreen = self
-        player.screen = self.screen
-
-
         # Display the fight
         while self.fight.finished is False:
             event = pygame.event.get()

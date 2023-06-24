@@ -3,16 +3,32 @@ import random
 from character.character import Character
 from utils.coordinates import Coordinates
 from ia.ia import attack_or_switch
+from character.dialog import Dialog
+import pygame
+from utils.logger import log
+import time
 
 class NPC(Character):
     def __init__(self, name, coordinates: Coordinates, dialog: str):
         super().__init__(coordinates, "asset/Characters/" + name + ".png")
         self.name = name
-        self.dialog = dialog
+        self.dialog = Dialog(dialog)
         self.speed = 0.2
+        
 
     def handle_interaction(self, screen, player):
         from game_script.fight_screen import FightScreen
+
+        while self.dialog.reading:
+            events = pygame.event.get()
+            for event in events:
+                if event.type == pygame.KEYDOWN and event.key == pygame.K_RETURN:
+                    self.dialog.end_dialog()
+
+            self.dialog.display(screen)
+            pygame.display.flip()
+            time.sleep(0.05)
+
 
         fight_screen = FightScreen(screen)
         fight_screen.run_fight(player, self)
