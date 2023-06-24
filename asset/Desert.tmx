@@ -368,7 +368,8 @@
   </object>
   <object id="2" name="npc1" type="collision" x="618.334" y="347.333">
    <properties>
-    <property name="dialog" value="OwO je suis le dialogue"/>
+    <property name="dialog">Comment on ce retrouve Bili !
+Tu es tellement beau ♥</property>
    </properties>
    <point/>
   </object>
@@ -377,7 +378,8 @@
   </object>
   <object id="73" name="npc2" type="collision" x="305" y="344">
    <properties>
-    <property name="dialog" value="Salut Bili ! J'espère que tu va bien. On va ce battre"/>
+    <property name="dialog">Salut Bili !
+J'espère que tu va bien. On va ce battre</property>
    </properties>
    <point/>
   </object>

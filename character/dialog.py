@@ -12,13 +12,11 @@ class Dialog:
         box = pygame.image.load("asset/Dialog/dialog_box.png")
         self.box = pygame.transform.scale(box, (800, 100))
         self.font = pygame.font.Font("asset/Dialog/dialog_font.ttf", 20)
-        self.texts = text.split("\n")
+        self.texts = [line.strip() for line in text.split("\n") if line.strip()]
+        log("Dialog text: ", self.texts)
         self.text_index = 0
         self.letter_index = 0
         self.reading = True
-        # self.data_fight = "CECI EST UN TEST"
-        # self.fight = False
-        # self.box_fight = pygame.transform.scale(box, (500, 150))
 
 
     def end_dialog(self):
@@ -30,10 +28,13 @@ class Dialog:
         
         self.letter_index += 1
 
-        if self.letter_index >= len(self.texts[self.text_index]):
-            self.letter_index = self.letter_index
+        if self.letter_index > len(self.texts[self.text_index]):
+            time.sleep(0.5)
+            self.next_text()
+
         screen.blit(self.box, (self.X_POSITION, self.Y_POSITION))
         text = self.font.render(self.texts[self.text_index][0:self.letter_index], False, (0, 0, 0))
+        log(self.texts[self.text_index][0:self.letter_index])
         screen.blit(text, (self.X_POSITION + 70, self.Y_POSITION + 20))
 
 
@@ -45,17 +46,6 @@ class Dialog:
         if self.text_index >= len(self.texts):
             time.sleep(1)
             self.end_dialog()
-                # self.fight = True
-    
-
-    # def display_fight(self, screen):        
-    #     screen.blit(self.box_fight, (self.X_POSITION_FIGHT, self.Y_POSITION_FIGHT))
-    #     text = self.font.render(self.data_fight, False, (0, 0, 0))
-    #     screen.blit(text, (self.X_POSITION_FIGHT + 100, self.Y_POSITION_FIGHT + 30))
-
-
-    # def add_data_fight(self, datas):
-    #     self.data_fight = datas
 
 
         
