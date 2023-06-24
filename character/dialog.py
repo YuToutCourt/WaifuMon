@@ -5,8 +5,6 @@ class Dialog:
 
     X_POSITION = 370
     Y_POSITION = 700
-    # X_POSITION_FIGHT = 600
-    # Y_POSITION_FIGHT = 700
 
     def __init__(self, text):
         box = pygame.image.load("asset/Dialog/dialog_box.png")
