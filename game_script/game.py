@@ -1,6 +1,5 @@
 import pytmx
 import pygame
-import pyscroll
 
 from character.player import Player
 from utils.coordinates import Coordinates
