@@ -5,7 +5,7 @@ from character.player import Player
 from utils.coordinates import Coordinates
 from character.npc import NPC
 from character.dialog import Dialog
-from map.map import MapManager
+from map.map_manager import MapManager
 
 
 class Game:
