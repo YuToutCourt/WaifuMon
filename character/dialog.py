@@ -41,7 +41,7 @@ class Dialog:
         self.letter_index = 0
 
         if self.text_index >= len(self.texts):
-            time.sleep(1)
+            time.sleep(0.5)
             self.end_dialog()
 
 
