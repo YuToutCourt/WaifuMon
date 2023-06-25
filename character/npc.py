@@ -64,6 +64,18 @@ class NPC(Character):
             self.position[0] + movement[0],
             self.position[1] + movement[1]
         )
+        for collision in collisions:
+            if pygame.Rect(self.position[0], self.position[1], 32,32 ).colliderect(collision):
+                self.move_back(movement)
+                self.target_position = self.generate_random_position()
+
+
+    def move_back(self, movement):
+        self.position = (
+            self.position[0] - movement[0],
+            self.position[1] - movement[1]
+        )
+
 
     def generate_random_position(self):
         max_x, min_x = 800, 18
