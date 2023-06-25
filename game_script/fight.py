@@ -56,17 +56,24 @@ class Fight:
     def  __user_choice(self, waifu1, waifu2):
         """
         User choice
-        The user can either attack or change waifu
+        The user can either attack, change waifu or capture the waifu
         :param waifu1: Waifu of the player (always)
         :param waifu2: Waifu of the NPC (always)
         """
         choice = input_int("Que voulez-vous faire ?\n1. Attaquer\n2. Changer de waifu\n3. Capturer\n", 1, 2, 3)
         if choice == 1:
-            return waifu1, False
+            return waifu1, "attack"
         elif choice == 2:
-            return self.player.choice_next_waifu(waifu1), True
+            return self.player.choice_next_waifu(waifu1), "switch"
         else:
-            return self.player.capture_waifu(waifu2), True
+            if len(self.player.team) >= 6:
+                print("Votre equipe est pleine, vous ne pouvez pas capturer de waifu")
+                return self.__user_choice(waifu1, waifu2)
+            if waifu2.get_owner() == "player":
+                print("Vous ne pouvez pas capturer la waifu d'un autre joueur")
+                return self.__user_choice(waifu1, waifu2)
+            else:
+                return capture_waifu(waifu1, waifu2), "capture"
 
 
     def play_round(self, waifu1: Waifu, waifu2: Waifu):
@@ -83,10 +90,11 @@ class Fight:
             waifu1.display_stats()
             waifu2.display_hp()
             waifu2.display_stats()
-            waifu1, as_switch  = self.__user_choice(waifu1, waifu2)
-            if not as_switch:
+            waifu1, choice  = self.__user_choice(waifu1, waifu2)
+            if choice == "attack":
                 waifu1.choice_move()
-            else:
+            elif choice == "capture" or choice == "switch":
+                capture_waifu(waifu1, waifu2)
                 waifu1.move_to_use = MoveFactory.create_move(Moves.NOTHING)
 
             self.user_turn = False
@@ -183,25 +191,17 @@ class Fight:
     def capture_waifu(self, waifu1, waifu2):
         """
         Capture a the waifu of the opponent
-        :param waifu: Waifu to capture
+        :param waifu1: Waifu of the player
+        :param waifu2: Waifu to capture
         """
-
-        if len(self.player.team) >= 6:
-            print("Votre equipe est pleine, vous ne pouvez pas capturer de waifu")
-            return 
-        
-        if waifu2.get_owner() == "player":
-            print("Vous ne pouvez pas capturer la waifu d'un autre joueur")
-            return
-        if not waifu2.get_owner():
-            if randint(0, 100) <= (waifu2.hp / waifu2.max_hp) * 100:
-                print("Vous avez capturé le waifu !")
-                waifu2.owner = "player"
-                self.player.team.append(waifu2)
-                return
-            else:
-                print("Le waifu s'est échappé")
-                return
+        if randint(0, 100) <= (waifu2.hp / waifu2.max_hp) * 100:
+            print("Vous avez capturé le waifu !")
+            waifu2.owner = "player"
+            self.player.team.append(waifu2)
+            return True
+        else:
+            print("Le waifu s'est échappé")
+            return False
 
     def handle_knockout(self, waifu_ko: Waifu, end_turn=False):
         log(f"{waifu_ko.name} est KO")
