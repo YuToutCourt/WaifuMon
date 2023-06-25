@@ -86,55 +86,68 @@ class Fight:
         obj = self.__check_team_waifu(waifu1)
 
         if isinstance(obj, Player):
-            waifu1.display_hp()
+            # Display the stats of the waifus
+            waifu1.display_hp()    
             waifu1.display_stats()
             waifu2.display_hp()
             waifu2.display_stats()
             waifu1, choice  = self.__user_choice(waifu1, waifu2)
             if choice == "attack":
-                waifu1.choice_move()
-            elif choice == "capture" or choice == "switch":
-                capture_waifu(waifu1, waifu2)
-                waifu1.move_to_use = MoveFactory.create_move(Moves.NOTHING)
+                waifu1.choice_move() # If the player attack, he choose a move
+            elif choice == "capture":
+                capture_success = choice(waifu1, waifu2)
+                if capture_success: # If the capture is a success, the fight is over
+                    return
+                waifu1.move_to_use = MoveFactory.create_move(Moves.NOTHING) # If the capture failed, the player can't attack
+            elif choice == "switch":
+                waifu1.move_to_use = MoveFactory.create_move(Moves.NOTHING) # If the player switch, he can't attack
 
-            self.user_turn = False
+            self.user_turn = False # The player has finished his turn
 
-            waifu2, as_switch = self.npc.handle_choice_during_fight(waifu1, waifu2)
-            if as_switch:
+            waifu2, as_switch = self.npc.handle_choice_during_fight(waifu1, waifu2) # The npc chooses his action
+
+            if as_switch: # If the npc switch, he can't attack
                 waifu2.move_to_use = MoveFactory.create_move(Moves.NOTHING)
 
         else:
+            # Display the stats of the waifus
             waifu2.display_hp()
             waifu2.display_stats()
             waifu1.display_hp()
             waifu1.display_stats()
-            waifu2, as_switch = self.__user_choice(waifu2, waifu1)
-            if not as_switch:
-                waifu2.choice_move()
-            else:
-                waifu2.move_to_use = MoveFactory.create_move(Moves.NOTHING)
+            waifu2, choice = self.__user_choice(waifu2, waifu1)
+            if choice == "attack":
+                waifu2.choice_move() # If the player attack, he choose a move
+            elif choice == "capture":
+                capture_success = choice(waifu2, waifu1)
+                if capture_success: # If the capture is a success, the fight is over
+                    return
+                waifu2.move_to_use = MoveFactory.create_move(Moves.NOTHING) # If the capture failed, the player can't attack
+            elif choice == "switch":
+                waifu2.move_to_use = MoveFactory.create_move(Moves.NOTHING) # If the player switch, he can't attack
             
-            self.user_turn = False
+            self.user_turn = False # The player has finished his turn
 
-            waifu1, as_switch = self.npc.handle_choice_during_fight(waifu2, waifu1)
-            if as_switch:
+            waifu1, as_switch = self.npc.handle_choice_during_fight(waifu2, waifu1) # The npc chooses his action
+
+            if as_switch: # If the npc switch, he can't attack
                 waifu1.move_to_use = MoveFactory.create_move(Moves.NOTHING)
 
-        attacking_waifu, defending_waifu = self.determine_attack_order(waifu1, waifu2)
+        attacking_waifu, defending_waifu = self.determine_attack_order(waifu1, waifu2) # Determine the order of the attack
 
-        self.attack(attacking_waifu, defending_waifu)
+        self.attack(attacking_waifu, defending_waifu) # Attack phase
 
-        if defending_waifu.hp <= 0:
+        if defending_waifu.hp <= 0: # If the defending waifu is KO, the fight is over
             self.handle_knockout(defending_waifu, True)
             if attacking_waifu.hp <= 0:
                 self.handle_knockout(attacking_waifu, True)
             return
         
-        if attacking_waifu.hp <= 0:
+        if attacking_waifu.hp <= 0: # If the attacking waifu is KO, the fight is over
             self.handle_knockout(attacking_waifu, True)
             return
 
-        self.play_round(attacking_waifu, defending_waifu)
+        self.play_round(attacking_waifu, defending_waifu) # Next round
 
     def determine_attack_order(self, waifu1: Waifu, waifu2: Waifu):
         if waifu1.move_to_use.priority == waifu2.move_to_use.priority:
@@ -188,20 +201,21 @@ class Fight:
             return
         self.attack(defender, attacker, stop=True)
 
-    def capture_waifu(self, waifu1, waifu2):
+    def capture_waifu(self, waifu: Waifu):
         """
         Capture a the waifu of the opponent
-        :param waifu1: Waifu of the player
-        :param waifu2: Waifu to capture
+        :param waifu: Waifu to capture
         """
-        if randint(0, 100) <= (waifu2.hp / waifu2.max_hp) * 100:
-            print("Vous avez capturé le waifu !")
-            waifu2.owner = "player"
-            self.player.team.append(waifu2)
-            return True
+        if randint(0, 100) <= (waifu.hp / waifu.max_hp) * 100: # The capture is more likely to succeed if the waifu is low hp
+            print("Vous avez capturé la waifu !")
+            print("Vous pouvez maintenant lui donner un nom") #TODO: Add the possibility to give a name to the waifu
+            print("La waifu a rejoint votre équipe")
+            waifu.owner = "player" # Modify the owner of the waifu
+            self.player.team.append(waifu) # Add the waifu to the team
+            return True # The capture is a success
         else:
-            print("Le waifu s'est échappé")
-            return False
+            print("La waifu s'est échappé")
+            return False # The capture is a failure
 
     def handle_knockout(self, waifu_ko: Waifu, end_turn=False):
         log(f"{waifu_ko.name} est KO")
