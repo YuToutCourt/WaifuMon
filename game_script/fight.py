@@ -60,11 +60,13 @@ class Fight:
         :param waifu1: Waifu of the player (always)
         :param waifu2: Waifu of the NPC (always)
         """
-        choice = input_int("Que voulez-vous faire ?\n1. Attaquer\n2. Changer de waifu\n", 1, 2)
+        choice = input_int("Que voulez-vous faire ?\n1. Attaquer\n2. Changer de waifu\n3. Capturer\n", 1, 2, 3)
         if choice == 1:
             return waifu1, False
-        else:
+        elif choice == 2:
             return self.player.choice_next_waifu(waifu1), True
+        else:
+            return self.player.capture_waifu(waifu2), True
 
 
     def play_round(self, waifu1: Waifu, waifu2: Waifu):
@@ -151,10 +153,6 @@ class Fight:
 
     def attack(self, attacker: Waifu, defender: Waifu, stop=False):
         move_used = attacker.move_to_use
-
-        if not self.__apply_status_before_attack(attacker):
-            return self.attack(defender, attacker, stop)
-
         log("Attack", f"{attacker.name} use {move_used.name}")
         if randint(0, 100) <= move_used.accuracy:
             damage = self.calculate_damage(attacker, defender)
@@ -181,6 +179,29 @@ class Fight:
             self.__apply_status_after_attack([attacker, defender])
             return
         self.attack(defender, attacker, stop=True)
+
+    def capture_waifu(self, waifu1, waifu2):
+        """
+        Capture a the waifu of the opponent
+        :param waifu: Waifu to capture
+        """
+
+        if len(self.player.team) >= 6:
+            print("Votre equipe est pleine, vous ne pouvez pas capturer de waifu")
+            return 
+        
+        if waifu2.get_owner() == "player":
+            print("Vous ne pouvez pas capturer la waifu d'un autre joueur")
+            return
+        if not waifu2.get_owner():
+            if randint(0, 100) <= (waifu2.hp / waifu2.max_hp) * 100:
+                print("Vous avez capturé le waifu !")
+                waifu2.owner = "player"
+                self.player.team.append(waifu2)
+                return
+            else:
+                print("Le waifu s'est échappé")
+                return
 
     def handle_knockout(self, waifu_ko: Waifu, end_turn=False):
         log(f"{waifu_ko.name} est KO")
