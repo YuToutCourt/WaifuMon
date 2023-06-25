@@ -60,21 +60,20 @@ class Fight:
         :param waifu1: Waifu of the player (always)
         :param waifu2: Waifu of the NPC (always)
         """
-        choice = input_int("Que voulez-vous faire ?\n1. Attaquer\n2. Changer de waifu\n3. Capturer\n", 1, 2, 3)
-        if choice == 1:
+        choice = input_int("Que voulez vous faire ?\n1. Attaquer\n2. Changer de waifu\n3. Capturer la waifu\n", 1, 3) #TODO: Add the possibility to use an item
+        if choice == 1: # If the player decides to attack, return the wafu1 attacking and "attack"
             return waifu1, "attack"
-        elif choice == 2:
+        elif choice == 2: # If the player decides to switch,  return waifu to switch to and "switch"
             return self.player.choice_next_waifu(waifu1), "switch"
-        else:
-            if len(self.player.team) >= 6:
+        else: # If the player decides to capture, try to capture the waifu
+            if len(self.player.team) >= 6: # If the team is full, the player can't capture the waifu TODO: Add the possibility to send a waifu to the box   
                 print("Votre equipe est pleine, vous ne pouvez pas capturer de waifu")
-                return self.__user_choice(waifu1, waifu2)
-            if waifu2.get_owner() == "player":
+                return self.__user_choice(waifu1, waifu2) # The player has to choose again
+            if waifu2.get_owner() == "npc": # If the waifu is already owned, the player can't capture it
                 print("Vous ne pouvez pas capturer la waifu d'un autre joueur")
-                return self.__user_choice(waifu1, waifu2)
-            else:
-                return capture_waifu(waifu1, waifu2), "capture"
-
+                return self.__user_choice(waifu1, waifu2) # The player has to choose again
+            else: # If the player can capture the waifu, try to capture it
+                return waifu1, "capture" # Return the waifu attacking and "capture"
 
     def play_round(self, waifu1: Waifu, waifu2: Waifu):
         if self.finished: return
@@ -95,7 +94,7 @@ class Fight:
             if choice == "attack":
                 waifu1.choice_move() # If the player attack, he choose a move
             elif choice == "capture":
-                capture_success = choice(waifu1, waifu2)
+                capture_success = capture_waifu(waifu1, waifu2)
                 if capture_success: # If the capture is a success, the fight is over
                     return
                 waifu1.move_to_use = MoveFactory.create_move(Moves.NOTHING) # If the capture failed, the player can't attack
@@ -119,7 +118,7 @@ class Fight:
             if choice == "attack":
                 waifu2.choice_move() # If the player attack, he choose a move
             elif choice == "capture":
-                capture_success = choice(waifu2, waifu1)
+                capture_success = capture_waifu(waifu2, waifu1)
                 if capture_success: # If the capture is a success, the fight is over
                     return
                 waifu2.move_to_use = MoveFactory.create_move(Moves.NOTHING) # If the capture failed, the player can't attack
@@ -201,22 +200,6 @@ class Fight:
             return
         self.attack(defender, attacker, stop=True)
 
-    def capture_waifu(self, waifu: Waifu):
-        """
-        Capture a the waifu of the opponent
-        :param waifu: Waifu to capture
-        """
-        if randint(0, 100) <= (waifu.hp / waifu.max_hp) * 100: # The capture is more likely to succeed if the waifu is low hp
-            print("Vous avez capturé la waifu !")
-            print("Vous pouvez maintenant lui donner un nom") #TODO: Add the possibility to give a name to the waifu
-            print("La waifu a rejoint votre équipe")
-            waifu.owner = "player" # Modify the owner of the waifu
-            self.player.team.append(waifu) # Add the waifu to the team
-            return True # The capture is a success
-        else:
-            print("La waifu s'est échappé")
-            return False # The capture is a failure
-
     def handle_knockout(self, waifu_ko: Waifu, end_turn=False):
         log(f"{waifu_ko.name} est KO")
         waifu_ko.KO = True
@@ -294,4 +277,18 @@ class Fight:
 
         return damage
 
-
+def capture_waifu(self, waifu: Waifu):
+        """
+        Capture a the waifu of the opponent
+        :param waifu: Waifu to capture
+        """
+        if randint(0, 100) <= (waifu.hp / waifu.max_hp) * 100: # The capture is more likely to succeed if the waifu is low hp
+            print("Vous avez capturé la waifu !")
+            print("Vous pouvez maintenant lui donner un nom") #TODO: Add the possibility to give a name to the waifu
+            print("La waifu a rejoint votre équipe")
+            waifu.owner = "player" # Modify the owner of the waifu
+            self.player.team.append(waifu) # Add the waifu to the team
+            return True # The capture is a success
+        else:
+            print("La waifu s'est échappé")
+            return False # The capture is a failure
