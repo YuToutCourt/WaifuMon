@@ -40,6 +40,9 @@ class MapManager:
     
     def get_object(self, name):
         return self.get_map().tmx_data.get_object_by_name(name)
+    
+    def get_event(self):
+        return self.get_map().event
 
     def register_map(self, name, portals=[]):
         tmx_data = pytmx.util_pygame.load_pygame(f"./asset/{name}.tmx")
@@ -51,10 +54,13 @@ class MapManager:
         map_layer.zoom = 2
 
         collisions = []
+        event = []
 
         for obj in tmx_data.objects:
             if obj.type == "collision":
                 collisions.append(pygame.Rect(obj.x, obj.y, obj.width, obj.height))
+            elif obj.type == "event":
+                event.append(pygame.Rect(obj.x, obj.y, obj.width, obj.height))
 
         pygame.mixer.init()
         pygame.mixer.fadeout(1000)
@@ -67,7 +73,7 @@ class MapManager:
         group = pyscroll.PyscrollGroup(map_layer=map_layer, default_layer=3)
         group.add(self.player)
 
-        self.maps[name] = Map(name, collisions, group, tmx_data, portals, self.player, self.screen)
+        self.maps[name] = Map(name, collisions, group, tmx_data, portals, self.player, self.screen, event)
 
     def spawn_player(self, name):
         point = self.get_object(name)
@@ -90,8 +96,6 @@ class MapManager:
                 for keys, direction in self.direction_map.items():
                     if all(pressed[key] for key in keys):
                         return self.player.move_back(direction)
-
-
 
     def draw(self):
         self.get_group().draw(self.screen)

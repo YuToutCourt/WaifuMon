@@ -5,7 +5,7 @@ from map.portal import Portal
 from character.npc import NPC
 from utils.coordinates import Coordinates
 class Map:
-    def __init__(self, name, collisions, group, tmx_data, portals, player, screen):
+    def __init__(self, name, collisions, group, tmx_data, portals, player, screen, event):
         self.name: str = name
         self.collisions: list[Rect] = collisions
         self.group: set(PyscrollGroup) = group
@@ -13,6 +13,7 @@ class Map:
         self.portals: list[Portal] = portals
         self.player = player
         self.screen = screen
+        self.event = event
         
     def load_npc(self):
         """
@@ -40,6 +41,12 @@ class Map:
                 if not sprite.collide_rect(self.player, npc): continue
                 if pressed[K_RETURN]:
                      npc.handle_interaction(self.screen, self.player)
+        from game_script.fight_screen import FightScreen
+        import pygame
+        fight_screen = FightScreen(self.screen)
+        for event in self.event:
+            if pygame.Rect.colliderect(self.player.rect, event):
+                return fight_screen.run_fight(self.player, npc)
 
 
     def move_npc(self):
