@@ -209,31 +209,32 @@ class Fight:
         :param stop: If True, the attack is the last of the turn
         """
         move_used = attacker.move_to_use # Move used by the attacking waifu
-        log("Attack", f"{attacker.name} use {move_used.name}") 
-        if randint(0, 100) <= move_used.accuracy:  # If the move touch the defending waifu
-            damage = self.calculate_damage(attacker, defender) # Calculate the damage
-            animation_damage(defender, damage) # Display the animation of the damage
-            log(move_used.name, f"{defender.name} a perdu {damage} PV") 
-            if defender.hp <= 0: # If the defending waifu is KO, the fight is over
-                defender.display_hp() # Display the hp of the waifu
-                return self.handle_knockout(defender, True) # Handle the KO
-            
-            self.move_effect(attacker, defender, move_used) # Apply the effect of the move
-            if attacker.hp <= 0: # If the attacking waifu is KO, the fight is over
-                attacker.display_hp() # Display the hp of the waifu
-                return self.handle_knockout(attacker, stop) # Handle the KO
-            
-            if defender.hp <= 0: # If the defending waifu is KO, the fight is over
-                defender.display_hp() # Display the hp of the waifu
-                return self.handle_knockout(defender, True) # Handle the KO
-            
-        else: # If the move doesn't touch the defending waifu
-            print("Le coup n'a pas touché")
+        log("Attack", f"{attacker.name} use {move_used.name}")
+        if self.__apply_status_before_attack(attacker):
+            if randint(0, 100) <= move_used.accuracy:  # If the move touch the defending waifu
+                damage = self.calculate_damage(attacker, defender) # Calculate the damage
+                animation_damage(defender, damage) # Display the animation of the damage
+                log(move_used.name, f"{defender.name} a perdu {damage} PV") 
+                if defender.hp <= 0: # If the defending waifu is KO, the fight is over
+                    defender.display_hp() # Display the hp of the waifu
+                    return self.handle_knockout(defender, True) # Handle the KO
+                
+                self.move_effect(attacker, defender, move_used) # Apply the effect of the move
+                if attacker.hp <= 0: # If the attacking waifu is KO, the fight is over
+                    attacker.display_hp() # Display the hp of the waifu
+                    return self.handle_knockout(attacker, stop) # Handle the KO
+                
+                if defender.hp <= 0: # If the defending waifu is KO, the fight is over
+                    defender.display_hp() # Display the hp of the waifu
+                    return self.handle_knockout(defender, True) # Handle the KO
+                
+            else: # If the move doesn't touch the defending waifu
+                print("Le coup n'a pas touché")
 
 
-        if stop: # If the attack is the last of the turn, apply the status after the attack
-            self.__apply_status_after_attack([attacker, defender]) 
-            return  
+            if stop: # If the attack is the last of the turn, apply the status after the attack
+                self.__apply_status_after_attack([attacker, defender]) 
+                return  
         self.attack(defender, attacker, stop=True) # Else, the defending waifu attack
 
     def handle_knockout(self, waifu_ko: Waifu, end_turn=False):
