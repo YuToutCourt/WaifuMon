@@ -3,7 +3,7 @@ from utils.coordinates import Coordinates
 from waifu.waifu import Waifu
 from typing import List
 from wtypes.type_factory import TypeFactory
-from abc import ABC
+from abc import ABC, abstractmethod
 
 import json
 from random import shuffle, randint
@@ -53,6 +53,7 @@ class Character(pygame.sprite.Sprite, ABC):
         """
         return [waifu for waifu in self.team if not waifu.KO]
 
+
     def __create_random_team(self):
         """
         POUR TEST
@@ -90,3 +91,7 @@ class Character(pygame.sprite.Sprite, ABC):
                     randint(45, 60),
                 )
                 self.team.append(waifu)
+
+    @abstractmethod
+    def move_back(self, movement):
+        pass
