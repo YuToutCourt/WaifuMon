@@ -45,26 +45,26 @@ class FightScreen:
         """
         Remplir l'écran avec une couleur
         """
-        COLOR = (0, 0, 0)
-        width = self.screen.get_width()
-        height = self.screen.get_height()
+        COLOR = (0, 0, 0) # Black
+        width = self.screen.get_width()  # Get the width of the screen
+        height = self.screen.get_height() # Get the height of the screen
 
-        cubes = []
-        cubes_size = min(width, height) // 10
+        cubes = [] # List of all the cubes for the animation
+        cubes_size = min(width, height) // 10 # Size of the cubes for the animation
 
-        # On pourrait s'amuser à faire des animations différentes :D
-        for x in range(0, self.screen.get_width(), cubes_size):
-            for y in range(0, self.screen.get_height(), cubes_size):
-                cube = pygame.Rect(x, y, cubes_size, cubes_size)
-                cubes.append(cube)
+        # TODO: On pourrait s'amuser à faire des animations différentes :D
+        for x in range(0, self.screen.get_width(), cubes_size): # Create the cubes for the animation on the x axis
+            for y in range(0, self.screen.get_height(), cubes_size): # Create the cubes for the animation on the y axis
+                cube = pygame.Rect(x, y, cubes_size, cubes_size) # Create the cube
+                cubes.append(cube) # Add the cube to the list of cubes
 
-        if random.randint(0, 1):
-            cubes = cubes[::-1]
+        if random.randint(0, 1): # Randomly reverse the list of cubes to reverse the direction of the animation
+            cubes = cubes[::-1] # Reverse the list of cubes
 
-        for cube in cubes:
-            pygame.draw.rect(self.screen, COLOR, cube)
-            pygame.display.flip()
-            pygame.time.wait(5)
+        for cube in cubes: 
+            pygame.draw.rect(self.screen, COLOR, cube) # Draw the cube on the screen
+            pygame.display.flip() # Update the screen
+            pygame.time.wait(5) # Wait 5 milliseconds
 
     def __load_background(self):
         """
@@ -72,7 +72,7 @@ class FightScreen:
         """
         background = pygame.image.load("asset/Battle/battleground2.jpg")
 
-        self.background = pygame.transform.scale(
+        self.background = pygame.transform.scale( # Resize the background to fit the screen
             background, (self.screen.get_width(), self.screen.get_height())
         )
 
@@ -81,19 +81,19 @@ class FightScreen:
         Charge l'image des waifu
         """
 
-        waifu_ = npc.get_waifu_in_fight()
-        waifu__ = player.get_waifu_in_fight()
+        waifu_ = npc.get_waifu_in_fight() # Get the waifu of the npc
+        waifu__ = player.get_waifu_in_fight() # Get the waifu of the player
 
-        if waifu_ is not None:
-            self.waifu_front = pygame.transform.scale(
+        if waifu_ is not None: # If the npc has a waifu
+            self.waifu_front = pygame.transform.scale( # Resize the waifu to fit the screen
                 waifu_.get_front_image(),
                 (self.screen.get_width() // 5, self.screen.get_height() // 3),
             )
 
-        if waifu__ is not None:
-            self.waifu_back = pygame.transform.scale(
-                waifu__.get_back_image(),
-                (self.screen.get_width() // 3.75, self.screen.get_height() // 1.75),
+        if waifu__ is not None: # If the player has a waifu
+            self.waifu_back = pygame.transform.scale( # Resize the waifu to fit the screen
+                waifu__.get_back_image(), 
+                (self.screen.get_width() // 3.75, self.screen.get_height() // 1.75), 
             )
 
     def create_text(self, text, font_size, color, font=None):
@@ -133,8 +133,8 @@ class FightScreen:
         """
         Create a pokeball surface.
         """
-        pokeball = pygame.image.load(f"asset/Battle/{path}")
-        pokeball = pygame.transform.scale(pokeball, (width, height))
+        pokeball = pygame.image.load(f"asset/Battle/{path}") 
+        pokeball = pygame.transform.scale(pokeball, (width, height)) # Resize the pokeball to fit the screen
         
         return pokeball
 
@@ -144,43 +144,43 @@ class FightScreen:
         Create a badge status surface.
         """
         badge = pygame.image.load(f"asset/Battle/{path}")
-        badge = pygame.transform.scale(badge, (width, height))
+        badge = pygame.transform.scale(badge, (width, height)) # Resize the badge to fit the screen
         
         return badge
 
 
-    def __update_display(self, player_waifu, npc_waifu, event):
-        self.screen.blit(self.background, (0, 0))
-        screen_width = self.screen.get_width()
-        screen_height = self.screen.get_height()
+    def __update_display(self, player_waifu, npc_waifu, event): 
+        self.screen.blit(self.background, (0, 0) ) # Draw the background on the screen
+        screen_width = self.screen.get_width()  # Get the width of the screen
+        screen_height = self.screen.get_height() # Get the height of the screen
 
-        player_pokeballs = []
-        for waifu in player_waifu.team:
-            if waifu.KO:
-                player_pokeballs.append(self.create_pokeball(52, 55, "icon_ball_faint.png"))
-            elif waifu.status is not None:
-                player_pokeballs.append(self.create_pokeball(52, 55, "icon_ball_status.png"))
+        player_pokeballs = [] # List of all the pokeballs of the player
+        for waifu in player_waifu.team: # For each waifu of the player
+            if waifu.KO: # If the waifu is KO
+                player_pokeballs.append(self.create_pokeball(52, 55, "icon_ball_faint.png")) # Add a KO pokeball to the list
+            elif waifu.status is not None: # If the waifu has a status
+                player_pokeballs.append(self.create_pokeball(52, 55, "icon_ball_status.png")) # Add a status pokeball to the list TODO: make a custom status pokeball for each status
             else:
-                player_pokeballs.append(self.create_pokeball(52, 55, "icon_ball.png"))
+                player_pokeballs.append(self.create_pokeball(52, 55, "icon_ball.png")) # Add a normal pokeball to the list
 
-        decalage = 0
-        for pokeball in player_pokeballs:
-            self.screen.blit(pokeball, (screen_width * 0.760 + decalage, screen_height * 0.9371))
-            decalage += 55
+        decalage = 0 # Offset for the pokeballs
+        for pokeball in player_pokeballs: # For each pokeball of the player
+            self.screen.blit(pokeball, (screen_width * 0.760 + decalage, screen_height * 0.9371)) # Draw the pokeball on the screen
+            decalage += 55 # Increase the offset
 
-        npc_pokeballs = []
-        for waifu in npc_waifu.team:
-            if waifu.KO:
-                npc_pokeballs.append(self.create_pokeball(52, 55, "icon_ball_faint.png"))
-            elif waifu.status is not None:
-                npc_pokeballs.append(self.create_pokeball(52, 55, "icon_ball_status.png"))
-            else:
-                npc_pokeballs.append(self.create_pokeball(52, 55, "icon_ball.png"))
+        npc_pokeballs = [] # List of all the pokeballs of the npc
+        for waifu in npc_waifu.team: # For each waifu of the npc
+            if waifu.KO: # If the waifu is KO
+                npc_pokeballs.append(self.create_pokeball(52, 55, "icon_ball_faint.png")) # Add a KO pokeball to the list
+            elif waifu.status is not None: # If the waifu has a status
+                npc_pokeballs.append(self.create_pokeball(52, 55, "icon_ball_status.png")) # Add a status pokeball to the list TODO: make a custom status pokeball for each status
+            else: # If the waifu is not KO and has no status
+                npc_pokeballs.append(self.create_pokeball(52, 55, "icon_ball.png")) # Add a normal pokeball to the list
 
-        decalage = 0
-        for pokeball in npc_pokeballs:
-            self.screen.blit(pokeball, (screen_width * 0.0261 + decalage, screen_height * 0.146))
-            decalage += 55
+        decalage = 0 # Offset for the pokeballs
+        for pokeball in npc_pokeballs: # For each pokeball of the npc
+            self.screen.blit(pokeball, (screen_width * 0.0261 + decalage, screen_height * 0.146)) # Draw the pokeball on the screen
+            decalage += 55 # Increase the offset
 
         # mouse_pos = pygame.mouse.get_pos()
         # print(mouse_pos)
@@ -205,15 +205,15 @@ class FightScreen:
         npc_hp_bar_x = int(screen_width * 0.0292)
         npc_hp_bar_y = int(screen_height * 0.0667)
 
-        waifu_player = player_waifu.get_waifu_in_fight()
-        waifu_npc = npc_waifu.get_waifu_in_fight()
+        waifu_player = player_waifu.get_waifu_in_fight() # Get the waifu of the player
+        waifu_npc = npc_waifu.get_waifu_in_fight() # Get the waifu of the npc
 
 
-        if waifu_player is not None:
+        if waifu_player is not None: 
 
-            if waifu_player.status is not None:
-                status_surface = self.create_badge_status(40, 40, f"{waifu_player.status.status.name}.png")
-                self.screen.blit(status_surface, (screen_width * 0.78334, screen_height * 0.854))
+            if waifu_player.status is not None: # If the waifu of the player has a status
+                status_surface = self.create_badge_status(40, 40, f"{waifu_player.status.status.name}.png") # Create a status badge
+                self.screen.blit(status_surface, (screen_width * 0.78334, screen_height * 0.854)) # Draw the status badge on the screen
 
             # Afficher les informations du waifu du joueur
             waifu_player_name = waifu_player.name
@@ -221,27 +221,27 @@ class FightScreen:
             waifu_player_max_hp = waifu_player.hp_max
             waifu_player_level = waifu_player.level
 
-            player_name_surface = self.create_text(waifu_player_name, 30, (0, 0, 0))
-            player_hp_surface = self.create_text(f"{round(waifu_player_hp)}/{waifu_player_max_hp}", 30, (0, 0, 0))
-            player_level_surface = self.create_text(f"Lv{waifu_player_level}", 30, (0, 0, 0))
+            player_name_surface = self.create_text(waifu_player_name, 30, (0, 0, 0)) # Create the text for the name of the waifu
+            player_hp_surface = self.create_text(f"{round(waifu_player_hp)}/{waifu_player_max_hp}", 30, (0, 0, 0)) # Create the text for the HP of the waifu
+            player_level_surface = self.create_text(f"Lv{waifu_player_level}", 30, (0, 0, 0))  # Create the text for the level of the waifu
             
-            player_hp_bar = self.create_hp_bar(waifu_player_hp, waifu_player_max_hp, int(screen_width * 0.1063), int(screen_height * 0.013))
-            self.screen.blit(player_hp_bar, (player_hp_bar_x, player_hp_bar_y))
+            player_hp_bar = self.create_hp_bar(waifu_player_hp, waifu_player_max_hp, int(screen_width * 0.1063), int(screen_height * 0.013)) # Create an HP bar
+            self.screen.blit(player_hp_bar, (player_hp_bar_x, player_hp_bar_y)) # Draw the HP bar on the screen
 
-            self.screen.blit(player_name_surface, (player_name_x, player_name_y))
-            self.screen.blit(player_level_surface, (player_level_x, player_level_y))
-            self.screen.blit(player_hp_surface, (player_hp_x, player_hp_y))
+            self.screen.blit(player_name_surface, (player_name_x, player_name_y)) # Draw the name of the waifu on the screen
+            self.screen.blit(player_level_surface, (player_level_x, player_level_y)) # Draw the level of the waifu on the screen
+            self.screen.blit(player_hp_surface, (player_hp_x, player_hp_y)) # Draw the HP of the waifu on the screen
 
-            self.screen.blit(
-                self.waifu_back,
-                (self.screen.get_width() // 8, self.screen.get_height() // 2.2),
+            self.screen.blit( # Draw the player's waifu on the screen
+                self.waifu_back, 
+                (self.screen.get_width() // 8, self.screen.get_height() // 2.2), # Position of the waifu on the screen
             )
 
-        if waifu_npc is not None:
+        if waifu_npc is not None: 
 
-            if waifu_npc.status is not None:
-                status_surface = self.create_badge_status(40, 40, f"{waifu_npc.status.status.name}.png")
-                self.screen.blit(status_surface, (screen_width * 0.2, screen_height * 0.075))
+            if waifu_npc.status is not None: # If the waifu of the npc has a status
+                status_surface = self.create_badge_status(40, 40, f"{waifu_npc.status.status.name}.png") # Create a status badge
+                self.screen.blit(status_surface, (screen_width * 0.2, screen_height * 0.075)) # Draw the status badge on the screen
         
             # Afficher les informations du waifu du NPC
             waifu_npc_name = waifu_npc.name
@@ -249,22 +249,22 @@ class FightScreen:
             waifu_npc_max_hp = waifu_npc.hp_max
             waifu_npc_level = waifu_npc.level
 
-            npc_hp_bar = self.create_hp_bar(waifu_npc_hp, waifu_npc_max_hp, int(screen_width * 0.1063), int(screen_height * 0.013))
-            self.screen.blit(npc_hp_bar, (npc_hp_bar_x, npc_hp_bar_y))
+            npc_hp_bar = self.create_hp_bar(waifu_npc_hp, waifu_npc_max_hp, int(screen_width * 0.1063), int(screen_height * 0.013)) # Create an HP bar
+            self.screen.blit(npc_hp_bar, (npc_hp_bar_x, npc_hp_bar_y)) # Draw the HP bar on the screen
 
-            npc_name_surface = self.create_text(waifu_npc_name, 30, (0, 0, 0))
-            npc_hp_surface = self.create_text(f"{round(waifu_npc_hp)}/{waifu_npc_max_hp}", 30, (0, 0, 0))
-            npc_level_surface = self.create_text(f"Lv{waifu_npc_level}", 30, (0, 0, 0))
+            npc_name_surface = self.create_text(waifu_npc_name, 30, (0, 0, 0)) # Create the text for the name of the waifu
+            npc_hp_surface = self.create_text(f"{round(waifu_npc_hp)}/{waifu_npc_max_hp}", 30, (0, 0, 0)) # Create the text for the HP of the waifu
+            npc_level_surface = self.create_text(f"Lv{waifu_npc_level}", 30, (0, 0, 0)) # Create the text for the level of the waifu
 
-            self.screen.blit(npc_name_surface, (npc_name_x, npc_name_y))
-            self.screen.blit(npc_level_surface, (npc_level_x, npc_level_y))
-            self.screen.blit(npc_hp_surface, (npc_hp_x, npc_hp_y))
+            self.screen.blit(npc_name_surface, (npc_name_x, npc_name_y)) # Draw the name of the waifu on the screen
+            self.screen.blit(npc_level_surface, (npc_level_x, npc_level_y)) # Draw the level of the waifu on the screen
+            self.screen.blit(npc_hp_surface, (npc_hp_x, npc_hp_y)) # Draw the HP of the waifu on the screen
        
-            self.screen.blit(
+            self.screen.blit( # Draw the npc's waifu on the screen
                 self.waifu_front,
-                (self.screen.get_width() // 1.5, self.screen.get_height() * 0.42),
+                (self.screen.get_width() // 1.5, self.screen.get_height() * 0.42), # Position of the waifu on the screen
             )
 
 
-        pygame.display.flip()
+        pygame.display.flip() # Update the screen
 
