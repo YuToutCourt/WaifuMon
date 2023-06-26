@@ -8,7 +8,7 @@ class LockOn(Move):
         super().__init__(
             "Lock-On",
             type=TypeFactory.create_type(Types.NORMAL),
-            power=0,
+            power=130,
             accuracy=100,
             pp=5,
             priority=0,
