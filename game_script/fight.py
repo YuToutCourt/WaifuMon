@@ -155,13 +155,13 @@ class Fight:
         self.attack(attacking_waifu, defending_waifu) # Attack phase
 
         if defending_waifu.hp <= 0: # If the defending waifu is KO, the fight is over
-            self.handle_knockout(defending_waifu, True)
+            self.handle_knockout(defending_waifu)
             if attacking_waifu.hp <= 0:
-                self.handle_knockout(attacking_waifu, True)
+                self.handle_knockout(attacking_waifu)
             return
         
         if attacking_waifu.hp <= 0: # If the attacking waifu is KO, the fight is over
-            self.handle_knockout(attacking_waifu, True)
+            self.handle_knockout(attacking_waifu)
             return
 
         self.play_round(attacking_waifu, defending_waifu) # Next round
@@ -214,19 +214,20 @@ class Fight:
             if randint(0, 100) <= move_used.accuracy:  # If the move touch the defending waifu
                 damage = self.calculate_damage(attacker, defender) # Calculate the damage
                 animation_damage(defender, damage) # Display the animation of the damage
-                log(move_used.name, f"{defender.name} a perdu {damage} PV") 
+                log(move_used.name, f"{defender.name} a perdu {damage} PV")
+                self.move_effect(attacker, defender, move_used) # Apply the effect of the move
                 if defender.hp <= 0: # If the defending waifu is KO, the fight is over
                     defender.display_hp() # Display the hp of the waifu
-                    return self.handle_knockout(defender, True) # Handle the KO
+                    return self.handle_knockout(defender) # Handle the KO
                 
-                self.move_effect(attacker, defender, move_used) # Apply the effect of the move
+
                 if attacker.hp <= 0: # If the attacking waifu is KO, the fight is over
                     attacker.display_hp() # Display the hp of the waifu
-                    return self.handle_knockout(attacker, stop) # Handle the KO
+                    return self.handle_knockout(attacker) # Handle the KO
                 
                 if defender.hp <= 0: # If the defending waifu is KO, the fight is over
                     defender.display_hp() # Display the hp of the waifu
-                    return self.handle_knockout(defender, True) # Handle the KO
+                    return self.handle_knockout(defender) # Handle the KO
                 
             else: # If the move doesn't touch the defending waifu
                 print("Le coup n'a pas touché")
@@ -237,7 +238,7 @@ class Fight:
                 return  
         self.attack(defender, attacker, stop=True) # Else, the defending waifu attack
 
-    def handle_knockout(self, waifu_ko: Waifu, end_turn=False):
+    def handle_knockout(self, waifu_ko: Waifu):
         """
         Handle the KO of a waifu
         :param waifu_ko: KO Waifu
@@ -256,10 +257,9 @@ class Fight:
 
         elif self.player.get_waifu_in_fight() is None: # If the player has no waifu in fight, the player has to choose a new waifu
             self.player.choice_next_waifu(waifu_ko) # The player chooses a new waifu
-            if end_turn: # If the KO is the last of the turn, the player has to choose a new waifu
-                return self.play_round( 
-                    self.player.get_waifu_in_fight(), self.npc.get_waifu_in_fight()
-                )
+            return self.play_round( 
+                self.player.get_waifu_in_fight(), self.npc.get_waifu_in_fight()
+            )
 
         if len(self.npc.get_alive_waifu()) == 0: # If the npc has no waifu alive, the fight is over
             print("NPC à perdu, le Player a gagné")
@@ -268,10 +268,9 @@ class Fight:
 
         elif self.npc.get_waifu_in_fight() is None: # If the npc has no waifu in fight, the npc has to choose a new waifu
             self.npc.handle_choice_during_fight(self.player.get_waifu_in_fight(), waifu_ko, True) # The npc chooses a new waifu
-            if end_turn: # If the KO is the last of the turn, the npc has to choose a new waifu
-                return self.play_round( 
-                    self.player.get_waifu_in_fight(), self.npc.get_waifu_in_fight()
-                )
+            return self.play_round( 
+                self.player.get_waifu_in_fight(), self.npc.get_waifu_in_fight()
+            )
             
         return 
 

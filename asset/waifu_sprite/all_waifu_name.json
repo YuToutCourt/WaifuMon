@@ -21,7 +21,7 @@
         {"nom": "Shōko Nishimiya", "types": ["WATER"], "id": 18},
         {"nom": "Taiga Aisaka", "types": ["GROUND"], "id": 19},
         {"nom": "Astolfo", "types": ["STEEL"], "id": 20},
-        {"nom": "Asuka Langley Souryuu", "types": ["FLYING"], "id": 21},
+        {"nom": "Asuka", "types": ["FLYING"], "id": 21},
         {"nom": "C.C.", "types": ["GRASS"], "id": 22},
         {"nom": "Zero Two", "types": ["FAIRY", "PSYCHIC"], "id": 23},
         {"nom": "Artoria Pendragon", "types": ["FAIRY", "FIGHTING"], "id": 24},
