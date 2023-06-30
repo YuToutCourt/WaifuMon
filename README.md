@@ -5,9 +5,7 @@
 [![Issues][issues-shield]][issues-url]
 
 
-<img src="https://img.shields.io/badge/Python-3-brightgreen.svg?style=plastic">
-
-<img src="asset/image/logo.png">
+<img src="asset/image/WAIFULOGO.jpg" width=500>
 
 Pokemon with waifu  
 
