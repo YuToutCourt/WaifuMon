@@ -1,7 +1,6 @@
 # WaifuMon
 
 [![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 
@@ -32,8 +31,6 @@ Feel free to give your opinion about the application and on what it can be impro
 
 [contributors-shield]: https://img.shields.io/github/contributors/YuToutCourt/WaifuMon?style=for-the-badge
 [contributors-url]: https://github.com/YuToutCourt/WaifuMon/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/YuToutCourt/WaifuMon.svg?style=for-the-badge
-[forks-url]: https://github.com/YuToutCourt/WaifuMon/network/members
 [stars-shield]: https://img.shields.io/github/stars/YuToutCourt/WaifuMon.svg?style=for-the-badge
 [stars-url]: https://github.com/YuToutCourt/WaifuMon/stargazers
 [issues-shield]: https://img.shields.io/github/issues/YuToutCourt/WaifuMon.svg?style=for-the-badge
