@@ -8,6 +8,7 @@
 
 <img src="https://img.shields.io/badge/Python-3-brightgreen.svg?style=plastic">
 
+<img src="asset/image/logo.png">
 
 Pokemon with waifu  
 
