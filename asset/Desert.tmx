@@ -367,8 +367,10 @@
   </object>
   <object id="2" name="npc1" type="collision" x="618.334" y="347.333">
    <properties>
-    <property name="dialog">Comment on ce retrouve Bili !
-Tu es tellement beau ♥</property>
+    <property name="dialog">Comme on se retrouve Bili !
+Tu es tellement beau &gt; &lt;
+J'ai des nouveaux spécimens.
+Je vais les tester contre toi =]</property>
    </properties>
    <point/>
   </object>
@@ -378,7 +380,9 @@ Tu es tellement beau ♥</property>
   <object id="73" name="npc2" type="collision" x="305" y="344">
    <properties>
     <property name="dialog">Salut Bili !
-J'espère que tu va bien. On va ce battre</property>
+J'espère que tu vas bien.
+J'ai capturé des nouvelles Waifus.
+Je dois les tester. Viens te battre !</property>
    </properties>
    <point/>
   </object>
