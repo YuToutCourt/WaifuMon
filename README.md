@@ -4,8 +4,9 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 
-
-<img src="asset/image/WAIFULOGO.jpg" width=500>
+<div style="text-align: center;">
+    <img src="asset/image/WAIFULOGO.jpg" width=500>
+</div>
 
 Pokemon with waifu  
 
