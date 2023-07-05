@@ -5,8 +5,11 @@ from utils.coordinates import Coordinates
 from ia.ia import attack_or_switch
 from character.dialog import Dialog
 import pygame
-from utils.logger import log
 import time
+
+# TODO : Create a class for each NPC that inherit from NPC
+# Because each NPC will have a different behavior
+
 
 class NPC(Character):
     def __init__(self, name, coordinates: Coordinates, dialog: str):
@@ -18,6 +21,9 @@ class NPC(Character):
         
 
     def handle_interaction(self, screen, player):
+        """
+        Handle the interaction with the NPC
+        """
         from game_script.fight_screen import FightScreen
 
         while self.dialog.reading:
@@ -35,6 +41,9 @@ class NPC(Character):
         fight_screen.run_fight(player, self)
 
     def handle_choice_during_fight(self, waifu_player=None, waifu_npc=None, have_to_switch=False):
+        """
+        Handle the choice of the NPC during the fight
+        """
         return attack_or_switch(waifu_npc, waifu_player, self, have_to_switch)
 
     def random_move(self, collisions):
@@ -78,9 +87,12 @@ class NPC(Character):
 
 
     def generate_random_position(self):
-        max_x, min_x = 800, 18
-        max_y, min_y = 700, 200
+        """
+        Generate a random position for the NPC
+        """
+        min_x, max_x = 18, 800
+        min_y, max_y = 200, 700
 
 
-        return random.uniform(0, max_x), random.uniform(0, max_y)
+        return random.uniform(min_x, max_x), random.uniform(min_y, max_y)
 

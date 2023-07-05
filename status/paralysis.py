@@ -13,6 +13,7 @@ class Paralysis(Status):
         The paralysis condition (PAR) reduces the Pokémon's Speed stat
         and causes it to have a 25% chance of being unable to use a move
         :return: True if the pokemon is able to attack else False
+        # TODO : When a waifu is paralyzed, it should reduce her speed by 1/8
         """
         if randint(0, 100) <= 25 :
             log("Paralyse", f"{self.waifu.name} is paralysis! Can't attack")

@@ -17,8 +17,8 @@ class Map:
         
     def load_npc(self):
         """
-        Charge les NPC depuis le fichier tmx de la map
-        :param tmx_data: le fichier tmx de la map
+        Load npc from tmx file
+        :param tmx_data: tmx file data
         """
         for layer in self.tmx_data.layers:
             for obj in layer:
@@ -33,7 +33,7 @@ class Map:
 
     def handle_collisions(self):
         """
-        Gère les collisions entre le joueur et les autres sprites
+        Handle collisions between player and map
         """
         pressed = key.get_pressed()
         for npc in self.group.sprites():
@@ -50,6 +50,9 @@ class Map:
 
 
     def move_npc(self):
+        """
+        Move npc randomly
+        """
         for npc in self.group.sprites():
             if isinstance(npc, NPC):
                 npc.random_move(self.collisions)

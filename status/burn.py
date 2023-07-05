@@ -11,6 +11,7 @@ class Burn(Status):
         """
         Burn status effect.
         every turn, the waifu lose 1/8 of its max hp.
+        # TODO : When a waifu is burned, it should reduce her attack by 1/8
         """
         animation_damage(self.waifu, self.waifu.hp_max * 1/8)
         log("Burn", f"{self.waifu.name} is hurt by burn! Lost {self.waifu.hp_max * 1/8} HP.")

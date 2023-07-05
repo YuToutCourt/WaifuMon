@@ -9,7 +9,7 @@ class Game:
     def __init__(self):
         screens = pygame.display.list_modes()
 
-        # Choix de l'écran le plus grand
+        # Get the largest screen
         largest_screen = max(screens, key=lambda s: s[0] * s[1])
         screen_width, screen_height = largest_screen
 
@@ -17,18 +17,18 @@ class Game:
             (screen_width, screen_height), pygame.FULLSCREEN 
         )
 
-        pygame.display.set_caption("WaifuMon") # Titre de la fenêtre
+        pygame.display.set_caption("WaifuMon")
 
-        coordinates = Coordinates(0, 0) # Coordonnées du joueur
-        self.player = Player(coordinates) # Création du joueur
-        self.map_manager = MapManager(self.screen, self.player) # Création du gestionnaire de carte
+        coordinates = Coordinates(0, 0) 
+        self.player = Player(coordinates)
+        self.map_manager = MapManager(self.screen, self.player) # Create the map manager
 
-        self.map_manager.get_map().load_npc() # Chargement des PNJ de la carte
+        self.map_manager.get_map().load_npc() 
 
     def handle_input(self):
         """
-        Gère les entrées clavier du joueur
-        :return: True si le joueur a appuyé sur la touche SHIFT, False sinon
+        Handle the input of the player
+        :return: True if the player is running, False otherwise
         """
         pressed = pygame.key.get_pressed()
         # if the player press the shift key
@@ -40,17 +40,17 @@ class Game:
 
     def run(self):
         """
-        Boucle principale du jeu
+        Main loop of the game
         """
         running = True
         while running:
-            current_map = self.map_manager.get_map() # Récupération de la carte actuelle
-            self.handle_input() # Gestion des entrées clavier
-            current_map.move_npc() # Déplacement des PNJ
-            self.map_manager.update() # Mise à jour de la carte
-            self.map_manager.draw() # Affichage de la carte
-            current_map.handle_collisions() # Gestion des collisions
-            pygame.display.flip() # Mise à jour de l'écran
+            current_map = self.map_manager.get_map() # Get the current map
+            self.handle_input() # Handle the input of the player
+            current_map.move_npc() # Move the npc
+            self.map_manager.update() # Update the map
+            self.map_manager.draw() # Draw the map 
+            current_map.handle_collisions() # Handle the collisions for the current map
+            pygame.display.flip() # Update the screen
 
             for event in pygame.event.get(): 
                 if event.type == pygame.QUIT:

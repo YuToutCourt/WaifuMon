@@ -1,12 +1,11 @@
 import pygame
 import time
-from utils.logger import log
 class Dialog:
 
     X_POSITION = 370
     Y_POSITION = 700
 
-    def __init__(self, text):
+    def __init__(self, text:str):
         box = pygame.image.load("asset/Dialog/dialog_box.png")
         self.box = pygame.transform.scale(box, (800, 100))
         self.font = pygame.font.Font("asset/Dialog/dialog_font.ttf", 20)
@@ -17,12 +16,17 @@ class Dialog:
 
 
     def end_dialog(self):
+        """
+        End the dialog
+        """
         self.reading = False
         self.text_index = 0
 
 
     def display(self, screen):
-        
+        """
+        Display the dialog to the screen
+        """
         self.letter_index += 1
 
         if self.letter_index > len(self.texts[self.text_index]):
@@ -35,6 +39,9 @@ class Dialog:
 
 
     def next_text(self):
+        """
+        Go to the next text
+        """
         self.letter_index += 1
         self.text_index += 1
         self.letter_index = 0

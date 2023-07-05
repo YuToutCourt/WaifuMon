@@ -12,13 +12,13 @@ from random import shuffle, randint
 class Character(pygame.sprite.Sprite, ABC):
     def __init__(self, coordinates: Coordinates, image_path: str):
         super().__init__()
-        self.position = (coordinates.x, coordinates.y) # Position du personnage
-        self.image = pygame.image.load(image_path) # Image du personnage
-        self.image = self.get_image(0, 0) # Image du personnage
-        self.image.set_colorkey((255, 0, 220)) # Couleur de transparence
-        self.rect = self.image.get_rect() # Rectangle de collision
-        self.team: List[Waifu] = [] # Liste des waifus du personnage (6 max) TODO: créer une box pour stocker les waifus
-        self.__create_random_team() # Création d'une équipe aléatoire, POUR TEST
+        self.position = (coordinates.x, coordinates.y)
+        self.image = pygame.image.load(image_path)
+        self.image = self.get_image(0, 0)
+        self.image.set_colorkey((255, 0, 220)) # Color key for transparency
+        self.rect = self.image.get_rect() # Rectangle for collision
+        self.team: List[Waifu] = [] # TODO: Create a box to store the waifus
+        self.__create_random_team()
 
     def get_image(self, x: int, y: int): 
         image = pygame.Surface([38, 46])
@@ -27,20 +27,20 @@ class Character(pygame.sprite.Sprite, ABC):
 
     def update(self):
         """
-        Mise à jour de la position du rectangle de collision
+        Update the position of the character
         """
         self.rect.topleft = self.position 
 
     def print_team(self):
         """
-        Affiche les waifus de l'équipe
+        Display the team of the character in the console
         """
         for waifu in self.team:
             print(waifu.name)
 
     def get_waifu_in_fight(self):
         """
-        Retourne le waifu qui est en combat
+        Return the waifu in fight
         """
         for waifu in self.team:
             if waifu.in_fight:
@@ -49,15 +49,15 @@ class Character(pygame.sprite.Sprite, ABC):
 
     def get_alive_waifu(self):
         """
-        Retourne les waifus qui sont en vie
+        Return all the waifu alive
         """
         return [waifu for waifu in self.team if not waifu.KO]
 
 
     def __create_random_team(self):
         """
-        POUR TEST
-        Création d'une équipe aléatoire
+        /!\ POUR TEST /!\
+        In the main game you will start with 0 waifu
         """
         with open(
             "asset/waifu_sprite/all_waifu_name.json", "r", encoding="utf-8"

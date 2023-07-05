@@ -18,7 +18,7 @@ class FightScreen:
 
     def run_fight(self, player, npc):
         """
-        Lance un combat
+        Launch the fight
         """
         self.fight = Fight(player, npc)
         self.__fill_screen()
@@ -32,9 +32,6 @@ class FightScreen:
         fight_thread = threading.Thread(target=self.fight.start)
         fight_thread.start()
 
-        # main_loop_t = threading.Thread(target=self.__main_loop, args=(player, npc, fight))
-        # main_loop_t.start()
-
         # Display the fight
         while self.fight.finished is False:
             event = pygame.event.get()
@@ -43,32 +40,32 @@ class FightScreen:
 
     def __fill_screen(self):
         """
-        Remplir l'écran avec une couleur
+        Fill the screen with black
         """
         COLOR = (0, 0, 0) # Black
-        width = self.screen.get_width()  # Get the width of the screen
-        height = self.screen.get_height() # Get the height of the screen
+        width = self.screen.get_width()
+        height = self.screen.get_height()
 
-        cubes = [] # List of all the cubes for the animation
-        cubes_size = min(width, height) // 10 # Size of the cubes for the animation
+        cubes = []
+        cubes_size = min(width, height) // 10
 
         # TODO: On pourrait s'amuser à faire des animations différentes :D
-        for x in range(0, self.screen.get_width(), cubes_size): # Create the cubes for the animation on the x axis
-            for y in range(0, self.screen.get_height(), cubes_size): # Create the cubes for the animation on the y axis
-                cube = pygame.Rect(x, y, cubes_size, cubes_size) # Create the cube
-                cubes.append(cube) # Add the cube to the list of cubes
+        for x in range(0, self.screen.get_width(), cubes_size):
+            for y in range(0, self.screen.get_height(), cubes_size): 
+                cube = pygame.Rect(x, y, cubes_size, cubes_size)
+                cubes.append(cube) 
 
         if random.randint(0, 1): # Randomly reverse the list of cubes to reverse the direction of the animation
-            cubes = cubes[::-1] # Reverse the list of cubes
+            cubes = cubes[::-1] 
 
         for cube in cubes: 
             pygame.draw.rect(self.screen, COLOR, cube) # Draw the cube on the screen
-            pygame.display.flip() # Update the screen
-            pygame.time.wait(5) # Wait 5 milliseconds
+            pygame.display.flip() 
+            pygame.time.wait(5)
 
     def __load_background(self):
         """
-        Charge l'image de fond
+        Load the background
         """
         background = pygame.image.load("asset/Battle/battleground2.jpg")
 
@@ -78,11 +75,11 @@ class FightScreen:
 
     def __load_waifu(self, player, npc):
         """
-        Charge l'image des waifu
+        Load the waifu of the player and the npc
         """
 
-        waifu_ = npc.get_waifu_in_fight() # Get the waifu of the npc
-        waifu__ = player.get_waifu_in_fight() # Get the waifu of the player
+        waifu_ = npc.get_waifu_in_fight()
+        waifu__ = player.get_waifu_in_fight() 
 
         if waifu_ is not None: # If the npc has a waifu
             self.waifu_front = pygame.transform.scale( # Resize the waifu to fit the screen
@@ -98,7 +95,7 @@ class FightScreen:
 
     def create_text(self, text, font_size, color, font=None):
         """
-        Créer un texte
+        Create a text
         """
         if font is None:
             font = pygame.font.Font(None, font_size)
@@ -122,6 +119,8 @@ class FightScreen:
             
             # Draw the green portion of the bar
             green_rect = pygame.Rect(0, 0, green_width, bar_height)
+
+            # If the hp if negative the color will not be generated and an error will be raised
             try:
                 pygame.draw.rect(bar_surface, color, green_rect)
             except Exception as e:
@@ -147,6 +146,21 @@ class FightScreen:
         badge = pygame.transform.scale(badge, (width, height)) # Resize the badge to fit the screen
         
         return badge
+    
+    def draw_pokeballs(self, waifu_team, x_offset, y_offset, screen_width, screen_height):
+        pokeballs = []
+        for waifu in waifu_team:
+            if waifu.KO:
+                pokeballs.append(self.create_pokeball(52, 55, "icon_ball_faint.png"))
+            elif waifu.status is not None:
+                pokeballs.append(self.create_pokeball(52, 55, "icon_ball_status.png"))  # TODO: make a custom status pokeball for each status
+            else:
+                pokeballs.append(self.create_pokeball(52, 55, "icon_ball.png"))
+
+        decalage = 0  # Offset for the pokeballs
+        for pokeball in pokeballs:
+            self.screen.blit(pokeball, (screen_width * x_offset + decalage, screen_height * y_offset))
+            decalage += 55  # Increase the offset
 
 
     def __update_display(self, player_waifu, npc_waifu, event): 
@@ -154,37 +168,8 @@ class FightScreen:
         screen_width = self.screen.get_width()  # Get the width of the screen
         screen_height = self.screen.get_height() # Get the height of the screen
 
-        player_pokeballs = [] # List of all the pokeballs of the player
-        for waifu in player_waifu.team: # For each waifu of the player
-            if waifu.KO: # If the waifu is KO
-                player_pokeballs.append(self.create_pokeball(52, 55, "icon_ball_faint.png")) # Add a KO pokeball to the list
-            elif waifu.status is not None: # If the waifu has a status
-                player_pokeballs.append(self.create_pokeball(52, 55, "icon_ball_status.png")) # Add a status pokeball to the list TODO: make a custom status pokeball for each status
-            else:
-                player_pokeballs.append(self.create_pokeball(52, 55, "icon_ball.png")) # Add a normal pokeball to the list
-
-        decalage = 0 # Offset for the pokeballs
-        for pokeball in player_pokeballs: # For each pokeball of the player
-            self.screen.blit(pokeball, (screen_width * 0.760 + decalage, screen_height * 0.9371)) # Draw the pokeball on the screen
-            decalage += 55 # Increase the offset
-
-        npc_pokeballs = [] # List of all the pokeballs of the npc
-        for waifu in npc_waifu.team: # For each waifu of the npc
-            if waifu.KO: # If the waifu is KO
-                npc_pokeballs.append(self.create_pokeball(52, 55, "icon_ball_faint.png")) # Add a KO pokeball to the list
-            elif waifu.status is not None: # If the waifu has a status
-                npc_pokeballs.append(self.create_pokeball(52, 55, "icon_ball_status.png")) # Add a status pokeball to the list TODO: make a custom status pokeball for each status
-            else: # If the waifu is not KO and has no status
-                npc_pokeballs.append(self.create_pokeball(52, 55, "icon_ball.png")) # Add a normal pokeball to the list
-
-        decalage = 0 # Offset for the pokeballs
-        for pokeball in npc_pokeballs: # For each pokeball of the npc
-            self.screen.blit(pokeball, (screen_width * 0.0261 + decalage, screen_height * 0.146)) # Draw the pokeball on the screen
-            decalage += 55 # Increase the offset
-
-        # mouse_pos = pygame.mouse.get_pos()
-        # print(mouse_pos)
-
+        self.draw_pokeballs(player_waifu.team, 0.760, 0.9371, screen_width, screen_height) # Draw the pokeballs of the player
+        self.draw_pokeballs(npc_waifu.team, 0.0261, 0.146, screen_width, screen_height) # Draw the pokeballs of the npc
 
         # Position and dimensions calculations based on screen size
         player_name_x = int(screen_width * 0.760)
@@ -205,17 +190,17 @@ class FightScreen:
         npc_hp_bar_x = int(screen_width * 0.0292)
         npc_hp_bar_y = int(screen_height * 0.0667)
 
-        waifu_player = player_waifu.get_waifu_in_fight() # Get the waifu of the player
-        waifu_npc = npc_waifu.get_waifu_in_fight() # Get the waifu of the npc
+        waifu_player = player_waifu.get_waifu_in_fight()
+        waifu_npc = npc_waifu.get_waifu_in_fight() 
 
 
         if waifu_player is not None: 
 
-            if waifu_player.status is not None: # If the waifu of the player has a status
-                status_surface = self.create_badge_status(40, 40, f"{waifu_player.status.status.name}.png") # Create a status badge
+            if waifu_player.status is not None: 
+                status_surface = self.create_badge_status(40, 40, f"{waifu_player.status.status.name}.png")
                 self.screen.blit(status_surface, (screen_width * 0.78334, screen_height * 0.854)) # Draw the status badge on the screen
 
-            # Afficher les informations du waifu du joueur
+
             waifu_player_name = waifu_player.name
             waifu_player_hp = waifu_player.hp
             waifu_player_max_hp = waifu_player.hp_max
@@ -243,7 +228,6 @@ class FightScreen:
                 status_surface = self.create_badge_status(40, 40, f"{waifu_npc.status.status.name}.png") # Create a status badge
                 self.screen.blit(status_surface, (screen_width * 0.2, screen_height * 0.075)) # Draw the status badge on the screen
         
-            # Afficher les informations du waifu du NPC
             waifu_npc_name = waifu_npc.name
             waifu_npc_hp = waifu_npc.hp
             waifu_npc_max_hp = waifu_npc.hp_max

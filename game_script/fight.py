@@ -32,6 +32,7 @@ class Fight:
 
     def __check_team_waifu(self, waifu) -> Union[Player, NPC]:
         """
+        TODO : Use the attribut owner of the waifu class
         Check in which team the waifu is
         :param waifu: Waifu to check
         :return: Player or NPC

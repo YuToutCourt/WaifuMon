@@ -8,7 +8,7 @@
     <img src="asset/image/WAIFULOGO.jpg" width=500>
 </div>
 
-Pokemon with waifu  
+**Pokemon with waifu**  
 
 ## Installation 
 ```bash
@@ -22,6 +22,13 @@ pip install -r requirements.txt
 ```bash
 python3 main.py
 ```
+
+## Coming soon
+
+- Add a GUI to the fight
+- Make a better AI
+- Make the capture system
+
 
 ----
 

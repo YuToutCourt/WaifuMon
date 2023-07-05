@@ -93,7 +93,7 @@ def choice_move(waifu_ia, waifu_player):
     best_move = None
     highest_damage = float('-inf')
 
-    # Parcourir les attaques de la waifu de l'IA pour trouver celle qui inflige le plus de dégâts
+    # Find the move that do the most damage to the waifu of the player
     for move in waifu_ia.list_of_moves:
         if move is None: continue
         if move.pp == 0: continue

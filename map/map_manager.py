@@ -45,6 +45,11 @@ class MapManager:
         return self.get_map().event
 
     def register_map(self, name, portals=[]):
+        """
+        Register a map in the map manager
+        :param name: name of the map
+        :param portals: list of portals
+        """
         tmx_data = pytmx.util_pygame.load_pygame(f"./asset/{name}.tmx")
         map_data = pyscroll.data.TiledMapData(tmx_data)
         map_layer = pyscroll.orthographic.BufferedRenderer(

@@ -27,8 +27,8 @@ class Player(Character):
 
     def move_back(self, direction: str):
         """
-        Déplace le joueur en fonction des touches pressées
-        :param: direction : direction du mouvement
+        Move the player back
+        :param: direction : direction of the player
         """
         direction_map = {
             "down": (0, self.speed),
@@ -47,6 +47,10 @@ class Player(Character):
             self.position = (self.position[0] + offset[0], self.position[1] + offset[1])
 
     def choice_next_waifu(self, current_waifu):
+        """
+        Let the player choose the next waifu
+        # TODO : This method should display during the fight not in the console...
+        """
         alive_waifu = self.get_alive_waifu()
 
         for index, waifu in enumerate(alive_waifu):
