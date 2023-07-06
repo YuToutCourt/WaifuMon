@@ -8,7 +8,7 @@
     <img src="asset/image/WAIFULOGO.jpg" width=500>
 </div>
 
-**Pokemon with waifu**  
+Funny and fancy school project about a parody of Pokemon using anime Girl (Waifu)  
 
 ## Installation 
 ```bash
