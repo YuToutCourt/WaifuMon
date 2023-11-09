@@ -7,11 +7,8 @@ from map.map_manager import MapManager
 
 class Game:
     def __init__(self):
-        screens = pygame.display.list_modes()
 
-        # Get the largest screen
-        largest_screen = max(screens, key=lambda s: s[0] * s[1])
-        screen_width, screen_height = largest_screen
+        screen_width, screen_height = 1920, 1080 # Set the screen size
 
         self.screen = pygame.display.set_mode(
             (screen_width, screen_height), pygame.FULLSCREEN 
